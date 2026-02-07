@@ -91,8 +91,8 @@ Sito web personale di Gianluca Demontis - Tech Coach, innovatore in automazione 
 .
 ├── index.html                      # Pagina principale
 ├── styles.css                      # Stili CSS
-├── script.js                       # JavaScript per animazioni
-├── Sfondo_sito_web.png            # Immagine profilo
+├── script.js                       # JavaScript per animazioni sfondo
+├── profile_transparent.png         # Tua foto scontornata
 ├── favicon.ico                     # Favicon (formato ICO)
 ├── favicon.png                     # Favicon (formato PNG)
 ├── favicon.svg                     # Favicon (formato SVG)
@@ -103,6 +103,14 @@ Sito web personale di Gianluca Demontis - Tech Coach, innovatore in automazione 
 ├── .gitignore                      # File da ignorare in Git
 └── README.md                       # Questo file
 ```
+
+## 🎨 Caratteristiche del Sito
+
+- **Sfondo animato**: Canvas con linee circuitali, nodi pulsanti e particelle fluttuanti
+- **Layout responsive**: Si adatta perfettamente a desktop, tablet e mobile
+- **Immagine professionale**: Foto scontornata con effetti drop-shadow luminosi
+- **Navigazione smooth**: Scroll fluido tra le sezioni
+- **Performance ottimizzate**: Animazioni hardware-accelerated
 
 ## 🔄 Aggiornamenti Futuri
 
