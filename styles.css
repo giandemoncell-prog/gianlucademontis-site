@@ -127,25 +127,6 @@ body {
     max-width: 600px;
 }
 
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    filter: drop-shadow(0 20px 40px rgba(0, 217, 255, 0.4));
-    transition: all 0.3s ease;
-}
-
-.hero-image img:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 25px 60px rgba(0, 217, 255, 0.6));
-}
-
 .name {
     font-size: 4rem;
     font-weight: 300;
@@ -163,7 +144,6 @@ body {
     color: var(--text-secondary);
     margin-bottom: 2rem;
     line-height: 1.8;
-    max-width: 700px;
 }
 
 .hero-buttons {
@@ -204,6 +184,26 @@ body {
     background: var(--primary-color);
     color: var(--dark-bg);
     box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 217, 255, 0.4));
+    transition: all 0.5s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 25px 60px rgba(0, 217, 255, 0.6));
 }
 
 /* About Section */

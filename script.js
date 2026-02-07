@@ -20,6 +20,7 @@ class TechBackground {
         
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
+        this.lines = [];
         this.circuitLines = [];
         this.nodes = [];
         
@@ -92,6 +93,7 @@ class TechBackground {
                 currentY += (Math.random() > 0.5 ? 1 : -1) * length;
             }
             
+            // Keep within bounds
             currentX = Math.max(0, Math.min(this.canvas.width, currentX));
             currentY = Math.max(0, Math.min(this.canvas.height, currentY));
             
@@ -189,9 +191,11 @@ class TechBackground {
             this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
             this.ctx.fill();
             
+            // Update position
             particle.x += particle.speedX;
             particle.y += particle.speedY;
             
+            // Wrap around screen
             if (particle.x < 0) particle.x = this.canvas.width;
             if (particle.x > this.canvas.width) particle.x = 0;
             if (particle.y < 0) particle.y = this.canvas.height;
@@ -220,6 +224,7 @@ class TechBackground {
     }
     
     animate() {
+        // Create fade effect
         this.ctx.fillStyle = 'rgba(10, 14, 26, 0.1)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         
