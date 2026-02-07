@@ -1,118 +1,175 @@
-# 🚀 Portfolio Gianluca Demontis
+# Gianluca Demontis - Personal Website
 
-Portfolio personale di Gianluca Demontis - Educatore, Innovatore e Content Creator.
+Sito web personale di Gianluca Demontis - Tech Coach, innovatore in automazione e content creator.
 
-## 🌐 Live Demo
+## 🚀 Deploy su GitHub e Cloudflare
 
-Il sito è disponibile su: [gianlucademontis.xyz](https://gianlucademontis.xyz)
+### Prerequisiti
+- Account GitHub
+- Account Cloudflare
+- Git installato sul tuo computer
 
-## ✨ Caratteristiche
+### Passo 1: Carica i file su GitHub
 
-- **Design Moderno**: Interfaccia pulita e professionale con animazioni fluide
-- **Responsive**: Ottimizzato per tutti i dispositivi (desktop, tablet, mobile)
-- **Performance**: Sito statico ultra-veloce
-- **SEO Ottimizzato**: Meta tags completi per motori di ricerca e social media
-- **Accessibilità**: Design accessibile e navigazione intuitiva
+1. Crea un nuovo repository su GitHub:
+   - Vai su https://github.com/new
+   - Nome repository: `gianlucademontis-website` (o quello che preferisci)
+   - Lascia pubblico
+   - NON aggiungere README, .gitignore o license (già inclusi)
+   - Clicca "Create repository"
 
-## 🛠️ Tecnologie Utilizzate
+2. Carica i file dal tuo computer:
+   ```bash
+   # Naviga nella cartella dove hai salvato i file
+   cd /path/to/your/files
+   
+   # Inizializza git
+   git init
+   
+   # Aggiungi tutti i file
+   git add .
+   
+   # Fai il primo commit
+   git commit -m "Initial commit: Gianluca Demontis website"
+   
+   # Collega il repository remoto (sostituisci USERNAME con il tuo username GitHub)
+   git remote add origin https://github.com/USERNAME/gianlucademontis-website.git
+   
+   # Pusha i file
+   git branch -M main
+   git push -u origin main
+   ```
 
-- HTML5
-- CSS3 (con animazioni e variabili CSS)
-- JavaScript Vanilla
-- Google Fonts (Syne, Work Sans, IBM Plex Mono)
+### Passo 2: Configura Cloudflare Pages
 
-## 📦 Deploy su Cloudflare Pages
+1. Accedi a Cloudflare Dashboard (https://dash.cloudflare.com)
 
-### Metodo 1: Deploy Automatico da GitHub
+2. Vai su "Workers & Pages" nel menu laterale
 
-1. Vai su [Cloudflare Pages](https://pages.cloudflare.com/)
-2. Clicca su "Create a project"
-3. Connetti il tuo account GitHub
-4. Seleziona il repository `gianlucademontis-portfolio`
+3. Clicca su "Create application" → "Pages" → "Connect to Git"
+
+4. Seleziona il repository `gianlucademontis-website`
+
 5. Configura il build:
-   - **Build command**: (lascia vuoto)
-   - **Build output directory**: `/`
-6. Clicca su "Save and Deploy"
+   - **Project name**: gianlucademontis (o quello che preferisci)
+   - **Production branch**: main
+   - **Build command**: lascia vuoto (sito statico)
+   - **Build output directory**: `/` (root)
 
-### Metodo 2: Deploy Manuale
+6. Clicca "Save and Deploy"
 
-```bash
-# Installa Wrangler CLI
-npm install -g wrangler
+7. Attendi che il deploy sia completato (1-2 minuti)
 
-# Login a Cloudflare
-wrangler login
+### Passo 3: Collega il dominio personalizzato
 
-# Deploy il progetto
-wrangler pages deploy .
+1. Nella dashboard di Cloudflare Pages, vai al tuo progetto
+
+2. Clicca su "Custom domains"
+
+3. Clicca "Set up a custom domain"
+
+4. Inserisci: `gianlucademontis.xyz`
+
+5. Cloudflare configurerà automaticamente i record DNS
+
+6. Se il dominio è già su Cloudflare:
+   - Il setup sarà automatico
+   - Attendi 1-5 minuti per la propagazione
+   
+7. Se il dominio NON è su Cloudflare:
+   - Aggiungi i nameserver Cloudflare al tuo registrar
+   - Cloudflare ti fornirà i nameserver (es. `ava.ns.cloudflare.com`)
+
+### Passo 4: Verifica
+
+1. Visita https://gianlucademontis.xyz
+2. Il sito dovrebbe essere online!
+
+## 📁 Struttura File
+
+```
+.
+├── index.html                      # Pagina principale
+├── styles.css                      # Stili CSS
+├── script.js                       # JavaScript per animazioni
+├── Sfondo_sito_web.png            # Immagine profilo
+├── favicon.ico                     # Favicon (formato ICO)
+├── favicon.png                     # Favicon (formato PNG)
+├── favicon.svg                     # Favicon (formato SVG)
+├── apple-touch-icon.png           # Icona per dispositivi Apple
+├── android-chrome-192x192.png     # Icona Android 192x192
+├── android-chrome-512x512.png     # Icona Android 512x512
+├── site.webmanifest               # Manifest per PWA
+├── .gitignore                      # File da ignorare in Git
+└── README.md                       # Questo file
 ```
 
-### Configurazione DNS
-
-Dopo il deploy, vai nelle impostazioni del progetto su Cloudflare Pages e aggiungi il dominio personalizzato:
-- Aggiungi `gianlucademontis.xyz` come custom domain
-- Cloudflare configurerà automaticamente i record DNS necessari
-
-## 📁 Struttura del Progetto
-
-```
-gianlucademontis-portfolio/
-├── index.html          # File principale del sito
-└── README.md           # Questo file
-```
-
-## 🔄 Aggiornamenti
+## 🔄 Aggiornamenti Futuri
 
 Per aggiornare il sito:
 
-1. Modifica il file `index.html`
-2. Commit e push su GitHub:
-   ```bash
-   git add .
-   git commit -m "Descrizione delle modifiche"
-   git push origin main
-   ```
-3. Cloudflare Pages rileverà automaticamente le modifiche e rideploya il sito
+```bash
+# Modifica i file necessari
+# Poi esegui:
 
-## 📝 Personalizzazione
+git add .
+git commit -m "Descrizione delle modifiche"
+git push
 
-### Colori
-
-I colori principali sono definiti come variabili CSS in `:root`:
-
-```css
---color-bg: #0a0e1a;           /* Sfondo principale */
---color-accent: #00d9ff;       /* Colore accento (blu cyan) */
---color-secondary: #7c3aed;    /* Colore secondario (viola) */
---color-tertiary: #ff6b35;     /* Colore terziario (arancione) */
+# Cloudflare aggiornerà automaticamente il sito in 1-2 minuti
 ```
 
-### Font
+## 🎨 Personalizzazioni
 
-Il sito utilizza tre famiglie di font:
-- **Syne**: Per titoli e heading
-- **Work Sans**: Per testo body
-- **IBM Plex Mono**: Per elementi monospace/code
+### Colori
+Modifica le variabili CSS in `styles.css`:
+```css
+:root {
+    --primary-color: #00d9ff;     /* Colore principale */
+    --secondary-color: #0099cc;   /* Colore secondario */
+    --dark-bg: #0a0e1a;          /* Sfondo scuro */
+}
+```
 
-### Sezioni
+### Contenuti
+Modifica il testo in `index.html` nelle sezioni:
+- Hero (`<section id="hero">`)
+- About (`<section id="about">`)
+- Contact (`<section id="contact">`)
 
-Il sito è organizzato in 5 sezioni principali:
-1. **Hero**: Introduzione e CTA
-2. **About**: Chi sono e focus principali
-3. **Services**: Competenze e servizi offerti
-4. **Projects**: Progetti e presenza online
-5. **Contact**: Form di contatto
+### Animazioni
+Regola le animazioni in `script.js`:
+- Velocità delle particelle
+- Numero di linee circuitali
+- Effetti di pulsazione
 
-## 📧 Contatti
+## 🛠️ Tecnologie
 
-- **Email**: info@gianlucademontis.xyz
-- **Website**: [gianlucademontis.xyz](https://gianlucademontis.xyz)
-- **n8n Instance**: [n8n.gianlucademontis.xyz](https://n8n.gianlucademontis.xyz)
+- HTML5
+- CSS3 (con variabili CSS e animazioni)
+- JavaScript Vanilla (Canvas API per animazioni)
+- Font: Inter (Google Fonts)
 
-## 📄 Licenza
+## 📱 Responsive
+
+Il sito è completamente responsive e ottimizzato per:
+- Desktop (1920px+)
+- Tablet (768px - 1024px)
+- Mobile (320px - 767px)
+
+## ⚡ Performance
+
+- Caricamento veloce
+- Animazioni ottimizzate (Canvas)
+- Nessuna dipendenza esterna eccetto Google Fonts
+- Codice minimalista
+
+## 📞 Supporto
+
+Per problemi o domande:
+- Email: info@gianlucademontis.xyz
+- Issues: Apri un issue sul repository GitHub
+
+## 📄 License
 
 © 2026 Gianluca Demontis. Tutti i diritti riservati.
-
----
-
-Made with ❤️ by Gianluca Demontis
