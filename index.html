@@ -159,5 +159,59 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Chatbot Widget -->
+    <div id="chatbot-container">
+        <div id="chatbot-button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H6L4 18V4H20V16Z" fill="currentColor"/>
+                <path d="M7 9H9V11H7V9ZM11 9H13V11H11V9ZM15 9H17V11H15V9Z" fill="currentColor"/>
+            </svg>
+        </div>
+        
+        <div id="chatbot-window" class="chatbot-hidden">
+            <div id="chatbot-header">
+                <div class="chatbot-header-content">
+                    <div class="chatbot-avatar">GD</div>
+                    <div class="chatbot-title">
+                        <h3>Assistente Virtuale</h3>
+                        <span class="chatbot-status">Online</span>
+                    </div>
+                </div>
+                <button id="chatbot-close">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div id="chatbot-messages">
+                <div class="chatbot-message bot-message">
+                    <div class="message-content">
+                        Ciao! 👋 Sono l'assistente virtuale di Gianluca. Come posso aiutarti?
+                    </div>
+                </div>
+            </div>
+            
+            <div id="chatbot-quick-replies">
+                <button class="quick-reply" data-question="chi-sei">Chi è Gianluca?</button>
+                <button class="quick-reply" data-question="servizi">Quali servizi offri?</button>
+                <button class="quick-reply" data-question="contatti">Come posso contattarti?</button>
+                <button class="quick-reply" data-question="youtube">Dove trovo i tuoi video?</button>
+            </div>
+            
+            <div id="chatbot-input-container">
+                <input type="text" id="chatbot-input" placeholder="Scrivi un messaggio...">
+                <button id="chatbot-send">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 10L18 2L10 18L8 11L2 10Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="chatbot-styles.css">
+    <script src="chatbot-script.js"></script>
 </body>
 </html>
