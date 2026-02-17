@@ -24,7 +24,9 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
-                <a href="#" class="logo">GD</a>
+                <a href="#" class="logo">
+                    <img src="profile-picture-gd-logo.png" alt="GD Logo" style="height: 40px; width: auto;">
+                </a>
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">Chi Sono</a></li>
@@ -70,8 +72,8 @@
                                 <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
                             </svg>
                         </div>
-                        <h3>Educatore & Istruttore</h3>
-                        <p>Ho esperienza nell'insegnamento di elettronica, programmazione 3D e automazione. Lavoro con studenti e tirocinanti aiutandoli a trasformare concetti complessi in competenze pratiche, con un approccio pedagogico, chiaro e orientato al fare.</p>
+                        <h3>Educatore & Formatore</h3>
+                        <p>Offro formazione su automazione, stampa e modellazione 3D, STEM e laboratori. Mi occupo anche di transizione digitale a scuola con Google Workspace, ambienti di apprendimento innovativi e metodologie didattiche digitali.</p>
                     </div>
 
                     <div class="about-card">
@@ -87,8 +89,8 @@
                                 <line x1="17" y1="7" x2="22" y2="7"/>
                             </svg>
                         </div>
-                        <h3>Content Creator</h3>
-                        <p>Su YouTube, produco video su video production, strumenti di Intelligenza Artificiale e tutorial tech. Il mio obiettivo è accompagnare le persone nell'uso consapevole della tecnologia.</p>
+                        <h3>Content Creator & Designer</h3>
+                        <p>Progetto contenuti e-learning e materiali didattici digitali (SCORM, video, contenuti interattivi). Sviluppo progetti AR/VR e mondi virtuali, con focus su design e sviluppo di ambienti immersivi.</p>
                     </div>
 
                     <div class="about-card">
@@ -100,7 +102,7 @@
                             </svg>
                         </div>
                         <h3>Innovatore</h3>
-                        <p>Porto avanti progetti in ambito real estate, energie rinnovabili (solare/eolico) e criptovalute, con un focus su analisi di redditività e sostenibilità.</p>
+                        <p>Supporto progetti e innovazione in ambito scolastico. Porto avanti progetti in real estate, energie rinnovabili e criptovalute, con focus su analisi di redditività e sostenibilità.</p>
                     </div>
                 </div>
             </div>
@@ -160,6 +162,10 @@
 
     <script src="script.js"></script>
 
+    <!-- Script EmailJS e Calendly -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js"></script>
+
     <!-- Chatbot Widget -->
     <div id="chatbot-container">
         <div id="chatbot-button">
@@ -195,9 +201,9 @@
             
             <div id="chatbot-quick-replies">
                 <button class="quick-reply" data-question="chi-sei">Chi è Gianluca?</button>
-                <button class="quick-reply" data-question="servizi">Quali servizi offri?</button>
-                <button class="quick-reply" data-question="contatti">Come posso contattarti?</button>
-                <button class="quick-reply" data-question="youtube">Dove trovo i tuoi video?</button>
+                <button class="quick-reply" data-question="servizi">Quali servizi?</button>
+                <button class="quick-reply" data-question="prenota">📅 Prenota</button>
+                <button class="quick-reply" data-question="contatto">✉️ Contatto</button>
             </div>
             
             <div id="chatbot-input-container">
