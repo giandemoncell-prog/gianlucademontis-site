@@ -1,6 +1,6 @@
-// Chatbot Completo con Prenotazioni e Contatti
+// Chatbot Semplificato - Solo FAQ e Contatti
 // Configurato per Gianluca Demontis - gianlucademontis.xyz
-// VERSIONE CORRETTA - Fix popup Calendly
+// VERSIONE SEMPLIFICATA (senza Calendly)
 
 (function() {
     'use strict';
@@ -11,9 +11,6 @@
             publicKey: 'sgwpSulF12rIGGleQ',
             serviceId: 'service_rk75llj',
             templateId: 'template_3llianq'
-        },
-        calendly: {
-            url: 'https://calendly.com/gluca-3d/30min'
         }
     };
     
@@ -22,7 +19,7 @@
     
     // ===== STATO CONVERSAZIONE =====
     let conversationState = {
-        mode: 'faq', // 'faq', 'contact_form', 'booking'
+        mode: 'faq', // 'faq', 'contact_form'
         step: 0,
         data: {}
     };
@@ -39,7 +36,7 @@
         },
         'formazione': {
             keywords: ['formazione', 'corso', 'imparare', 'insegnare', 'training', 'stem', '3d'],
-            answer: 'Offro formazione su automazione, stampa e modellazione 3D, STEM e laboratori. Mi occupo anche di transizione digitale a scuola. Vuoi prenotare una sessione? Scrivi "prenota"! 📚'
+            answer: 'Offro formazione su automazione, stampa e modellazione 3D, STEM e laboratori. Mi occupo anche di transizione digitale a scuola. Vuoi maggiori informazioni? Scrivimi! 📚'
         },
         'scuola': {
             keywords: ['scuola', 'scolastico', 'didattica', 'google workspace', 'digitale', 'innovazione'],
@@ -132,54 +129,6 @@
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         }
         
-        // ===== CALENDLY =====
-        function openCalendly() {
-            if (typeof Calendly === 'undefined') {
-                addMessage('❌ Errore: Calendly non disponibile. Ricarica la pagina o scrivimi a info@gianlucademontis.xyz', false);
-                return;
-            }
-            
-            try {
-                Calendly.initPopupWidget({
-                    url: CONFIG.calendly.url,
-                    text: 'Prenota un appuntamento',
-                    color: '#00d4ff',
-                    textColor: '#ffffff',
-                    branding: false
-                });
-                
-                // Messaggio di conferma
-                addMessage('📅 Calendario aperto! Seleziona data e ora per prenotare.', false);
-                
-                // Listener per conferma prenotazione
-                const handleCalendlyEvent = (e) => {
-                    if (e.data.event && e.data.event === 'calendly.event_scheduled') {
-                        setTimeout(() => {
-                            addMessage('✅ Perfetto! Appuntamento prenotato con successo. Riceverai una conferma via email. A presto! 🎉', false);
-                        }, 1000);
-                        window.removeEventListener('message', handleCalendlyEvent);
-                    }
-                };
-                
-                window.addEventListener('message', handleCalendlyEvent);
-                
-            } catch (error) {
-                console.error('Errore Calendly:', error);
-                addMessage('❌ Si è verificato un errore. Prova a prenotare direttamente su: ' + CONFIG.calendly.url, false);
-            }
-        }
-        
-        function startBooking() {
-            addMessage('Voglio prenotare una consulenza', true);
-            setTimeout(() => {
-                addMessage('Perfetto! Apro il calendario... 📅', false);
-                // Apri Calendly direttamente dopo un breve delay
-                setTimeout(() => {
-                    openCalendly();
-                }, 500);
-            }, 500);
-        }
-        
         // ===== FORM CONTATTI =====
         function startContactForm() {
             conversationState.mode = 'contact_form';
@@ -265,13 +214,6 @@
         function findAnswer(userMessage) {
             const message = userMessage.toLowerCase();
             
-            // Check prenotazione
-            if (message.includes('prenot') || message.includes('appuntamento') || 
-                message.includes('consulenza') || message.includes('call') ||
-                message.includes('sessione') || message.includes('incontro')) {
-                return 'TRIGGER_BOOKING';
-            }
-            
             // Check contatto
             if (message.includes('contatt') || message.includes('scriver') || 
                 message.includes('email') || message.includes('messaggio') ||
@@ -290,27 +232,21 @@
             
             // Saluti
             if (message.match(/\b(ciao|salve|buongiorno|buonasera|hey|hello|hi)\b/)) {
-                return 'Ciao! 👋 Come posso aiutarti? Posso rispondere a domande, aiutarti a prenotare una consulenza o metterti in contatto con Gianluca!';
+                return 'Ciao! 👋 Come posso aiutarti? Posso rispondere a domande sui servizi o metterti in contatto con Gianluca!';
             }
             
             // Grazie
             if (message.match(/\b(grazie|thanks|thank you|merci)\b/)) {
-                return 'Prego! Sono qui se hai altre domande. Scrivi "prenota" per una consulenza o "contatto" per un messaggio diretto! 😊';
+                return 'Prego! Sono qui se hai altre domande. Scrivi "contatto" per inviarmi un messaggio diretto! 😊';
             }
             
-            return 'Grazie per il tuo messaggio! Usa i pulsanti rapidi, scrivi "prenota" per una consulenza o "contatto" per inviarmi un messaggio. 💬';
+            return 'Grazie per il tuo messaggio! Usa i pulsanti rapidi o scrivi "contatto" per inviarmi un messaggio. 💬';
         }
         
         // ===== QUICK REPLIES =====
         quickReplies.forEach(button => {
             button.addEventListener('click', () => {
                 const questionKey = button.dataset.question;
-                
-                // Prenotazione - APRE DIRETTAMENTE CALENDLY
-                if (questionKey === 'prenota' || questionKey === 'appuntamento') {
-                    startBooking();
-                    return;
-                }
                 
                 // Contatto
                 if (questionKey === 'contatti' || questionKey === 'contatto') {
@@ -349,10 +285,7 @@
                 // Modalità FAQ
                 const answer = findAnswer(message);
                 
-                if (answer === 'TRIGGER_BOOKING') {
-                    addMessage('Perfetto! Apro il calendario... 📅', false);
-                    setTimeout(() => openCalendly(), 500);
-                } else if (answer === 'TRIGGER_CONTACT') {
+                if (answer === 'TRIGGER_CONTACT') {
                     startContactForm();
                 } else {
                     addMessage(answer, false);
