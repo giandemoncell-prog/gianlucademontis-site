@@ -1,5 +1,6 @@
 // Chatbot Completo con Prenotazioni e Contatti
 // Configurato per Gianluca Demontis - gianlucademontis.xyz
+// VERSIONE CORRETTA - Fix popup Calendly
 
 (function() {
     'use strict';
@@ -117,7 +118,7 @@
         });
         
         // ===== FUNZIONI MESSAGGI =====
-        function addMessage(text, isUser = false, options = {}) {
+        function addMessage(text, isUser = false) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `chatbot-message ${isUser ? 'user-message' : 'bot-message'}`;
             
@@ -127,78 +128,56 @@
             contentDiv.textContent = text;
             
             messageDiv.appendChild(contentDiv);
-            
-            // Aggiungi pulsanti se richiesto
-            if (options.buttons) {
-                const buttonsContainer = document.createElement('div');
-                buttonsContainer.style.cssText = 'display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap;';
-                
-                options.buttons.forEach(btn => {
-                    const button = document.createElement('button');
-                    button.textContent = btn.text;
-                    button.style.cssText = `
-                        padding: 8px 16px;
-                        background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-                        color: white;
-                        border: none;
-                        border-radius: 20px;
-                        cursor: pointer;
-                        font-size: 13px;
-                        font-weight: 600;
-                        transition: transform 0.2s;
-                    `;
-                    
-                    button.addEventListener('mouseover', () => {
-                        button.style.transform = 'scale(1.05)';
-                    });
-                    
-                    button.addEventListener('mouseout', () => {
-                        button.style.transform = 'scale(1)';
-                    });
-                    
-                    button.addEventListener('click', btn.action);
-                    buttonsContainer.appendChild(button);
-                });
-                
-                contentDiv.appendChild(buttonsContainer);
-            }
-            
             chatbotMessages.appendChild(messageDiv);
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         }
         
         // ===== CALENDLY =====
         function openCalendly() {
-            Calendly.initPopupWidget({
-                url: CONFIG.calendly.url,
-                text: 'Prenota un appuntamento',
-                color: '#00d4ff',
-                textColor: '#ffffff',
-                branding: false
-            });
+            if (typeof Calendly === 'undefined') {
+                addMessage('❌ Errore: Calendly non disponibile. Ricarica la pagina o scrivimi a info@gianlucademontis.xyz', false);
+                return;
+            }
             
-            window.addEventListener('message', function(e) {
-                if (e.data.event && e.data.event === 'calendly.event_scheduled') {
-                    setTimeout(() => {
-                        addMessage('✅ Perfetto! Appuntamento prenotato con successo. Riceverai una conferma via email. A presto! 🎉', false);
-                    }, 1000);
-                }
-            });
+            try {
+                Calendly.initPopupWidget({
+                    url: CONFIG.calendly.url,
+                    text: 'Prenota un appuntamento',
+                    color: '#00d4ff',
+                    textColor: '#ffffff',
+                    branding: false
+                });
+                
+                // Messaggio di conferma
+                addMessage('📅 Calendario aperto! Seleziona data e ora per prenotare.', false);
+                
+                // Listener per conferma prenotazione
+                const handleCalendlyEvent = (e) => {
+                    if (e.data.event && e.data.event === 'calendly.event_scheduled') {
+                        setTimeout(() => {
+                            addMessage('✅ Perfetto! Appuntamento prenotato con successo. Riceverai una conferma via email. A presto! 🎉', false);
+                        }, 1000);
+                        window.removeEventListener('message', handleCalendlyEvent);
+                    }
+                };
+                
+                window.addEventListener('message', handleCalendlyEvent);
+                
+            } catch (error) {
+                console.error('Errore Calendly:', error);
+                addMessage('❌ Si è verificato un errore. Prova a prenotare direttamente su: ' + CONFIG.calendly.url, false);
+            }
         }
         
         function startBooking() {
-            conversationState.mode = 'booking';
-            addMessage('Ottimo! Ti apro il calendario per scegliere data e ora. 📅', false, {
-                buttons: [
-                    {
-                        text: '📅 Apri Calendario',
-                        action: () => {
-                            openCalendly();
-                            conversationState.mode = 'faq';
-                        }
-                    }
-                ]
-            });
+            addMessage('Voglio prenotare una consulenza', true);
+            setTimeout(() => {
+                addMessage('Perfetto! Apro il calendario... 📅', false);
+                // Apri Calendly direttamente dopo un breve delay
+                setTimeout(() => {
+                    openCalendly();
+                }, 500);
+            }, 500);
         }
         
         // ===== FORM CONTATTI =====
@@ -327,10 +306,9 @@
             button.addEventListener('click', () => {
                 const questionKey = button.dataset.question;
                 
-                // Prenotazione
+                // Prenotazione - APRE DIRETTAMENTE CALENDLY
                 if (questionKey === 'prenota' || questionKey === 'appuntamento') {
-                    addMessage('Voglio prenotare una consulenza', true);
-                    setTimeout(() => startBooking(), 500);
+                    startBooking();
                     return;
                 }
                 
@@ -372,7 +350,8 @@
                 const answer = findAnswer(message);
                 
                 if (answer === 'TRIGGER_BOOKING') {
-                    startBooking();
+                    addMessage('Perfetto! Apro il calendario... 📅', false);
+                    setTimeout(() => openCalendly(), 500);
                 } else if (answer === 'TRIGGER_CONTACT') {
                     startContactForm();
                 } else {
