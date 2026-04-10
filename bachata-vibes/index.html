@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachata Vibes Publisher - Official App</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 0 30px;
+        }
+
+        .hero img {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #1a1a1a;
+            border-bottom: 2px solid #e91e63;
+            padding-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #444;
+            margin-top: 30px;
+        }
+
+        .tagline {
+            font-size: 1.15em;
+            color: #555;
+            margin-top: -5px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 30px 0;
+        }
+
+        .feature {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .feature h3 {
+            margin: 0 0 8px;
+            color: #e91e63;
+            font-size: 1em;
+        }
+
+        .feature p {
+            margin: 0;
+            font-size: 0.92em;
+            color: #666;
+        }
+
+        .links {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .links a {
+            display: inline-block;
+            margin: 6px 10px;
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #888;
+            font-size: 0.85em;
+        }
+
+        @media (max-width: 600px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Bachata Vibes Publisher</h1>
+        <p class="tagline">Desktop application for publishing original latin music videos to TikTok</p>
+    </div>
+
+    <h2>About</h2>
+    <p>Bachata Vibes Publisher is a desktop content management tool developed by <strong>Bachata Vibes Music</strong>. It enables the @bachatavibesmusic TikTok account to publish original bachata, salsa, and merengue music videos directly from a local library of pre-produced content.</p>
+    <p>The app is used exclusively by the Bachata Vibes Music team to manage and schedule video uploads to TikTok. No third-party users or external data are involved.</p>
+
+    <h2>Features</h2>
+    <div class="features">
+        <div class="feature">
+            <h3>OAuth 2.0 Authentication</h3>
+            <p>Secure login via TikTok's Login Kit with PKCE flow. Only the channel owner authorizes the app.</p>
+        </div>
+        <div class="feature">
+            <h3>Video Upload</h3>
+            <p>Uploads MP4 videos (1080x1920, H.264/AAC) via the TikTok Content Posting API with chunked file transfer.</p>
+        </div>
+        <div class="feature">
+            <h3>Batch Publishing</h3>
+            <p>Processes multiple videos with automatic rate limiting, title generation, and hashtag management.</p>
+        </div>
+        <div class="feature">
+            <h3>Content Management</h3>
+            <p>Tracks upload history, prevents duplicates, and manages video metadata locally.</p>
+        </div>
+    </div>
+
+    <h2>TikTok Integration</h2>
+    <p>The app integrates with the following TikTok for Developers products:</p>
+    <ul>
+        <li><strong>Login Kit</strong> — Authenticates the account owner via OAuth 2.0</li>
+        <li><strong>Content Posting API</strong> — Uploads and publishes video content to the authorized TikTok profile</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>For questions or support, contact us at: <a href="mailto:info@gianlucademontis.xyz">info@gianlucademontis.xyz</a></p>
+
+    <div class="links">
+        <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank">TikTok Profile</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 Bachata Vibes Music. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
