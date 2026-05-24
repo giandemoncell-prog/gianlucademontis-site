@@ -289,6 +289,114 @@ body {
     line-height: 1.8;
 }
 
+/* Projects Section */
+.projects {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+}
+
+.projects-intro {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    line-height: 1.8;
+}
+
+.projects-github-link {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.projects-github-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.projects-github-link a:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 217, 255, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.2);
+}
+
+.projects-category {
+    margin-bottom: 2.5rem;
+}
+
+.projects-category-title {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.2);
+}
+
+.project-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+}
+
+.project-card .repo-slug {
+    font-size: 0.75rem;
+    font-family: 'Courier New', monospace;
+    color: var(--primary-color);
+    opacity: 0.7;
+    margin-bottom: 0.6rem;
+}
+
+.project-card p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Contact Section */
 .contact {
     padding: 6rem 0;
