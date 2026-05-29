@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Gianluca Demontis | Automazione, EdTech & AI</title>
+    <meta name="description" content="Articoli pratici su automazione n8n, EdTech, AI e Raspberry Pi. Gianluca Demontis — Tech Coach.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/">
+    <meta property="og:title" content="Blog — Gianluca Demontis">
+    <meta property="og:description" content="Articoli su automazione n8n, EdTech, AI e Raspberry Pi.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .blog-header { text-align: center; margin-bottom: 4rem; }
+        .blog-header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .blog-header h1 span { color: var(--primary-color); }
+        .blog-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
+        .blog-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .blog-list-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; display: flex; flex-direction: column; gap: 1rem; text-decoration: none; color: inherit; }
+        .blog-list-card:hover { transform: translateY(-5px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(0,217,255,0.2); }
+        .blog-list-card h2 { font-size: 1.2rem; font-weight: 600; line-height: 1.4; color: var(--text-primary); }
+        .blog-list-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; flex: 1; }
+        .read-more { color: var(--primary-color); font-weight: 500; font-size: 0.9rem; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <ul class="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="blog-page">
+        <div class="container">
+            <a href="/" class="back-link">← Torna alla home</a>
+            <div class="blog-header">
+                <h1>Blog & <span>Risorse</span></h1>
+                <p>Articoli pratici su automazione, EdTech e AI. Aggiornato ogni settimana.</p>
+            </div>
+            <div class="blog-list">
+                <a href="/blog/ai-in-classe-2026.html" class="blog-list-card">
+                    <div class="blog-meta">
+                        <span class="blog-tag">EdTech</span>
+                        <span class="blog-date">4 Giugno 2026</span>
+                    </div>
+                    <h2>5 Modi per Usare l'AI in Classe nel 2026</h2>
+                    <p>Applicazioni pratiche dell'intelligenza artificiale nella didattica: esercizi differenziati, ambienti VR, feedback automatico sui temi e assistenti per la preparazione delle lezioni.</p>
+                    <span class="read-more">Leggi l'articolo →</span>
+                </a>
+                <a href="/blog/n8n-backup-automatico.html" class="blog-list-card">
+                    <div class="blog-meta">
+                        <span class="blog-tag">Automation</span>
+                        <span class="blog-date">11 Giugno 2026</span>
+                    </div>
+                    <h2>Workflow n8n per il Backup Automatico dei Miei Progetti</h2>
+                    <p>Come ho costruito un sistema di backup automatico che gira ogni 4 ore senza intervento manuale, con notifiche Telegram e storage su Google Drive.</p>
+                    <span class="read-more">Leggi l'articolo →</span>
+                </a>
+                <a href="/blog/iot-raspberry-pi-n8n.html" class="blog-list-card">
+                    <div class="blog-meta">
+                        <span class="blog-tag">IoT</span>
+                        <span class="blog-date">25 Giugno 2026</span>
+                    </div>
+                    <h2>IoT con Raspberry Pi: Monitoraggio Real-time con n8n</h2>
+                    <p>Dashboard smart home con temperatura, umidità e consumi energetici. Tutto elaborato localmente su Raspberry Pi 5 senza dipendenze cloud.</p>
+                    <span class="read-more">Leggi l'articolo →</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>

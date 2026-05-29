@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow n8n per il Backup Automatico dei Miei Progetti — Gianluca Demontis</title>
+    <meta name="description" content="Come ho costruito un workflow n8n che salva automaticamente i miei workflow e configurazioni su Google Drive ogni 4 ore, con controllo di integrità e notifiche Telegram.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html">
+    <meta property="og:title" content="Workflow n8n per il Backup Automatico dei Miei Progetti">
+    <meta property="og:description" content="Backup automatico dei workflow n8n su Google Drive ogni 4 ore, con controllo di integrità e notifiche Telegram. Tutorial pratico passo per passo.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-06-11">
+    <meta property="article:author" content="Gianluca Demontis">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Workflow n8n per il Backup Automatico dei Miei Progetti",
+      "datePublished": "2026-06-11",
+      "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+      "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+      "description": "Backup automatico dei workflow n8n su Google Drive con controllo di integrità e notifiche Telegram."
+    }
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <ul class="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automation</span>
+                        <span class="blog-date">11 Giugno 2026</span>
+                        <span class="blog-date">· 7 min di lettura</span>
+                    </div>
+                    <h1>Workflow n8n per il Backup Automatico dei Miei Progetti</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Un giorno ho aggiornato la mia istanza n8n e, per una configurazione sbagliata del volume Docker, ho perso tre workflow su cui avevo lavorato per settimane. Quel pomeriggio ho capito una cosa semplice: <strong>se l'automazione è il mio lavoro, anche il backup deve essere automatico.</strong></p>
+                </header>
+
+                <article class="article-body">
+                    <p>Affidarsi a backup manuali è il modo più sicuro per non farli mai. Te ne ricordi quando è troppo tardi. Per questo ho costruito un workflow n8n che fa una cosa sola, ma la fa bene: salva tutto quello che mi serve, in automatico, e mi avvisa quando ha finito. In questo articolo ti mostro esattamente come l'ho messo in piedi.</p>
+
+                    <h2>Cosa Salviamo e Dove</h2>
+                    <p>Prima di costruire qualsiasi automazione, bisogna decidere <strong>cosa</strong> vale la pena proteggere. Nel mio caso, le cose insostituibili sono tre:</p>
+                    <ul>
+                        <li><strong>I workflow JSON</strong>: ogni workflow n8n è esportabile come file JSON. È il cuore di tutto — la logica, i nodi, le connessioni. Senza questo riparti da zero.</li>
+                        <li><strong>Le configurazioni</strong>: variabili d'ambiente, impostazioni dell'istanza, struttura delle cartelle dei progetti. Non sono enormi, ma ricostruirle a mano è frustrante.</li>
+                        <li><strong>Le credenziali (con cautela)</strong>: n8n le esporta cifrate. Le salvo separatamente e mai in chiaro — questo è un punto su cui non si scherza.</li>
+                    </ul>
+                    <p>La destinazione è <strong>Google Drive</strong>. Non è la scelta più "enterprise" del mondo, ma è gratuita per i miei volumi, ha versioning integrato e ci accedo da qualsiasi dispositivo. Per un freelance o un piccolo studio è più che sufficiente. Ho creato una cartella dedicata <em>n8n-backups</em> con sottocartelle per data, così ritrovare una versione vecchia è immediato.</p>
+                    <blockquote>La regola d'oro del backup è il 3-2-1: tre copie, su due supporti diversi, di cui una off-site. Google Drive copre la parte off-site senza che io debba pensarci.</blockquote>
+
+                    <h2>Il Workflow di Backup Passo per Passo</h2>
+                    <p>Il bello di n8n è che un'automazione del genere si legge come una frase. Ecco la catena di nodi che ho costruito:</p>
+                    <ol>
+                        <li><strong>Trigger Cron (ogni 4 ore)</strong>: il nodo <em>Schedule Trigger</em> parte alle 00:00, 04:00, 08:00 e così via. Quattro ore è il mio compromesso tra "ho sempre una copia recente" e "non intaso Drive di file inutili". Tu regolalo sul tuo ritmo di lavoro.</li>
+                        <li><strong>Export via API n8n</strong>: un nodo <em>HTTP Request</em> chiama l'API REST della mia istanza (<code>/rest/workflows</code>) e recupera tutti i workflow in formato JSON. In alternativa, su istanze self-hosted puoi usare il comando CLI <code>n8n export:workflow --all</code> dentro un nodo <em>Execute Command</em>.</li>
+                        <li><strong>Upload su Google Drive</strong>: il nodo <em>Google Drive</em> carica il JSON nella cartella del giorno. Il nome del file include data e ora (<code>workflows-2026-06-11_0800.json</code>), così non sovrascrivo mai un backup precedente.</li>
+                        <li><strong>Notifica Telegram</strong>: il nodo <em>Telegram</em> mi manda un messaggio del tipo <em>"Backup completato: 14 workflow salvati (218 KB)"</em>. Mi basta un'occhiata al telefono per sapere che è tutto a posto.</li>
+                    </ol>
+                    <p>L'intera catena gira in meno di dieci secondi e non richiede alcun intervento manuale. Una volta attivata, te ne dimentichi — ed è esattamente quello che vuoi da un backup.</p>
+
+                    <h2>Aggiungere il Controllo di Integrità</h2>
+                    <p>Un backup che esiste ma è corrotto è peggio di nessun backup, perché ti dà falsa sicurezza. Per questo dopo l'upload ho aggiunto un secondo blocco di nodi dedicato alla verifica:</p>
+                    <ul>
+                        <li><strong>Il file esiste davvero?</strong> Un nodo <em>Google Drive (Get)</em> rilegge il file appena caricato e controlla che sia presente e che la dimensione sia maggiore di zero.</li>
+                        <li><strong>Il JSON è valido?</strong> Un nodo <em>Code</em> prova a fare il parsing del contenuto con un <code>JSON.parse()</code>. Se il file è troncato o corrotto, il parsing fallisce e l'errore viene intercettato.</li>
+                        <li><strong>Il numero di workflow torna?</strong> Confronto il conteggio dei workflow nel file salvato con quello restituito dall'API. Se i numeri non coincidono, qualcosa è andato storto durante l'export.</li>
+                    </ul>
+                    <p>Se uno qualsiasi di questi controlli fallisce, un nodo <em>IF</em> dirotta il flusso verso una notifica Telegram di <strong>allarme</strong> — con tanto di emoji rossa, perché in mezzo a venti messaggi di routine quello deve saltare all'occhio. Meglio scoprire un problema subito che durante un'emergenza.</p>
+
+                    <h2>Risultati dopo 3 Mesi di Uso</h2>
+                    <p>I numeri sono la parte più soddisfacente. Da quando ho attivato il workflow:</p>
+                    <ul>
+                        <li><strong>540+ backup totali</strong> generati in automatico (6 al giorno × ~90 giorni), senza che io toccassi nulla.</li>
+                        <li><strong>Zero perdite di dati</strong>: ho dovuto fare un ripristino una volta, dopo un aggiornamento andato male, e ho recuperato lo stato di 4 ore prima in meno di due minuti.</li>
+                        <li><strong>3 alert di integrità</strong> ricevuti — tutti dovuti a un riavvio dell'istanza durante l'export. Il controllo ha fatto esattamente il suo lavoro, evitando di salvare file monchi.</li>
+                        <li><strong>~1,2 GB occupati</strong> su Drive, gestibilissimi. Ho aggiunto un piccolo nodo di pulizia che cancella i backup più vecchi di 60 giorni.</li>
+                    </ul>
+                    <blockquote>Il valore vero non è nei 540 backup che non ho mai aperto. È in quell'unico ripristino di due minuti che mi ha risparmiato una settimana di lavoro.</blockquote>
+
+                    <h2>Conclusione</h2>
+                    <p>Automatizzare il backup dei propri workflow è uno di quei progetti che ti ripaga la prima volta che ne hai bisogno — e poi continua a ripagarti restando invisibile. La logica è semplice, gli strumenti sono gratuiti, e una volta in piedi non ci pensi più.</p>
+                    <p>Se gestisci automazioni che contano per il tuo lavoro e non hai ancora un backup automatico, questo è il momento di costruirlo. E se vuoi una mano a impostarlo sulla tua infrastruttura, <a href="/#contact" style="color: var(--primary-color);">scrivimi pure</a>: progetto su misura il workflow insieme a te.</p>
+                </article>
+
+                <div class="article-cta">
+                    <h3>Vuoi altri contenuti su Automazione e n8n?</h3>
+                    <p>Ogni settimana: workflow pratici, tips e risorse per automatizzare il lavoro ripetitivo.</p>
+                    <form class="newsletter-inline" action="https://app.brevo.com/newsletter/subscribe" method="post" target="_blank">
+                        <input type="email" name="EMAIL" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/ai-in-classe-2026.html">← AI in Classe 2026</a>
+                    <a href="/blog/iot-raspberry-pi-n8n.html">IoT con Raspberry Pi →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>

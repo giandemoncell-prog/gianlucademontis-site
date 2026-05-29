@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT con Raspberry Pi: Monitoraggio Real-time con n8n — Gianluca Demontis</title>
+    <meta name="description" content="Come ho costruito un sistema di monitoraggio della temperatura con Raspberry Pi 5, sensore DHT22, n8n e Grafana — completamente in locale, senza cloud, con alert Telegram.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html">
+    <meta property="og:title" content="IoT con Raspberry Pi: Monitoraggio Real-time con n8n">
+    <meta property="og:description" content="Monitoraggio temperatura real-time con Raspberry Pi 5, DHT22, n8n e Grafana. Smart home in locale senza cloud, con alert automatici su Telegram.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-06-25">
+    <meta property="article:author" content="Gianluca Demontis">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "IoT con Raspberry Pi: Monitoraggio Real-time con n8n",
+      "datePublished": "2026-06-25",
+      "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+      "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+      "description": "Monitoraggio temperatura real-time con Raspberry Pi 5, DHT22, n8n e Grafana, in locale e senza cloud."
+    }
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <ul class="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">IoT</span>
+                        <span class="blog-date">25 Giugno 2026</span>
+                        <span class="blog-date">· 8 min di lettura</span>
+                    </div>
+                    <h1>IoT con Raspberry Pi: Monitoraggio Real-time con n8n</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Il mio ufficio d'estate diventava una sauna e in inverno un frigorifero, senza che io me ne accorgessi finché non era troppo tardi. Volevo tenere d'occhio la temperatura in tempo reale — ma senza affidare i dati di casa mia all'ennesimo servizio cloud. <strong>La soluzione è stata costruirmi tutto in locale, con un Raspberry Pi.</strong></p>
+                </header>
+
+                <article class="article-body">
+                    <p>L'idea alla base di questo progetto è quella che mi sta più a cuore quando parlo di smart home: <strong>i tuoi dati restano a casa tua</strong>. Niente abbonamenti, niente server di terzi, nessun sensore che spedisce la temperatura del tuo salotto chissà dove. Solo hardware che possiedi e software open source. Ecco come l'ho realizzato.</p>
+
+                    <h2>Hardware e Setup</h2>
+                    <p>La lista della spesa è volutamente minimale. Non serve molto per iniziare:</p>
+                    <ul>
+                        <li><strong>Raspberry Pi 5 (4 GB)</strong>: il cervello del sistema. Ci gira sopra n8n, il database e Grafana, tutto insieme, senza fatica. Un Pi 4 va comunque benissimo.</li>
+                        <li><strong>Sensore DHT22</strong>: misura temperatura e umidità con buona precisione (±0,5 °C). Costa pochi euro ed è il classico punto di partenza per l'IoT casalingo.</li>
+                        <li><strong>Cavi jumper e una resistenza da 10kΩ</strong>: per collegare il DHT22 ai pin GPIO. Il sensore ha tre fili — alimentazione, dati e massa — e la resistenza di pull-up sulla linea dati rende le letture stabili.</li>
+                        <li><strong>Alimentatore ufficiale</strong>: con il Pi 5 conviene non risparmiare sull'alimentazione, per evitare riavvii sotto carico.</li>
+                    </ul>
+                    <p>Un dettaglio che apprezzo: il <strong>consumo energetico</strong>. L'intero setup assorbe in media 4-6 watt, anche con tutti i servizi attivi. Tenendolo acceso 24/7 si parla di circa <strong>1,50 € al mese</strong> in bolletta — meno di un caffè, per un sistema sempre operativo.</p>
+
+                    <h2>Leggere i Dati con Python e n8n</h2>
+                    <p>Il DHT22 si interroga facilmente da Python con la libreria <code>adafruit-circuitpython-dht</code>. Il mio script fa tre cose: legge il sensore, costruisce un piccolo JSON con temperatura, umidità e timestamp, e lo invia a n8n.</p>
+                    <p>Il ponte tra il sensore e l'automazione è un <strong>webhook n8n</strong>. Lo script Python fa una semplice POST verso l'URL del webhook ogni 60 secondi (gestito da un <em>cron</em> di sistema). Il flusso è questo:</p>
+                    <ol>
+                        <li><strong>Lo script Python</strong> legge il DHT22 e invia <code>{ "temp": 24.3, "hum": 48, "ts": "..." }</code> al webhook.</li>
+                        <li><strong>Il nodo Webhook di n8n</strong> riceve i dati e li passa al flusso.</li>
+                        <li><strong>Un nodo di scrittura</strong> salva la lettura in un database time-series (uso InfluxDB, ma anche una tabella SQLite va benissimo per iniziare).</li>
+                        <li><strong>Lo stesso flusso</strong> valuta se la temperatura ha superato una soglia — e qui entrano in gioco gli alert, di cui parlo più avanti.</li>
+                    </ol>
+                    <p>Il vantaggio di passare da n8n invece di scrivere tutto in Python è che ogni modifica alla logica — una nuova soglia, una nuova destinazione, un nuovo alert — la faccio trascinando nodi, senza toccare codice e senza riavviare nulla.</p>
+
+                    <h2>Dashboard Real-time con Grafana su Pi</h2>
+                    <p>I dati grezzi non dicono molto: servono i grafici. <strong>Grafana</strong> è lo strumento perfetto e gira tranquillamente sullo stesso Raspberry Pi.</p>
+                    <p>L'installazione è diretta: si aggiunge il repository ufficiale di Grafana, si installa il pacchetto e si abilita il servizio. In pochi minuti hai l'interfaccia web raggiungibile dalla rete locale sulla porta 3000.</p>
+                    <p>La configurazione che conta è il <strong>datasource</strong>:</p>
+                    <ul>
+                        <li>Aggiungi InfluxDB (o il database che hai scelto) come sorgente dati, puntando a <code>localhost</code> visto che gira sulla stessa macchina.</li>
+                        <li>Crei un pannello con la query sulla temperatura e imposti il refresh automatico a 30 secondi.</li>
+                        <li>Aggiungi un secondo pannello per l'umidità e, volendo, una soglia visiva che colora di rosso il grafico quando si supera il limite.</li>
+                    </ul>
+                    <blockquote>Vedere la curva della temperatura aggiornarsi in tempo reale sul telefono, mentre sei comodamente sul divano, dà una piccola ma concreta soddisfazione da maker.</blockquote>
+
+                    <h2>Alert Automatici su Telegram</h2>
+                    <p>Una dashboard è utile solo se la guardi. Per essere avvisato anche quando non ci sto pensando, ho aggiunto gli <strong>alert su Telegram</strong> direttamente dentro n8n.</p>
+                    <p>La logica è semplice e vive nello stesso flusso che riceve i dati dal sensore:</p>
+                    <ol>
+                        <li><strong>Un nodo IF</strong> controlla a ogni lettura se la temperatura supera la soglia (per me 28 °C in estate, sotto i 16 °C in inverno).</li>
+                        <li><strong>Se la soglia è superata</strong>, un nodo <em>Telegram</em> mi invia un messaggio del tipo <em>"Ufficio a 29,1 °C — accendere il condizionatore?"</em>.</li>
+                        <li><strong>Un controllo anti-spam</strong>: salvo l'orario dell'ultimo alert e ne invio uno nuovo solo se è passata almeno un'ora, così non ricevo venti notifiche per la stessa ondata di caldo.</li>
+                    </ol>
+                    <p>Con qualche nodo in più, lo stesso meccanismo potrebbe addirittura azionare una presa smart per accendere un ventilatore — ma quella è materia per un prossimo articolo.</p>
+
+                    <h2>Conclusione</h2>
+                    <p>Con meno di cento euro di hardware e qualche ora di smanettamento, ho un sistema di monitoraggio ambientale che è tutto mio: nessun abbonamento, nessun dato che esce di casa, totale libertà di modificarlo. È il piccolo progetto perfetto per capire come si parlano sensori, automazione e visualizzazione.</p>
+                    <p>L'IoT fai-da-te non è solo un hobby: è il modo migliore per riprendere il controllo della tecnologia che ci circonda. Se questi temi ti appassionano, iscriviti alla newsletter — il prossimo articolo lo dedico proprio all'automazione di una presa smart.</p>
+                </article>
+
+                <div class="article-cta">
+                    <h3>Vuoi altri progetti IoT e di Automazione?</h3>
+                    <p>Ogni settimana: tutorial pratici, idee per la smart home in locale e workflow n8n da copiare.</p>
+                    <form class="newsletter-inline" action="https://app.brevo.com/newsletter/subscribe" method="post" target="_blank">
+                        <input type="email" name="EMAIL" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/n8n-backup-automatico.html">← Workflow n8n Backup</a>
+                    <a href="/blog/" style="color: var(--text-secondary);">Tutti gli articoli</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>
