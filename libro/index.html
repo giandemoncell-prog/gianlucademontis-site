@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI e DSA — Il libro di Gianluca Demontis | Amazon</title>
+    <meta name="description" content="AI e DSA: guida pratica per insegnanti su come usare l'intelligenza artificiale per supportare studenti con difficoltà di apprendimento. Workflow Gemini, NotebookLM, Gems. Disponibile su Amazon.it.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/libro/">
+    <meta property="og:title" content="AI e DSA — Il libro di Gianluca Demontis">
+    <meta property="og:description" content="Come usare l'AI per supportare studenti con DSA. Workflow pratici con Gemini e NotebookLM per insegnanti. Su Amazon.it dall'8 giugno 2026.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/libro/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "AI e DSA",
+      "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+      "publisher": {"@type": "Organization", "name": "Amazon KDP"},
+      "datePublished": "2026-06-08",
+      "description": "Guida pratica per insegnanti su come usare l'intelligenza artificiale per supportare studenti con disturbi specifici dell'apprendimento.",
+      "inLanguage": "it",
+      "genre": "Education"
+    }
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .libro-hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #0a1628 100%);
+        }
+        .libro-badge {
+            display: inline-block;
+            background: rgba(232,119,34,0.15);
+            border: 1px solid rgba(232,119,34,0.4);
+            color: #E87722;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+        }
+        .libro-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+        .libro-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .libro-cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        .btn-amazon {
+            background: #FF9900;
+            color: #111;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-amazon:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,153,0,0.3); }
+        .btn-demo {
+            background: transparent;
+            color: var(--primary-color);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 1px solid var(--primary-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+        .btn-demo:hover { background: rgba(0,217,255,0.08); }
+        .libro-features {
+            padding: 80px 0;
+            background: rgba(255,255,255,0.02);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+        .feature-title { font-size: 1.1rem; font-weight: 600; color: var(--text-color); margin-bottom: 12px; }
+        .feature-desc { color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem; }
+        .libro-contenuto { padding: 80px 0; }
+        .capitoli-list { list-style: none; padding: 0; margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+        .capitolo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+        }
+        .capitolo-num { color: var(--primary-color); font-weight: 700; font-size: 1.1rem; min-width: 32px; }
+        .capitolo-text { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; }
+        .libro-for-whom { padding: 80px 0; background: rgba(255,255,255,0.02); }
+        .for-whom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 40px; }
+        .for-whom-card { text-align: center; padding: 32px 24px; background: rgba(255,255,255,0.04); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
+        .for-whom-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .for-whom-title { font-weight: 600; color: var(--text-color); font-size: 0.95rem; }
+        .libro-cta-bottom { padding: 100px 0; text-align: center; }
+        .cta-bottom-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; color: var(--text-color); margin-bottom: 16px; }
+        .cta-bottom-sub { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 40px; }
+        .lead-magnet-box {
+            background: rgba(0,217,255,0.06);
+            border: 1px solid rgba(0,217,255,0.2);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 560px;
+            margin: 0 auto 60px;
+        }
+        .lead-magnet-title { font-weight: 600; color: var(--text-color); margin-bottom: 8px; font-size: 1.1rem; }
+        .lead-magnet-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px; }
+        .lead-magnet-form { display: flex; gap: 12px; flex-wrap: wrap; }
+        .lead-magnet-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        .lead-magnet-form input::placeholder { color: var(--text-secondary); }
+        .lead-magnet-form button {
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/#blog">Blog</a></li>
+                    <li><a href="/libro/" style="color: #FF9900; font-weight: 600;">Il Libro</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="libro-hero">
+        <div class="container">
+            <div class="libro-badge">Disponibile su Amazon.it dall'8 giugno 2026</div>
+            <h1 class="libro-title">AI e DSA</h1>
+            <p class="libro-subtitle">Come usare l'intelligenza artificiale per supportare gli studenti con difficoltà di apprendimento. Una guida pratica per insegnanti, educatori e genitori.</p>
+            <div class="libro-cta-group">
+                <a href="https://www.amazon.it/dp/ASIN_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="btn-amazon">
+                    📦 Acquista su Amazon
+                </a>
+                <a href="https://generatore-dsa.streamlit.app" target="_blank" rel="noopener noreferrer" class="btn-demo">
+                    🖥 Prova il generatore gratuito
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="libro-features">
+        <div class="container">
+            <h2 class="section-title">Cosa impari</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <div class="feature-title">Il Profilo Studente</div>
+                    <div class="feature-desc">Come tradurre il PDP in istruzioni operative per qualsiasi AI. Il documento che trasforma ogni sessione con il chatbot in un'esperienza personalizzata.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <div class="feature-title">Gems e Workflow Gemini</div>
+                    <div class="feature-desc">Configura assistenti AI personalizzati per ogni studente. Crea verifiche, schede, riassunti e storie sociali in meno di 5 minuti.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <div class="feature-title">NotebookLM come tutor</div>
+                    <div class="feature-desc">Trasforma i libri di testo in tutor interattivi. Lo studente fa domande in linguaggio naturale — il sistema risponde solo dal materiale caricato.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <div class="feature-title">Casi pratici reali</div>
+                    <div class="feature-desc">Mario (dislessia), Lorenzo (CAA), Federica (ADHD). Dal profilo al materiale finito: ogni caso documentato passo per passo.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capitoli -->
+    <section class="libro-contenuto">
+        <div class="container">
+            <h2 class="section-title">Contenuto del libro</h2>
+            <ul class="capitoli-list">
+                <li class="capitolo-item"><span class="capitolo-num">01</span><span class="capitolo-text">Perché l'AI cambia le regole del gioco per la didattica inclusiva</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">02</span><span class="capitolo-text">Come funziona davvero un Large Language Model — senza tecnicismi</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">03</span><span class="capitolo-text">Struttura e ritmo: il pattern cognitivo che accomuna musica e didattica</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">04</span><span class="capitolo-text">Il Profilo Studente: dal PDP alle istruzioni per l'AI</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">05</span><span class="capitolo-text">Gems su Gemini: configurare assistenti personalizzati per classe</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">06</span><span class="capitolo-text">Caso Mario: 13 anni, dislessia, dal problema al voto 7</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">07</span><span class="capitolo-text">Caso Lorenzo: 9 anni, CAA, storie sociali in 8 minuti</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">08</span><span class="capitolo-text">NotebookLM: il libro di testo che risponde alle domande</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">09</span><span class="capitolo-text">Valutare l'output AI: quando fidarsi e quando correggere</span></li>
+                <li class="capitolo-item"><span class="capitolo-num">10</span><span class="capitolo-text">Etica, privacy e uso responsabile dell'AI in contesti educativi</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Per chi -->
+    <section class="libro-for-whom">
+        <div class="container">
+            <h2 class="section-title">Per chi è questo libro</h2>
+            <div class="for-whom-grid">
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">🏫</div>
+                    <div class="for-whom-title">Insegnanti di sostegno</div>
+                </div>
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">📚</div>
+                    <div class="for-whom-title">Docenti curricolari</div>
+                </div>
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">🗣️</div>
+                    <div class="for-whom-title">Logopedisti e psicopedagogisti</div>
+                </div>
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">👨‍👩‍👧</div>
+                    <div class="for-whom-title">Genitori di studenti con DSA</div>
+                </div>
+                <div class="for-whom-card">
+                    <div class="for-whom-icon">🏛️</div>
+                    <div class="for-whom-title">Dirigenti scolastici</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA finale -->
+    <section class="libro-cta-bottom">
+        <div class="container">
+            <div class="lead-magnet-box">
+                <div class="lead-magnet-title">Scarica l'estratto gratuito — Capitolo 4</div>
+                <div class="lead-magnet-desc">"Il Profilo Studente: come tradurre il PDP in istruzioni per l'AI" — 12 pagine, applicabile subito.</div>
+                <div class="lead-magnet-form">
+                    <input type="email" placeholder="La tua email">
+                    <button type="submit">Scarica gratis</button>
+                </div>
+            </div>
+            <h2 class="cta-bottom-title">Pronto a iniziare?</h2>
+            <p class="cta-bottom-sub">Il generatore AI gratuito è disponibile adesso — nessuna installazione richiesta.</p>
+            <div class="libro-cta-group">
+                <a href="https://www.amazon.it/dp/ASIN_PLACEHOLDER" target="_blank" rel="noopener noreferrer" class="btn-amazon">
+                    📦 Acquista su Amazon
+                </a>
+                <a href="https://generatore-dsa.streamlit.app" target="_blank" rel="noopener noreferrer" class="btn-demo">
+                    🖥 Generatore gratuito
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align:center; padding: 40px; color: var(--text-secondary); font-size: 0.875rem; border-top: 1px solid rgba(255,255,255,0.06);">
+        <p>© 2026 Gianluca Demontis — <a href="/" style="color: var(--primary-color);">gianlucademontis.xyz</a></p>
+    </footer>
+</body>
+</html>
