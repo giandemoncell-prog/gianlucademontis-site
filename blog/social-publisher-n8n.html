@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Come ho automatizzato Instagram, Facebook e LinkedIn con n8n — Gianluca Demontis</title>
+    <meta name="description" content="Come ho costruito un sistema n8n che pubblica ogni mattina su Instagram, Facebook e LinkedIn partendo da file .md. Architettura, errori reali, costo zero.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/social-publisher-n8n.html">
+    <meta property="og:title" content="Come ho automatizzato Instagram, Facebook e LinkedIn con n8n">
+    <meta property="og:description" content="Un workflow n8n che legge file .md e pubblica ogni mattina su 3 piattaforme. Token Meta, JSON rotti, previewText sanitizzato: gli errori che nessuna guida racconta.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/social-publisher-n8n.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-08-03">
+    <meta property="article:author" content="Gianluca Demontis">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Come ho automatizzato Instagram, Facebook e LinkedIn con n8n",
+      "datePublished": "2026-08-03",
+      "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+      "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+      "description": "Come ho costruito un sistema n8n che pubblica ogni mattina su Instagram, Facebook e LinkedIn partendo da file .md. Architettura, errori reali, costo zero."
+    }
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body code { background: rgba(0,217,255,0.08); color: var(--primary-color); padding: 0.15em 0.45em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .arch-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .arch-table th { text-align: left; color: var(--text-secondary); font-weight: 600; padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .arch-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); vertical-align: top; }
+        .arch-table td:first-child { color: var(--primary-color); font-family: 'Courier New', monospace; font-size: 0.9em; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <ul class="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automation</span>
+                        <span class="blog-date">3 Agosto 2026</span>
+                        <span class="blog-date">· 9 min di lettura</span>
+                    </div>
+                    <h1>Come ho automatizzato la pubblicazione su Instagram, Facebook e LinkedIn con n8n</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Ho passato un sabato a debuggare token Meta, permessi mancanti e JSON rotti nel body di Telegram. Il risultato: un sistema che ogni mattina alle 09:00 pubblica su 3 piattaforme senza che io tocchi nulla. <strong>Questo è quello che ho imparato — inclusa la parte che nessuna guida racconta.</strong></p>
+                </header>
+
+                <article class="article-body">
+
+                    <h2>Il problema</h2>
+                    <p>Gestire contenuti su LinkedIn, Instagram e Facebook manualmente richiede circa 45 minuti al giorno. Moltiplicato per 6 giorni lavorativi, significa quasi 4,5 ore a settimana spese su copia-incolla, ricerca hashtag e adattamento del tono per ogni piattaforma. Senza contare che ogni piattaforma ha le sue preferenze: LinkedIn vuole bullet point e tono professionale, Instagram emoji e CTA, Facebook un approccio conversazionale senza hashtag.</p>
+                    <p>La soluzione era ovvia. L'implementazione no.</p>
+
+                    <h2>L'architettura in 6 nodi</h2>
+                    <p>Il workflow gira su n8n self-hosted su un Raspberry Pi e segue questo schema:</p>
+
+                    <table class="arch-table">
+                        <thead><tr><th>Nodo</th><th>Cosa fa</th></tr></thead>
+                        <tbody>
+                            <tr><td>Trigger cron</td><td>Si attiva ogni giorno lun–sab alle 09:00</td></tr>
+                            <tr><td>Code (fs)</td><td>Legge <code>fs.readFileSync</code> e cerca il file con data odierna in <code>/home/node/.n8n/contenuti/</code></td></tr>
+                            <tr><td>IF</td><td>Se il file esiste → continua; altrimenti → notifica errore su Telegram</td></tr>
+                            <tr><td>Groq API</td><td>Llama 3.3 70B con <code>response_format: json_object</code> → produce 3 versioni ottimizzate</td></tr>
+                            <tr><td>HTTP Request ×3</td><td>Pubblica su Graph API (IG), Graph API (FB page feed), LinkedIn UGC Posts API</td></tr>
+                            <tr><td>Telegram</td><td>Notifica di conferma con preview del testo pubblicato</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>Una nota su n8n 2.x: il nodo <code>executeCommand</code> non è più disponibile. Per leggere file dal filesystem bisogna usare il nodo <strong>Code</strong> con <code>require('fs')</code>. È una differenza importante rispetto alle guide più datate che trovi online.</p>
+
+                    <h2>Un solo prompt, tre testi diversi</h2>
+                    <p>La parte più interessante dell'architettura è come Groq genera il contenuto. Invece di fare tre chiamate API separate, uso <code>response_format: json_object</code> con un unico prompt che produce direttamente un oggetto con tre chiavi:</p>
+                    <ul>
+                        <li><strong>LinkedIn</strong>: tono professionale, bullet point, hashtag tecnici, massimo 1300 caratteri</li>
+                        <li><strong>Instagram</strong>: testo coinvolgente, emoji moderate, hashtag in fondo, CTA, massimo 2200 caratteri</li>
+                        <li><strong>Facebook</strong>: conversazionale, breve, invito ai commenti, senza hashtag</li>
+                    </ul>
+                    <p>Una sola chiamata API, tre versioni ottimizzate per ogni algoritmo. Il costo per post con Groq (llama-3.3-70b-versatile) è praticamente zero nel tier gratuito.</p>
+
+                    <h2>I 3 problemi che nessuna guida ti dice</h2>
+                    <p>Questa è la parte che vale il tempo di lettura.</p>
+
+                    <p><strong>1. Il token Meta non è il page token.</strong> L'API di Instagram e Facebook richiede token diversi a seconda di cosa vuoi fare. Il user token non basta per postare su una Facebook Page. Serve derivare il <em>page access token</em> dinamicamente chiamando <code>/me/accounts</code> ad ogni esecuzione e usando il token della pagina specifica. Ho perso due ore su questo prima di capirlo.</p>
+
+                    <p><strong>2. <code>instagram_content_publish</code> non è incluso di default.</strong> Anche con un token long-lived generato correttamente, se non abiliti esplicitamente questo scope nell'app Meta, Instagram restituisce errore 10: <em>"Application does not have permission for this action"</em>. Il fix è: abilitare il permesso nelle impostazioni dell'app Meta Developer, rigenerare il token, estenderlo con <code>fb_exchange_token</code> per portarlo a 60 giorni.</p>
+
+                    <p><strong>3. Il JSON si rompe se il testo ha virgolette.</strong> Questo è stato il bug più subdolo. Telegram riceveva un body malformato ogni volta che Groq restituiva testo contenente virgolette doppie, backslash o newline. La notifica arrivava, ma con il testo troncato o corrotto. Il fix: nel nodo Code, sanitizzo il testo con un <code>replace</code> che rimuove <code>\r\n"\\</code> prima di usarlo come <code>previewText</code>.</p>
+
+                    <blockquote>La parte tecnica si risolve in un sabato. La parte che richiede tempo è quella creativa: scrivere contenuti buoni. L'automazione non sostituisce la strategia — la libera per lavorarci.</blockquote>
+
+                    <h2>Come aggiungo un contenuto</h2>
+                    <p>Il flusso operativo è volutamente semplice:</p>
+                    <ol>
+                        <li>Scrivo un file <code>.md</code> in <code>contenuti/linkedin/YYYYMMDD_titolo.md</code> con la bozza del post</li>
+                        <li>Eseguo <code>python publish.py YYYYMMDD linkedin</code> che lo copia sul Pi come <code>YYYYMMDD_contenuto.md</code></li>
+                        <li>n8n lo legge automaticamente alle 09:00 e pubblica su tutte e tre le piattaforme</li>
+                    </ol>
+                    <p>La naming convention è importante: il workflow cerca il file il cui nome <em>inizia</em> con la data odierna in formato <code>YYYYMMDD</code>. Se non trova nulla, notifica su Telegram tramite un bot secondario.</p>
+
+                    <h2>Costo reale</h2>
+                    <p>Questo è uno dei vantaggi più concreti del self-hosting:</p>
+                    <ul>
+                        <li>n8n su Raspberry Pi: <strong>0 €/mese</strong></li>
+                        <li>Groq API (llama-3.3-70b): <strong>gratuito</strong> nei limiti attuali, poi ~0.001 €/post</li>
+                        <li>Token Meta e LinkedIn: <strong>gratuiti</strong> (scadono ogni 60 giorni, rinnovo semi-automatico)</li>
+                        <li>Telegram bot: <strong>gratuito</strong></li>
+                    </ul>
+                    <p>Costo per post: essenzialmente zero. Costo in tempo dopo il setup iniziale: zero.</p>
+
+                    <h2>Cosa aggiungerei</h2>
+                    <p>Il sistema funziona, ma ci sono tre evoluzioni naturali che prima o poi implementerò. Immagini generate con AI per Instagram (al momento uso un'immagine statica da URL). Scheduling differenziato per piattaforma: LinkedIn performa meglio la mattina presto, Instagram la sera. Un analytics loop che modifica automaticamente il prompt Groq in base alle performance dei post precedenti.</p>
+                    <p>Il terzo punto è il più interessante — e il più ambizioso. Ma questo lo racconto in un prossimo articolo.</p>
+
+                </article>
+
+                <div class="article-cta">
+                    <h3>Vuoi costruire la tua automazione social?</h3>
+                    <p>Ogni settimana: workflow n8n da copiare, errori reali e soluzioni pratiche.</p>
+                    <form class="newsletter-inline" action="https://app.brevo.com/newsletter/subscribe" method="post" target="_blank">
+                        <input type="email" name="EMAIL" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/iot-raspberry-pi-n8n.html">← IoT con Raspberry Pi</a>
+                    <a href="/blog/property-finder-n8n-telegram.html">PropertyFinder →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>

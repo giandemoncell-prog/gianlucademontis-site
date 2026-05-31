@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digest AI: come leggo le notizie tech in 3 minuti ogni mattina — Gianluca Demontis</title>
+    <meta name="description" content="Come ricevo ogni mattina le 5 notizie tech più rilevanti già sintetizzate in italiano, via Telegram, senza aprire nessun sito. n8n + Gemini + RSS. Costo zero.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html">
+    <meta property="og:title" content="Digest AI: come leggo le notizie tech in 3 minuti ogni mattina">
+    <meta property="og:description" content="Alle 7:30 ricevo su Telegram le 5 notizie tech più rilevanti della notte, già sintetizzate e tradotte. n8n + Gemini 2.5 Flash + RSS + Google Sheets. Costo zero.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-08-17">
+    <meta property="article:author" content="Gianluca Demontis">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Digest AI: come leggo le notizie tech in 3 minuti ogni mattina",
+      "datePublished": "2026-08-17",
+      "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+      "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+      "description": "Come ricevo ogni mattina le 5 notizie tech più rilevanti già sintetizzate in italiano, via Telegram, senza aprire nessun sito. n8n + Gemini + RSS. Costo zero."
+    }
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body code { background: rgba(0,217,255,0.08); color: var(--primary-color); padding: 0.15em 0.45em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        .digest-example { background: #0d1117; border: 1px solid rgba(0,217,255,0.2); border-radius: 10px; padding: 1.5rem 2rem; margin: 1.5rem 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.8; color: #c9d1d9; }
+        .digest-example .digest-header { color: var(--primary-color); font-weight: bold; margin-bottom: 1rem; }
+        .digest-example .digest-item { margin-bottom: 1rem; }
+        .digest-example .digest-title { color: #fff; }
+        .digest-example .digest-link { color: rgba(0,217,255,0.6); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <ul class="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">AI</span>
+                        <span class="blog-date">17 Agosto 2026</span>
+                        <span class="blog-date">· 7 min di lettura</span>
+                    </div>
+                    <h1>Digest AI: come leggo le notizie tech in 3 minuti ogni mattina</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Alle 7:30 ricevo su Telegram un messaggio con le 5 notizie tech più rilevanti della notte, già sintetizzate e tradotte in italiano. Non apro nessun sito, non scorro nessun feed. In 3 minuti sono aggiornato su quello che conta. <strong>Questo è il mio digest quotidiano — costruito in un pomeriggio, in funzione da mesi.</strong></p>
+                </header>
+
+                <article class="article-body">
+
+                    <h2>Il problema dell'information overload</h2>
+                    <p>Seguire l'ecosistema AI richiede di tenere d'occhio almeno una dozzina di fonti: Hacker News, TechCrunch, The Verge, MIT Tech Review, i blog ufficiali di OpenAI, Google DeepMind, Anthropic. Senza contare le newsletter, i thread Twitter, i paper su arXiv.</p>
+                    <p>Ho provato Feedly, Pocket, Readwise. Tutti richiedono <strong>attenzione attiva</strong>: devi andare lì, aprire, scorrere. Ogni mattina diventava un mini-lavoro prima del vero lavoro. Volevo qualcosa di passivo: arriva, lo leggo, ho finito.</p>
+
+                    <h2>L'architettura in 4 passi</h2>
+                    <ol>
+                        <li><strong>RSS fetch</strong>: n8n legge ogni mattina alle 7:00 gli ultimi articoli da 8 feed preconfigurati (Hacker News top stories, TechCrunch AI, The Verge Tech, MIT Technology Review, OpenAI blog, Anthropic news, Google AI Blog, Ars Technica)</li>
+                        <li><strong>Deduplication</strong>: Google Sheets filtra gli articoli già inclusi nei digest degli ultimi 7 giorni — così non rileggo due volte la stessa notizia</li>
+                        <li><strong>Gemini 2.5 Flash</strong>: sintetizza ogni articolo in 2-3 righe in italiano, con titolo e link originale. Tutti gli articoli nuovi in un'unica chiamata API</li>
+                        <li><strong>Telegram</strong>: invia il digest formattato ogni mattina alle 7:30, 30 minuti dopo il fetch</li>
+                    </ol>
+
+                    <h2>Perché Gemini 2.5 Flash e non un altro modello</h2>
+                    <p>Due motivi pratici. Il primo è la <strong>context window</strong>: Gemini 2.5 Flash gestisce fino a 1 milione di token. Posso passargli 8-10 articoli interi in una sola chiamata API e ricevere tutte le sintesi in un colpo solo. Nessun loop, nessuna gestione della paginazione.</p>
+                    <p>Il secondo è il <strong>costo</strong>. Con il tier gratuito dell'API Gemini, la spesa per digest è essenzialmente zero — meno di un millesimo di euro al giorno. Il modello ha abbastanza qualità per produrre sintesi leggibili e accurate, senza sprecare un modello da produzione su un task che non lo richiede.</p>
+
+                    <h2>Il formato del digest</h2>
+                    <p>Ho standardizzato il formato per rendere la lettura velocissima. Ogni voce ha: titolo, due righe di sintesi in italiano, link originale.</p>
+
+                    <div class="digest-example">
+                        <div class="digest-header">🤖 Digest AI — Lunedì 3 Agosto 2026</div>
+                        <div class="digest-item">
+                            <div class="digest-title">1. OpenAI lancia o1 mini per tutti i piani</div>
+                            GPT-4o level reasoning con costi 80% inferiori. Disponibile da oggi su ChatGPT Free, Plus e Team. Ottimizzato per matematica e coding.<br>
+                            <span class="digest-link">→ openai.com/blog/o1-mini</span>
+                        </div>
+                        <div class="digest-item">
+                            <div class="digest-title">2. Apple Intelligence ora parla italiano</div>
+                            Siri riscritta con LLM interno, beta developer disponibile. Supporta riscrittura testi, riassunto notifiche e integrazione con app di terzi.<br>
+                            <span class="digest-link">→ developer.apple.com/apple-intelligence</span>
+                        </div>
+                    </div>
+
+                    <p>La struttura fissa è importante: il cervello impara a processarla velocemente. Dopo qualche giorno si legge il digest come si legge il meteo — senza sforzo cognitivo.</p>
+
+                    <h2>La personalizzazione</h2>
+                    <p>Questo è il dettaglio che trasforma il digest da generico a utile. Nel prompt a Gemini ho aggiunto un'istruzione esplicita:</p>
+                    <blockquote>Prioritizza le notizie su: AI locale e open-source, n8n e workflow automation, Claude e Claude Code, strumenti per sviluppatori indipendenti, EdTech e AI applicata all'istruzione. In caso di parità di rilevanza, scegli la notizia più recente.</blockquote>
+                    <p>Il risultato: il digest riflette i miei interessi, non quelli dell'algoritmo editoriale di TechCrunch. Una notizia su un nuovo modello open-source locale ha più peso di un funding round da 100 milioni su un'altra startup LLM.</p>
+
+                    <h2>Costo reale</h2>
+                    <ul>
+                        <li>n8n self-hosted su Raspberry Pi: <strong>0 €/mese</strong></li>
+                        <li>Gemini 2.5 Flash API: <strong>0 €/mese</strong> (tier gratuito abbondante)</li>
+                        <li>Google Sheets API: <strong>0 €/mese</strong></li>
+                        <li>Telegram bot: <strong>0 €/mese</strong></li>
+                    </ul>
+                    <p>Il costo reale è il tempo del setup iniziale: circa 90 minuti tra configurazione dei feed RSS, credenziali Google, e test del prompt Gemini. Dopodiché il sistema è completamente autonomo.</p>
+
+                    <h2>Come replicarlo</h2>
+                    <p>Il workflow JSON è disponibile nel repository pubblico su GitHub. I prerequisiti sono: n8n self-hosted (anche su Raspberry Pi), una Gemini API key gratuita, accesso Google Sheets API. Il workflow è importabile direttamente in n8n — l'unica configurazione manuale riguarda i feed RSS che ti interessano e le keywords di personalizzazione nel prompt.</p>
+
+                    <blockquote>Non leggo meno. Leggo meglio. La differenza tra scrollare un feed per 20 minuti e ricevere 5 notizie selezionate per me vale in attenzione quello che vale in denaro un buon filtro spam.</blockquote>
+
+                </article>
+
+                <div class="article-cta">
+                    <h3>Vuoi ricevere il tuo digest mattutino?</h3>
+                    <p>Ogni settimana: workflow n8n pratici, AI applicata a problemi quotidiani, costo zero.</p>
+                    <form class="newsletter-inline" action="https://app.brevo.com/newsletter/subscribe" method="post" target="_blank">
+                        <input type="email" name="EMAIL" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/property-finder-n8n-telegram.html">← PropertyFinder</a>
+                    <a href="/blog/" style="color: var(--text-secondary);">Tutti gli articoli</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>

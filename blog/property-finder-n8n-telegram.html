@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyFinder: il workflow n8n che monitora il mercato immobiliare per me — Gianluca Demontis</title>
+    <meta name="description" content="Come ho costruito PropertyFinder con n8n, Gemini AI e Google Sheets: monitora il mercato immobiliare 24/7 e notifica solo gli annunci davvero rilevanti via Telegram.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html">
+    <meta property="og:title" content="PropertyFinder: il workflow n8n che monitora il mercato immobiliare per me">
+    <meta property="og:description" content="n8n + Gemini + Google Sheets: un sistema che legge ~2400 annunci al mese e manda notifiche solo per quelli davvero rilevanti. 47 notifiche, 0 duplicati.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-08-10">
+    <meta property="article:author" content="Gianluca Demontis">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "PropertyFinder: il workflow n8n che monitora il mercato immobiliare per me",
+      "datePublished": "2026-08-10",
+      "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+      "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+      "description": "Come ho costruito PropertyFinder con n8n, Gemini AI e Google Sheets per monitorare automaticamente il mercato immobiliare con notifiche Telegram selettive."
+    }
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body code { background: rgba(0,217,255,0.08); color: var(--primary-color); padding: 0.15em 0.45em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .stat-card { background: rgba(0,217,255,0.05); border: 1px solid rgba(0,217,255,0.15); border-radius: 10px; padding: 1.2rem; text-align: center; }
+        .stat-number { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); }
+        .stat-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <ul class="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automation</span>
+                        <span class="blog-date">10 Agosto 2026</span>
+                        <span class="blog-date">· 8 min di lettura</span>
+                    </div>
+                    <h1>PropertyFinder: il workflow n8n che monitora il mercato immobiliare per me</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Non voglio controllare Subito.it tre volte al giorno. Voglio ricevere una notifica Telegram solo quando esce qualcosa che vale davvero. <strong>Ho costruito PropertyFinder per questo — e funziona da mesi senza manutenzione.</strong></p>
+                </header>
+
+                <article class="article-body">
+
+                    <h2>Il problema del monitoraggio manuale</h2>
+                    <p>I portali immobiliari hanno sistemi di alert rudimentali. L'email arriva in ritardo, spesso per annunci irrilevanti, e richiede comunque di aprire il sito, fare lo scroll, leggere le descrizioni per capire se vale la pena approfondire. Il risultato è un ciclo frustrante: o controlli spesso e perdi tempo, o controlli poco e rischi di perdere l'occasione.</p>
+                    <p>Il vero problema non è la velocità — è il <strong>filtraggio</strong>. Il prezzo può essere nei parametri, ma la zona reale no. L'annuncio può dichiarare "vicino al centro" e essere a 12 km. I filtri del portale non leggono le descrizioni: l'AI sì.</p>
+
+                    <h2>L'architettura in 5 componenti</h2>
+                    <p>PropertyFinder è un workflow n8n con cinque componenti principali che si attivano ogni 6 ore:</p>
+                    <ol>
+                        <li><strong>Scheduler</strong>: trigger n8n ogni 6 ore, tutto il giorno</li>
+                        <li><strong>HTTP Request</strong>: chiama le API di Subito.it con filtri preconfigurati (zona, prezzo minimo/massimo, superficie)</li>
+                        <li><strong>Gemini AI</strong>: legge la descrizione completa di ogni annuncio e risponde "pertinente / non pertinente" con motivazione</li>
+                        <li><strong>Deduplication</strong>: Google Sheets come registro degli annunci già notificati negli ultimi 30 giorni</li>
+                        <li><strong>Telegram</strong>: notifica con link diretto, prezzo, zona e summary generato da Gemini</li>
+                    </ol>
+                    <p>I componenti 3 e 4 sono quelli che fanno la differenza rispetto a qualsiasi alert nativo del portale.</p>
+
+                    <h2>Il ruolo dell'AI nel filtro</h2>
+                    <p>Questa è la parte che trasforma il sistema da un semplice scraper a qualcosa di utile. Il prompt a Gemini è semplice e diretto:</p>
+                    <blockquote>Sei un agente immobiliare. Valuta questo annuncio in base ai miei criteri: zona [X], massimo [Y] €, almeno [Z] mq, non seminterrato, non piano terra se su strada trafficata. Rispondi solo "pertinente" o "non pertinente" con una riga di motivazione.</blockquote>
+                    <p>Il modello legge l'intera descrizione dell'annuncio, non solo i metadati. Distingue tra "quartiere residenziale tranquillo" e "adiacente alla tangenziale". Capisce quando un box auto è incluso nel prezzo o venduto separatamente. Filtra i box-auto presentati come appartamenti (sì, succede).</p>
+                    <p>Solo gli annunci classificati come "pertinenti" arrivano su Telegram. Nessun falso positivo, nessun rumore.</p>
+
+                    <h2>La deduplication su Google Sheets</h2>
+                    <p>Ogni annuncio su Subito ha un ID univoco nell'URL. Prima di inviare qualsiasi notifica, il workflow controlla se quell'ID è già presente nel foglio Google. Se c'è: skip. Se non c'è: notifica + aggiunta al foglio con timestamp.</p>
+                    <p>Il foglio funziona come una coda a finestra scorrevole: ogni mese pulisco le righe più vecchie di 30 giorni. Questo permette di rinotificare annunci che nel frattempo sono stati aggiornati con un prezzo diverso, senza continuare ad accumulare dati.</p>
+                    <p>Google Sheets è la scelta più pragmatica qui. Potrebbe essere un database SQLite, ma Sheets mi permette di guardare la lista degli annunci già visti dal telefono, senza aprire nessuno strumento.</p>
+
+                    <h2>Risultati dopo 3 mesi</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card"><div class="stat-number">2.400</div><div class="stat-label">Annunci monitorati</div></div>
+                        <div class="stat-card"><div class="stat-number">47</div><div class="stat-label">Notifiche ricevute</div></div>
+                        <div class="stat-card"><div class="stat-number">11</div><div class="stat-label">Annunci visitati</div></div>
+                        <div class="stat-card"><div class="stat-number">2</div><div class="stat-label">Trattative avviate</div></div>
+                        <div class="stat-card"><div class="stat-number">0</div><div class="stat-label">Ore/settimana</div></div>
+                    </div>
+                    <p>Il tasso di filtraggio è circa 98%: su 2.400 annunci passati, solo 47 sono arrivati su Telegram. Di quelli, 11 valevano una visita. Tempo dedicato alla ricerca ogni settimana: solo quello di leggere le notifiche quando arrivano.</p>
+
+                    <h2>Come replicarlo</h2>
+                    <p>Il workflow JSON è disponibile nel repository pubblico su GitHub. I prerequisiti sono: n8n self-hosted (va bene anche su un Raspberry Pi), una Gemini API key (il tier gratuito copre abbondantemente il volume di richieste), accesso a Google Sheets API.</p>
+                    <p>Il setup iniziale richiede circa 2 ore, prevalentemente per configurare i filtri Subito e le credenziali Google. Dopodiché il sistema gira da solo — l'unica manutenzione ricorrente è pulire il foglio Sheets una volta al mese.</p>
+
+                    <blockquote>Il vantaggio non è la velocità — è l'attenzione selettiva. Ricevo solo ciò che conta, quando conta. L'AI non trova la casa: ti fa risparmiare il tempo di cercarla nel posto sbagliato.</blockquote>
+
+                </article>
+
+                <div class="article-cta">
+                    <h3>Vuoi costruire il tuo PropertyFinder?</h3>
+                    <p>Ogni settimana: workflow n8n pratici, AI applicata a problemi reali.</p>
+                    <form class="newsletter-inline" action="https://app.brevo.com/newsletter/subscribe" method="post" target="_blank">
+                        <input type="email" name="EMAIL" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/social-publisher-n8n.html">← Social Publisher n8n</a>
+                    <a href="/blog/digest-ai-notizie-gemini.html">Digest AI →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>
