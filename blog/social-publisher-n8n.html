@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Come ho automatizzato Instagram, Facebook e LinkedIn con n8n — Gianluca Demontis</title>
     <meta name="description" content="Come ho costruito un sistema n8n che pubblica ogni mattina su Instagram, Facebook e LinkedIn partendo da file .md. Architettura, errori reali, costo zero.">
+    <meta name="author" content="Gianluca Demontis">
     <link rel="canonical" href="https://gianlucademontis.xyz/blog/social-publisher-n8n.html">
     <meta property="og:title" content="Come ho automatizzato Instagram, Facebook e LinkedIn con n8n">
     <meta property="og:description" content="Un workflow n8n che legge file .md e pubblica ogni mattina su 3 piattaforme. Token Meta, JSON rotti, previewText sanitizzato: gli errori che nessuna guida racconta.">
@@ -20,16 +21,40 @@
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="2026-08-03">
     <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Automation">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Come ho automatizzato Instagram, Facebook e LinkedIn con n8n">
+    <meta name="twitter:description" content="Un workflow n8n che legge file .md e pubblica ogni mattina su 3 piattaforme. Token Meta, JSON rotti, previewText sanitizzato: gli errori che nessuna guida racconta.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Come ho automatizzato Instagram, Facebook e LinkedIn con n8n",
-      "datePublished": "2026-08-03",
-      "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
-      "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
-      "description": "Come ho costruito un sistema n8n che pubblica ogni mattina su Instagram, Facebook e LinkedIn partendo da file .md. Architettura, errori reali, costo zero."
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Come ho automatizzato Instagram, Facebook e LinkedIn con n8n",
+        "datePublished": "2026-08-03",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/blog/social-publisher-n8n.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/blog/social-publisher-n8n.html"},
+        "inLanguage": "it-IT",
+        "articleSection": "Automation",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Come ho costruito un sistema n8n che pubblica ogni mattina su Instagram, Facebook e LinkedIn partendo da file .md. Architettura, errori reali, costo zero."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Come ho automatizzato Instagram, Facebook e LinkedIn con n8n", "item": "https://gianlucademontis.xyz/blog/social-publisher-n8n.html"}
+        ]
+      }
+    ]
     </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/styles.css">
@@ -162,6 +187,14 @@
                     <p>Il terzo punto è il più interessante — e il più ambizioso. Ma questo lo racconto in un prossimo articolo.</p>
 
                 </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Leggi anche</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/blog/n8n-backup-automatico.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Workflow n8n per il backup automatico dei workflow e configurazioni su Google Drive</a></li>
+                        <li><a href="/blog/property-finder-n8n-telegram.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">PropertyFinder: monitorare automaticamente il mercato immobiliare con n8n, Gemini e Google Sheets</a></li>
+                    </ul>
+                </aside>
 
                 <div class="article-cta">
                     <h3>Vuoi costruire la tua automazione social?</h3>
