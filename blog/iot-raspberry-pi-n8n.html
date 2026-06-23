@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IoT con Raspberry Pi: Monitoraggio Real-time con n8n — Gianluca Demontis</title>
     <meta name="description" content="Come ho costruito un sistema di monitoraggio della temperatura con Raspberry Pi 5, sensore DHT22, n8n e Grafana — completamente in locale, senza cloud, con alert Telegram.">
+    <meta name="author" content="Gianluca Demontis">
     <link rel="canonical" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html">
     <meta property="og:title" content="IoT con Raspberry Pi: Monitoraggio Real-time con n8n">
     <meta property="og:description" content="Monitoraggio temperatura real-time con Raspberry Pi 5, DHT22, n8n e Grafana. Smart home in locale senza cloud, con alert automatici su Telegram.">
@@ -20,16 +21,40 @@
     <meta property="og:type" content="article">
     <meta property="article:published_time" content="2026-06-25">
     <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="IoT">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IoT con Raspberry Pi: Monitoraggio Real-time con n8n">
+    <meta name="twitter:description" content="Monitoraggio temperatura real-time con Raspberry Pi 5, DHT22, n8n e Grafana. Smart home in locale senza cloud, con alert automatici su Telegram.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "IoT con Raspberry Pi: Monitoraggio Real-time con n8n",
-      "datePublished": "2026-06-25",
-      "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
-      "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
-      "description": "Monitoraggio temperatura real-time con Raspberry Pi 5, DHT22, n8n e Grafana, in locale e senza cloud."
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "IoT con Raspberry Pi: Monitoraggio Real-time con n8n",
+        "datePublished": "2026-06-25",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html"},
+        "inLanguage": "it-IT",
+        "articleSection": "IoT",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Monitoraggio temperatura real-time con Raspberry Pi 5, DHT22, n8n e Grafana, in locale e senza cloud."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "IoT con Raspberry Pi: Monitoraggio Real-time con n8n", "item": "https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html"}
+        ]
+      }
+    ]
     </script>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/styles.css">
@@ -139,6 +164,14 @@
                     <p>Con meno di cento euro di hardware e qualche ora di smanettamento, ho un sistema di monitoraggio ambientale che è tutto mio: nessun abbonamento, nessun dato che esce di casa, totale libertà di modificarlo. È il piccolo progetto perfetto per capire come si parlano sensori, automazione e visualizzazione.</p>
                     <p>L'IoT fai-da-te non è solo un hobby: è il modo migliore per riprendere il controllo della tecnologia che ci circonda. Se questi temi ti appassionano, iscriviti alla newsletter — il prossimo articolo lo dedico proprio all'automazione di una presa smart.</p>
                 </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Leggi anche</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/blog/n8n-backup-automatico.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Workflow n8n per il backup automatico dei progetti su Google Drive con controllo di integrità</a></li>
+                        <li><a href="/blog/social-publisher-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Come automatizzare la pubblicazione sui social con n8n su Raspberry Pi</a></li>
+                    </ul>
+                </aside>
 
                 <div class="article-cta">
                     <h3>Vuoi altri progetti IoT e di Automazione?</h3>
