@@ -42,7 +42,7 @@
         "email": "info@gianlucademontis.xyz",
         "jobTitle": "Docente di sostegno, Tech Coach & Autore",
         "description": "Docente di sostegno di ruolo dal 1992 (30+ anni) presso l'IIS G. Brotzu di Quartu Sant'Elena, tutor ICT per il TFA Sostegno dell'Università di Cagliari e formatore PNRR su intelligenza artificiale, Google Workspace e didattica inclusiva. Autore del libro \"Intelligenza Artificiale per la Didattica Inclusiva\", guida operativa per insegnanti di sostegno su AI e DSA/BES.",
-        "knowsAbout": ["Intelligenza artificiale nella didattica inclusiva", "DSA e BES", "PDP e PEI", "Automazione n8n", "AI su Raspberry Pi", "Google Workspace for Education"],
+        "knowsAbout": ["Intelligenza artificiale nella didattica inclusiva", "DSA e BES", "PDP e PEI", "Automazione n8n", "AI su Raspberry Pi", "Google Workspace for Education", "Produzione musicale AI"],
         "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
         "sameAs": [
           "https://www.youtube.com/@GianlucaDemontis",
@@ -50,7 +50,70 @@
           "https://github.com/giandemoncell-prog",
           "https://www.instagram.com/gianlucademontis",
           "https://www.facebook.com/gianlucademontis/",
-          "https://www.tiktok.com/@gianlucademontis"
+          "https://www.tiktok.com/@gianluca_3d",
+          "https://www.amazon.com/author/gianluca-demontis"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Bachata Vibes Music",
+        "url": "https://gianlucademontis.xyz/#bvm",
+        "founder": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+        "description": "Piattaforma di content automation musicale AI-powered: produzione e distribuzione quotidiana di brani bachata, salsa e merengue su YouTube, Facebook, Instagram e TikTok.",
+        "sameAs": [
+          "https://www.youtube.com/@BachataVibesMusic",
+          "https://www.instagram.com/bachatavibesmusic",
+          "https://www.facebook.com/BachataVibesMusic",
+          "https://www.tiktok.com/@bachatavibesmusic",
+          "https://www.linkedin.com/in/bachata-vibes-music/",
+          "https://open.spotify.com/intl-it/album/0sCdq3n9MbULL3kLv8gz4u"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Guerda",
+        "genre": "Kompa",
+        "description": "Artista musicale di fusione Kompa Haiti-Italia. Prodotto e distribuito da Bachata Vibes Music.",
+        "recordLabel": {"@type": "Organization", "name": "Bachata Vibes Music", "url": "https://gianlucademontis.xyz/#bvm"},
+        "sameAs": [
+          "https://www.youtube.com/@guerdarigaud",
+          "https://www.instagram.com/guerdakompa",
+          "https://www.facebook.com/guerda.kompa",
+          "https://www.tiktok.com/@guerdarigaud",
+          "https://www.linkedin.com/in/guerdarigaud/"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Chi è Gianluca Demontis?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Gianluca Demontis è insegnante di ruolo, Funzione Strumentale Area 6 e amministratore Google Workspace for Education presso un istituto superiore in Sardegna. Ha oltre 40 anni di esperienza IT, è autore del libro \"AI e DSA\" e ha fondato Bachata Vibes Music."}
+          },
+          {
+            "@type": "Question",
+            "name": "Cos'è Bachata Vibes Music?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Bachata Vibes Music è una piattaforma di produzione e distribuzione musicale assistita da intelligenza artificiale, fondata da Gianluca Demontis. Pubblica quotidianamente brani di bachata, salsa e merengue su YouTube, Facebook, Instagram e TikTok."}
+          },
+          {
+            "@type": "Question",
+            "name": "Come funziona la generazione musicale AI nella pipeline di BVM?",
+            "acceptedAnswer": {"@type": "Answer", "text": "La pipeline gira su un Raspberry Pi 5 orchestrato da n8n: genera i brani con Suno, produce i video con FFmpeg/NVENC e pubblica automaticamente su tutte le piattaforme social, senza intervento manuale quotidiano."}
+          },
+          {
+            "@type": "Question",
+            "name": "Chi può commissionare un brano o un jingle a BVM?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Bachata Vibes Music produce brani e jingle su commissione per artisti indipendenti e aziende, come Guerda, Serena Infissi e Il Mastro Dance School. Il contatto è info@gianlucademontis.xyz."}
+          },
+          {
+            "@type": "Question",
+            "name": "Che differenza c'è tra Bachata Vibes Music e Guerda?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Bachata Vibes Music è la piattaforma/etichetta che produce e distribuisce musica con AI. Guerda è un artista — fusione Kompa Haiti-Italia — che usa la pipeline di BVM per produrre e pubblicare i propri brani, come il singolo \"Doudou Mwen\"."}
+          }
         ]
       },
       {
@@ -91,8 +154,10 @@
                 <ul class="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">Chi Sono</a></li>
+                    <li><a href="#bvm">BVM</a></li>
                     <li><a href="#projects">Progetti</a></li>
                     <li><a href="#blog">Blog</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contatti</a></li>
                 </ul>
             </div>
@@ -124,7 +189,8 @@
             <h2 class="section-title">Chi Sono</h2>
             <div class="about-content">
                 <p class="about-intro">Metto insieme didattica, automazione e creatività per costruire percorsi formativi, flussi di lavoro intelligenti e progetti tecnologici che abbiano un impatto concreto sulla vita quotidiana.</p>
-                
+                <p class="about-bio">Sono insegnante di ruolo, Funzione Strumentale Area 6 e amministratore Google Workspace for Education presso un istituto superiore in provincia di Cagliari. Ho oltre 40 anni di esperienza nel settore IT e sono maker (elettronica, stampa 3D, microcontrollori ESP32 e Raspberry Pi). Sono stato tutor TFA Sostegno ICT presso l'Università di Cagliari e nel giugno 2026 ho pubblicato il libro <a href="/libro/">"AI e DSA" — Intelligenza Artificiale per la Didattica Inclusiva</a> (ISBN 979-8199511032). Ho fondato e gestisco <a href="#bvm">Bachata Vibes Music</a>, la piattaforma di content automation musicale con cui produco e distribuisco brani per artisti come <a href="#clienti">Guerda</a> e per clienti B2B. Vivo e lavoro in Sardegna.</p>
+
                 <div class="about-grid">
                     <div class="about-card">
                         <div class="card-icon">🎓</div>
@@ -150,9 +216,10 @@
                         <p>Produzione e distribuzione automatizzata di contenuti musicali con AI su YouTube, Facebook, Instagram e TikTok.</p>
                         <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
                             <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
-                            <a href="https://www.instagram.com/bachatavibes.music" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
+                            <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
                             <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
                             <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
+                            <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
                         </div>
                     </div>
 
@@ -162,6 +229,107 @@
                         <p>Supporto progetti e innovazione in ambito scolastico. Porto avanti progetti in real estate, energie rinnovabili e criptovalute, con focus su analisi di redditività e sostenibilità.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BVM Section -->
+    <section id="bvm" class="about" style="background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);">
+        <div class="container">
+            <h2 class="section-title">Bachata Vibes Music</h2>
+            <p class="intro-text">Piattaforma di content automation musicale AI-powered, fondata e gestita da <a href="#about">Gianluca Demontis</a>.</p>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">🎧</div>
+                    <h3>Cos'è</h3>
+                    <p>Bachata Vibes Music è una piattaforma di produzione e distribuzione musicale assistita da intelligenza artificiale. Pubblica quotidianamente brani originali di bachata, salsa e merengue su YouTube, Facebook, Instagram e TikTok, oltre agli album su Spotify — l'ultimo, "Bachata Vibes Music Collection Vol.1", conta 26 tracce.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Come funziona</h3>
+                    <p>La pipeline gira su un Raspberry Pi 5 con oltre 30 script Python orchestrati da n8n: generazione musicale con Suno, produzione video con FFmpeg/NVENC e pubblicazione automatica multi-piattaforma, senza intervento manuale quotidiano.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">💡</div>
+                    <h3>Perché esiste</h3>
+                    <p>BVM nasce come esperimento di visibilità social a basso costo: prima di monetizzare, testa quali generi, formati e orari funzionano meglio su ogni piattaforma — una vera e propria market research automatizzata, gestita da <a href="#about">Gianluca Demontis</a>.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; justify-content: center;">
+                <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
+                <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
+                <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
+                <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
+                <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
+                <a href="https://open.spotify.com/intl-it/album/0sCdq3n9MbULL3kLv8gz4u" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♫ Spotify</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clienti Section -->
+    <section id="clienti" class="projects" style="background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);">
+        <div class="container">
+            <h2 class="section-title">Clienti e progetti gestiti</h2>
+            <p class="projects-intro">Bachata Vibes Music produce e distribuisce contenuti musicali per artisti indipendenti e aziende, usando la stessa infrastruttura di automazione.</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Guerda</h3>
+                    <div class="repo-slug">artista · Kompa Haiti-Italia</div>
+                    <p>Guerda è un artista di fusione Kompa Haiti-Italia e il primo caso d'uso artistico gestito da Bachata Vibes Music: dalla generazione del brano "Doudou Mwen" con Suno alla pubblicazione cross-platform su YouTube, Facebook, Instagram, TikTok e LinkedIn, tramite la stessa pipeline di automazione di BVM.</p>
+                    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+                        <a href="https://www.youtube.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
+                        <a href="https://www.instagram.com/guerdakompa" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
+                        <a href="https://www.facebook.com/guerda.kompa" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
+                        <a href="https://www.tiktok.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
+                        <a href="https://www.linkedin.com/in/guerdarigaud/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Serena Infissi</h3>
+                    <div class="repo-slug">B2B · jingle brandizzato</div>
+                    <p>Serena Infissi è stato il primo cliente commerciale di Bachata Vibes Music: un jingle musicale brandizzato prodotto con AI e distribuito sui canali social dell'azienda.</p>
+                    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+                        <a href="https://www.serenainfissi.it/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">🌐 Sito</a>
+                        <a href="https://www.tiktok.com/@serenainfissi" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Il Mastro Dance School</h3>
+                    <div class="repo-slug">scuola di ballo · Casnate con Bernate (Como)</div>
+                    <p>Scuola di ballo attiva dal 2009 a Casnate con Bernate (Como), circa 500 m² di sale per corsi di salsa, bachata, kizomba, boogie, tango, liscio, swing e pilates, con una community social di oltre 2.500 follower su Instagram e 4.300 fan su Facebook. Bachata Vibes Music ha fornito basi musicali personalizzate — salsa, bachata, merengue — per uso didattico nei corsi.</p>
+                    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+                        <a href="https://www.ilmastro.net/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">🌐 Sito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="about" style="background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);">
+        <div class="container">
+            <h2 class="section-title">Domande frequenti</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Chi è Gianluca Demontis?</summary>
+                    <p>Gianluca Demontis è insegnante di ruolo, Funzione Strumentale Area 6 e amministratore Google Workspace for Education presso un istituto superiore in Sardegna. Ha oltre 40 anni di esperienza IT, è autore del libro "AI e DSA" e ha fondato Bachata Vibes Music.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Cos'è Bachata Vibes Music?</summary>
+                    <p>Bachata Vibes Music è una piattaforma di produzione e distribuzione musicale assistita da intelligenza artificiale, fondata da Gianluca Demontis. Pubblica quotidianamente brani di bachata, salsa e merengue su YouTube, Facebook, Instagram e TikTok.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Come funziona la generazione musicale AI nella pipeline di BVM?</summary>
+                    <p>La pipeline gira su un Raspberry Pi 5 orchestrato da n8n: genera i brani con Suno, produce i video con FFmpeg/NVENC e pubblica automaticamente su tutte le piattaforme social, senza intervento manuale quotidiano.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Chi può commissionare un brano o un jingle a BVM?</summary>
+                    <p>Bachata Vibes Music produce brani e jingle su commissione per artisti indipendenti e aziende, come Guerda, Serena Infissi e Il Mastro Dance School. Il contatto è <a href="mailto:info@gianlucademontis.xyz">info@gianlucademontis.xyz</a>.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Che differenza c'è tra Bachata Vibes Music e Guerda?</summary>
+                    <p>Bachata Vibes Music è la piattaforma/etichetta che produce e distribuisce musica con AI. Guerda è un artista — fusione Kompa Haiti-Italia — che usa la pipeline di BVM per produrre e pubblicare i propri brani, come il singolo "Doudou Mwen".</p>
+                </details>
             </div>
         </div>
     </section>
@@ -187,9 +355,22 @@
                         <p>Produzione e distribuzione automatizzata di contenuti musicali su YouTube, Facebook, Instagram e TikTok.</p>
                         <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
                             <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
-                            <a href="https://www.instagram.com/bachatavibes.music" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
+                            <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
                             <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
                             <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
+                            <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Guerda Music — Kompa AI</h3>
+                        <div class="repo-slug">musica · AI · pipeline multi-lingua</div>
+                        <p>Pipeline AI che trasforma voce registrata in canzoni kompa complete con Suno e le pubblica in 4 lingue su YouTube, Facebook, Instagram e TikTok. Fork indipendente della suite BVM.</p>
+                        <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+                            <a href="https://www.youtube.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
+                            <a href="https://www.instagram.com/guerdakompa" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
+                            <a href="https://www.facebook.com/guerda.kompa" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
+                            <a href="https://www.tiktok.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
+                            <a href="https://www.linkedin.com/in/guerdarigaud/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
                         </div>
                     </div>
                     <div class="project-card">

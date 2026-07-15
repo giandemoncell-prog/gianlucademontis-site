@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guerda Music: la pipeline AI che pubblica canzoni kompa in 4 lingue — Gianluca Demontis</title>
+    <meta name="description" content="Come funziona la pipeline di Guerda Music: voce vera registrata, canzoni kompa generate con Suno, pubblicazione automatica in 4 lingue su YouTube, Facebook, Instagram, TikTok e LinkedIn.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html">
+    <meta property="og:title" content="Guerda Music: la pipeline AI che pubblica canzoni kompa in 4 lingue">
+    <meta property="og:description" content="Una voce vera, Suno per la produzione, publisher automatici su 5 piattaforme. Cosa ho automatizzato e cosa ho lasciato volutamente umano, e perché.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-07-22">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="AI">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guerda Music: la pipeline AI che pubblica canzoni kompa in 4 lingue">
+    <meta name="twitter:description" content="Una voce vera, Suno per la produzione, publisher automatici su 5 piattaforme. Cosa ho automatizzato e cosa ho lasciato volutamente umano.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Guerda Music: la pipeline AI che pubblica canzoni kompa in 4 lingue",
+        "datePublished": "2026-07-22",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html"},
+        "inLanguage": "it-IT",
+        "articleSection": "AI",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Come funziona la pipeline di Guerda Music: voce vera registrata, canzoni kompa generate con Suno, pubblicazione automatica in 4 lingue su YouTube, Facebook, Instagram, TikTok e LinkedIn."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Guerda Music: la pipeline AI che pubblica canzoni kompa in 4 lingue", "item": "https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body code { background: rgba(0,217,255,0.08); color: var(--primary-color); padding: 0.15em 0.45em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .arch-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .arch-table th { text-align: left; color: var(--text-secondary); font-weight: 600; padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .arch-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); vertical-align: top; }
+        .arch-table td:first-child { color: var(--primary-color); font-family: 'Courier New', monospace; font-size: 0.9em; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <ul class="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">AI</span>
+                        <span class="blog-date">22 Luglio 2026</span>
+                        <span class="blog-date">· 8 min di lettura</span>
+                    </div>
+                    <h1>Guerda Music: la pipeline che trasforma una voce vera in canzoni kompa pubblicate in 4 lingue</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Guerda è un'artista haitiana che vive in Italia da decenni e canta kompa, il genere musicale nazionale di Haiti. La sua voce è sempre stata vera — quello che è cambiato è tutto quello che succede dopo la registrazione. <strong>Ho costruito una pipeline che porta ogni canzone dalla voce grezza alla pubblicazione su 5 piattaforme, in 4 lingue, quasi senza intervento manuale.</strong></p>
+                </header>
+
+                <article class="article-body">
+
+                    <h2>Il punto di partenza: la voce resta umana</h2>
+                    <p>Il vincolo di progetto più importante non è tecnico, è editoriale: la voce di ogni canzone deve essere quella vera di Guerda, registrata così com'è. Tutto il resto — arrangiamento, produzione, adattamento in altre lingue — può essere generato, ma la voce no. È la differenza tra "musica fatta con l'AI" e "musica di un'artista vera, prodotta con strumenti AI".</p>
+
+                    <h2>Il flusso di produzione</h2>
+                    <p>Guerda deposita una registrazione vocale grezza in una cartella. Da lì la pipeline prende il sopravvento:</p>
+
+                    <table class="arch-table">
+                        <thead><tr><th>Fase</th><th>Cosa succede</th></tr></thead>
+                        <tbody>
+                            <tr><td>1. Ingestione</td><td><code>voice_ingest.py</code> legge il file audio e chiede titolo, tema e lingua</td></tr>
+                            <tr><td>2. Produzione</td><td><code>audio_suno.py</code> apre una sessione Suno condivisa e genera la traccia kompa completa sulla voce-persona di Guerda</td></tr>
+                            <tr><td>3. Video</td><td><code>video_render.py</code> compone il video finale via FFmpeg, con il brand visivo di Guerda già bruciato nei pixel</td></tr>
+                            <tr><td>4. Distribuzione</td><td><code>distribute_posts.py</code> genera le cartelle <code>post_pronti/</code> pronte per ogni piattaforma e lingua</td></tr>
+                            <tr><td>5. Pubblicazione</td><td>publisher dedicati per FB, YT, IG, TikTok, LinkedIn</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>Ogni canzone esce in <strong>quattro lingue</strong> — italiano, francese, inglese, spagnolo — perché la diaspora haitiana in Europa, Nord America e Canada parla tutte queste lingue, spesso nella stessa famiglia.</p>
+
+                    <h2>Automatico ovunque sia sicuro farlo</h2>
+                    <p>Facebook, YouTube e Instagram sono completamente automatizzati su un Raspberry Pi con una coda locale, schedulati via cron sfalsati per non sovrapporsi. Ma "automatizzare tutto" non è stato l'obiettivo — lo è stato "automatizzare quanto la piattaforma lo permette in sicurezza".</p>
+
+                    <p><strong>Instagram è stato il rompicapo più interessante.</strong> La Graph API richiede un URL pubblico per i media, e ogni tentativo ovvio ha trovato un muro diverso: Google Drive personale con quota esaurita, un servizio di hosting temporaneo bloccato dal firewall locale, ngrok bloccato da un'ispezione TLS. La soluzione finale è stata la più semplice: un repository GitHub pubblico dedicato che ospita solo i video renderizzati, servito via <code>raw.githubusercontent.com</code>. Nessuna dipendenza da quote o servizi terzi instabili.</p>
+
+                    <h2>Dove ho scelto di non automatizzare</h2>
+                    <p>TikTok e LinkedIn restano semi-assistiti, e non per un limite tecnico che non sono riuscito a risolvere — per scelta.</p>
+
+                    <p><strong>TikTok</strong> blocca il login automatico (rilevamento anti-bot su cookie di sessione), ma non blocca la navigazione una volta loggati manualmente. La pipeline usa quindi una sessione Playwright persistente, aperta con un login umano una tantum, per compilare caption e pubblicare senza dover rifare l'accesso ogni volta.</p>
+
+                    <p><strong>LinkedIn</strong> è un caso diverso: qui il limite non è tecnico ma di policy. LinkedIn vieta esplicitamente l'uso di bot per pubblicare e sospende account — specialmente profili personali come quello di Guerda, non pagine aziendali — in modo più aggressivo di altre piattaforme. Ho costruito un sistema "compose-only": lo script apre l'editor, incolla la caption, verifica che sia stata inserita correttamente, e poi <strong>si ferma e aspetta</strong> che sia una persona a cliccare "Pubblica". Non un compromesso tecnico, una scelta di rischio: anche un post a settimana pubblicato da un bot resterebbe automazione non consentita, indipendentemente dal volume.</p>
+
+                    <blockquote>Automatizzare tutto quello che si può non significa automatizzare tutto quello che si potrebbe tecnicamente fare. Il click finale su "Pubblica", su LinkedIn, resta sempre umano — per scelta, non per un bug che non sono riuscito a risolvere.</blockquote>
+
+                    <h2>Un fork, non un progetto da zero</h2>
+                    <p>Tecnicamente Guerda Music è un fork indipendente della suite di Bachata Vibes Music: stesso account Suno condiviso, stesso Raspberry Pi per la pubblicazione, stessa macchina Windows con GPU per il rendering FFmpeg. Cartelle isolate, tracker separati, ma infrastruttura riusata — costruire il secondo artista è costato una frazione del tempo del primo.</p>
+
+                    <h2>Cosa aggiungerei</h2>
+                    <p>Una volta completata la verifica d'identità richiesta da LinkedIn per riattivare la pubblicazione via API su pagina aziendale, e uno storico caption per non ripetere mai la stessa struttura testuale su brani consecutivi nella stessa lingua.</p>
+
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Leggi anche</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/blog/bivio-comparatore-prezzi.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">BIVIO: comparatore prezzi multi-piattaforma con FastAPI e Gemini</a></li>
+                        <li><a href="/blog/social-publisher-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Come ho automatizzato Instagram, Facebook e LinkedIn con n8n</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>Vuoi vedere altri progetti come questo?</h3>
+                    <p>Ogni settimana: workflow n8n, progetti Python e AI applicata, senza fuffa.</p>
+                    <form class="newsletter-inline" action="https://app.brevo.com/newsletter/subscribe" method="post" target="_blank">
+                        <input type="email" name="EMAIL" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/bivio-comparatore-prezzi.html">← BIVIO</a>
+                    <a href="/blog/social-publisher-n8n.html">Social Publisher n8n →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>

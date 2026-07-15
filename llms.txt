@@ -1,17 +1,49 @@
 # Gianluca Demontis
 
-> Docente di sostegno di ruolo dal 1992 (30+ anni), IIS "G. Brotzu" di Quartu Sant'Elena. Tutor ICT per il TFA Sostegno dell'Università di Cagliari e formatore PNRR su intelligenza artificiale e didattica inclusiva. Tech coach e sviluppatore di strumenti AI per la scuola.
+> Tech Coach, insegnante e AI Developer a Cagliari (Sardegna). Automazione contenuti con AI: n8n, Raspberry Pi, Claude Code. Autore del libro "AI e DSA" (Intelligenza Artificiale per la Didattica Inclusiva, ISBN 979-8199511032). Fondatore e responsabile di Bachata Vibes Music.
 
-## Libro
+Gianluca Demontis è insegnante di ruolo, Funzione Strumentale Area 6 e amministratore Google Workspace for Education presso un istituto superiore in Sardegna. Ha oltre 40 anni di esperienza nel settore IT ed è maker (elettronica, stampa 3D, microcontrollori ESP32 e Raspberry Pi). È stato tutor TFA Sostegno ICT presso l'Università di Cagliari. Vive e lavora in Sardegna.
 
-- [Intelligenza Artificiale per la Didattica Inclusiva](https://gianlucademontis.xyz/libro/): guida operativa per insegnanti di sostegno su come usare l'intelligenza artificiale (Gemini, NotebookLM, Gems) per adattare testi, creare infografiche e slide per studenti con DSA e BES, con prompt pronti in 10 minuti. Autore: Gianluca Demontis. Disponibile su Amazon (ebook e cartaceo, acquistabile con la Carta del Docente).
+## Relazioni tra entità
 
-## Chi sono
+- **Gianluca Demontis** (persona) — insegnante, autore, AI developer. Ha fondato e gestisce Bachata Vibes Music.
+- **Bachata Vibes Music** (piattaforma/etichetta) — fondata da Gianluca Demontis. Piattaforma di content automation musicale AI-powered: genera brani con Suno, li produce con FFmpeg/NVENC su Raspberry Pi 5 orchestrato da n8n, e li pubblica quotidianamente su YouTube, Facebook, Instagram, TikTok e Spotify.
+- **Guerda** (artista) — fusione musicale Kompa Haiti-Italia, prodotto e distribuito da Bachata Vibes Music (singolo "Doudou Mwen").
+- **Serena Infissi** e **Il Mastro Dance School** — clienti B2B di Bachata Vibes Music (jingle brandizzato e basi musicali personalizzate per corsi di ballo).
 
-- [Homepage](https://gianlucademontis.xyz/): profilo professionale completo — didattica inclusiva, automazione n8n, AI su Raspberry Pi, formazione digitale.
-- [Blog](https://gianlucademontis.xyz/blog/): articoli su automazione AI, n8n, Raspberry Pi.
+## Pagine principali
 
-## Contatti
+- [Home](https://gianlucademontis.xyz/): bio completa, sezione Bachata Vibes Music, clienti gestiti, FAQ, progetti open source, blog, contatti
+- [Blog](https://gianlucademontis.xyz/blog/): articoli su automazione n8n, AI su Raspberry Pi, EdTech
+- [Libro "AI e DSA"](https://gianlucademontis.xyz/libro/): guida pratica per insegnanti sull'uso dell'AI per la didattica inclusiva, disponibile su Amazon
+- [Link utili](https://gianlucademontis.xyz/links/): raccolta link social e progetti
 
-- Email: info@gianlucademontis.xyz
+## Progetti open source
+
+- [GitHub](https://github.com/giandemoncell-prog): workflow n8n, skill Claude Code, tool AI su Raspberry Pi, app e strumenti
+
+## Social e profili
+
 - LinkedIn: https://www.linkedin.com/in/gianlucademontis
+- YouTube: https://www.youtube.com/@GianlucaDemontis
+- Instagram: https://www.instagram.com/gianlucademontis
+- Facebook: https://www.facebook.com/gianlucademontis/
+- TikTok: https://www.tiktok.com/@gianluca_3d
+- Amazon (pagina autore): https://www.amazon.com/author/gianluca-demontis
+
+## Bachata Vibes Music
+
+- YouTube: https://www.youtube.com/@BachataVibesMusic
+- Instagram: https://www.instagram.com/bachatavibesmusic
+- Facebook: https://www.facebook.com/BachataVibesMusic
+- TikTok: https://www.tiktok.com/@bachatavibesmusic
+- LinkedIn: https://www.linkedin.com/in/bachata-vibes-music/
+- Spotify: https://open.spotify.com/intl-it/album/0sCdq3n9MbULL3kLv8gz4u
+
+## Guerda
+
+- YouTube: https://www.youtube.com/@guerdarigaud
+- Instagram: https://www.instagram.com/guerdakompa
+- Facebook: https://www.facebook.com/guerda.kompa
+- TikTok: https://www.tiktok.com/@guerdarigaud
+- LinkedIn: https://www.linkedin.com/in/guerdarigaud/
