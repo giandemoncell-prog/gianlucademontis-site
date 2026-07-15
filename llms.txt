@@ -1,0 +1,17 @@
+# Gianluca Demontis
+
+> Docente di sostegno di ruolo dal 1992 (30+ anni), IIS "G. Brotzu" di Quartu Sant'Elena. Tutor ICT per il TFA Sostegno dell'Università di Cagliari e formatore PNRR su intelligenza artificiale e didattica inclusiva. Tech coach e sviluppatore di strumenti AI per la scuola.
+
+## Libro
+
+- [Intelligenza Artificiale per la Didattica Inclusiva](https://gianlucademontis.xyz/libro/): guida operativa per insegnanti di sostegno su come usare l'intelligenza artificiale (Gemini, NotebookLM, Gems) per adattare testi, creare infografiche e slide per studenti con DSA e BES, con prompt pronti in 10 minuti. Autore: Gianluca Demontis. Disponibile su Amazon (ebook e cartaceo, acquistabile con la Carta del Docente).
+
+## Chi sono
+
+- [Homepage](https://gianlucademontis.xyz/): profilo professionale completo — didattica inclusiva, automazione n8n, AI su Raspberry Pi, formazione digitale.
+- [Blog](https://gianlucademontis.xyz/blog/): articoli su automazione AI, n8n, Raspberry Pi.
+
+## Contatti
+
+- Email: info@gianlucademontis.xyz
+- LinkedIn: https://www.linkedin.com/in/gianlucademontis
