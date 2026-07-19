@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/</loc>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -39,6 +39,12 @@
   <url>
     <loc>https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html</loc>
     <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html</loc>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
