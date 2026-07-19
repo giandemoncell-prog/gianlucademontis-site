@@ -246,6 +246,20 @@
             cursor: pointer;
             font-size: 0.95rem;
         }
+        .libro-esempio { padding: 80px 0; background: rgba(255,255,255,0.02); }
+        .esempio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 40px; }
+        .esempio-col { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px; }
+        .esempio-col h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); margin-bottom: 16px; }
+        .esempio-col p { color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; }
+        .esempio-col.dopo { border-color: rgba(232,119,34,0.3); }
+        .esempio-col.dopo strong { color: var(--text-color); }
+        .libro-recensioni { padding: 80px 0; }
+        .recensioni-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+        .recensione-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 28px; }
+        .recensione-stelle { color: #FF9900; letter-spacing: 2px; margin-bottom: 12px; font-size: 0.9rem; }
+        .recensione-testo { color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; font-style: italic; margin-bottom: 16px; }
+        .recensione-autore { color: var(--text-color); font-size: 0.85rem; font-weight: 600; }
+        .recensione-meta { color: var(--text-secondary); font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -330,6 +344,24 @@
         </div>
     </section>
 
+    <!-- Esempio reale -->
+    <section class="libro-esempio">
+        <div class="container">
+            <h2 class="section-title">Un esempio reale dal libro</h2>
+            <p style="color: var(--text-secondary); max-width: 640px; margin: 16px auto 0; text-align: center; font-size: 1rem;">Capitolo 8, caso Mario (dislessia, discalculia) — stesso testo di storia, adattato con un prompt che parte dal suo Profilo Studente.</p>
+            <div class="esempio-grid">
+                <div class="esempio-col">
+                    <h3>Testo originale (manuale)</h3>
+                    <p>«La questione delle investiture costituì uno dei conflitti più significativi e prolungati del Medioevo europeo, contrapponendo per oltre mezzo secolo il potere temporale degli imperatori germanici all'autorità spirituale e politica del papato...»</p>
+                </div>
+                <div class="esempio-col dopo">
+                    <h3>Adattato per Mario</h3>
+                    <p><strong>Chi si scontrò?</strong> Papa e Imperatore di Germania. Litigarono per molto tempo — oltre 50 anni.<br><br><strong>Perché litigavano?</strong> Chi ha il diritto di scegliere i vescovi? L'imperatore voleva sceglierli lui. Il papa voleva sceglierli lui.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Per chi -->
     <section class="libro-for-whom">
         <div class="container">
@@ -354,6 +386,27 @@
                 <div class="for-whom-card">
                     <div class="for-whom-icon">🏛️</div>
                     <div class="for-whom-title">Dirigenti scolastici</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recensioni -->
+    <section class="libro-recensioni">
+        <div class="container">
+            <h2 class="section-title">Cosa dicono i lettori</h2>
+            <div class="recensioni-grid">
+                <div class="recensione-card">
+                    <div class="recensione-stelle">★★★★★</div>
+                    <p class="recensione-testo">"Non ho ancora finito di leggerlo ma trovo questo libro molto interessante e sicuramente utile! Lo userò sicuramente l'anno prossimo per i miei alunni!"</p>
+                    <div class="recensione-autore">Alessandro</div>
+                    <div class="recensione-meta">Recensione Amazon verificata · 10 giugno 2026</div>
+                </div>
+                <div class="recensione-card">
+                    <div class="recensione-stelle">★★★★★</div>
+                    <p class="recensione-testo">"Un ebook pratico e innovativo che mostra come utilizzare l'Intelligenza Artificiale a supporto degli alunni. Chiaro, ben strutturato e ricco di spunti operativi."</p>
+                    <div class="recensione-autore">Cliente Amazon</div>
+                    <div class="recensione-meta">Recensione Amazon verificata · 8 giugno 2026</div>
                 </div>
             </div>
         </div>
