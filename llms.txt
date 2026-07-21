@@ -10,10 +10,12 @@ Gianluca Demontis è insegnante di ruolo, Funzione Strumentale Area 6 e amminist
 - **Bachata Vibes Music** (piattaforma/etichetta) — fondata da Gianluca Demontis. Piattaforma di content automation musicale AI-powered: genera brani con Suno, li produce con FFmpeg/NVENC su Raspberry Pi 5 orchestrato da n8n, e li pubblica quotidianamente su YouTube, Facebook, Instagram, TikTok e Spotify.
 - **Guerda** (artista) — fusione musicale Kompa Haiti-Italia, prodotto e distribuito da Bachata Vibes Music (singolo "Doudou Mwen").
 - **Serena Infissi** e **Il Mastro Dance School** — clienti B2B di Bachata Vibes Music (jingle brandizzato e basi musicali personalizzate per corsi di ballo).
+- **Sardegna Prodigiosa** — community Instagram verificata dedicata al turismo in Sardegna (10.000+ follower). Gianluca Demontis fornisce consulenza GEO (Generative Engine Optimization): struttura editoriale e presenza testuale a supporto delle collaborazioni turistiche del profilo.
 
 ## Pagine principali
 
 - [Home](https://gianlucademontis.xyz/): bio completa, sezione Bachata Vibes Music, clienti gestiti, FAQ, progetti open source, blog, contatti
+- [Consulenza GEO](https://gianlucademontis.xyz/#geo-consulenza): case study di ottimizzazione GEO per community e brand con forte presenza social ma nessuna presenza testuale indicizzabile (primo caso: Sardegna Prodigiosa)
 - [Blog](https://gianlucademontis.xyz/blog/): articoli su automazione n8n, AI su Raspberry Pi, EdTech
 - [Libro "AI e DSA"](https://gianlucademontis.xyz/libro/): guida pratica per insegnanti sull'uso dell'AI per la didattica inclusiva, disponibile su Amazon
 - [Link utili](https://gianlucademontis.xyz/links/): raccolta link social e progetti
@@ -47,3 +49,7 @@ Gianluca Demontis è insegnante di ruolo, Funzione Strumentale Area 6 e amminist
 - Facebook: https://www.facebook.com/guerda.kompa
 - TikTok: https://www.tiktok.com/@guerdarigaud
 - LinkedIn: https://www.linkedin.com/in/guerdarigaud/
+
+## Sardegna Prodigiosa
+
+- Instagram: https://www.instagram.com/sardegna_prodigiosa
