@@ -144,6 +144,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chatbot-styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -151,7 +152,10 @@
         <div class="container">
             <div class="nav-content">
                 <a href="#" class="logo">GD</a>
-                <ul class="nav-links">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Apri menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#about">Chi Sono</a></li>
                     <li><a href="#bvm">BVM</a></li>
@@ -214,12 +218,12 @@
                         <div class="card-icon">🎵</div>
                         <h3>Bachata Vibes Music</h3>
                         <p>Produzione e distribuzione automatizzata di contenuti musicali con AI su YouTube, Facebook, Instagram e TikTok.</p>
-                        <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
-                            <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
-                            <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
-                            <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
-                            <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
-                            <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
+                        <div class="badge-row">
+                            <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" class="badge-link">▶ YouTube</a>
+                            <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" class="badge-link">📷 Instagram</a>
+                            <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" class="badge-link">f Facebook</a>
+                            <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" class="badge-link">♪ TikTok</a>
+                            <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" class="badge-link">in LinkedIn</a>
                         </div>
                     </div>
 
@@ -256,12 +260,12 @@
                 </div>
             </div>
             <div style="display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; justify-content: center;">
-                <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
-                <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
-                <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
-                <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
-                <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
-                <a href="https://open.spotify.com/intl-it/album/0sCdq3n9MbULL3kLv8gz4u" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♫ Spotify</a>
+                <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" class="badge-link">▶ YouTube</a>
+                <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" class="badge-link">📷 Instagram</a>
+                <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" class="badge-link">f Facebook</a>
+                <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" class="badge-link">♪ TikTok</a>
+                <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" class="badge-link">in LinkedIn</a>
+                <a href="https://open.spotify.com/intl-it/album/0sCdq3n9MbULL3kLv8gz4u" target="_blank" rel="noopener noreferrer" class="badge-link">♫ Spotify</a>
             </div>
         </div>
     </section>
@@ -276,29 +280,29 @@
                     <h3>Guerda</h3>
                     <div class="repo-slug">artista · Kompa Haiti-Italia</div>
                     <p>Guerda è un artista di fusione Kompa Haiti-Italia e il primo caso d'uso artistico gestito da Bachata Vibes Music: dalla generazione del brano "Doudou Mwen" con Suno alla pubblicazione cross-platform su YouTube, Facebook, Instagram, TikTok e LinkedIn, tramite la stessa pipeline di automazione di BVM.</p>
-                    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-                        <a href="https://www.youtube.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
-                        <a href="https://www.instagram.com/guerdakompa" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
-                        <a href="https://www.facebook.com/guerda.kompa" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
-                        <a href="https://www.tiktok.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
-                        <a href="https://www.linkedin.com/in/guerdarigaud/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
+                    <div class="badge-row">
+                        <a href="https://www.youtube.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" class="badge-link">▶ YouTube</a>
+                        <a href="https://www.instagram.com/guerdakompa" target="_blank" rel="noopener noreferrer" class="badge-link">📷 Instagram</a>
+                        <a href="https://www.facebook.com/guerda.kompa" target="_blank" rel="noopener noreferrer" class="badge-link">f Facebook</a>
+                        <a href="https://www.tiktok.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" class="badge-link">♪ TikTok</a>
+                        <a href="https://www.linkedin.com/in/guerdarigaud/" target="_blank" rel="noopener noreferrer" class="badge-link">in LinkedIn</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <h3>Serena Infissi</h3>
                     <div class="repo-slug">B2B · jingle brandizzato</div>
                     <p>Serena Infissi è stato il primo cliente commerciale di Bachata Vibes Music: un jingle musicale brandizzato prodotto con AI e distribuito sui canali social dell'azienda.</p>
-                    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-                        <a href="https://www.serenainfissi.it/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">🌐 Sito</a>
-                        <a href="https://www.tiktok.com/@serenainfissi" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
+                    <div class="badge-row">
+                        <a href="https://www.serenainfissi.it/" target="_blank" rel="noopener noreferrer" class="badge-link">🌐 Sito</a>
+                        <a href="https://www.tiktok.com/@serenainfissi" target="_blank" rel="noopener noreferrer" class="badge-link">♪ TikTok</a>
                     </div>
                 </div>
                 <div class="project-card">
                     <h3>Il Mastro Dance School</h3>
                     <div class="repo-slug">scuola di ballo · Casnate con Bernate (Como)</div>
                     <p>Scuola di ballo attiva dal 2009 a Casnate con Bernate (Como), circa 500 m² di sale per corsi di salsa, bachata, kizomba, boogie, tango, liscio, swing e pilates, con una community social di oltre 2.500 follower su Instagram e 4.300 fan su Facebook. Bachata Vibes Music ha fornito basi musicali personalizzate — salsa, bachata, merengue — per uso didattico nei corsi.</p>
-                    <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-                        <a href="https://www.ilmastro.net/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">🌐 Sito</a>
+                    <div class="badge-row">
+                        <a href="https://www.ilmastro.net/" target="_blank" rel="noopener noreferrer" class="badge-link">🌐 Sito</a>
                     </div>
                 </div>
             </div>
@@ -353,35 +357,35 @@
                         <h3>Bachata Vibes Music</h3>
                         <div class="repo-slug">musica · contenuti digitali · AI</div>
                         <p>Produzione e distribuzione automatizzata di contenuti musicali su YouTube, Facebook, Instagram e TikTok.</p>
-                        <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-                            <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
-                            <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
-                            <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
-                            <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
-                            <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
+                        <div class="badge-row">
+                            <a href="https://www.youtube.com/@BachataVibesMusic" target="_blank" rel="noopener noreferrer" class="badge-link">▶ YouTube</a>
+                            <a href="https://www.instagram.com/bachatavibesmusic" target="_blank" rel="noopener noreferrer" class="badge-link">📷 Instagram</a>
+                            <a href="https://www.facebook.com/BachataVibesMusic" target="_blank" rel="noopener noreferrer" class="badge-link">f Facebook</a>
+                            <a href="https://www.tiktok.com/@bachatavibesmusic" target="_blank" rel="noopener noreferrer" class="badge-link">♪ TikTok</a>
+                            <a href="https://www.linkedin.com/in/bachata-vibes-music/" target="_blank" rel="noopener noreferrer" class="badge-link">in LinkedIn</a>
                         </div>
                     </div>
                     <div class="project-card">
                         <h3>Guerda Music — Kompa AI</h3>
                         <div class="repo-slug">musica · AI · pipeline multi-lingua</div>
                         <p>Pipeline AI che trasforma voce registrata in canzoni kompa complete con Suno e le pubblica in 4 lingue su YouTube, Facebook, Instagram e TikTok. Fork indipendente della suite BVM.</p>
-                        <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-                            <a href="https://www.youtube.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">▶ YouTube</a>
-                            <a href="https://www.instagram.com/guerdakompa" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">📷 Instagram</a>
-                            <a href="https://www.facebook.com/guerda.kompa" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">f Facebook</a>
-                            <a href="https://www.tiktok.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">♪ TikTok</a>
-                            <a href="https://www.linkedin.com/in/guerdarigaud/" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">in LinkedIn</a>
+                        <div class="badge-row">
+                            <a href="https://www.youtube.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" class="badge-link">▶ YouTube</a>
+                            <a href="https://www.instagram.com/guerdakompa" target="_blank" rel="noopener noreferrer" class="badge-link">📷 Instagram</a>
+                            <a href="https://www.facebook.com/guerda.kompa" target="_blank" rel="noopener noreferrer" class="badge-link">f Facebook</a>
+                            <a href="https://www.tiktok.com/@guerdarigaud" target="_blank" rel="noopener noreferrer" class="badge-link">♪ TikTok</a>
+                            <a href="https://www.linkedin.com/in/guerdarigaud/" target="_blank" rel="noopener noreferrer" class="badge-link">in LinkedIn</a>
                         </div>
                     </div>
                     <div class="project-card">
                         <h3>AI per la Didattica Inclusiva</h3>
                         <div class="repo-slug">libro · DSA · insegnanti di sostegno</div>
                         <p>Guida operativa per insegnanti di sostegno: adattare testi, creare infografiche e slide per DSA e BES con prompt pronti in 10 minuti.</p>
-                        <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-                            <a href="https://generatore-dsa.streamlit.app" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">🖥 Demo online</a>
-                            <a href="https://github.com/giandemoncell-prog/generatore-materiali-didattici" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">⌥ GitHub</a>
-                            <a href="https://amzn.to/434R6aA" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(232,119,34,0.08); border: 1px solid rgba(232,119,34,0.35); border-radius: 4px; color: #E87722; text-decoration: none;">📚 Acquista su Amazon</a>
-                            <a href="https://www.amazon.com/author/gianluca-demontis" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(232,119,34,0.08); border: 1px solid rgba(232,119,34,0.35); border-radius: 4px; color: #E87722; text-decoration: none;">👤 Pagina Autore Amazon</a>
+                        <div class="badge-row">
+                            <a href="https://generatore-dsa.streamlit.app" target="_blank" rel="noopener noreferrer" class="badge-link">🖥 Demo online</a>
+                            <a href="https://github.com/giandemoncell-prog/generatore-materiali-didattici" target="_blank" rel="noopener noreferrer" class="badge-link">⌥ GitHub</a>
+                            <a href="https://amzn.to/434R6aA" target="_blank" rel="noopener noreferrer" class="badge-link badge-link-amazon">📚 Acquista su Amazon</a>
+                            <a href="https://www.amazon.com/author/gianluca-demontis" target="_blank" rel="noopener noreferrer" class="badge-link badge-link-amazon">👤 Pagina Autore Amazon</a>
                         </div>
                     </div>
                 </div>
@@ -507,11 +511,11 @@
                         <h3>Drive Organizer</h3>
                         <div class="repo-slug">drive-organizer · python · google-drive · ollama · ai</div>
                         <p>Riorganizza Google Drive con AI cascade privacy-first: 4 strategie, rinomina con Ollama locale, trova duplicati, rollback. EXE Windows standalone.</p>
-                        <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
-                            <a href="https://github.com/giandemoncell-prog/drive-organizer" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">⌥ GitHub</a>
-                            <a href="https://github.com/giandemoncell-prog/drive-organizer/blob/main/docs/MANUALE_WINDOWS.md" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">🪟 Windows</a>
-                            <a href="https://github.com/giandemoncell-prog/drive-organizer/blob/main/docs/MANUALE_MACOS.md" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">🍎 macOS</a>
-                            <a href="https://github.com/giandemoncell-prog/drive-organizer/blob/main/docs/MANUALE_LINUX.md" target="_blank" rel="noopener noreferrer" style="font-size: 0.75rem; padding: 3px 10px; background: rgba(0,217,255,0.08); border: 1px solid rgba(0,217,255,0.4); border-radius: 4px; color: var(--primary-color); text-decoration: none;">🐧 Linux</a>
+                        <div class="badge-row">
+                            <a href="https://github.com/giandemoncell-prog/drive-organizer" target="_blank" rel="noopener noreferrer" class="badge-link">⌥ GitHub</a>
+                            <a href="https://github.com/giandemoncell-prog/drive-organizer/blob/main/docs/MANUALE_WINDOWS.md" target="_blank" rel="noopener noreferrer" class="badge-link">🪟 Windows</a>
+                            <a href="https://github.com/giandemoncell-prog/drive-organizer/blob/main/docs/MANUALE_MACOS.md" target="_blank" rel="noopener noreferrer" class="badge-link">🍎 macOS</a>
+                            <a href="https://github.com/giandemoncell-prog/drive-organizer/blob/main/docs/MANUALE_LINUX.md" target="_blank" rel="noopener noreferrer" class="badge-link">🐧 Linux</a>
                         </div>
                     </div>
                 </div>
@@ -581,8 +585,8 @@
             <div class="newsletter-content">
                 <h2>Resta Aggiornato</h2>
                 <p>Ogni settimana: workflow n8n, tips EdTech e risorse sull'automazione AI.<br>Niente spam, solo contenuti utili.</p>
-                <form class="newsletter-form" action="https://app.brevo.com/newsletter/subscribe" method="post" target="_blank">
-                    <input type="email" name="EMAIL" placeholder="La tua email" required>
+                <form class="newsletter-form" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                    <input type="email" name="email" placeholder="La tua email" required>
                     <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
                 </form>
                 <p class="newsletter-privacy">Nessuno spam. Cancellazione in un click.</p>
@@ -699,7 +703,7 @@
         </div>
     </div>
 
-    <link rel="stylesheet" href="chatbot-styles.css">
     <script src="chatbot-script.js"></script>
+    <script src="/nav.js" defer></script>
 </body>
 </html>

@@ -17,18 +17,45 @@ class TechBackground {
     constructor(canvasId) {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas) return;
-        
+
+        // Skip the animation entirely for users who prefer reduced motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            return;
+        }
+
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
         this.lines = [];
         this.circuitLines = [];
         this.nodes = [];
-        
+        this.running = false;
+
         this.resize();
         this.init();
-        this.animate();
-        
+
+        // Only animate while the hero section is actually visible
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.start();
+                } else {
+                    this.stop();
+                }
+            });
+        }, { threshold: 0 });
+        this.observer.observe(this.canvas);
+
         window.addEventListener('resize', () => this.resize());
+    }
+
+    start() {
+        if (this.running) return;
+        this.running = true;
+        this.animate();
+    }
+
+    stop() {
+        this.running = false;
     }
     
     resize() {
@@ -224,15 +251,17 @@ class TechBackground {
     }
     
     animate() {
+        if (!this.running) return;
+
         // Create fade effect
         this.ctx.fillStyle = 'rgba(10, 14, 26, 0.1)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-        
+
         this.drawCircuitLines();
         this.drawNodes();
         this.drawParticles();
         this.connectParticles();
-        
+
         requestAnimationFrame(() => this.animate());
     }
 }

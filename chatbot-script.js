@@ -28,10 +28,12 @@
     const faqData = {
         'chi-sei': {
             question: 'Chi è Gianluca?',
+            keywords: ['chi sei', 'chi è gianluca', 'chi e gianluca', 'presentati', 'chi sei tu'],
             answer: 'Gianluca Demontis è un Tech Coach, formatore ed innovatore. Mette insieme didattica, automazione e creatività per costruire percorsi formativi e progetti tecnologici con impatto concreto. 🚀'
         },
         'servizi': {
             question: 'Quali servizi offri?',
+            keywords: ['servizi', 'servizio', 'cosa offri', 'cosa fai', 'consulenza'],
             answer: '📚 Formazione (automazione, stampa 3D, STEM)\n🧠 Transizione digitale a scuola (Google Workspace, metodologie innovative)\n🧩 Contenuti e-learning (SCORM, video, interattivi)\n🕶️ Progetti AR/VR e mondi virtuali\n🏫 Supporto innovazione scolastica\n💡 Consulenza (real estate, rinnovabili, crypto)'
         },
         'formazione': {

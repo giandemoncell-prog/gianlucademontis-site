@@ -81,7 +81,10 @@
         <div class="container">
             <div class="nav-content">
                 <a href="/" class="logo">GD</a>
-                <ul class="nav-links">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Apri menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
                     <li><a href="/#hero">Home</a></li>
                     <li><a href="/#about">Chi Sono</a></li>
                     <li><a href="/#projects">Progetti</a></li>
@@ -190,5 +193,6 @@
             <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
         </div>
     </footer>
+    <script src="/nav.js" defer></script>
 </body>
 </html>

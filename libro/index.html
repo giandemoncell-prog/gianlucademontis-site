@@ -253,7 +253,10 @@
         <div class="container">
             <div class="nav-content">
                 <a href="/" class="logo">GD</a>
-                <ul class="nav-links">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Apri menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
                     <li><a href="/">Home</a></li>
                     <li><a href="/#about">Chi Sono</a></li>
                     <li><a href="/#projects">Progetti</a></li>
@@ -414,5 +417,6 @@
     <footer style="text-align:center; padding: 40px; color: var(--text-secondary); font-size: 0.875rem; border-top: 1px solid rgba(255,255,255,0.06);">
         <p>© 2026 Gianluca Demontis — <a href="/" style="color: var(--primary-color);">gianlucademontis.xyz</a></p>
     </footer>
+    <script src="/nav.js" defer></script>
 </body>
 </html>
