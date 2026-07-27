@@ -56,10 +56,48 @@ body {
     letter-spacing: 2px;
 }
 
+.nav-content {
+    position: relative;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .nav-links a {
@@ -453,6 +491,35 @@ body {
     line-height: 1.6;
 }
 
+.badge-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.badge-link {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    background: rgba(0, 217, 255, 0.08);
+    border: 1px solid rgba(0, 217, 255, 0.4);
+    border-radius: 4px;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.badge-link-amazon {
+    background: rgba(232, 119, 34, 0.08);
+    border-color: rgba(232, 119, 34, 0.35);
+    color: #E87722;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #techCanvas {
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
@@ -598,10 +665,43 @@ body {
         font-size: 1rem;
     }
     
-    .nav-links {
-        gap: 1rem;
+    .nav-toggle {
+        display: flex;
     }
-    
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 1rem);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: rgba(10, 14, 26, 0.98);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 217, 255, 0.15);
+        border-radius: 12px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.2s ease;
+    }
+
+    .nav-links-open {
+        max-height: 500px;
+        opacity: 1;
+        padding: 0.5rem 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.9rem 0;
+    }
+
     .hero-buttons {
         flex-direction: column;
     }
