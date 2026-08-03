@@ -276,7 +276,7 @@
                     <li><a href="/#projects">Progetti</a></li>
                     <li><a href="/#blog">Blog</a></li>
                     <li><a href="/libro/" style="color: #FF9900; font-weight: 600;">Il Libro</a></li>
-                    <li><a href="/#contact">Contatti</a></li>
+                    <li><a href="/lavora-con-me/">Lavora con me</a></li><li><a href="/#contact">Contatti</a></li>
                 </ul>
             </div>
         </div>
@@ -447,12 +447,14 @@
     <!-- CTA finale -->
     <section class="libro-cta-bottom">
         <div class="container">
-            <div class="lead-magnet-box">
+            <div class="lead-magnet-box" id="lead-magnet">
                 <div class="lead-magnet-title">Scarica gratis i 5 Prompt Gemini per DSA</div>
                 <div class="lead-magnet-desc">Adatta un testo per studenti con DSA e BES in 10 minuti — da browser, senza installazioni. PDF gratuito per insegnanti di sostegno e curricolari.</div>
-                <div class="lead-magnet-form">
-                    <a href="https://gianlucas-workspace-e8lofa.subscribepage.io" target="_blank" rel="noopener noreferrer" style="padding: 12px 24px; background: var(--primary-color); color: #000; border-radius: 6px; font-weight: 600; text-decoration: none; font-size: 0.95rem;">Scarica il PDF gratis →</a>
-                </div>
+                <form class="lead-magnet-form" id="lead-magnet-form">
+                    <input type="email" id="lead-magnet-email" placeholder="La tua email" required>
+                    <button type="submit">Scarica il PDF gratis →</button>
+                </form>
+                <p id="lead-magnet-status" style="font-size: 0.85rem; margin-top: 10px; min-height: 1.2em;"></p>
             </div>
             <h2 class="cta-bottom-title">Pronto a iniziare?</h2>
             <p class="cta-bottom-sub">Il generatore AI gratuito è disponibile adesso — nessuna installazione richiesta.</p>
@@ -470,6 +472,30 @@
     <footer style="text-align:center; padding: 40px; color: var(--text-secondary); font-size: 0.875rem; border-top: 1px solid rgba(255,255,255,0.06);">
         <p>© 2026 Gianluca Demontis — <a href="/" style="color: var(--primary-color);">gianlucademontis.xyz</a></p>
     </footer>
+    <script>
+        (function() {
+            const form = document.getElementById('lead-magnet-form');
+            const status = document.getElementById('lead-magnet-status');
+            if (!form) return;
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('lead-magnet-email').value;
+                // Iscrive alla stessa lista MailerLite "Lead Magnet DSA" usata dalla newsletter del sito.
+                // no-cors: fire-and-forget, non possiamo leggere la risposta ma la richiesta arriva al webhook.
+                fetch('https://n8n.gianlucademontis.xyz/webhook/newsletter-signup', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({ email: email }).toString()
+                }).catch(function() {});
+                if (window.gtag) gtag('event', 'lead_magnet_download', { content: '5-prompt-gemini-dsa' });
+                status.textContent = 'Iscrizione registrata — download in corso...';
+                status.style.color = '#4ade80';
+                window.location.href = '/assets/5-prompt-gemini-dsa.pdf';
+            });
+        })();
+    </script>
+    <script src="/analytics-events.js" defer></script>
     <script src="/nav.js" defer></script>
 </body>
 </html>

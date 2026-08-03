@@ -51,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background: var(--bg-color); }
+        body { background: var(--dark-bg); }
         .links-page {
             min-height: 100vh;
             display: flex;
@@ -83,7 +83,7 @@
         .links-name {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--text-color);
+            color: var(--text-primary);
             margin-bottom: 6px;
         }
         .links-bio {
@@ -108,7 +108,7 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--text-primary);
             margin-bottom: 10px;
             transition: background 0.2s, border-color 0.2s, transform 0.1s;
             font-weight: 500;
@@ -152,6 +152,18 @@
                 <div class="links-bio">Tech Coach · Autore · Bachata Vibes<br>AI applicata alla didattica inclusiva</div>
             </div>
 
+            <!-- Lavora con me -->
+            <div class="links-section-title">Formazione & Consulenza</div>
+
+            <a href="https://gianlucademontis.xyz/lavora-con-me/" target="_blank" rel="noopener noreferrer" class="link-item featured">
+                <span class="link-icon">🎯</span>
+                <span class="link-text">
+                    <div class="link-label">Lavora con me</div>
+                    <div class="link-sublabel">Formazione scuole (PNRR) e consulenza AI per aziende/PA</div>
+                </span>
+                <span class="link-arrow">→</span>
+            </a>
+
             <!-- Libro -->
             <div class="links-section-title">Il Libro</div>
 
@@ -173,11 +185,11 @@
                 <span class="link-arrow">→</span>
             </a>
 
-            <a href="https://gianlucademontis.xyz/libro/" target="_blank" rel="noopener noreferrer" class="link-item">
+            <a href="https://gianlucademontis.xyz/libro/#lead-magnet" target="_blank" rel="noopener noreferrer" class="link-item featured">
                 <span class="link-icon">📄</span>
                 <span class="link-text">
-                    <div class="link-label">Estratto gratuito — Capitolo 4</div>
-                    <div class="link-sublabel">Il Profilo Studente: dal PDP all'AI</div>
+                    <div class="link-label">5 Prompt Gemini gratis per DSA</div>
+                    <div class="link-sublabel">PDF pronto all'uso — lascia la tua email</div>
                 </span>
                 <span class="link-arrow">→</span>
             </a>
@@ -194,7 +206,7 @@
                 <span class="link-arrow">→</span>
             </a>
 
-            <a href="https://gianlucademontis.xyz/newsletter/" target="_blank" rel="noopener noreferrer" class="link-item">
+            <a href="https://gianlucademontis.xyz/#newsletter" target="_blank" rel="noopener noreferrer" class="link-item">
                 <span class="link-icon">📬</span>
                 <span class="link-text">
                     <div class="link-label">Newsletter — ogni lunedì</div>
@@ -268,5 +280,6 @@
             </div>
         </div>
     </div>
+    <script src="/analytics-events.js" defer></script>
 </body>
 </html>
