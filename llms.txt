@@ -15,6 +15,7 @@ Gianluca Demontis è insegnante di ruolo, Funzione Strumentale Area 6 e amminist
 ## Pagine principali
 
 - [Home](https://gianlucademontis.xyz/): bio completa, sezione Bachata Vibes Music, clienti gestiti, FAQ, progetti open source, blog, contatti
+- [Lavora con me](https://gianlucademontis.xyz/lavora-con-me/): formazione AI per scuole (PNRR, PUIA, DSA/BES) e consulenza di automazione AI per PMI e PA
 - [Consulenza GEO](https://gianlucademontis.xyz/#geo-consulenza): case study di ottimizzazione GEO per community e brand con forte presenza social ma nessuna presenza testuale indicizzabile (primo caso: Sardegna Prodigiosa)
 - [Blog](https://gianlucademontis.xyz/blog/): articoli su automazione n8n, AI su Raspberry Pi, EdTech
 - [Libro "AI e DSA"](https://gianlucademontis.xyz/libro/): guida pratica per insegnanti sull'uso dell'AI per la didattica inclusiva, disponibile su Amazon
