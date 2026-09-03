@@ -47,6 +47,32 @@
       },
       {
         "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qual è la differenza tra NotebookLM e i Gems di Gemini?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Una Gem è un assistente permanente: le istruzioni restano attive per sempre, utile quando adatti lo stesso tipo di testo ogni settimana. NotebookLM invece parte da un documento caricato (un capitolo, una dispensa) e lo trasforma in più formati — audio, quiz, riassunti. In breve: la Gem trasforma un testo, NotebookLM lo mette a disposizione in tanti formati."}
+          },
+          {
+            "@type": "Question",
+            "name": "Si possono usare insieme NotebookLM e i Gems per materiali BES/DSA?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Sì, e la combinazione funziona meglio dei due strumenti separati: caricare in NotebookLM il testo già adattato dalla Gem — non l'originale — migliora sensibilmente la qualità di tutto quello che NotebookLM genera dopo, perché audio, quiz e riassunti ereditano lo stesso lessico semplificato."}
+          },
+          {
+            "@type": "Question",
+            "name": "A cosa serve l'Audio Overview di NotebookLM per uno studente con dislessia?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Genera una conversazione audio tra due voci sui concetti principali del documento caricato, in formato breve. Per uno studente con dislessia severa è spesso la funzione più utile: permette di ascoltare invece di leggere, con un lessico coerente al testo di partenza."}
+          },
+          {
+            "@type": "Question",
+            "name": "Come si crea una storia sociale per uno studente con disturbo dello spettro autistico?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Con Gemini Storybook: si descrive la sequenza in linguaggio naturale (es. \"sveglia → colazione → zaino pronto → autobus → ingresso scuola\") e si ottiene un libro illustrato di 10 pagine con audio narrato, scaricabile come PDF o come video per l'ascolto autonomo."}
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/"},
@@ -171,6 +197,12 @@ Regole sempre attive:
 
                     <h2>Dove ho messo tutto insieme</h2>
                     <p>Questo workflow — insieme ai prompt completi delle Gems, ai casi reali con Mario, Sofia e Lorenzo e a come si costruisce il Profilo Studente da cui tutto parte — è il contenuto centrale del libro <a href="/libro/" style="color: var(--primary-color);">"Intelligenza Artificiale per la Didattica Inclusiva"</a>. Qui ho voluto condividere il metodo in sé; nel libro trovi anche i testi delle istruzioni pronti da copiare e i risultati testati capitolo per capitolo.</p>
+
+                    <h2>Domande frequenti</h2>
+                    <p><strong>Qual è la differenza tra NotebookLM e i Gems di Gemini?</strong><br>Una Gem è un assistente permanente: le istruzioni restano attive per sempre, utile quando adatti lo stesso tipo di testo ogni settimana. NotebookLM invece parte da un documento caricato (un capitolo, una dispensa) e lo trasforma in più formati — audio, quiz, riassunti. In breve: la Gem trasforma un testo, NotebookLM lo mette a disposizione in tanti formati.</p>
+                    <p><strong>Si possono usare insieme NotebookLM e i Gems per materiali BES/DSA?</strong><br>Sì, e la combinazione funziona meglio dei due strumenti separati: caricare in NotebookLM il testo già adattato dalla Gem — non l'originale — migliora sensibilmente la qualità di tutto quello che NotebookLM genera dopo, perché audio, quiz e riassunti ereditano lo stesso lessico semplificato.</p>
+                    <p><strong>A cosa serve l'Audio Overview di NotebookLM per uno studente con dislessia?</strong><br>Genera una conversazione audio tra due voci sui concetti principali del documento caricato, in formato breve. Per uno studente con dislessia severa è spesso la funzione più utile: permette di ascoltare invece di leggere, con un lessico coerente al testo di partenza.</p>
+                    <p><strong>Come si crea una storia sociale per uno studente con disturbo dello spettro autistico?</strong><br>Con Gemini Storybook: si descrive la sequenza in linguaggio naturale (es. "sveglia → colazione → zaino pronto → autobus → ingresso scuola") e si ottiene un libro illustrato di 10 pagine con audio narrato, scaricabile come PDF o come video per l'ascolto autonomo.</p>
                 </article>
 
                 <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
