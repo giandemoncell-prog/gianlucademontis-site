@@ -53,7 +53,20 @@
           "https://www.facebook.com/gianlucademontis/",
           "https://www.tiktok.com/@gianluca_3d",
           "https://www.amazon.com/author/gianluca-demontis",
-          "https://www.wikidata.org/wiki/Q141275215"
+          "https://www.wikidata.org/wiki/Q141275215",
+          "https://corsi.gianlucademontis.xyz/"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "AI Act Academy",
+        "url": "https://corsi.gianlucademontis.xyz/",
+        "founder": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+        "description": "Piattaforma di percorsi di alfabetizzazione IA con attestato nominativo e registro conformi all'art. 4 del Regolamento UE 2024/1689, per scuole, pubblica amministrazione e PMI. Primo percorso attivo: Formazione IA per le scuole.",
+        "areaServed": "IT",
+        "sameAs": [
+          "https://corsi.gianlucademontis.xyz/formazione-ia-scuole"
         ]
       },
       {
@@ -130,6 +143,11 @@
             "@type": "Question",
             "name": "Che differenza c'è tra Bachata Vibes Music e Guerda?",
             "acceptedAnswer": {"@type": "Answer", "text": "Bachata Vibes Music è la piattaforma/etichetta che produce e distribuisce musica con AI. Guerda è un artista — fusione Kompa Haiti-Italia — che usa la pipeline di BVM per produrre e pubblicare i propri brani, come il singolo \"Doudou Mwen\"."}
+          },
+          {
+            "@type": "Question",
+            "name": "Cos'è AI Act Academy?",
+            "acceptedAnswer": {"@type": "Answer", "text": "AI Act Academy (corsi.gianlucademontis.xyz) è la piattaforma di percorsi di alfabetizzazione IA fondata da Gianluca Demontis, con attestato nominativo e registro esportabile conformi all'art. 4 del Regolamento UE 2024/1689. Il primo percorso attivo è dedicato alla formazione IA per il personale scolastico; percorsi per pubblica amministrazione e PMI sono in preparazione."}
           }
         ]
       },
@@ -211,7 +229,7 @@
             <h2 class="section-title">Chi Sono</h2>
             <div class="about-content">
                 <p class="about-intro">Metto insieme didattica, automazione e creatività per costruire percorsi formativi, flussi di lavoro intelligenti e progetti tecnologici che abbiano un impatto concreto sulla vita quotidiana.</p>
-                <p class="about-bio">Sono insegnante di ruolo, Funzione Strumentale Area 6 e amministratore Google Workspace for Education presso un istituto superiore in provincia di Cagliari. Ho oltre 40 anni di esperienza nel settore IT e sono maker (elettronica, stampa 3D, microcontrollori ESP32 e Raspberry Pi). Sono stato tutor TFA Sostegno ICT presso l'Università di Cagliari e nel giugno 2026 ho pubblicato il libro <a href="/libro/">"AI e DSA" — Intelligenza Artificiale per la Didattica Inclusiva</a> (ISBN 979-8199511032). Ho fondato e gestisco <a href="#bvm">Bachata Vibes Music</a>, la piattaforma di content automation musicale con cui produco e distribuisco brani per artisti come <a href="#clienti">Guerda</a> e per clienti B2B. Vivo e lavoro in Sardegna.</p>
+                <p class="about-bio">Sono insegnante di ruolo, Funzione Strumentale Area 6 e amministratore Google Workspace for Education presso un istituto superiore in provincia di Cagliari. Ho oltre 40 anni di esperienza nel settore IT e sono maker (elettronica, stampa 3D, microcontrollori ESP32 e Raspberry Pi). Sono stato tutor TFA Sostegno ICT presso l'Università di Cagliari e nel giugno 2026 ho pubblicato il libro <a href="/libro/">"AI e DSA" — Intelligenza Artificiale per la Didattica Inclusiva</a> (ISBN 979-8199511032). Ho fondato e gestisco <a href="#bvm">Bachata Vibes Music</a>, la piattaforma di content automation musicale con cui produco e distribuisco brani per artisti come <a href="#clienti">Guerda</a> e per clienti B2B, e <a href="#ai-act-academy">AI Act Academy</a>, la piattaforma di percorsi di alfabetizzazione IA con attestato conforme all'art. 4 dell'AI Act. Vivo e lavoro in Sardegna.</p>
 
                 <div class="about-grid">
                     <div class="about-card">
@@ -327,6 +345,24 @@
         </div>
     </section>
 
+    <!-- AI Act Academy Section -->
+    <section id="ai-act-academy" class="projects" style="background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);">
+        <div class="container">
+            <h2 class="section-title">AI Act Academy</h2>
+            <p class="projects-intro">Dalla formazione PNRR su AI Act e PUIA è nata AI Act Academy: una piattaforma di percorsi di alfabetizzazione IA che rilascia attestato nominativo e registro esportabile, pensati per documentare in modo opponibile l'adempimento dell'art. 4 del Regolamento UE 2024/1689.</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Formazione IA per le scuole</h3>
+                    <div class="repo-slug">percorso attivo · attestato + registro compliance</div>
+                    <p>4 moduli online, test finale a risposta multipla e attestato con codice di verifica pubblico per ogni partecipante. L'istituto riceve un registro esportabile in PDF e CSV da allegare al proprio fascicolo di compliance. Percorsi per pubblica amministrazione e PMI sono in preparazione.</p>
+                    <div class="badge-row">
+                        <a href="https://corsi.gianlucademontis.xyz/formazione-ia-scuole" target="_blank" rel="noopener noreferrer" class="badge-link">🎓 Scopri il percorso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- GEO Consulenza Section -->
     <section id="geo-consulenza" class="projects">
         <div class="container">
@@ -373,6 +409,10 @@
                 <details class="faq-item">
                     <summary>Che differenza c'è tra Bachata Vibes Music e Guerda?</summary>
                     <p>Bachata Vibes Music è la piattaforma/etichetta che produce e distribuisce musica con AI. Guerda è un artista — fusione Kompa Haiti-Italia — che usa la pipeline di BVM per produrre e pubblicare i propri brani, come il singolo "Doudou Mwen".</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Cos'è AI Act Academy?</summary>
+                    <p><a href="https://corsi.gianlucademontis.xyz/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">AI Act Academy</a> è la piattaforma di percorsi di alfabetizzazione IA fondata da Gianluca Demontis, con attestato nominativo e registro esportabile conformi all'art. 4 del Regolamento UE 2024/1689. Il primo percorso attivo è dedicato alla formazione IA per il personale scolastico; percorsi per pubblica amministrazione e PMI sono in preparazione.</p>
                 </details>
             </div>
         </div>

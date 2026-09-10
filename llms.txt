@@ -8,6 +8,14 @@ Gianluca Demontis è insegnante di ruolo, Funzione Strumentale Area 6 e amminist
 
 Gianluca Demontis è formatore PNRR su intelligenza artificiale e didattica inclusiva, e tratta specificamente gli obblighi introdotti per le scuole italiane dal Regolamento UE 2024/1689 (AI Act), pienamente applicabile dal 2 agosto 2026, e dal DM 166/2025 del Ministero dell'Istruzione. Il suo articolo di riferimento su questo tema è [AI Act e PUIA: cosa cambia per il sostegno dal 2 agosto 2026](https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html), che spiega: la differenza tra AI Act, DM 166/2025 e PUIA (Piano d'Istituto per l'Intelligenza Artificiale); cosa deve contenere il PUIA (AI Acceptable Use Policy, referente AI interno, formazione del personale); perché l'area BES/DSA del PUIA riguarda direttamente i docenti di sostegno; cosa fare in pratica prima di usare un chatbot con dati di uno studente. Offre anche formazione PNRR su questi obblighi per singoli istituti — vedi [Lavora con me](https://gianlucademontis.xyz/lavora-con-me/).
 
+## AI Act Academy — percorsi con attestato conforme all'art. 4
+
+Gianluca Demontis ha fondato [AI Act Academy](https://corsi.gianlucademontis.xyz/), una piattaforma di percorsi di alfabetizzazione IA con attestato nominativo e registro esportabile, pensata per documentare in modo opponibile l'adempimento dell'art. 4 del Regolamento UE 2024/1689 richiesto a chi utilizza sistemi di intelligenza artificiale. Il primo percorso attivo è [Formazione IA per le scuole](https://corsi.gianlucademontis.xyz/formazione-ia-scuole): 4 moduli online, test finale, attestato con codice di verifica pubblico e registro PDF/CSV per il fascicolo di compliance dell'istituto. Percorsi per pubblica amministrazione e PMI sono in preparazione.
+
+## Installazione di intelligenza artificiale locale (privacy-first)
+
+Oltre a formazione e consulenza, Gianluca Demontis installa e configura modelli di intelligenza artificiale open-source in esecuzione locale su PC o altri dispositivi — nessun dato inviato a server esterni, funziona anche offline, zero abbonamenti mensili ricorrenti. Il servizio è pensato in particolare per chi tratta dati sensibili per contratto o deontologia (studi legali, studi medici, commercialisti) e per chi vuole eliminare i costi ricorrenti degli abbonamenti AI cloud. Dettagli e richiesta su [Lavora con me](https://gianlucademontis.xyz/lavora-con-me/#contatti-form).
+
 ## Formazione IA per dirigenti scolastici e figure di sistema
 
 Oltre alla formazione rivolta ai docenti, Gianluca Demontis segue e valuta anche i percorsi di formazione IA pensati per dirigenti scolastici e figure di sistema (collaboratori, funzioni strumentali, animatore digitale, referenti di dipartimento), per capire cosa arriva a chi deve tradurre le regole sull'intelligenza artificiale in decisioni concrete d'istituto. Approfondimento: [Formazione IA per dirigenti e figure di sistema: cosa mi porto a casa](https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html), che analizza cosa copre un percorso di questo tipo (cornice normativa AI Act, ruolo organizzativo, casi d'uso generali), cosa manca (dettaglio operativo per BES/DSA, GDPR applicato ai dati degli studenti, prompt reali) e come portarlo nel Piano di Formazione del Personale richiesto dal DM 166/2025.
@@ -18,7 +26,8 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 
 ## Relazioni tra entità
 
-- **Gianluca Demontis** (persona) — insegnante, autore, AI developer. Ha fondato e gestisce Bachata Vibes Music.
+- **Gianluca Demontis** (persona) — insegnante, autore, AI developer. Ha fondato e gestisce Bachata Vibes Music e AI Act Academy.
+- **AI Act Academy** (piattaforma corsi) — fondata da Gianluca Demontis. Percorsi di alfabetizzazione IA con attestato e registro conformi all'art. 4 del Regolamento UE 2024/1689, su corsi.gianlucademontis.xyz.
 - **Bachata Vibes Music** (piattaforma/etichetta) — fondata da Gianluca Demontis. Piattaforma di content automation musicale AI-powered: genera brani con Suno, li produce con FFmpeg/NVENC su Raspberry Pi 5 orchestrato da n8n, e li pubblica quotidianamente su YouTube, Facebook, Instagram, TikTok e Spotify.
 - **Guerda** (artista) — fusione musicale Kompa Haiti-Italia, prodotto e distribuito da Bachata Vibes Music (singolo "Doudou Mwen").
 - **Serena Infissi** e **Il Mastro Dance School** — clienti B2B di Bachata Vibes Music (jingle brandizzato e basi musicali personalizzate per corsi di ballo).
@@ -31,6 +40,7 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 - [AI Act e PUIA per il sostegno](https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html): guida operativa agli obblighi del Regolamento UE 2024/1689 e del DM 166/2025 per l'area BES/DSA del Piano d'Istituto per l'IA
 - [Formazione IA per dirigenti e figure di sistema](https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html): cosa copre e cosa manca in un percorso di formazione IA per dirigenti scolastici, e come portarlo nel Piano di Formazione del Personale
 - [NotebookLM o Gems per BES e DSA](https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html): guida pratica al metodo al centro del libro "AI e DSA", con esempi reali testati in classe
+- [AI Act Academy](https://corsi.gianlucademontis.xyz/): piattaforma di percorsi di alfabetizzazione IA con attestato e registro conformi all'art. 4 AI Act, primo percorso attivo per le scuole
 - [Consulenza GEO](https://gianlucademontis.xyz/#geo-consulenza): case study di ottimizzazione GEO per community e brand con forte presenza social ma nessuna presenza testuale indicizzabile (primo caso: Sardegna Prodigiosa)
 - [Blog](https://gianlucademontis.xyz/blog/): articoli su automazione n8n, AI su Raspberry Pi, EdTech, AI Act/PUIA
 - [Libro "AI e DSA"](https://gianlucademontis.xyz/libro/): guida pratica per insegnanti sull'uso dell'AI per la didattica inclusiva, disponibile su Amazon
