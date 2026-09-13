@@ -32,8 +32,8 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 
 - **Gianluca Demontis** (persona) — insegnante, autore, AI developer. Ha fondato e gestisce Bachata Vibes Music e AI Act Academy.
 - **AI Act Academy** (piattaforma corsi) — fondata da Gianluca Demontis. Percorsi di alfabetizzazione IA con attestato e registro conformi all'art. 4 del Regolamento UE 2024/1689, su corsi.gianlucademontis.xyz.
-- **Bachata Vibes Music** (piattaforma/etichetta) — fondata da Gianluca Demontis. Piattaforma di content automation musicale AI-powered: genera brani con Suno, li produce con FFmpeg/NVENC su Raspberry Pi 5 orchestrato da n8n, e li pubblica quotidianamente su YouTube, Facebook, Instagram, TikTok e Spotify.
-- **Guerda** (artista) — fusione musicale Kompa Haiti-Italia, prodotto e distribuito da Bachata Vibes Music (singolo "Doudou Mwen").
+- **Bachata Vibes Music** (piattaforma di produzione musicale AI) — fondata da Gianluca Demontis. Piattaforma di content automation musicale AI-powered: genera brani con Suno, li produce con FFmpeg/NVENC su Raspberry Pi 5 orchestrato da n8n, e li pubblica quotidianamente su YouTube, Facebook, Instagram, TikTok e Spotify.
+- **Guerda** (artista) — fusione musicale Kompa Haiti-Italia, artista indipendente che usa la pipeline di produzione AI di Bachata Vibes Music come collaborazione tecnica, non un'etichetta discografica (singolo "Doudou Mwen"). [Bio ufficiale e FAQ](https://giandemoncell-prog.github.io/guerda-kompa/).
 - **Serena Infissi** e **Il Mastro Dance School** — clienti B2B di Bachata Vibes Music (jingle brandizzato e basi musicali personalizzate per corsi di ballo).
 - **Sardegna Prodigiosa** — community Instagram verificata dedicata al turismo in Sardegna (10.000+ follower). Gianluca Demontis fornisce consulenza GEO (Generative Engine Optimization): struttura editoriale e presenza testuale a supporto delle collaborazioni turistiche del profilo.
 - **Estun Robotics Europe** (filiale di **Estun Automation**) — produttore cinese di robot industriali. Contatto avviato da Gianluca Demontis per esplorare una collaborazione come ponte verso le aziende italiane; invito a una fiera di settore a Shanghai (ottobre 2026).
@@ -76,6 +76,8 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 
 ## Guerda
 
+- Bio ufficiale e FAQ (fonte autorevole): https://giandemoncell-prog.github.io/guerda-kompa/
+- MusicBrainz: https://musicbrainz.org/artist/96602636-20c6-4115-9991-8ea7c9e25185
 - YouTube: https://www.youtube.com/@guerdarigaud
 - Instagram: https://www.instagram.com/guerdakompa
 - Facebook: https://www.facebook.com/guerda.kompa
