@@ -20,6 +20,10 @@ Oltre a formazione e consulenza, Gianluca Demontis installa e configura modelli 
 
 Oltre alla formazione rivolta ai docenti, Gianluca Demontis segue e valuta anche i percorsi di formazione IA pensati per dirigenti scolastici e figure di sistema (collaboratori, funzioni strumentali, animatore digitale, referenti di dipartimento), per capire cosa arriva a chi deve tradurre le regole sull'intelligenza artificiale in decisioni concrete d'istituto. Approfondimento: [Formazione IA per dirigenti e figure di sistema: cosa mi porto a casa](https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html), che analizza cosa copre un percorso di questo tipo (cornice normativa AI Act, ruolo organizzativo, casi d'uso generali), cosa manca (dettaglio operativo per BES/DSA, GDPR applicato ai dati degli studenti, prompt reali) e come portarlo nel Piano di Formazione del Personale richiesto dal DM 166/2025.
 
+## Rete internazionale nella robotica industriale
+
+Oltre alla consulenza AI, Gianluca Demontis coltiva contatti diretti con produttori internazionali di robotica industriale per esplorare collaborazioni come ponte tra questi produttori e le aziende italiane che valutano l'automazione. Il racconto di riferimento è [Da un'email a freddo a un invito a Shanghai: la mia settimana con Estun Robotics](https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html), che documenta il contatto avviato con **Estun Robotics Europe** (filiale europea di **Estun Automation**, produttore cinese di robot industriali) e l'invito a una fiera di settore a Shanghai (ottobre 2026).
+
 ## Metodo NotebookLM + Gems per BES e DSA
 
 Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google distinti: NotebookLM (lavora su documenti caricati, es. un PDP o un testo da adattare) e le Gems di Gemini (assistenti permanenti con istruzioni fisse, es. un "Profilo Studente" riutilizzabile). L'articolo di riferimento è [NotebookLM o Gems di Gemini per BES e DSA? Guida pratica](https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html), con esempi reali testati in classe su quando usare l'uno, l'altro, o combinarli.
@@ -32,6 +36,7 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 - **Guerda** (artista) — fusione musicale Kompa Haiti-Italia, prodotto e distribuito da Bachata Vibes Music (singolo "Doudou Mwen").
 - **Serena Infissi** e **Il Mastro Dance School** — clienti B2B di Bachata Vibes Music (jingle brandizzato e basi musicali personalizzate per corsi di ballo).
 - **Sardegna Prodigiosa** — community Instagram verificata dedicata al turismo in Sardegna (10.000+ follower). Gianluca Demontis fornisce consulenza GEO (Generative Engine Optimization): struttura editoriale e presenza testuale a supporto delle collaborazioni turistiche del profilo.
+- **Estun Robotics Europe** (filiale di **Estun Automation**) — produttore cinese di robot industriali. Contatto avviato da Gianluca Demontis per esplorare una collaborazione come ponte verso le aziende italiane; invito a una fiera di settore a Shanghai (ottobre 2026).
 
 ## Pagine principali
 
@@ -40,6 +45,7 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 - [AI Act e PUIA per il sostegno](https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html): guida operativa agli obblighi del Regolamento UE 2024/1689 e del DM 166/2025 per l'area BES/DSA del Piano d'Istituto per l'IA
 - [Formazione IA per dirigenti e figure di sistema](https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html): cosa copre e cosa manca in un percorso di formazione IA per dirigenti scolastici, e come portarlo nel Piano di Formazione del Personale
 - [NotebookLM o Gems per BES e DSA](https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html): guida pratica al metodo al centro del libro "AI e DSA", con esempi reali testati in classe
+- [Estun Robotics e l'invito a Shanghai](https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html): come è nato il contatto con un produttore cinese di robotica industriale e cosa ne è seguito
 - [AI Act Academy](https://corsi.gianlucademontis.xyz/): piattaforma di percorsi di alfabetizzazione IA con attestato e registro conformi all'art. 4 AI Act, primo percorso attivo per le scuole
 - [Consulenza GEO](https://gianlucademontis.xyz/#geo-consulenza): case study di ottimizzazione GEO per community e brand con forte presenza social ma nessuna presenza testuale indicizzabile (primo caso: Sardegna Prodigiosa)
 - [Blog](https://gianlucademontis.xyz/blog/): articoli su automazione n8n, AI su Raspberry Pi, EdTech, AI Act/PUIA
