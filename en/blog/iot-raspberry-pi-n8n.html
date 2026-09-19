@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT with Raspberry Pi: Real-time Monitoring with n8n — Gianluca Demontis</title>
+    <meta name="description" content="How I built a temperature monitoring system with Raspberry Pi 5, a DHT22 sensor, n8n and Grafana — fully local, no cloud, with Telegram alerts.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/iot-raspberry-pi-n8n.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html">
+    <meta property="og:title" content="IoT with Raspberry Pi: Real-time Monitoring with n8n">
+    <meta property="og:description" content="Real-time temperature monitoring with Raspberry Pi 5, DHT22, n8n and Grafana. Local smart home, no cloud, with automatic Telegram alerts.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-06-25">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="IoT">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IoT with Raspberry Pi: Real-time Monitoring with n8n">
+    <meta name="twitter:description" content="Real-time temperature monitoring with Raspberry Pi 5, DHT22, n8n and Grafana. Local smart home, no cloud, with automatic Telegram alerts.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "IoT with Raspberry Pi: Real-time Monitoring with n8n",
+        "datePublished": "2026-06-25T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html"},
+        "inLanguage": "en-US",
+        "articleSection": "IoT",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz/en/"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Real-time temperature monitoring with Raspberry Pi 5, DHT22, n8n and Grafana, fully local and with no cloud."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/en/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/en/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "IoT with Raspberry Pi: Real-time Monitoring with n8n", "item": "https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/en/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/en/#hero">Home</a></li>
+                    <li><a href="/en/#about">About</a></li>
+                    <li><a href="/en/#projects">Projects</a></li>
+                    <li><a href="/en/blog/">Blog</a></li>
+                    <li><a href="/en/lavora-con-me/">Work with me</a></li><li><a href="/en/#contact">Contact</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/iot-raspberry-pi-n8n.html">IT</a><span>·</span>
+                        <a href="/en/blog/iot-raspberry-pi-n8n.html" class="active">EN</a><span>·</span>
+                        <a href="/es/blog/iot-raspberry-pi-n8n.html">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/en/blog/" class="back-link">← All articles</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">IoT</span>
+                        <span class="blog-date">June 25, 2026</span>
+                        <span class="blog-date">· 8 min read</span>
+                    </div>
+                    <h1>IoT with Raspberry Pi: Real-time Monitoring with n8n</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">My office turned into a sauna in summer and a fridge in winter, and I wouldn't notice until it was too late. I wanted to keep an eye on the temperature in real time — but without handing my home's data over to yet another cloud service. <strong>The solution was to build everything locally, with a Raspberry Pi.</strong></p>
+                </header>
+
+                <article class="article-body">
+                    <p>The idea behind this project is the one that matters most to me when I talk about smart homes: <strong>your data stays at home</strong>. No subscriptions, no third-party servers, no sensor shipping your living room's temperature off to who-knows-where. Just hardware you own and open-source software. Here's how I built it.</p>
+
+                    <h2>Hardware and Setup</h2>
+                    <p>The shopping list is deliberately minimal. You don't need much to get started:</p>
+                    <ul>
+                        <li><strong>Raspberry Pi 5 (4 GB)</strong>: the brain of the system. n8n, the database and Grafana all run on it together, without breaking a sweat. A Pi 4 works just fine too.</li>
+                        <li><strong>DHT22 sensor</strong>: measures temperature and humidity with good accuracy (±0.5 °C). Costs a few euros and is the classic starting point for home IoT.</li>
+                        <li><strong>Jumper wires and a 10kΩ resistor</strong>: to connect the DHT22 to the GPIO pins. The sensor has three wires — power, data and ground — and the pull-up resistor on the data line keeps readings stable.</li>
+                        <li><strong>Official power supply</strong>: with the Pi 5 it's worth not cutting corners on power, to avoid reboots under load.</li>
+                    </ul>
+                    <p>A detail I appreciate: <strong>power consumption</strong>. The whole setup draws 4-6 watts on average, even with all services running. Keeping it on 24/7 works out to about <strong>€1.50 a month</strong> on the electricity bill — less than a coffee, for an always-on system.</p>
+
+                    <h2>Reading the Data with Python and n8n</h2>
+                    <p>The DHT22 is easy to query from Python with the <code>adafruit-circuitpython-dht</code> library. My script does three things: reads the sensor, builds a small JSON with temperature, humidity and timestamp, and sends it to n8n.</p>
+                    <p>The bridge between the sensor and the automation is an <strong>n8n webhook</strong>. The Python script does a simple POST to the webhook URL every 60 seconds (handled by a system <em>cron</em>). The flow is this:</p>
+                    <ol>
+                        <li><strong>The Python script</strong> reads the DHT22 and sends <code>{ "temp": 24.3, "hum": 48, "ts": "..." }</code> to the webhook.</li>
+                        <li><strong>n8n's Webhook node</strong> receives the data and passes it into the flow.</li>
+                        <li><strong>A write node</strong> saves the reading to a time-series database (I use InfluxDB, but a SQLite table works fine too for getting started).</li>
+                        <li><strong>The same flow</strong> checks whether the temperature has crossed a threshold — which is where alerts come in, more on that below.</li>
+                    </ol>
+                    <p>The advantage of going through n8n instead of writing everything in Python is that every logic change — a new threshold, a new destination, a new alert — I make by dragging nodes, without touching code and without restarting anything.</p>
+
+                    <h2>Real-time Dashboard with Grafana on the Pi</h2>
+                    <p>Raw data doesn't say much: you need charts. <strong>Grafana</strong> is the perfect tool and runs comfortably on the same Raspberry Pi.</p>
+                    <p>Installation is straightforward: add Grafana's official repository, install the package and enable the service. Within a few minutes you have the web interface reachable on the local network at port 3000.</p>
+                    <p>The configuration that matters is the <strong>datasource</strong>:</p>
+                    <ul>
+                        <li>Add InfluxDB (or whichever database you chose) as the data source, pointing to <code>localhost</code> since it runs on the same machine.</li>
+                        <li>Create a panel with the temperature query and set auto-refresh to 30 seconds.</li>
+                        <li>Add a second panel for humidity and, if you like, a visual threshold that turns the chart red when the limit is exceeded.</li>
+                    </ul>
+                    <blockquote>Watching the temperature curve update in real time on your phone, while you're comfortably on the couch, gives a small but real maker satisfaction.</blockquote>
+
+                    <h2>Automatic Telegram Alerts</h2>
+                    <p>A dashboard is only useful if you're looking at it. To be notified even when I'm not thinking about it, I added <strong>Telegram alerts</strong> directly inside n8n.</p>
+                    <p>The logic is simple and lives in the same flow that receives data from the sensor:</p>
+                    <ol>
+                        <li><strong>An IF node</strong> checks on every reading whether the temperature has crossed the threshold (for me, 28 °C in summer, under 16 °C in winter).</li>
+                        <li><strong>If the threshold is exceeded</strong>, a <em>Telegram</em> node sends me a message like <em>"Office at 29.1 °C — turn on the AC?"</em>.</li>
+                        <li><strong>An anti-spam check</strong>: I save the time of the last alert and only send a new one if at least an hour has passed, so I don't get twenty notifications for the same heat wave.</li>
+                    </ol>
+                    <p>With a few more nodes, the same mechanism could even trigger a smart plug to turn on a fan — but that's material for a future article.</p>
+
+                    <h2>Conclusion</h2>
+                    <p>With under a hundred euros of hardware and a few hours of tinkering, I have an environmental monitoring system that's entirely mine: no subscriptions, no data leaving the house, total freedom to modify it. It's the perfect small project for understanding how sensors, automation and visualization talk to each other.</p>
+                    <p>DIY IoT isn't just a hobby: it's the best way to take back control of the technology around us. If these topics interest you, subscribe to the newsletter — the next article is dedicated to automating a smart plug.</p>
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Read also</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/en/blog/n8n-backup-automatico.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">n8n workflow for automatic backup of projects to Google Drive with integrity checks</a></li>
+                        <li><a href="/en/blog/social-publisher-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">How to automate social media publishing with n8n on Raspberry Pi</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>Want more IoT and Automation projects?</h3>
+                    <p>Every week: practical tutorials, local smart home ideas and n8n workflows to copy.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Want to bring these tools to your school or your business? <a href="/en/lavora-con-me/" style="color: var(--primary-color);">Find out how I work</a>.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="hidden" name="lang" value="en">
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe for free</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/en/blog/n8n-backup-automatico.html">← n8n Backup Workflow</a>
+                    <a href="/en/blog/bivio-comparatore-prezzi.html">BIVIO →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>

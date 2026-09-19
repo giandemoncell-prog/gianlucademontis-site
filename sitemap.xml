@@ -32,93 +32,453 @@
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/ai-in-classe-2026.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-in-classe-2026.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/ai-in-classe-2026.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-in-classe-2026.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/ai-in-classe-2026.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-in-classe-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-in-classe-2026.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/n8n-backup-automatico.html</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html</loc>
-    <lastmod>2026-06-25</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/iot-raspberry-pi-n8n.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/iot-raspberry-pi-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/bivio-comparatore-prezzi.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/guerda-music-ai-pipeline.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/guerda-music-ai-pipeline.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/guerda-music-ai-pipeline.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/notebooklm-gems-bes-dsa.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/metodo-dsa-bachata-automazione.html</loc>
-    <lastmod>2026-07-29</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/metodo-dsa-bachata-automazione.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/metodo-dsa-bachata-automazione.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/metodo-dsa-bachata-automazione.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/metodo-dsa-bachata-automazione.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/metodo-dsa-bachata-automazione.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/metodo-dsa-bachata-automazione.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/ai-act-puia-sostegno-2026.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/ai-act-puia-sostegno-2026.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-act-puia-sostegno-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/social-publisher-n8n.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/social-publisher-n8n.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/social-publisher-n8n.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/social-publisher-n8n.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/social-publisher-n8n.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/social-publisher-n8n.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/social-publisher-n8n.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/ai-act-scuole-pmi-2026.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/ai-act-scuole-pmi-2026.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ai-act-scuole-pmi-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/property-finder-n8n-telegram.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/property-finder-n8n-telegram.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/property-finder-n8n-telegram.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/digest-ai-notizie-gemini.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/formazione-ia-dirigenti-figure-sistema-2026.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/formazione-ia-dirigenti-figure-sistema-2026.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/estun-robotica-fiera-shanghai.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/estun-robotica-fiera-shanghai.html</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/estun-robotica-fiera-shanghai.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html"/>
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/libro/</loc>

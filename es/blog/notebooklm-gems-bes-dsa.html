@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿NotebookLM o Gems de Gemini para necesidades educativas especiales? Guía práctica — Gianluca Demontis</title>
+    <meta name="description" content="NotebookLM y los Gems de Gemini hacen cosas distintas para materiales de necesidades educativas especiales. Cuándo usar uno, el otro, o combinarlos — ejemplos reales probados en clase.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/notebooklm-gems-bes-dsa.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html">
+    <meta property="og:title" content="¿NotebookLM o Gems de Gemini para necesidades educativas especiales? Guía práctica">
+    <meta property="og:description" content="No son lo mismo y no se excluyen: NotebookLM trabaja sobre documentos, una Gem es un asistente permanente. Cómo combinarlos para materiales de necesidades educativas especiales, con ejemplos reales.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-07-24">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Educación Inclusiva">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="¿NotebookLM o Gems de Gemini para necesidades educativas especiales? Guía práctica">
+    <meta name="twitter:description" content="Cómo combinar NotebookLM y los Gems de Gemini para crear materiales para alumnado con necesidades educativas especiales — con ejemplos reales probados en clase.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "¿NotebookLM o Gems de Gemini para necesidades educativas especiales? Guía práctica",
+        "datePublished": "2026-07-24T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html"},
+        "inLanguage": "es-ES",
+        "articleSection": "Educación Inclusiva",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz/es/"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "NotebookLM y los Gems de Gemini hacen cosas distintas al crear materiales didácticos para alumnado con necesidades educativas especiales. Cuándo usar uno, cuándo el otro, y cómo combinarlos — con ejemplos reales probados en clase."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la diferencia entre NotebookLM y los Gems de Gemini?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Un Gem es un asistente permanente: las instrucciones quedan activas para siempre, útil cuando adaptas el mismo tipo de texto cada semana. NotebookLM, en cambio, parte de un documento cargado (un capítulo, un apunte) y lo transforma en varios formatos — audio, cuestionarios, resúmenes. En resumen: el Gem transforma un texto, NotebookLM lo pone a disposición en muchos formatos."}
+          },
+          {
+            "@type": "Question",
+            "name": "¿Se pueden usar juntos NotebookLM y los Gems para materiales de necesidades educativas especiales?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Sí, y la combinación funciona mejor que las dos herramientas por separado: cargar en NotebookLM el texto ya adaptado por el Gem — no el original — mejora notablemente la calidad de todo lo que NotebookLM genera después, porque el audio, los cuestionarios y los resúmenes heredan el mismo léxico simplificado."}
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para qué sirve el Audio Overview de NotebookLM con un alumno con dislexia?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Genera una conversación de audio entre dos voces sobre los conceptos principales del documento cargado, en formato breve. Para un alumno con dislexia severa suele ser la función más útil: permite escuchar en lugar de leer, con un léxico coherente con el texto de partida."}
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se crea una historia social para un alumno con trastorno del espectro autista?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Con Gemini Storybook: se describe la secuencia en lenguaje natural (por ejemplo, \"despertar → desayuno → mochila lista → autobús → entrada al colegio\") y se obtiene un libro ilustrado de 10 páginas con audio narrado, descargable como PDF o como vídeo para escucha autónoma."}
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/es/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/es/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "¿NotebookLM o Gems de Gemini para necesidades educativas especiales? Guía práctica", "item": "https://gianlucademontis.xyz/es/blog/notebooklm-gems-bes-dsa.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body code { background: rgba(255,255,255,0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        .article-body pre { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1rem 1.25rem; overflow-x: auto; margin: 1rem 0 1.5rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .compare-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .compare-table th { text-align: left; color: var(--text-secondary); font-weight: 600; padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .compare-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); vertical-align: top; }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/es/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/#hero">Home</a></li>
+                    <li><a href="/es/#about">Sobre mí</a></li>
+                    <li><a href="/es/#projects">Proyectos</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li><li><a href="/es/#contact">Contacto</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/notebooklm-gems-bes-dsa.html">IT</a><span>·</span>
+                        <a href="/en/blog/notebooklm-gems-bes-dsa.html">EN</a><span>·</span>
+                        <a href="/es/blog/notebooklm-gems-bes-dsa.html" class="active">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/es/blog/" class="back-link">← Todos los artículos</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Educación Inclusiva</span>
+                        <span class="blog-date">24 de julio de 2026</span>
+                        <span class="blog-date">· 7 min de lectura</span>
+                    </div>
+                    <h1>¿NotebookLM o Gems de Gemini para necesidades educativas especiales? Guía práctica</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Es la pregunta que más me hacen los compañeros después de un curso: "¿Pero debo usar NotebookLM o los Gems?" La respuesta corta es: no son lo mismo, y usados juntos hacen más de lo que hacen por separado.</p>
+                </header>
+
+                <article class="article-body">
+                    <p>Los he probado ambos durante meses con los mismos materiales — textos de historia, ciencias, exámenes — con los mismos alumnos. Lo que sigue es el método que uso de verdad, no una lista de funciones copiada de la documentación oficial.</p>
+
+                    <h2>La diferencia que realmente importa</h2>
+                    <p>Un <strong>Gem</strong> es un asistente permanente dentro de Gemini: las instrucciones quedan activas para siempre, así que no tienes que repetir cada vez "este alumno tiene dislexia, usa frases cortas, añade un glosario". Las escribes una vez y luego invocas el Gem cada semana.</p>
+                    <p><strong>NotebookLM</strong>, en cambio, parte de un documento — un capítulo del libro de texto, un apunte tuyo, un PDF — y te permite trabajar sobre él en chat, generando materiales distintos a partir de la misma fuente.</p>
+                    <p>El atajo mental que uso: <strong>el Gem transforma un texto</strong>, <strong>NotebookLM lo pone a disposición</strong> en muchos formatos distintos. Son complementarios, no alternativos.</p>
+
+                    <table class="compare-table">
+                        <tr><th>Situación</th><th>Herramienta</th></tr>
+                        <tr><td>Adaptar el mismo tipo de texto cada semana</td><td>Gem dedicado</td></tr>
+                        <tr><td>Trabajar sobre un capítulo de un libro ya existente</td><td>NotebookLM</td></tr>
+                        <tr><td>Alumno que tiene dificultades con textos largos</td><td>NotebookLM → Audio Overview</td></tr>
+                        <tr><td>Tareas/exámenes calibrados según un perfil concreto</td><td>Gem dedicado</td></tr>
+                        <tr><td>Historia social para un alumno con trastorno del espectro autista</td><td>Gemini Storybook</td></tr>
+                    </table>
+
+                    <h2>Construir un Gem que nunca olvida las reglas</h2>
+                    <p>El problema que resuelve un Gem no es "cómo se adapta un texto" — es que volver a explicarlo cada vez a un chat normal te hace perder tiempo y, a la larga, te hace saltarte alguna regla. El Gem, en cambio, lleva consigo las instrucciones siempre activas.</p>
+                    <p>Un fragmento real de las instrucciones que uso para la adaptación de textos:</p>
+                    <pre>Eres un experto en educación inclusiva especializado en dificultades de aprendizaje,
+necesidades educativas especiales y discapacidad.
+Cuando recibas un texto, produce:
+- Texto adaptado: frases cortas (máx. 20 palabras), un concepto por párrafo,
+  palabras clave en negrita
+- Glosario: 6-8 palabras difíciles con definición sencilla al final
+
+Reglas siempre activas:
+- Mantén TODOS los conceptos del texto original — simplifica la forma, no el contenido
+- Si el perfil indica TEA, añade estructura explícita: numeración, cero metáforas
+- Si el perfil indica TDAH, divide en secciones breves con títulos visibles</pre>
+                    <p>A partir de ese momento, para cada texto basta con escribir: <em>"Texto para un alumno con dislexia media, le cuestan los textos largos"</em> — y el Gem aplica automáticamente todas las reglas configuradas, sin tener que reescribirlas.</p>
+
+                    <h2>NotebookLM: el mismo documento, siete salidas distintas</h2>
+                    <p>Lo que descubrí por casualidad, y que cambió mi forma de trabajar, es esto: <strong>si cargas en NotebookLM el texto ya adaptado por el Gem — no el original — la calidad de todo lo que genera después mejora notablemente.</strong> El audio, los cuestionarios y los resúmenes heredan el mismo léxico simplificado y las mismas analogías del texto de partida.</p>
+                    <p>Para un alumno con dislexia severa, el <strong>Audio Overview</strong> es probablemente la función más útil de todas: dos voces que conversan sobre los conceptos principales, formato breve, para que el alumno escuche en lugar de leer. He visto la diferencia en clase — un material que antes se ignoraba, escuchado hasta el final.</p>
+                    <p>Incluso el cuestionario generado por NotebookLM tiene un detalle que vale la pena conocer: si el texto de partida usa una analogía concreta (por ejemplo, "la evaporación es como el agua que hierve en una olla"), esa analogía reaparece automáticamente en las pistas bajo cada pregunta — porque el cuestionario hereda el léxico de la fuente cargada.</p>
+
+                    <h2>Storybook: cuando hace falta una historia, no una ficha</h2>
+                    <p>Hay una categoría de necesidad que ni el Gem ni NotebookLM cubren bien: las <strong>historias sociales</strong> para alumnado con trastorno del espectro autista — narraciones breves y visuales que anticipan una situación o una rutina (la entrada al colegio, el cambio de clase, un acontecimiento nuevo).</p>
+                    <p>Para eso uso Gemini Storybook: describes la secuencia en lenguaje natural ("despertar → desayuno → mochila lista → autobús → entrada al colegio") y obtienes un libro ilustrado de 10 páginas con audio narrado, descargable como PDF para imprimir o como vídeo para escucha autónoma en una tablet.</p>
+
+                    <h2>Qué no funciona bien, para ser honestos</h2>
+                    <p>Las funciones de generación visual automática (infografías, presentaciones desde el menú dedicado de NotebookLM) todavía producen errores frecuentes en mi experiencia. Para los diagramas prefiero que el Gem genere un prompt de imagen en texto para pegarlo por separado en la función "Crear imagen" de Gemini — más lento que un clic, pero mucho más fiable.</p>
+
+                    <blockquote>La regla práctica que uso cada semana: si hago lo mismo más de dos veces, lo convierto en un Gem. Si estoy trabajando sobre un documento que ya existe, uso NotebookLM. Ninguno de los dos sustituye al otro.</blockquote>
+
+                    <h2>Dónde lo he puesto todo junto</h2>
+                    <p>Este flujo de trabajo — junto con los prompts completos de los Gems, los casos reales con Mario, Sofia y Lorenzo, y cómo se construye el Perfil del Alumno del que parte todo — es el contenido central del libro <a href="/es/libro/" style="color: var(--primary-color);">«Intelligenza Artificiale per la Didattica Inclusiva»</a> (en italiano). Aquí he querido compartir el método en sí; en el libro encontrarás también los textos de las instrucciones listos para copiar y los resultados probados capítulo a capítulo.</p>
+
+                    <h2>Preguntas frecuentes</h2>
+                    <p><strong>¿Cuál es la diferencia entre NotebookLM y los Gems de Gemini?</strong><br>Un Gem es un asistente permanente: las instrucciones quedan activas para siempre, útil cuando adaptas el mismo tipo de texto cada semana. NotebookLM, en cambio, parte de un documento cargado (un capítulo, un apunte) y lo transforma en varios formatos — audio, cuestionarios, resúmenes. En resumen: el Gem transforma un texto, NotebookLM lo pone a disposición en muchos formatos.</p>
+                    <p><strong>¿Se pueden usar juntos NotebookLM y los Gems para materiales de necesidades educativas especiales?</strong><br>Sí, y la combinación funciona mejor que las dos herramientas por separado: cargar en NotebookLM el texto ya adaptado por el Gem — no el original — mejora notablemente la calidad de todo lo que NotebookLM genera después, porque el audio, los cuestionarios y los resúmenes heredan el mismo léxico simplificado.</p>
+                    <p><strong>¿Para qué sirve el Audio Overview de NotebookLM con un alumno con dislexia?</strong><br>Genera una conversación de audio entre dos voces sobre los conceptos principales del documento cargado, en formato breve. Para un alumno con dislexia severa suele ser la función más útil: permite escuchar en lugar de leer, con un léxico coherente con el texto de partida.</p>
+                    <p><strong>¿Cómo se crea una historia social para un alumno con trastorno del espectro autista?</strong><br>Con Gemini Storybook: se describe la secuencia en lenguaje natural (por ejemplo, "despertar → desayuno → mochila lista → autobús → entrada al colegio") y se obtiene un libro ilustrado de 10 páginas con audio narrado, descargable como PDF o como vídeo para escucha autónoma.</p>
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Lee también</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/es/libro/" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">IA y dificultades de aprendizaje: guía práctica para docentes sobre el uso de la inteligencia artificial con alumnado con dificultades de aprendizaje</a></li>
+                        <li><a href="/es/blog/ai-act-puia-sostegno-2026.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Ley de IA y PUIA: qué cambia para el apoyo educativo desde el 2 de agosto de 2026</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>¿Quieres más contenido sobre EdTech y Automatización?</h3>
+                    <p>Cada semana: workflows n8n, tips prácticos y recursos para docentes y formadores.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">¿Quieres llevar estas herramientas a tu centro escolar o tu empresa? <a href="/es/lavora-con-me/" style="color: var(--primary-color);">Descubre cómo trabajo</a>.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="hidden" name="lang" value="es">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscríbete gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/es/blog/guerda-music-ai-pipeline.html">← Guerda Music</a>
+                    <a href="/es/blog/metodo-dsa-bachata-automazione.html">Un plan educativo individualizado y una pipeline de Suno →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>

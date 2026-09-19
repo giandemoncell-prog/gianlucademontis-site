@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n Workflow for Automatic Backup of My Projects — Gianluca Demontis</title>
+    <meta name="description" content="How I built an n8n workflow that saves my workflows and configurations to Google Drive every 4 hours, with integrity checks and Telegram notifications.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html">
+    <meta property="og:title" content="n8n Workflow for Automatic Backup of My Projects">
+    <meta property="og:description" content="Automatic backup of n8n workflows to Google Drive every 4 hours, with integrity checks and Telegram notifications. A practical step-by-step tutorial.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-06-11">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Automation">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="n8n Workflow for Automatic Backup of My Projects">
+    <meta name="twitter:description" content="Automatic backup of n8n workflows to Google Drive every 4 hours, with integrity checks and Telegram notifications. A practical step-by-step tutorial.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "n8n Workflow for Automatic Backup of My Projects",
+        "datePublished": "2026-06-11T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html"},
+        "inLanguage": "en-US",
+        "articleSection": "Automation",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz/en/"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Automatic backup of n8n workflows to Google Drive with integrity checks and Telegram notifications."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/en/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/en/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "n8n Workflow for Automatic Backup", "item": "https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/en/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/en/#hero">Home</a></li>
+                    <li><a href="/en/#about">About</a></li>
+                    <li><a href="/en/#projects">Projects</a></li>
+                    <li><a href="/en/blog/">Blog</a></li>
+                    <li><a href="/en/lavora-con-me/">Work with me</a></li><li><a href="/en/#contact">Contact</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/n8n-backup-automatico.html">IT</a><span>·</span>
+                        <a href="/en/blog/n8n-backup-automatico.html" class="active">EN</a><span>·</span>
+                        <a href="/es/blog/n8n-backup-automatico.html">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/en/blog/" class="back-link">← All articles</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automation</span>
+                        <span class="blog-date">June 11, 2026</span>
+                        <span class="blog-date">· 7 min read</span>
+                    </div>
+                    <h1>n8n Workflow for Automatic Backup of My Projects</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">One day I updated my n8n instance and, because of a misconfigured Docker volume, I lost three workflows I'd been working on for weeks. That afternoon I understood something simple: <strong>if automation is my job, backup has to be automatic too.</strong></p>
+                </header>
+
+                <article class="article-body">
+                    <p>Relying on manual backups is the surest way to never actually do them. You remember when it's too late. That's why I built an n8n workflow that does one thing, but does it well: it saves everything I need, automatically, and tells me when it's done. In this article I'll show you exactly how I set it up.</p>
+
+                    <h2>What We Save and Where</h2>
+                    <p>Before building any automation, you need to decide <strong>what</strong> is actually worth protecting. In my case, there are three irreplaceable things:</p>
+                    <ul>
+                        <li><strong>Workflow JSON files</strong>: every n8n workflow can be exported as a JSON file. It's the heart of everything — logic, nodes, connections. Without this you start from scratch.</li>
+                        <li><strong>Configurations</strong>: environment variables, instance settings, project folder structure. Not huge, but rebuilding them by hand is frustrating.</li>
+                        <li><strong>Credentials (handled with care)</strong>: n8n exports them encrypted. I save them separately and never in plain text — this is not a point to compromise on.</li>
+                    </ul>
+                    <p>The destination is <strong>Google Drive</strong>. It's not the most "enterprise" choice in the world, but it's free at my volumes, has built-in versioning, and I can access it from any device. For a freelancer or a small studio it's more than enough. I created a dedicated <em>n8n-backups</em> folder with subfolders by date, so finding an old version is immediate.</p>
+                    <blockquote>The golden rule of backups is 3-2-1: three copies, on two different media, one of them off-site. Google Drive covers the off-site part without me having to think about it.</blockquote>
+
+                    <h2>The Backup Workflow Step by Step</h2>
+                    <p>The nice thing about n8n is that an automation like this reads like a sentence. Here's the chain of nodes I built:</p>
+                    <ol>
+                        <li><strong>Cron trigger (every 4 hours)</strong>: the <em>Schedule Trigger</em> node fires at 00:00, 04:00, 08:00 and so on. Four hours is my compromise between "I always have a recent copy" and "I don't clog Drive with useless files." Tune it to your own working rhythm.</li>
+                        <li><strong>Export via n8n API</strong>: an <em>HTTP Request</em> node calls my instance's REST API (<code>/rest/workflows</code>) and retrieves all workflows as JSON. Alternatively, on self-hosted instances you can use the CLI command <code>n8n export:workflow --all</code> inside an <em>Execute Command</em> node.</li>
+                        <li><strong>Upload to Google Drive</strong>: the <em>Google Drive</em> node uploads the JSON into the day's folder. The filename includes date and time (<code>workflows-2026-06-11_0800.json</code>), so I never overwrite a previous backup.</li>
+                        <li><strong>Telegram notification</strong>: the <em>Telegram</em> node sends me a message like <em>"Backup complete: 14 workflows saved (218 KB)"</em>. One glance at my phone tells me everything's fine.</li>
+                    </ol>
+                    <p>The whole chain runs in under ten seconds and requires no manual intervention. Once it's on, you forget about it — which is exactly what you want from a backup.</p>
+
+                    <h2>Adding Integrity Checks</h2>
+                    <p>A backup that exists but is corrupted is worse than no backup at all, because it gives you false confidence. That's why after the upload I added a second block of nodes dedicated to verification:</p>
+                    <ul>
+                        <li><strong>Does the file actually exist?</strong> A <em>Google Drive (Get)</em> node re-reads the file just uploaded and checks that it's present and its size is greater than zero.</li>
+                        <li><strong>Is the JSON valid?</strong> A <em>Code</em> node tries to parse the content with <code>JSON.parse()</code>. If the file is truncated or corrupted, parsing fails and the error is caught.</li>
+                        <li><strong>Does the workflow count match?</strong> I compare the number of workflows in the saved file against what the API returns. If the numbers don't match, something went wrong during export.</li>
+                    </ul>
+                    <p>If any of these checks fail, an <em>IF</em> node routes the flow to an <strong>alert</strong> Telegram notification — complete with a red emoji, because among twenty routine messages that one needs to stand out. Better to discover a problem right away than during an emergency.</p>
+
+                    <h2>Results After 3 Months of Use</h2>
+                    <p>The numbers are the most satisfying part. Since I turned the workflow on:</p>
+                    <ul>
+                        <li><strong>540+ total backups</strong> generated automatically (6 a day × ~90 days), without me touching anything.</li>
+                        <li><strong>Zero data loss</strong>: I had to do one restore, after a failed update, and I recovered the state from 4 hours earlier in under two minutes.</li>
+                        <li><strong>3 integrity alerts</strong> received — all due to an instance restart during export. The check did exactly its job, avoiding saving broken files.</li>
+                        <li><strong>~1.2 GB used</strong> on Drive, very manageable. I added a small cleanup node that deletes backups older than 60 days.</li>
+                    </ul>
+                    <blockquote>The real value isn't in the 540 backups I never opened. It's in that one two-minute restore that saved me a week of work.</blockquote>
+
+                    <h2>Conclusion</h2>
+                    <p>Automating your workflow backups is one of those projects that pays for itself the first time you need it — and then keeps paying off by staying invisible. The logic is simple, the tools are free, and once it's running you don't think about it anymore.</p>
+                    <p>If you run automations that matter for your work and don't have an automatic backup yet, this is the moment to build one. And if you want a hand setting it up on your own infrastructure, <a href="/en/lavora-con-me/" style="color: var(--primary-color);">just write to me</a>: I'll design the workflow together with you.</p>
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Read also</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/en/blog/social-publisher-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">How I automated publishing to Instagram, Facebook and LinkedIn with an n8n workflow</a></li>
+                        <li><a href="/en/blog/digest-ai-notizie-gemini.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">AI digest: how to get tech news summarized every morning with n8n and Gemini</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>Want more content on Automation and n8n?</h3>
+                    <p>Every week: practical workflows, tips and resources for automating repetitive work.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Want to bring these tools to your school or your business? <a href="/en/lavora-con-me/" style="color: var(--primary-color);">Find out how I work</a>.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="hidden" name="lang" value="en">
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe for free</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/en/blog/ai-in-classe-2026.html">← AI in the Classroom 2026</a>
+                    <a href="/en/blog/iot-raspberry-pi-n8n.html">IoT with Raspberry Pi →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>

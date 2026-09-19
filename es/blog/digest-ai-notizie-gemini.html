@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen diario con IA: cómo leo las noticias tech en 3 minutos cada mañana — Gianluca Demontis</title>
+    <meta name="description" content="Cómo recibo cada mañana las 5 noticias tech más relevantes ya resumidas, por Telegram, sin abrir ningún sitio. n8n + Gemini + RSS. Coste cero.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/digest-ai-notizie-gemini.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html">
+    <meta property="og:title" content="Resumen diario con IA: cómo leo las noticias tech en 3 minutos cada mañana">
+    <meta property="og:description" content="A las 7:30 recibo en Telegram las 5 noticias tech más relevantes de la noche, ya resumidas y traducidas. n8n + Gemini 2.5 Flash + RSS + Google Sheets. Coste cero.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-08-17">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="IA">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Resumen diario con IA: cómo leo las noticias tech en 3 minutos cada mañana">
+    <meta name="twitter:description" content="A las 7:30 recibo en Telegram las 5 noticias tech más relevantes de la noche, ya resumidas y traducidas. n8n + Gemini 2.5 Flash + RSS + Google Sheets. Coste cero.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Resumen diario con IA: cómo leo las noticias tech en 3 minutos cada mañana",
+        "datePublished": "2026-08-17T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html"},
+        "inLanguage": "es-ES",
+        "articleSection": "IA",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz/es/"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Cómo recibo cada mañana las 5 noticias tech más relevantes ya resumidas, por Telegram, sin abrir ningún sitio. n8n + Gemini + RSS. Coste cero."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/es/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/es/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Resumen diario con IA: cómo leo las noticias tech en 3 minutos cada mañana", "item": "https://gianlucademontis.xyz/es/blog/digest-ai-notizie-gemini.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body code { background: rgba(0,217,255,0.08); color: var(--primary-color); padding: 0.15em 0.45em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        .digest-example { background: #0d1117; border: 1px solid rgba(0,217,255,0.2); border-radius: 10px; padding: 1.5rem 2rem; margin: 1.5rem 0; font-family: 'Courier New', monospace; font-size: 0.9rem; line-height: 1.8; color: #c9d1d9; }
+        .digest-example .digest-header { color: var(--primary-color); font-weight: bold; margin-bottom: 1rem; }
+        .digest-example .digest-item { margin-bottom: 1rem; }
+        .digest-example .digest-title { color: #fff; }
+        .digest-example .digest-link { color: rgba(0,217,255,0.6); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/es/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/#hero">Home</a></li>
+                    <li><a href="/es/#about">Sobre mí</a></li>
+                    <li><a href="/es/#projects">Proyectos</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li><li><a href="/es/#contact">Contacto</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/digest-ai-notizie-gemini.html">IT</a><span>·</span>
+                        <a href="/en/blog/digest-ai-notizie-gemini.html">EN</a><span>·</span>
+                        <a href="/es/blog/digest-ai-notizie-gemini.html" class="active">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/es/blog/" class="back-link">← Todos los artículos</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">IA</span>
+                        <span class="blog-date">17 de agosto de 2026</span>
+                        <span class="blog-date">· 7 min de lectura</span>
+                    </div>
+                    <h1>Resumen diario con IA: cómo leo las noticias tech en 3 minutos cada mañana</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">A las 7:30 recibo en Telegram un mensaje con las 5 noticias tech más relevantes de la noche, ya resumidas y traducidas al italiano. No abro ningún sitio, no hago scroll en ningún feed. En 3 minutos estoy al día de lo que importa. <strong>Este es mi resumen diario — construido en una tarde, funcionando desde hace meses.</strong></p>
+                </header>
+
+                <article class="article-body">
+
+                    <h2>El problema de la sobrecarga de información</h2>
+                    <p>Seguir el ecosistema de la IA implica vigilar al menos una docena de fuentes: Hacker News, TechCrunch, The Verge, MIT Tech Review, los blogs oficiales de OpenAI, Google DeepMind, Anthropic. Sin contar las newsletters, los hilos de Twitter, los papers en arXiv.</p>
+                    <p>Probé Feedly, Pocket, Readwise. Todos requieren <strong>atención activa</strong>: tienes que ir, abrir, hacer scroll. Cada mañana se convertía en un mini-trabajo antes del trabajo de verdad. Quería algo pasivo: llega, lo leo, he terminado.</p>
+
+                    <h2>La arquitectura en 4 pasos</h2>
+                    <ol>
+                        <li><strong>RSS fetch</strong>: n8n lee cada mañana a las 7:00 los últimos artículos de 8 feeds preconfigurados (Hacker News top stories, TechCrunch AI, The Verge Tech, MIT Technology Review, blog de OpenAI, noticias de Anthropic, Google AI Blog, Ars Technica)</li>
+                        <li><strong>Deduplication</strong>: Google Sheets filtra los artículos ya incluidos en los resúmenes de los últimos 7 días — así nunca leo dos veces la misma noticia</li>
+                        <li><strong>Gemini 2.5 Flash</strong>: resume cada artículo en 2-3 líneas en italiano, con título y enlace original. Todos los artículos nuevos en una única llamada a la API</li>
+                        <li><strong>Telegram</strong>: envía el resumen formateado cada mañana a las 7:30, 30 minutos después de la recolección</li>
+                    </ol>
+
+                    <h2>Por qué Gemini 2.5 Flash y no otro modelo</h2>
+                    <p>Dos motivos prácticos. El primero es la <strong>ventana de contexto</strong>: Gemini 2.5 Flash gestiona hasta 1 millón de tokens. Puedo pasarle 8-10 artículos completos en una sola llamada a la API y recibir todos los resúmenes de una vez. Sin bucles, sin gestionar la paginación.</p>
+                    <p>El segundo es el <strong>coste</strong>. Con el nivel gratuito de la API de Gemini, el gasto por resumen es prácticamente cero — menos de una milésima de euro al día. El modelo tiene calidad suficiente para producir resúmenes legibles y precisos, sin malgastar un modelo de nivel producción en una tarea que no lo requiere.</p>
+
+                    <h2>El formato del resumen</h2>
+                    <p>Estandaricé el formato para que la lectura sea rapidísima. Cada entrada tiene: título, dos líneas de resumen en italiano, enlace original.</p>
+
+                    <div class="digest-example">
+                        <div class="digest-header">🤖 Resumen IA — Lunes 3 de agosto de 2026</div>
+                        <div class="digest-item">
+                            <div class="digest-title">1. OpenAI lanza o1 mini para todos los planes</div>
+                            Razonamiento de nivel GPT-4o con costes un 80% más bajos. Disponible desde hoy en ChatGPT Free, Plus y Team. Optimizado para matemáticas y programación.<br>
+                            <span class="digest-link">→ openai.com/blog/o1-mini</span>
+                        </div>
+                        <div class="digest-item">
+                            <div class="digest-title">2. Apple Intelligence ya habla italiano</div>
+                            Siri reescrita con un LLM interno, beta para desarrolladores disponible. Soporta reescritura de textos, resumen de notificaciones e integración con apps de terceros.<br>
+                            <span class="digest-link">→ developer.apple.com/apple-intelligence</span>
+                        </div>
+                    </div>
+
+                    <p>La estructura fija es importante: el cerebro aprende a procesarla rápido. Tras unos días se lee el resumen como se lee el tiempo — sin esfuerzo cognitivo.</p>
+
+                    <h2>La personalización</h2>
+                    <p>Este es el detalle que transforma el resumen de genérico a útil. En el prompt a Gemini añadí una instrucción explícita:</p>
+                    <blockquote>Prioriza las noticias sobre: IA local y open-source, n8n y automatización de workflows, Claude y Claude Code, herramientas para desarrolladores independientes, EdTech e IA aplicada a la educación. En caso de igual relevancia, elige la noticia más reciente.</blockquote>
+                    <p>El resultado: el resumen refleja mis intereses, no los del algoritmo editorial de TechCrunch. Una noticia sobre un nuevo modelo open-source local pesa más que una ronda de financiación de 100 millones para otra startup de LLM.</p>
+
+                    <h2>Coste real</h2>
+                    <ul>
+                        <li>n8n autoalojado en una Raspberry Pi: <strong>0 €/mes</strong></li>
+                        <li>API de Gemini 2.5 Flash: <strong>0 €/mes</strong> (nivel gratuito muy generoso)</li>
+                        <li>API de Google Sheets: <strong>0 €/mes</strong></li>
+                        <li>Bot de Telegram: <strong>0 €/mes</strong></li>
+                    </ul>
+                    <p>El coste real es el tiempo de configuración inicial: unos 90 minutos entre configurar los feeds RSS, las credenciales de Google y probar el prompt de Gemini. Después el sistema es completamente autónomo.</p>
+
+                    <h2>Cómo replicarlo</h2>
+                    <p>El workflow en JSON está disponible en el repositorio público de GitHub. Los requisitos son: n8n autoalojado (también en una Raspberry Pi), una clave de API de Gemini gratuita, acceso a la API de Google Sheets. El workflow se puede importar directamente en n8n — la única configuración manual son los feeds RSS que te interesan y las palabras clave de personalización en el prompt.</p>
+
+                    <blockquote>No leo menos. Leo mejor. La diferencia entre hacer scroll en un feed durante 20 minutos y recibir 5 noticias seleccionadas para mí vale, en atención, lo que vale en dinero un buen filtro antispam.</blockquote>
+
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Lee también</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/es/blog/n8n-backup-automatico.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Workflow de n8n para la copia de seguridad automática de workflows y configuraciones en Google Drive</a></li>
+                        <li><a href="/es/blog/iot-raspberry-pi-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">IoT con Raspberry Pi: monitorización de temperatura en tiempo real con n8n y Grafana, sin nube</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>¿Quieres tu propio resumen matutino?</h3>
+                    <p>Cada semana: workflows de n8n prácticos, IA aplicada a problemas cotidianos, coste cero.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">¿Quieres llevar estas herramientas a tu centro o a tu empresa? <a href="/es/lavora-con-me/" style="color: var(--primary-color);">Descubre cómo trabajo</a>.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="hidden" name="lang" value="es">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscríbete gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/es/blog/property-finder-n8n-telegram.html">← PropertyFinder</a>
+                    <a href="/es/blog/formazione-ia-dirigenti-figure-sistema-2026.html">Formación en IA para directivos →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>

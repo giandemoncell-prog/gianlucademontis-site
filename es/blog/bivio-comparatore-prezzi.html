@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIVIO: comparador de precios multiplataforma con FastAPI y Gemini — Gianluca Demontis</title>
+    <meta name="description" content="Cómo construí BIVIO, comparador de precios en Amazon, AliExpress, eBay y Trovaprezzi con Gemini AI y Google Search grounding. Bugs reales, coste cero.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/bivio-comparatore-prezzi.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html">
+    <meta property="og:title" content="BIVIO: comparador de precios multiplataforma con FastAPI y Gemini">
+    <meta property="og:description" content="Una búsqueda, cuatro marketplaces, una sola respuesta. Cómo funciona BIVIO por dentro: Gemini con Google Search grounding, enlaces de afiliado regenerados en el backend, SQLite para wishlist y alertas de precio.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-07-08">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Proyectos">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BIVIO: comparador de precios multiplataforma con FastAPI y Gemini">
+    <meta name="twitter:description" content="Una búsqueda, cuatro marketplaces, una sola respuesta. Arquitectura, bugs reales, coste cero.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "BIVIO: comparador de precios multiplataforma con FastAPI y Gemini",
+        "datePublished": "2026-07-08T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html"},
+        "inLanguage": "es-ES",
+        "articleSection": "Proyectos",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz/es/"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Cómo construí BIVIO, un comparador de precios que busca en Amazon, AliExpress, eBay y Trovaprezzi con Gemini AI y Google Search grounding. Arquitectura, bugs reales, coste cero."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/es/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/es/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "BIVIO: comparador de precios multiplataforma con FastAPI y Gemini", "item": "https://gianlucademontis.xyz/es/blog/bivio-comparatore-prezzi.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body code { background: rgba(0,217,255,0.08); color: var(--primary-color); padding: 0.15em 0.45em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .arch-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .arch-table th { text-align: left; color: var(--text-secondary); font-weight: 600; padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .arch-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); vertical-align: top; }
+        .arch-table td:first-child { color: var(--primary-color); font-family: 'Courier New', monospace; font-size: 0.9em; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/es/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/#hero">Home</a></li>
+                    <li><a href="/es/#about">Sobre mí</a></li>
+                    <li><a href="/es/#projects">Proyectos</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li><li><a href="/es/#contact">Contacto</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/bivio-comparatore-prezzi.html">IT</a><span>·</span>
+                        <a href="/en/blog/bivio-comparatore-prezzi.html">EN</a><span>·</span>
+                        <a href="/es/blog/bivio-comparatore-prezzi.html" class="active">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/es/blog/" class="back-link">← Todos los artículos</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Proyectos</span>
+                        <span class="blog-date">8 de julio de 2026</span>
+                        <span class="blog-date">· 7 min de lectura</span>
+                    </div>
+                    <h1>BIVIO: construí un comparador de precios multiplataforma con FastAPI y Gemini</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">En casa siempre comparábamos los mismos cuatro sitios antes de comprar algo: Amazon, AliExpress, eBay, Trovaprezzi. Siempre las mismas pestañas abiertas, siempre el mismo copiar y pegar del nombre del producto. <strong>Automaticé la parte aburrida: una búsqueda, cuatro marketplaces, una sola respuesta.</strong></p>
+                </header>
+
+                <article class="article-body">
+
+                    <h2>El problema</h2>
+                    <p>No hacía falta un producto comercial, hacía falta una herramienta de uso familiar: sin cuentas, sin suscripciones, todo en local. El objetivo era fácil de enunciar y menos fácil de construir — escribir el nombre de un producto una sola vez y ver el mejor precio en cuatro plataformas distintas, cada una con su estructura, sus filtros, sus enlaces de afiliación.</p>
+                    <p>La solución técnica más directa habría sido un scraper para cada sitio. La más robusta — y la que elegí — fue delegar la búsqueda en un modelo con acceso a la web en tiempo real.</p>
+
+                    <h2>Arquitectura de dos velocidades</h2>
+                    <p>El backend es FastAPI en Python, el frontend un HTML de página única que habla con <code>localhost:8000</code>. La parte interesante es cómo está dividida la búsqueda:</p>
+
+                    <table class="arch-table">
+                        <thead><tr><th>Tarea</th><th>Cómo funciona</th></tr></thead>
+                        <tbody>
+                            <tr><td>Amazon</td><td>Tarea de Gemini 2.0 Flash dedicada y separada (<code>_search_amazon_via_ai</code>), lista para pasar a la PA-API v5 oficial en cuanto esté disponible</td></tr>
+                            <tr><td>AliExpress / eBay / Trovaprezzi</td><td>Una única llamada a Gemini 2.0 Flash con Google Search grounding (<code>_search_others_via_gemini</code>)</td></tr>
+                            <tr><td>Paralelismo</td><td><code>asyncio.gather</code> lanza los dos grupos en executors separados</td></tr>
+                            <tr><td>Persistencia</td><td>SQLite local (<code>bivio.db</code>), autocreado en el primer arranque</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>El detalle que más tiempo me hizo perder: Amazon tiene que quedar fuera del grupo "otros" incluso cuando la PA-API oficial está desactivada. Lo intenté, al principio, para simplificar el código — resultado: Gemini devolvía un array vacío para Amazon cada vez que se agrupaba junto con los otros tres. Dos tareas separadas, dos prompts separados, problema resuelto.</p>
+
+                    <h2>El truco de los enlaces de afiliado</h2>
+                    <p>Un problema que no esperaba: los enlaces de producto que devuelve Gemini en la respuesta a menudo están <strong>inventados</strong> — URLs con aspecto plausible que llevan a páginas 404 o a productos distintos. Google Search grounding ayuda a encontrar los resultados correctos, pero no garantiza que el enlace final sea real.</p>
+                    <p>La solución fue dejar de confiar en los enlaces generados por el modelo y reconstruirlos yo mismo, en el backend, con una función única (<code>_affiliate_url</code>) que genera URLs de búsqueda reales con el tracking ya incluido:</p>
+                    <ul>
+                        <li><strong>Amazon</strong>: <code>amazon.it/s?k={query}&tag=...</code></li>
+                        <li><strong>AliExpress</strong>: <code>aliexpress.com/wholesale?SearchText={query}&tblci=...</code> (no <code>tracking_id</code>, que parece correcto pero no lo es)</li>
+                        <li><strong>eBay</strong>: query string con <code>campid</code> y <code>mkevt</code> de la eBay Partner Network</li>
+                        <li><strong>Trovaprezzi</strong>: enlace de búsqueda directo, sin afiliación activa</li>
+                    </ul>
+                    <p>Gemini sirve para decidir <em>qué</em> buscar y para estimar precios orientativos. Los enlaces que el usuario clica de verdad siempre los genera mi propio código, nunca se copian de la respuesta del modelo.</p>
+
+                    <h2>Wishlist, alertas de precio y un scheduler silencioso</h2>
+                    <p>Por encima de la búsqueda corre una segunda capa, pensada más para el uso diario que para la demo: una wishlist para guardar los productos interesantes y un sistema de alertas que notifica cuando un precio baja de un umbral configurado. APScheduler comprueba todas las alertas cada 24 horas en segundo plano, además de un endpoint manual (<code>/api/alerts/check</code>) para forzar la verificación cuando no se quiere esperar.</p>
+
+                    <h2>De casa a cualquier lugar</h2>
+                    <p>BIVIO corre enteramente en local — ningún servidor que pagar, ningún dato que salga de casa. Para usarlo también fuera de casa añadí un Cloudflare Tunnel: ningún puerto abierto en el router, ninguna IP estática que configurar, solo <code>cloudflared tunnel run bivio</code> apuntando al dominio.</p>
+
+                    <h2>Los problemas reales</h2>
+                    <p>Tres obstáculos concretos, de los que no se encuentran en la documentación oficial.</p>
+
+                    <p><strong>1. El antivirus interceptaba las llamadas HTTPS.</strong> Las peticiones a Gemini fallaban con errores SSL intermitentes. Causa: el antivirus local hacía inspección TLS en las conexiones salientes. Solución (temporal, no ideal): parche global con <code>ssl._create_unverified_context</code> aplicado a <code>httpx</code>.</p>
+
+                    <p><strong>2. La cuota de Gemini se agota, y en un momento incómodo.</strong> Para grabar un reel de demostración la cuota diaria ya se había acabado. Solución estructural: dos claves API en cascada (<code>GEMINI_API_KEY_2</code> primaria, <code>GEMINI_API_KEY</code> como fallback), y para las demos en directo, datos inyectados directamente después de la respuesta del backend en lugar de esperar al reinicio de la cuota.</p>
+
+                    <p><strong>3. La PA-API de Amazon exige 3 ventas cualificadas antes de activarse.</strong> Las credenciales de Associates por sí solas solo bastan para generar la etiqueta de tracking, no para consultar la API oficial — hace falta historial de ventas. Mientras tanto, Amazon pasa por el mismo canal de Gemini + grounding que los otros tres marketplaces, listo para pasar a PA-API v5 el día en que el historial lo desbloquee.</p>
+
+                    <blockquote>El modelo de IA no sustituye la integración con las APIs oficiales — la anticipa. El día en que se desbloquee la PA-API, cambio una función y el resto de la arquitectura sigue igual.</blockquote>
+
+                    <h2>Coste real</h2>
+                    <ul>
+                        <li>Hosting: <strong>0 €/mes</strong> (corre en un PC de casa)</li>
+                        <li>Gemini 2.0 Flash: <strong>gratuito</strong> en el tier gratuito, con doble clave de fallback</li>
+                        <li>Cloudflare Tunnel: <strong>gratuito</strong></li>
+                        <li>SQLite: <strong>incluido</strong>, cero configuración</li>
+                    </ul>
+
+                    <h2>Qué añadiría</h2>
+                    <p>La PA-API oficial de Amazon en cuanto maduren las 3 ventas requeridas, un histórico de precios para saber si conviene comprar ahora o esperar, y una versión mobile-first del frontend — de momento pensado sobre todo para escritorio en casa.</p>
+
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Lee también</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/es/blog/iot-raspberry-pi-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">IoT con Raspberry Pi: monitorización en tiempo real con n8n</a></li>
+                        <li><a href="/es/blog/guerda-music-ai-pipeline.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Guerda Music: la pipeline que transforma una voz real en canciones publicadas en 4 idiomas</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>¿Quieres ver más proyectos como este?</h3>
+                    <p>Cada semana: workflows n8n, proyectos Python e IA aplicada, sin relleno.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">¿Quieres llevar estas herramientas a tu centro escolar o a tu empresa? <a href="/es/lavora-con-me/" style="color: var(--primary-color);">Descubre cómo trabajo</a>.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="hidden" name="lang" value="es">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscríbete gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/es/blog/iot-raspberry-pi-n8n.html">← IoT con Raspberry Pi</a>
+                    <a href="/es/blog/guerda-music-ai-pipeline.html">Guerda Music →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>

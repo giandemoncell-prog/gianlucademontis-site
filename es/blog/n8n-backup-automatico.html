@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow de n8n para la copia de seguridad automática de mis proyectos — Gianluca Demontis</title>
+    <meta name="description" content="Cómo construí un workflow de n8n que guarda mis workflows y configuraciones en Google Drive cada 4 horas, con control de integridad y notificaciones de Telegram.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/n8n-backup-automatico.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/n8n-backup-automatico.html">
+    <meta property="og:title" content="Workflow de n8n para la copia de seguridad automática de mis proyectos">
+    <meta property="og:description" content="Copia de seguridad automática de workflows n8n en Google Drive cada 4 horas, con control de integridad y notificaciones de Telegram. Tutorial práctico paso a paso.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-06-11">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Automatización">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Workflow de n8n para la copia de seguridad automática de mis proyectos">
+    <meta name="twitter:description" content="Copia de seguridad automática de workflows n8n en Google Drive cada 4 horas, con control de integridad y notificaciones de Telegram. Tutorial práctico paso a paso.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Workflow de n8n para la copia de seguridad automática de mis proyectos",
+        "datePublished": "2026-06-11T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html"},
+        "inLanguage": "es-ES",
+        "articleSection": "Automatización",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz/es/"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Copia de seguridad automática de workflows n8n en Google Drive con control de integridad y notificaciones de Telegram."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/es/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/es/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Workflow de n8n para la copia de seguridad automática", "item": "https://gianlucademontis.xyz/es/blog/n8n-backup-automatico.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/es/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/#hero">Home</a></li>
+                    <li><a href="/es/#about">Sobre mí</a></li>
+                    <li><a href="/es/#projects">Proyectos</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li><li><a href="/es/#contact">Contacto</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/n8n-backup-automatico.html">IT</a><span>·</span>
+                        <a href="/en/blog/n8n-backup-automatico.html">EN</a><span>·</span>
+                        <a href="/es/blog/n8n-backup-automatico.html" class="active">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/es/blog/" class="back-link">← Todos los artículos</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automatización</span>
+                        <span class="blog-date">11 de junio de 2026</span>
+                        <span class="blog-date">· 7 min de lectura</span>
+                    </div>
+                    <h1>Workflow de n8n para la copia de seguridad automática de mis proyectos</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Un día actualicé mi instancia de n8n y, por una configuración incorrecta del volumen Docker, perdí tres workflows en los que había trabajado durante semanas. Esa tarde entendí algo sencillo: <strong>si la automatización es mi trabajo, la copia de seguridad también tiene que ser automática.</strong></p>
+                </header>
+
+                <article class="article-body">
+                    <p>Confiar en copias de seguridad manuales es la forma más segura de no hacerlas nunca. Te acuerdas de ellas cuando ya es tarde. Por eso construí un workflow de n8n que hace una sola cosa, pero la hace bien: guarda todo lo que necesito, en automático, y me avisa cuando termina. En este artículo te muestro exactamente cómo lo monté.</p>
+
+                    <h2>Qué guardamos y dónde</h2>
+                    <p>Antes de construir cualquier automatización, hay que decidir <strong>qué</strong> merece la pena proteger. En mi caso, hay tres cosas irremplazables:</p>
+                    <ul>
+                        <li><strong>Los workflows en JSON</strong>: cada workflow de n8n se puede exportar como archivo JSON. Es el corazón de todo — la lógica, los nodos, las conexiones. Sin esto empiezas de cero.</li>
+                        <li><strong>Las configuraciones</strong>: variables de entorno, ajustes de la instancia, estructura de carpetas de los proyectos. No son enormes, pero reconstruirlas a mano es frustrante.</li>
+                        <li><strong>Las credenciales (con cautela)</strong>: n8n las exporta cifradas. Las guardo por separado y nunca en texto plano — este es un punto en el que no se transige.</li>
+                    </ul>
+                    <p>El destino es <strong>Google Drive</strong>. No es la opción más "enterprise" del mundo, pero es gratis para mis volúmenes, tiene versionado integrado y accedo desde cualquier dispositivo. Para un freelance o un estudio pequeño es más que suficiente. Creé una carpeta dedicada <em>n8n-backups</em> con subcarpetas por fecha, así encontrar una versión antigua es inmediato.</p>
+                    <blockquote>La regla de oro de las copias de seguridad es el 3-2-1: tres copias, en dos soportes distintos, una de ellas fuera de las instalaciones. Google Drive cubre esa parte externa sin que yo tenga que pensarlo.</blockquote>
+
+                    <h2>El workflow de backup paso a paso</h2>
+                    <p>Lo bueno de n8n es que una automatización así se lee como una frase. Esta es la cadena de nodos que construí:</p>
+                    <ol>
+                        <li><strong>Trigger Cron (cada 4 horas)</strong>: el nodo <em>Schedule Trigger</em> se activa a las 00:00, 04:00, 08:00 y así sucesivamente. Cuatro horas es mi compromiso entre "siempre tengo una copia reciente" y "no lleno Drive de archivos inútiles". Ajústalo a tu propio ritmo de trabajo.</li>
+                        <li><strong>Exportación vía API de n8n</strong>: un nodo <em>HTTP Request</em> llama a la API REST de mi instancia (<code>/rest/workflows</code>) y recupera todos los workflows en formato JSON. Como alternativa, en instancias self-hosted puedes usar el comando CLI <code>n8n export:workflow --all</code> dentro de un nodo <em>Execute Command</em>.</li>
+                        <li><strong>Subida a Google Drive</strong>: el nodo <em>Google Drive</em> sube el JSON a la carpeta del día. El nombre del archivo incluye fecha y hora (<code>workflows-2026-06-11_0800.json</code>), así nunca sobrescribo una copia anterior.</li>
+                        <li><strong>Notificación de Telegram</strong>: el nodo <em>Telegram</em> me envía un mensaje del tipo <em>"Backup completado: 14 workflows guardados (218 KB)"</em>. Me basta un vistazo al móvil para saber que todo está en orden.</li>
+                    </ol>
+                    <p>Toda la cadena se ejecuta en menos de diez segundos y no requiere intervención manual. Una vez activada, te olvidas de ella — y eso es exactamente lo que quieres de una copia de seguridad.</p>
+
+                    <h2>Añadir el control de integridad</h2>
+                    <p>Una copia de seguridad que existe pero está corrupta es peor que no tener ninguna, porque te da una falsa sensación de seguridad. Por eso, después de la subida añadí un segundo bloque de nodos dedicado a la verificación:</p>
+                    <ul>
+                        <li><strong>¿El archivo existe de verdad?</strong> Un nodo <em>Google Drive (Get)</em> vuelve a leer el archivo recién subido y comprueba que esté presente y que su tamaño sea mayor que cero.</li>
+                        <li><strong>¿El JSON es válido?</strong> Un nodo <em>Code</em> intenta parsear el contenido con <code>JSON.parse()</code>. Si el archivo está truncado o corrupto, el parseo falla y el error se captura.</li>
+                        <li><strong>¿Coincide el número de workflows?</strong> Comparo el recuento de workflows en el archivo guardado con el que devuelve la API. Si los números no coinciden, algo salió mal durante la exportación.</li>
+                    </ul>
+                    <p>Si cualquiera de estos controles falla, un nodo <em>IF</em> desvía el flujo hacia una notificación de Telegram de <strong>alarma</strong> — con su emoji rojo, porque entre veinte mensajes rutinarios ese tiene que saltar a la vista. Mejor descubrir un problema de inmediato que durante una emergencia.</p>
+
+                    <h2>Resultados después de 3 meses de uso</h2>
+                    <p>Los números son la parte más satisfactoria. Desde que activé el workflow:</p>
+                    <ul>
+                        <li><strong>540+ copias de seguridad totales</strong> generadas en automático (6 al día × ~90 días), sin que yo tocara nada.</li>
+                        <li><strong>Cero pérdidas de datos</strong>: tuve que hacer una restauración una vez, tras una actualización que salió mal, y recuperé el estado de 4 horas antes en menos de dos minutos.</li>
+                        <li><strong>3 alertas de integridad</strong> recibidas — todas debidas a un reinicio de la instancia durante la exportación. El control hizo exactamente su trabajo, evitando guardar archivos incompletos.</li>
+                        <li><strong>~1,2 GB ocupados</strong> en Drive, muy manejable. Añadí un pequeño nodo de limpieza que borra las copias de más de 60 días.</li>
+                    </ul>
+                    <blockquote>El valor real no está en las 540 copias de seguridad que nunca abrí. Está en esa única restauración de dos minutos que me ahorró una semana de trabajo.</blockquote>
+
+                    <h2>Conclusión</h2>
+                    <p>Automatizar la copia de seguridad de tus workflows es uno de esos proyectos que se paga solo la primera vez que lo necesitas — y luego sigue pagándose al permanecer invisible. La lógica es sencilla, las herramientas son gratuitas, y una vez montado ya no piensas en ello.</p>
+                    <p>Si gestionas automatizaciones que importan para tu trabajo y todavía no tienes una copia de seguridad automática, este es el momento de construirla. Y si quieres una mano para montarla en tu propia infraestructura, <a href="/es/lavora-con-me/" style="color: var(--primary-color);">escríbeme</a>: diseño el workflow contigo, a medida.</p>
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Lee también</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/es/blog/social-publisher-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Cómo automaticé la publicación en Instagram, Facebook y LinkedIn con un workflow de n8n</a></li>
+                        <li><a href="/es/blog/digest-ai-notizie-gemini.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Digest con IA: cómo recibir las noticias tech resumidas cada mañana con n8n y Gemini</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>¿Quieres más contenido sobre Automatización y n8n?</h3>
+                    <p>Cada semana: workflows prácticos, tips y recursos para automatizar el trabajo repetitivo.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">¿Quieres llevar estas herramientas a tu centro escolar o a tu empresa? <a href="/es/lavora-con-me/" style="color: var(--primary-color);">Descubre cómo trabajo</a>.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="hidden" name="lang" value="es">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscríbete gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/es/blog/ai-in-classe-2026.html">← IA en el aula 2026</a>
+                    <a href="/es/blog/iot-raspberry-pi-n8n.html">IoT con Raspberry Pi →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
