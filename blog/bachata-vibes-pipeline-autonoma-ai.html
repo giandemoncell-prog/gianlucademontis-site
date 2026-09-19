@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musica generata da AI, pubblicata senza intervento umano: la pipeline di Bachata Vibes Music — Gianluca Demontis</title>
+    <meta name="description" content="Case study tecnico: come un Raspberry Pi 5 orchestra in autonomia produzione musicale (Suno), rendering video e pubblicazione multi-piattaforma di un'etichetta discografica interamente generata da AI.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/bachata-vibes-pipeline-autonoma-ai.html">
+    <meta property="og:title" content="Musica generata da AI, pubblicata senza intervento umano: la pipeline di Bachata Vibes Music">
+    <meta property="og:description" content="Case study tecnico: un Raspberry Pi 5 orchestra produzione, rendering e pubblicazione multi-piattaforma senza voce umana e senza DJ. Architettura, gestione dei guasti, risultati operativi.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/bachata-vibes-pipeline-autonoma-ai.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-09-19">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="AI">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Musica generata da AI, pubblicata senza intervento umano: la pipeline di Bachata Vibes Music">
+    <meta name="twitter:description" content="Case study tecnico: un Raspberry Pi 5 orchestra produzione, rendering e pubblicazione multi-piattaforma senza voce umana e senza DJ.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Musica generata da AI, pubblicata senza intervento umano: la pipeline di Bachata Vibes Music",
+        "datePublished": "2026-09-19T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/blog/bachata-vibes-pipeline-autonoma-ai.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/blog/bachata-vibes-pipeline-autonoma-ai.html"},
+        "inLanguage": "it-IT",
+        "articleSection": "AI",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "about": {"@type": "MusicGroup", "name": "Bachata Vibes Music", "sameAs": "https://www.youtube.com/@BachataVibesMusic"},
+        "description": "Come un Raspberry Pi 5 orchestra in autonomia la produzione musicale (Suno), il rendering video e la pubblicazione multi-piattaforma di un'etichetta discografica interamente generata da AI, senza voce umana e senza DJ."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Musica generata da AI, pubblicata senza intervento umano: la pipeline di Bachata Vibes Music", "item": "https://gianlucademontis.xyz/blog/bachata-vibes-pipeline-autonoma-ai.html"}
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Bachata Vibes Music usa voci umane?",
+            "acceptedAnswer": {"@type": "Answer", "text": "No. A differenza di altri progetti dello stesso autore come Guerda Music, ogni traccia di Bachata Vibes Music — voce, strumentazione, arrangiamento — è generata interamente da Suno. Non c'è alcun intervento vocale umano nel prodotto finale."}
+          },
+          {
+            "@type": "Question",
+            "name": "Chi decide quale canzone pubblicare e quando?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Un orchestratore Python (pi_orchestrator.py) eseguito ogni ora su un Raspberry Pi 5: sceglie il genere del giorno in base ai dati di retention reali del canale, verifica gli slot orari ottimali calcolati dagli analytics, e decide in autonomia se produrre nuovo materiale o pubblicare quello già pronto in coda."}
+          },
+          {
+            "@type": "Question",
+            "name": "Cosa succede se un componente della pipeline si guasta?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Il sistema è progettato per degradare senza fermarsi: se il rendering video non è raggiungibile la produzione viene messa in coda; se un fornitore esterno è irraggiungibile lo step viene saltato in modo sicuro senza bloccare il resto della pipeline; ogni anomalia genera un alert su Telegram per la revisione umana, ma la pubblicazione del giorno successivo non dipende dall'intervento umano."}
+          }
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body code { background: rgba(0,217,255,0.08); color: var(--primary-color); padding: 0.15em 0.45em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .arch-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .arch-table th { text-align: left; color: var(--text-secondary); font-weight: 600; padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .arch-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); vertical-align: top; }
+        .arch-table td:first-child { color: var(--primary-color); font-family: 'Courier New', monospace; font-size: 0.9em; white-space: nowrap; }
+        .abstract-box { background: rgba(0,217,255,0.05); border: 1px solid rgba(0,217,255,0.15); border-radius: 10px; padding: 1.5rem 1.75rem; margin: 1.5rem 0 2.5rem; }
+        .abstract-box p { margin-bottom: 0; font-size: 1rem; }
+        .abstract-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary-color); margin-bottom: 0.75rem; display: block; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Apri menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/lavora-con-me/">Lavora con me</a></li><li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">AI</span>
+                        <span class="blog-date">19 Settembre 2026</span>
+                        <span class="blog-date">· 10 min di lettura</span>
+                    </div>
+                    <h1>Musica generata da AI, pubblicata senza intervento umano: la pipeline di Bachata Vibes Music</h1>
+                </header>
+
+                <article class="article-body">
+
+                    <div class="abstract-box">
+                        <span class="abstract-label">Abstract</span>
+                        <p>Bachata Vibes Music è un'etichetta discografica in cui voce, strumentazione, copertine e video sono generati interamente da modelli AI (Suno per l'audio, Stable Diffusion locale per gli sfondi, Claude per testi e orchestrazione), pubblicata su YouTube, Facebook, Instagram e TikTok senza intervento umano diretto nel ciclo quotidiano. Il sistema gira su un Raspberry Pi 5 come orchestratore 24/7, con un bridge asincrono verso una macchina con GPU dedicata al rendering. Questo articolo descrive l'architettura, le strategie di gestione dei guasti che hanno reso il sistema affidabile in produzione, e i risultati operativi raccolti in circa sei mesi di attività continuativa.</p>
+                    </div>
+
+                    <h2>1. Introduzione</h2>
+                    <p>La domanda di partenza non era "l'AI può generare musica passabile", a cui la risposta è ormai scontata. Era: <strong>può un sistema gestire da solo l'intero ciclo — produzione, editing visivo, pubblicazione, gestione degli errori — abbastanza a lungo da reggere mesi di attività senza supervisione costante?</strong> Bachata Vibes Music è la risposta pratica a questa domanda: un canale musicale (bachata, salsa, merengue, cha cha cha) attivo da marzo 2026, con oltre <strong>870 video pubblicati</strong> alla data di scrittura, gestito da un singolo Raspberry Pi 5 che orchestra ogni fase senza DJ umano.</p>
+
+                    <p>Il vincolo di progetto è l'opposto di quello di <a href="/blog/guerda-music-ai-pipeline.html">Guerda Music</a>, un altro progetto dello stesso autore: lì la voce deve restare umana e reale, qui è l'AI a generarla per intero. I due progetti condividono infrastruttura (stesso Raspberry Pi, stessa macchina di rendering) ma rispondono a un vincolo editoriale opposto — un caso utile per isolare cosa cambia davvero quando si toglie l'ultimo elemento umano dalla catena di produzione.</p>
+
+                    <h2>2. Architettura del sistema</h2>
+                    <p>Il sistema è distribuito su tre macchine con ruoli intenzionalmente diseguali, collegate da una coda asincrona su Google Drive invece che da una connessione diretta sempre attiva:</p>
+
+                    <table class="arch-table">
+                        <thead><tr><th>Componente</th><th>Ruolo</th></tr></thead>
+                        <tbody>
+                            <tr><td>Raspberry Pi 5</td><td>Orchestratore 24/7: cron orario decide categoria del giorno, produce o pubblica, pubblica su YouTube/Facebook/Instagram, gestisce la coda</td></tr>
+                            <tr><td>PC Windows + GPU</td><td>Rendering video pesante (FFmpeg/NVENC) — acceso solo quando disponibile, non è un requisito di uptime del sistema</td></tr>
+                            <tr><td>Suno (API)</td><td>Generazione audio completa: voce, arrangiamento, missaggio</td></tr>
+                            <tr><td>Modello di diffusione locale</td><td>Generazione degli sfondi per le copertine, poi brandizzati via overlay Pillow</td></tr>
+                            <tr><td>Claude (Haiku)</td><td>Generazione testi/lyrics e metadati SEO, costo marginale per traccia</td></tr>
+                        </tbody>
+                    </table>
+
+                    <p>La scelta più contro-intuitiva è stata proprio l'ultima: <strong>usare Google Drive come bridge tra Pi e PC invece di una connessione diretta (SSH/API)</strong>. Un PC desktop non è pensato per restare acceso 24/7 con la stessa affidabilità di un Raspberry Pi a bassissimo consumo. Piuttosto che rendere l'intero sistema dipendente dall'uptime del PC, il Pi scrive una richiesta di rendering su una cartella Drive e continua a fare altro; un worker sul PC la preleva quando la macchina è accesa, e scrive il risultato in un'altra cartella che il Pi ripesca al giro successivo. Il disaccoppiamento non elimina il problema — se il PC resta spento per giorni la coda cresce — ma trasforma un possibile blocco totale della pipeline in un ritardo locale e recuperabile.</p>
+
+                    <h2>3. La pipeline di produzione, passo per passo</h2>
+                    <p>Ogni ora, l'orchestratore sul Pi valuta se produrre nuovo materiale o consumare quello già pronto in coda, in base allo stato reale del sistema (quota YouTube residua, coda di rendering, contenuti già pubblicati oggi). Quando produce:</p>
+                    <ol>
+                        <li><strong>Scelta del genere</strong> — un modulo di scoring legge le curve di retention reali del canale (quanto gli spettatori restano su bachata sensual vs merengue vs cha cha cha nell'ultima settimana) e sceglie la categoria del giorno di conseguenza, non a rotazione fissa</li>
+                        <li><strong>Testi</strong> — Claude genera lyrics coerenti con un tema, con un pool statico come fallback se l'API non risponde</li>
+                        <li><strong>Audio</strong> — la richiesta va a Suno via REST API (con un percorso via browser automation come fallback quando l'API non è disponibile); il titolo passato in questa fase è volutamente generico (categoria + timestamp), non il titolo finale — un dettaglio tecnico minore che ha generato un bug reale poi risolto (vedi sezione 4)</li>
+                        <li><strong>Copertina</strong> — sfondo generato o pescato da un pool esistente, poi brandizzato con testo, logo e palette colore specifica per sottogenere</li>
+                        <li><strong>Video</strong> — richiesta di rendering inviata al bridge Drive; il PC la elabora con FFmpeg/NVENC quando disponibile</li>
+                        <li><strong>Pubblicazione</strong> — upload YouTube via Data API con gestione quota, generazione automatica delle cartelle di pubblicazione per Facebook/Instagram/TikTok con orari calcolati dagli slot ottimali per piattaforma</li>
+                    </ol>
+
+                    <h2>4. Gestire i guasti senza un umano di guardia</h2>
+                    <p>La parte più interessante di un sistema che deve reggere mesi senza supervisione non è la generazione — è cosa succede quando qualcosa si rompe, ed è statisticamente certo che prima o poi qualcosa si romperà: un fornitore esterno cambia comportamento, una API introduce un rate limit non documentato, un timeout troppo ottimista fa fallire un passaggio innocuo. Alcuni pattern che si sono rivelati necessari in produzione, non previsti a tavolino:</p>
+
+                    <p><strong>Degradazione, non blocco.</strong> Ogni componente esterno (rendering PC, generazione audio, upload) ha un percorso di fallback o un timeout che permette al resto della pipeline di continuare. Se il rendering non è disponibile, la richiesta resta in coda invece di bloccare il ciclo orario successivo.</p>
+
+                    <p><strong>File sentinella invece di flag nel codice.</strong> Per sospendere temporaneamente un singolo componente (per esempio la pubblicazione TikTok durante un periodo di shadowban dell'algoritmo) basta la presenza di un file sul filesystem, controllato a ogni esecuzione — nessuna modifica di codice, nessun deploy, reversibile cancellando il file.</p>
+
+                    <p><strong>Verifica sempre lo stato reale, mai la risposta dichiarata.</strong> Il caso più istruttivo: un fornitore di hosting immagini rispondeva sempre <code>Content-Length: 0</code> a una richiesta HEAD di verifica, anche quando una richiesta GET reale sullo stesso URL serviva il file per intero — la pipeline dava per bloccata ogni pubblicazione per un giorno intero prima che il codice di verifica venisse corretto per usare una GET in streaming invece di fidarsi dell'header. La lezione generale: quando un sistema esterno è fuori dal proprio controllo, verificare il comportamento osservato è più affidabile che fidarsi del contratto dichiarato dall'API.</p>
+
+                    <p><strong>Concorrenza tra esecuzioni.</strong> Un cron che gira ogni 30 minuti può sovrapporsi a un'esecuzione precedente ancora in corso (per esempio dopo un rallentamento di rete) — senza un lock esplicito con timeout, questo produce pubblicazioni duplicate. Un lock file con scadenza (rilasciato automaticamente se un processo muore senza pulirlo) ha eliminato la classe di bug.</p>
+
+                    <blockquote>Un sistema autonomo non è quello che non si rompe mai — è quello in cui un guasto locale resta locale, si auto-segnala, e non richiede una persona sveglia alle 3 di notte per essere contenuto.</blockquote>
+
+                    <h2>5. Risultati operativi</h2>
+                    <p>Alcuni numeri concreti raccolti nei primi sei mesi di attività continuativa (marzo–settembre 2026):</p>
+                    <ul>
+                        <li><strong>870+ video pubblicati</strong> su YouTube, con generazione, rendering e pubblicazione interamente automatizzati nel ciclo ordinario</li>
+                        <li><strong>Quattro generi musicali</strong> prodotti in autonomia (bachata sensual, salsa, merengue, cha cha cha), con selezione del genere del giorno guidata dai dati reali di retention, non da un calendario fisso</li>
+                        <li><strong>Pubblicazione multi-piattaforma</strong> (YouTube, Facebook, Instagram, TikTok) da un'unica coda di contenuto pronto, con orari per piattaforma calcolati sugli slot storicamente più performanti</li>
+                        <li><strong>Costo marginale per traccia</strong> nell'ordine di pochi centesimi di dollaro per la componente testuale (Claude Haiku), a fronte di un costo di generazione audio fisso per abbonamento Suno indipendente dal volume</li>
+                    </ul>
+
+                    <h2>6. Limiti, e cosa la pipeline non risolve da sola</h2>
+                    <p>Onestà intellettuale prima del marketing: non tutto è automatizzabile in sicurezza, e non tutto ciò che è automatizzabile andrebbe automatizzato senza controllo. Alcuni esempi concreti:</p>
+                    <ul>
+                        <li><strong>Rilevamento di shadowban algoritmico</strong> (TikTok, in particolare) resta un problema di monitoraggio statistico continuo — il sistema rileva il pattern (crollo di visualizzazioni su nuovi caricamenti indipendentemente dalla qualità del contenuto) ma la decisione su come reagire (ridurre la cadenza, cambiare strategia di hashtag) è ancora una scelta editoriale, non delegata all'automazione</li>
+                        <li><strong>Le piattaforme con policy anti-bot esplicite</strong> (LinkedIn, per progetti collegati) impongono un limite che non è tecnico ma di rischio account — lì l'automazione si ferma volutamente un passo prima della pubblicazione</li>
+                        <li><strong>La qualità editoriale aggregata</strong> — un sistema che produce quotidianamente tende a convergere su pattern sicuri (stessi temi, stesse strutture testuali) se non viene periodicamente forzato verso varianti nuove: la diversità creativa richiede un intervento deliberato, non emerge da sola dalla ripetizione automatica</li>
+                    </ul>
+
+                    <h2>Conclusione</h2>
+                    <p>Il risultato non è "l'AI sostituisce un'etichetta discografica" in senso assoluto — è che un sistema ben progettato per la degradazione controllata, più che per l'assenza di guasti, può reggere mesi di produzione e pubblicazione continuativa con un carico di supervisione umana molto più basso di quanto l'intuizione suggerirebbe. La parte tecnicamente interessante non è stata insegnare a un modello a generare una canzone di bachata plausibile — è stata costruire l'infrastruttura attorno che permette a quella generazione di succedere in modo affidabile, giorno dopo giorno, senza un essere umano che prema play.</p>
+
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Leggi anche</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/blog/guerda-music-ai-pipeline.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Guerda Music: la pipeline AI che pubblica canzoni kompa in 4 lingue</a></li>
+                        <li><a href="/blog/metodo-dsa-bachata-automazione.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Un PDP e una pipeline Suno risolvono lo stesso problema</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>Vuoi vedere altri progetti come questo?</h3>
+                    <p>Ogni settimana: workflow n8n, progetti Python e AI applicata, senza fuffa.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;">Vuoi portare questi strumenti nella tua scuola o nella tua azienda? <a href="/lavora-con-me/" style="color: var(--primary-color);">Scopri come lavoro</a>.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="email" name="email" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/estun-robotica-fiera-shanghai.html">← Da un'email a freddo a un invito a Shanghai</a>
+                    <a href="/blog/">Tutti gli articoli →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
