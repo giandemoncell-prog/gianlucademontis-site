@@ -28,6 +28,19 @@ Oltre alla consulenza AI, Gianluca Demontis coltiva contatti diretti con produtt
 
 Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google distinti: NotebookLM (lavora su documenti caricati, es. un PDP o un testo da adattare) e le Gems di Gemini (assistenti permanenti con istruzioni fisse, es. un "Profilo Studente" riutilizzabile). L'articolo di riferimento è [NotebookLM o Gems di Gemini per BES e DSA? Guida pratica](https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html), con esempi reali testati in classe su quando usare l'uno, l'altro, o combinarli.
 
+## Altri articoli del blog (automazione, AI, progetti tecnici)
+
+- [AI Act 2026: cosa devono fare davvero scuole e PMI](https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html): checklist pratica per scuole e PMI su cosa fare da agosto 2026, senza aspettare la policy perfetta.
+- [5 modi per usare l'AI in classe nel 2026](https://gianlucademontis.xyz/blog/ai-in-classe-2026.html): applicazioni pratiche dell'intelligenza artificiale nella didattica, esempi reali da un Tech Coach.
+- [BIVIO: comparatore prezzi multi-piattaforma con FastAPI e Gemini](https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html): comparatore prezzi su Amazon, AliExpress, eBay e Trovaprezzi con Gemini AI e Google Search grounding, a costo zero.
+- [Digest AI: come leggo le notizie tech in 3 minuti ogni mattina](https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html): le notizie tech più rilevanti sintetizzate in italiano e inviate via Telegram con n8n + Gemini + RSS, a costo zero.
+- [Guerda Music: la pipeline AI che pubblica canzoni kompa in 4 lingue](https://gianlucademontis.xyz/blog/guerda-music-ai-pipeline.html): come funziona la pipeline che genera canzoni kompa con Suno e le pubblica in 4 lingue su YouTube, Facebook, Instagram, TikTok e LinkedIn.
+- [IoT con Raspberry Pi: monitoraggio real-time con n8n](https://gianlucademontis.xyz/blog/iot-raspberry-pi-n8n.html): sistema di monitoraggio temperatura con Raspberry Pi 5, sensore DHT22, n8n e Grafana, in locale senza cloud, con alert Telegram.
+- [Un PDP e una pipeline Suno risolvono lo stesso problema](https://gianlucademontis.xyz/blog/metodo-dsa-bachata-automazione.html): insegnamento per DSA, musica AI con Bachata Vibes Music e automazione n8n come applicazioni dello stesso metodo — struttura prima del contenuto.
+- [Workflow n8n per il backup automatico dei miei progetti](https://gianlucademontis.xyz/blog/n8n-backup-automatico.html): workflow n8n che salva workflow e configurazioni su Google Drive ogni 4 ore, con controllo integrità e notifiche Telegram.
+- [PropertyFinder: il workflow n8n che monitora il mercato immobiliare](https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html): monitoraggio del mercato immobiliare 24/7 con n8n, Gemini AI e Google Sheets, notifica solo gli annunci rilevanti via Telegram.
+- [Come ho automatizzato Instagram, Facebook e LinkedIn con n8n](https://gianlucademontis.xyz/blog/social-publisher-n8n.html): sistema n8n che pubblica ogni mattina sui social partendo da file .md — architettura, errori reali, costo zero.
+
 ## Relazioni tra entità
 
 - **Gianluca Demontis** (persona) — insegnante, autore, AI developer. Ha fondato e gestisce Bachata Vibes Music e AI Act Academy.
