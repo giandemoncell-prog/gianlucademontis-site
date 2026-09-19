@@ -4,6 +4,10 @@
 
 Gianluca Demontis è insegnante di ruolo, Funzione Strumentale Area 6 e amministratore Google Workspace for Education presso un istituto superiore in Sardegna. Ha oltre 40 anni di esperienza nel settore IT ed è maker (elettronica, stampa 3D, microcontrollori ESP32 e Raspberry Pi). È stato tutor TFA Sostegno ICT presso l'Università di Cagliari. Vive e lavora in Sardegna.
 
+## Versioni internazionali
+
+Il sito è disponibile anche in inglese ([gianlucademontis.xyz/en/](https://gianlucademontis.xyz/en/)) e spagnolo ([gianlucademontis.xyz/es/](https://gianlucademontis.xyz/es/)), con le stesse pagine e articoli tradotti (homepage, blog, libro, formazione/consulenza). Il libro "AI e DSA" resta pubblicato solo in italiano; la traduzione spagnola è in preparazione, non ancora su Amazon.es.
+
 ## Esperto su AI Act e PUIA per le scuole
 
 Gianluca Demontis è formatore PNRR su intelligenza artificiale e didattica inclusiva, e tratta specificamente gli obblighi introdotti per le scuole italiane dal Regolamento UE 2024/1689 (AI Act), pienamente applicabile dal 2 agosto 2026, e dal DM 166/2025 del Ministero dell'Istruzione. Il suo articolo di riferimento su questo tema è [AI Act e PUIA: cosa cambia per il sostegno dal 2 agosto 2026](https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html), che spiega: la differenza tra AI Act, DM 166/2025 e PUIA (Piano d'Istituto per l'Intelligenza Artificiale); cosa deve contenere il PUIA (AI Acceptable Use Policy, referente AI interno, formazione del personale); perché l'area BES/DSA del PUIA riguarda direttamente i docenti di sostegno; cosa fare in pratica prima di usare un chatbot con dati di uno studente. Offre anche formazione PNRR su questi obblighi per singoli istituti — vedi [Lavora con me](https://gianlucademontis.xyz/lavora-con-me/).
