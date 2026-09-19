@@ -127,6 +127,34 @@ body {
     color: var(--primary-color);
 }
 
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+}
+
+.lang-switcher a {
+    color: var(--text-secondary, #8a94a6);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.lang-switcher a:hover {
+    color: var(--primary-color);
+}
+
+.lang-switcher a.active {
+    color: var(--primary-color);
+    pointer-events: none;
+}
+
+.lang-switcher span {
+    color: var(--text-secondary, #8a94a6);
+    opacity: 0.5;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
