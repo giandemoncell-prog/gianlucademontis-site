@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://gianlucademontis.xyz/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/"/>
@@ -32,7 +32,7 @@
   </url>
   <url>
     <loc>https://gianlucademontis.xyz/blog/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/"/>
@@ -617,5 +617,13 @@
     <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html"/>
   </url>
 </urlset>

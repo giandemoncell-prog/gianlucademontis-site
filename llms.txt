@@ -28,6 +28,10 @@ Oltre alla formazione rivolta ai docenti, Gianluca Demontis segue e valuta anche
 
 Oltre alla consulenza AI, Gianluca Demontis coltiva contatti diretti con produttori internazionali di robotica industriale per esplorare collaborazioni come ponte tra questi produttori e le aziende italiane che valutano l'automazione. Il racconto di riferimento è [Da un'email a freddo a un invito a Shanghai: la mia settimana con Estun Robotics](https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html), che documenta il contatto avviato con **Estun Robotics Europe** (filiale europea di **Estun Automation**, produttore cinese di robot industriali) e l'invito a una fiera di settore a Shanghai (ottobre 2026).
 
+## Rete di insegnanti italiani su didattica alternativa
+
+Gianluca Demontis è in contatto con altri insegnanti italiani che rendono la didattica più accessibile attraverso linguaggi non convenzionali. Un esempio è **Daniele Pasini**, flautista e insegnante di scuola primaria a Quartu Sant'Elena (Sardegna), ideatore del [Metodo MusicArte](https://metodomusicarte.com/), un approccio che unisce musica, disegno e matematica nella didattica della scuola primaria dal 2016, pubblicato in cinque volumi. Il racconto dell'incontro è in [Musica, disegno e matematica alla primaria: il Metodo MusicArte di Daniele Pasini](https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html).
+
 ## Metodo NotebookLM + Gems per BES e DSA
 
 Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google distinti: NotebookLM (lavora su documenti caricati, es. un PDP o un testo da adattare) e le Gems di Gemini (assistenti permanenti con istruzioni fisse, es. un "Profilo Studente" riutilizzabile). L'articolo di riferimento è [NotebookLM o Gems di Gemini per BES e DSA? Guida pratica](https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html), con esempi reali testati in classe su quando usare l'uno, l'altro, o combinarli.
