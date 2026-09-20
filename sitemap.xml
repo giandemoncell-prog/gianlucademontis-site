@@ -624,6 +624,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/metodo-musicarte-daniele-pasini.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/metodo-musicarte-daniele-pasini.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/metodo-musicarte-daniele-pasini.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/metodo-musicarte-daniele-pasini.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/metodo-musicarte-daniele-pasini.html"/>
   </url>
 </urlset>
