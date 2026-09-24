@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un único punto de acceso para toda mi IA local: un gateway en Raspberry Pi — Gianluca Demontis</title>
+    <meta name="description" content="Siete modelos de IA entre una Raspberry Pi y un PC con GPU, un gateway que decide dónde ejecutar cada petición y recurre a un plan B por sí solo cuando el PC duerme. Arquitectura, números reales y tres trampas.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/blog/gateway-ai-locale-raspberry-pi.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/gateway-ai-locale-raspberry-pi.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/gateway-ai-locale-raspberry-pi.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/gateway-ai-locale-raspberry-pi.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/gateway-ai-locale-raspberry-pi.html">
+    <meta property="og:title" content="Un único punto de acceso para toda mi IA local">
+    <meta property="og:description" content="Una Raspberry Pi siempre encendida, un PC con GPU que duerme de noche, siete modelos y un gateway que decide solo adónde enviar cada petición.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/es/blog/gateway-ai-locale-raspberry-pi.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-09-24">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="IA Local">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Un único punto de acceso para toda mi IA local">
+    <meta name="twitter:description" content="Una Raspberry Pi siempre encendida, un PC con GPU que duerme de noche, siete modelos y un gateway que decide solo adónde enviar cada petición.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Un único punto de acceso para toda mi IA local: un gateway en Raspberry Pi",
+        "datePublished": "2026-09-24T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/es/blog/gateway-ai-locale-raspberry-pi.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/es/blog/gateway-ai-locale-raspberry-pi.html"},
+        "inLanguage": "es-ES",
+        "articleSection": "IA Local",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz/es/"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Gateway único en Raspberry Pi para siete modelos de IA entre la Pi, un PC con GPU y la nube, con plan B automático cuando el PC está apagado."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/es/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/es/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Un único punto de acceso para toda mi IA local", "item": "https://gianlucademontis.xyz/es/blog/gateway-ai-locale-raspberry-pi.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .article-body th, .article-body td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.08); color: var(--text-secondary); vertical-align: top; }
+        .article-body th { color: var(--text-primary); font-weight: 600; }
+        .table-wrap { overflow-x: auto; }
+        @media (max-width: 600px) { .article-body table { font-size: 0.8rem; } .article-body th, .article-body td { padding: 0.45rem 0.35rem; } }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/es/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/#hero">Home</a></li>
+                    <li><a href="/es/#about">Sobre mí</a></li>
+                    <li><a href="/es/#projects">Proyectos</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li><li><a href="/es/#contact">Contacto</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/gateway-ai-locale-raspberry-pi.html">IT</a><span>·</span>
+                        <a href="/en/blog/gateway-ai-locale-raspberry-pi.html">EN</a><span>·</span>
+                        <a href="/es/blog/gateway-ai-locale-raspberry-pi.html" class="active">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/es/blog/" class="back-link">← Todos los artículos</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">IA Local</span>
+                        <span class="blog-date">24 de septiembre de 2026</span>
+                        <span class="blog-date">· 8 min de lectura</span>
+                    </div>
+                    <h1>Un único punto de acceso para toda mi IA local: un gateway en Raspberry Pi</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Tenía siete modelos de inteligencia artificial en casa, repartidos entre dos máquinas, y ninguna forma ordenada de usarlos. Cada script elegía su modelo, su dirección, su clave. Y de noche, cuando el PC se apaga, la mitad de esos modelos simplemente desaparecía. <strong>La solución fue poner delante de todo un único portero: un gateway que decide adónde enviar cada petición.</strong></p>
+                </header>
+
+                <article class="article-body">
+                    <p>Hace unas semanas conté por qué uso la <a href="/es/lavora-con-me/" style="color: var(--primary-color);">inteligencia artificial en local</a>: sin suscripciones que se acumulan, sin datos que salen de casa. Lo que no había contado es el problema que llega justo después, cuando hay más de un modelo y más de una máquina. Este artículo es el relato de cómo lo resolví, con números medidos y los errores que cometí por el camino.</p>
+
+                    <h2>El punto de partida: dos máquinas, siete modelos</h2>
+                    <p>Mi infraestructura doméstica tiene dos protagonistas con caracteres muy distintos:</p>
+                    <ul>
+                        <li><strong>Una Raspberry Pi 5 (8 GB)</strong>, siempre encendida. Consume muy poco y ya ejecuta n8n, las publicaciones en redes sociales y las copias de seguridad. Sin GPU: los modelos que caben son pequeños (1-2 mil millones de parámetros) y lentos, pero siempre están ahí.</li>
+                        <li><strong>Un PC con una RTX 4060 Ti</strong>. Aquí corren los modelos serios, hasta 27 mil millones de parámetros, a velocidad real. Pero para ahorrar energía <strong>el PC duerme de las 23 a las 8</strong>.</li>
+                    </ul>
+                    <p>En ambas máquinas corre <strong>Ollama</strong>, el motor que hace funcionar los modelos de código abierto. En total: dos modelos pequeños en la Pi, cinco en el PC. Más, cuando hace falta, un servicio en la nube de pago para cuando necesito potencia y el PC no está.</p>
+                    <p>El problema no era la potencia. Era el <strong>orden</strong>: cada programa tenía que saber a qué máquina dirigirse, con qué nombre de modelo, con qué clave. Cambiar un modelo significaba cambiar diez scripts. Y si el PC dormía, el script simplemente fallaba.</p>
+
+                    <h2>La idea: un único portero</h2>
+                    <p>La solución tiene un nombre técnico, <strong>gateway LLM</strong>, pero la idea es sencilla: una sola dirección a la que todos los programas envían sus preguntas. El gateway sabe qué modelos existen, dónde están y si son accesibles, y reparte.</p>
+                    <p>Elegí <strong>LiteLLM</strong>, un proyecto de código abierto que habla el mismo "dialecto" que la API de OpenAI. La ventaja es enorme: cualquier programa o librería que sepa usar ChatGPT sabe usar también mi gateway, basta con cambiar la dirección. Corre en un contenedor Docker <strong>en la Raspberry Pi</strong>, y no es casualidad: el portero tiene que estar en la máquina que nunca duerme.</p>
+                    <p>La parte más útil es que los programas ya no piden un modelo por su nombre, sino un <strong>nivel</strong>:</p>
+                    <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Nivel</th><th>Quién responde de día</th><th>Si el PC duerme</th><th>Tiempo medido</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>rápido</strong></td><td>modelo de 1B en la Pi</td><td>el mismo (está en la Pi)</td><td>8-11 s</td></tr>
+                            <tr><td><strong>medio</strong></td><td>modelo de 8B en el PC</td><td>modelo de 1,7B en la Pi (gratis)</td><td>10-16 s</td></tr>
+                            <tr><td><strong>potente</strong></td><td>modelo de 27B en el PC</td><td>nube, y la Pi como último recurso</td><td>unos 37 s</td></tr>
+                            <tr><td><strong>razona</strong></td><td>27B con razonamiento activo</td><td>modelo de razonamiento en la nube</td><td>minutos, para problemas difíciles</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <p>El día que cambie el modelo "potente" por uno mejor, lo modificaré en un solo archivo de configuración. Ningún script se dará cuenta.</p>
+
+                    <h2>El plan B automático: cuando el PC duerme</h2>
+                    <p>Esta era la parte que más me interesaba, y la probé simulando un PC inaccesible. El comportamiento final es este:</p>
+                    <ol>
+                        <li><strong>La primera petición</strong> prueba el PC, espera el tiempo límite (unos 25 segundos) y luego pasa al plan B.</li>
+                        <li><strong>El gateway pone el PC "en pausa" durante un minuto</strong>: las peticiones siguientes van directamente al plan B, en 1-3 segundos.</li>
+                        <li><strong>Pasado ese minuto</strong>, vuelve a probar el PC. Si se ha despertado, vuelve a usarlo.</li>
+                    </ol>
+                    <p>Elegí conscientemente <strong>qué cuesta dinero y qué no</strong>: el nivel "medio" siempre recurre a un modelo de la Pi, así que sigue siendo gratis. Solo "potente" y "razona" recurren a la nube de pago, porque ahí el salto de calidad justifica unos céntimos.</p>
+
+                    <h2>Un chat solo mío, accesible solo para mí</h2>
+                    <p>Encima del gateway instalé <strong>Open WebUI</strong>: una interfaz tipo ChatGPT, desde el navegador o el móvil, con todos los niveles y modelos en el menú desplegable. También corre en la Pi.</p>
+                    <p>Lo que más me importa es <strong>desde dónde</strong> se puede acceder: solo dentro de mi red privada virtual (uso Tailscale, una VPN que conecta mis dispositivos estén donde estén). No desde la red de casa, no desde internet. El propio gateway sigue cerrado: escucha solo en la máquina local y se expone a la VPN mediante un reenvío dedicado, protegido con clave. Sin la clave responde "no autorizado".</p>
+                    <blockquote>Gateway y chat juntos ocupan unos 1,2 GB de RAM en una Raspberry Pi que tiene 8. La Pi sigue haciendo todo lo demás igual que antes.</blockquote>
+
+                    <h2>Tres trampas que ninguna guía te cuenta</h2>
+                    <p><strong>1. Los modelos que "piensan" devolvían respuestas vacías.</strong> Algunos modelos recientes, antes de responder, hacen un razonamiento interno. Con un límite de longitud normal, el razonamiento se comía todo el espacio y la respuesta llegaba vacía: el nivel "potente" tardaba 78 segundos en no decir nada. Solución: razonamiento desactivado por defecto y un nivel específico, "razona", para cuando de verdad hace falta. Lo mismo, descubierto después, con el modelo en la nube. Resultado: de 78 segundos en vacío a 37 segundos con respuesta.</p>
+                    <p><strong>2. El plan B existía, pero esperaba cada vez.</strong> Con la configuración "prudente" (poner en pausa un modelo solo tras dos errores), cada petición nocturna esperaba el tiempo límite completo antes de recurrir al plan B. Leyendo el código del gateway entendí el motivo: cuando en un grupo hay un solo modelo, las protecciones estándar se desactivan para no dejarte sin nada. La solución fue bajar el umbral a cero errores tolerados: la primera petición lenta, todas las demás inmediatas.</p>
+                    <p><strong>3. Antes de migrar, cuenta.</strong> Terminado el gateway, el siguiente paso era pasar a él todos los scripts que usan IA. Antes de tocar nada hice un inventario de las tareas automáticas, tanto en la Pi como en el PC, y la sorpresa fue que <strong>ninguna de las activas usaba ya la IA</strong>. Algunas se habían apagado, otras usaban la IA solo en una fase manual. Migrar "por completar" habría significado tocar código que no se ejecuta. El gateway está listo y esperando: los próximos scripts nacerán ya conectados.</p>
+
+                    <h2>A quién le sirve de verdad una arquitectura así</h2>
+                    <p>No a todos. Si usas un solo modelo en un solo ordenador, Ollama por sí solo es más que suficiente. El gateway empieza a tener sentido cuando:</p>
+                    <ul>
+                        <li>tienes <strong>varias máquinas</strong> (un servidor siempre encendido y un PC potente que no lo está);</li>
+                        <li>tienes <strong>varios programas</strong> que usan IA y no quieres que cada uno gestione claves y direcciones por su cuenta;</li>
+                        <li>quieres decidir <strong>una sola vez</strong> qué se queda en casa, qué puede ir a la nube y cuánto estás dispuesto a gastar;</li>
+                        <li>manejas <strong>datos que no deben salir</strong> del despacho o de la empresa, pero quieres igualmente un plan B cuando la máquina principal está apagada.</li>
+                    </ul>
+                    <p>Es exactamente el escenario de muchos despachos profesionales: un pequeño servidor siempre encendido, algunos puestos de trabajo, datos sensibles y cero ganas de suscripciones que se multiplican.</p>
+
+                    <h2>Conclusión</h2>
+                    <p>Con hardware que ya tenía (una Raspberry Pi y el PC de todos los días) y solo software de código abierto, convertí siete modelos dispersos en un único servicio: una dirección, cuatro niveles, plan B automático de noche y un chat privado accesible solo para mí. El coste adicional es cero, salvo los céntimos de la nube cuando yo lo pido.</p>
+                    <p>La lección más útil, sin embargo, no es técnica: <strong>mide antes de construir y cuenta antes de migrar</strong>. Dos de las tres trampas las encontré solo porque probé con el cronómetro y con el PC "apagado" de mentira, en lugar de fiarme de la configuración sobre el papel.</p>
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Leer también</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/es/blog/iot-raspberry-pi-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">IoT con Raspberry Pi: monitorización en tiempo real con n8n</a></li>
+                        <li><a href="/es/blog/social-publisher-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Cómo automatizar la publicación en redes sociales con n8n en Raspberry Pi</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>¿Quieres una IA local en tu despacho o en tu empresa?</h3>
+                    <p>Instalo y configuro todo en el hardware que ya tienes: modelos locales, gateway, chat privado. Luego te enseño a usarlo de forma autónoma.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;"><a href="/es/lavora-con-me/" style="color: var(--primary-color);">Descubre cómo trabajo</a> o suscríbete a la newsletter para los próximos tutoriales.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="hidden" name="lang" value="es">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscríbete gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/es/blog/iot-raspberry-pi-n8n.html">← IoT con Raspberry Pi</a>
+                    <a href="/es/blog/">Todos los artículos →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
