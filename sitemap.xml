@@ -708,4 +708,10 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/gateway-ai-locale-raspberry-pi.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/gateway-ai-locale-raspberry-pi.html"/>
   </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
