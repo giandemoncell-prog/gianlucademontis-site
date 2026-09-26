@@ -713,5 +713,29 @@
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/en/blog/ollama-locale-generatore-dsa.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html"/>
+  </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html"/>
   </url>
 </urlset>

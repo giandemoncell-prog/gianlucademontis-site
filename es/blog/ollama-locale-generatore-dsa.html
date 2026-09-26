@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZGK3RC2PZ9');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadí un motor de IA local al generador de materiales para DEA — Gianluca Demontis</title>
+    <meta name="description" content="Las dos herramientas gratuitas del libro 'AI e DSA' solo usaban la API de Gemini. Ahora también pueden funcionar con un modelo local vía Ollama: sin clave API, sin datos que salgan del PC. Qué cambié y cómo lo probé.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/ollama-locale-generatore-dsa.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html">
+    <meta property="og:title" content="Añadí un motor de IA local al generador de materiales para DEA">
+    <meta property="og:description" content="Las dos herramientas gratuitas del libro 'AI e DSA' ahora también pueden funcionar con un modelo local vía Ollama: sin clave API, sin datos que salgan del PC.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-09-26">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Educación Inclusiva">
+    <meta property="og:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Añadí un motor de IA local al generador de materiales para DEA">
+    <meta name="twitter:description" content="Las dos herramientas gratuitas del libro 'AI e DSA' ahora también pueden funcionar con un modelo local vía Ollama: sin clave API, sin datos que salgan del PC.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/Sfondo_sito_web.jpeg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Añadí un motor de IA local al generador de materiales para DEA",
+        "datePublished": "2026-09-26T09:00:00+02:00",
+        "image": "https://gianlucademontis.xyz/Sfondo_sito_web.jpeg",
+        "url": "https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html"},
+        "inLanguage": "es-ES",
+        "articleSection": "Educación Inclusiva",
+        "author": {"@type": "Person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz/es/"},
+        "publisher": {"@type": "Person", "name": "Gianluca Demontis"},
+        "description": "Las dos herramientas gratuitas del libro 'AI e DSA' solo usaban la API de Gemini. Ahora también pueden funcionar con un modelo local vía Ollama: sin clave API, sin datos que salgan del PC."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/es/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/es/blog/"},
+          {"@type": "ListItem", "position": 3, "name": "Añadí un motor de IA local al generador de materiales para DEA", "item": "https://gianlucademontis.xyz/es/blog/ollama-locale-generatore-dsa.html"}
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/es/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/#hero">Home</a></li>
+                    <li><a href="/es/#about">Sobre mí</a></li>
+                    <li><a href="/es/#projects">Proyectos</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li><li><a href="/es/#contact">Contacto</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/ollama-locale-generatore-dsa.html">IT</a><span>·</span>
+                        <a href="/en/blog/ollama-locale-generatore-dsa.html">EN</a><span>·</span>
+                        <a href="/es/blog/ollama-locale-generatore-dsa.html" class="active">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/es/blog/" class="back-link">← Todos los artículos</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Educación Inclusiva</span>
+                        <span class="blog-date">26 de septiembre de 2026</span>
+                        <span class="blog-date">· 6 min de lectura</span>
+                    </div>
+                    <h1>Añadí un motor de IA local al generador de materiales para DEA</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Las dos herramientas gratuitas que acompañan al libro "AI e DSA" siempre hablaron solo con la API de Gemini: hace falta una clave, y el texto —aunque esté anonimizado— sigue saliendo del equipo. <strong>Ahora también pueden funcionar con un modelo que vive en el propio PC del docente: sin clave, sin datos que salgan de casa, sin coste por petición.</strong></p>
+                </header>
+
+                <article class="article-body">
+                    <p>El libro <a href="https://amzn.to/434R6aA" style="color: var(--primary-color);">"AI e DSA"</a> (por ahora solo en italiano) viene acompañado de dos herramientas gratuitas: el <a href="https://generatore-dsa.streamlit.app" style="color: var(--primary-color);">Generador de Materiales</a>, que convierte un texto y un perfil de alumno en una versión adaptada, una infografía y diapositivas, y el <a href="https://generatore-profili-dsa.streamlit.app" style="color: var(--primary-color);">Generador de Perfiles</a>, que construye el perfil YAML de partida. Desde que existen, ambas herramientas han usado exclusivamente la API de Gemini de Google. Funciona, pero para un docente que empieza con la IA era un obstáculo más: crear una clave API y aceptar que el texto enviado —aunque ya esté anonimizado— salga igualmente de su propio ordenador.</p>
+
+                    <p>Esta semana añadí un segundo camino: <strong>Ollama</strong>, el motor de código abierto que ejecuta modelos de IA directamente en el PC. El mismo principio que ya se usaba en el anonimizador del libro para reconocer nombres en los textos, ahora extendido a la generación de materiales en sí.</p>
+
+                    <h2>Qué añadí, en concreto</h2>
+                    <p>En el generador de línea de comandos (<code>generatore_pro.py</code>, tanto en el repositorio del libro como en la app independiente) añadí un parámetro:</p>
+                    <blockquote>python generatore_pro.py --studente mario --testo storia.txt --backend ollama --modello-ollama qwen3.6:27b</blockquote>
+                    <p>El comportamiento por defecto no cambia: quien no añada <code>--backend ollama</code> sigue usando Gemini exactamente igual que antes. En el Generador de Perfiles, que es una app de Streamlit, añadí el mismo interruptor pero en la barra lateral: un selector "Motor de IA" con las dos opciones, Gemini u Ollama, y la elección del modelo local al seleccionar la segunda.</p>
+                    <p>Hay cuatro modelos locales disponibles en esta configuración, con pesos y velocidades distintas: <strong>qwen3.6:27b</strong> y <strong>glm-4.7-flash</strong> para la mayor calidad, <strong>ministral-3:8b</strong> y <strong>qwen3.5:4b</strong> para quien tiene un PC más modesto o quiere respuestas más rápidas.</p>
+
+                    <h2>Por qué importa para quien trabaja con planes de apoyo individualizados</h2>
+                    <p>El primer motivo es la <strong>privacidad</strong>. Los perfiles de alumnos usados con estas herramientas siempre deben anonimizarse antes de pegarlos en cualquier IA — eso no cambia. Pero "anonimizado" y "se queda en mi ordenador" son dos protecciones distintas, y hasta ahora la segunda herramienta del libro no ofrecía la segunda. Ahora sí: con el motor Ollama, el texto nunca sale del PC del docente.</p>
+                    <p>El segundo motivo es el <strong>coste</strong>. Gemini tiene un plan gratuito generoso, pero quien genera materiales para toda una clase, semana tras semana, tarde o temprano lo supera. Un modelo local no tiene límite de peticiones ni coste por token: solo se paga la electricidad.</p>
+
+                    <h2>Cómo lo comprobé</h2>
+                    <p>Para no reescribir la lógica de generación ya probada durante meses (los prompts, el análisis de las secciones, la exportación a Word y PowerPoint), escribí una pequeña clase que imita la interfaz del cliente oficial de Gemini: mismo método, mismos argumentos, pero por debajo llama a Ollama en lugar de a la API en la nube. El resto del código no nota la diferencia.</p>
+                    <p>Lo probé de principio a fin con un perfil real (Mario, dislexia + discalculia) y el modelo más ligero, <strong>ministral-3:8b</strong>: texto adaptado, infografía y diapositivas generados correctamente, archivos guardados en las carpetas de siempre. Hice lo mismo con la demo de Streamlit online, esta vez usando <code>streamlit.testing.AppTest</code> para simular de verdad el clic en "Generar material" sin necesidad de un navegador.</p>
+                    <p>Por el camino encontré un pequeño defecto que no tenía que ver con Ollama pero merece la pena contar: el texto generado por la IA (tanto Gemini como Ollama) marca la negrita con <code>**palabra**</code>, pero el documento Word exportado los escribía tal cual, con los asteriscos literales, en lugar de aplicar la negrita de verdad. Lo arreglé junto con el resto: ahora <code>**palabra**</code> se convierte en negrita real en el archivo descargado, no en asteriscos.</p>
+
+                    <h2>Qué hace falta para usarlo</h2>
+                    <p>Hace falta tener <a href="https://ollama.com" style="color: var(--primary-color);">Ollama</a> instalado en local y al menos un modelo descargado — incluso el más ligero (6 GB) funciona en un portátil reciente sin tarjeta gráfica dedicada. Por eso sigue siendo una opción, no la predeterminada: quien no quiera instalar nada sigue usando Gemini con su clave gratuita, exactamente igual que antes.</p>
+
+                    <h2>Conclusión</h2>
+                    <p>No es una función que haya diseñado sobre el papel: es la misma idea ya aplicada al anonimizador, llevada un paso más allá en la siguiente herramienta de la misma cadena. La lección práctica, de nuevo, es probar antes de dar algo por terminado: el parámetro por sí solo no bastaba, había que comprobar que generaba de verdad material correcto con un modelo real — y ahí es justo donde apareció el error de la negrita, invisible durante meses porque nadie había vuelto a abrir un Word exportado para revisar el formato.</p>
+                </article>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Lee también</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/es/blog/notebooklm-gems-bes-dsa.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">¿NotebookLM o Gems de Gemini para necesidades educativas especiales? Guía práctica</a></li>
+                        <li><a href="/es/blog/gateway-ai-locale-raspberry-pi.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Un único punto de acceso para toda mi IA local: un gateway en Raspberry Pi</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>¿Quieres probar las herramientas del libro?</h3>
+                    <p>El Generador de Materiales y el Generador de Perfiles son gratuitos y están online. El libro "AI e DSA" (en italiano) explica paso a paso cómo usarlos en el aula.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;"><a href="https://amzn.to/434R6aA" style="color: var(--primary-color);">Descubre el libro en Amazon</a> o suscríbete a la newsletter para las próximas novedades.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="hidden" name="lang" value="es">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscríbete gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/es/blog/gateway-ai-locale-raspberry-pi.html">← Un único punto de acceso para toda mi IA local</a>
+                    <a href="/es/blog/">Todos los artículos →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
