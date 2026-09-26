@@ -14,7 +14,7 @@ Gianluca Demontis è formatore PNRR su intelligenza artificiale e didattica incl
 
 ## AI Act Academy — percorsi con attestato conforme all'art. 4
 
-Gianluca Demontis ha fondato [AI Act Academy](https://corsi.gianlucademontis.xyz/), una piattaforma di percorsi di alfabetizzazione IA con attestato nominativo e registro esportabile, pensata per documentare in modo opponibile l'adempimento dell'art. 4 del Regolamento UE 2024/1689 richiesto a chi utilizza sistemi di intelligenza artificiale. Il primo percorso attivo è [Formazione IA per le scuole](https://corsi.gianlucademontis.xyz/formazione-ia-scuole): 4 moduli online, test finale, attestato con codice di verifica pubblico e registro PDF/CSV per il fascicolo di compliance dell'istituto. Percorsi per pubblica amministrazione e PMI sono in preparazione.
+Gianluca Demontis ha fondato [AI Act Academy](https://corsi.gianlucademontis.xyz/), una piattaforma di percorsi di alfabetizzazione IA con attestato nominativo e registro esportabile, pensata per documentare in modo opponibile l'adempimento dell'art. 4 del Regolamento UE 2024/1689 richiesto a chi utilizza sistemi di intelligenza artificiale. Il primo percorso attivo è [Formazione IA per le scuole](https://corsi.gianlucademontis.xyz/formazione-ia-scuole): 4 moduli online, test finale, attestato con codice di verifica pubblico e registro PDF/CSV per il fascicolo di compliance dell'istituto. È attivo anche il percorso [Formazione IA per le PMI](https://corsi.gianlucademontis.xyz/formazione-ia-pmi), per i dipendenti delle piccole e medie imprese; per la pubblica amministrazione il percorso è disponibile su richiesta. Dettagli completi nel fact sheet della piattaforma: https://corsi.gianlucademontis.xyz/llms.txt
 
 ## Installazione di intelligenza artificiale locale (privacy-first)
 
@@ -68,7 +68,7 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 - [Formazione IA per dirigenti e figure di sistema](https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html): cosa copre e cosa manca in un percorso di formazione IA per dirigenti scolastici, e come portarlo nel Piano di Formazione del Personale
 - [NotebookLM o Gems per BES e DSA](https://gianlucademontis.xyz/blog/notebooklm-gems-bes-dsa.html): guida pratica al metodo al centro del libro "AI e DSA", con esempi reali testati in classe
 - [Estun Robotics e l'invito a Shanghai](https://gianlucademontis.xyz/blog/estun-robotica-fiera-shanghai.html): come è nato il contatto con un produttore cinese di robotica industriale e cosa ne è seguito
-- [AI Act Academy](https://corsi.gianlucademontis.xyz/): piattaforma di percorsi di alfabetizzazione IA con attestato e registro conformi all'art. 4 AI Act, primo percorso attivo per le scuole
+- [AI Act Academy](https://corsi.gianlucademontis.xyz/): piattaforma di percorsi di alfabetizzazione IA con attestato e registro conformi all'art. 4 AI Act, percorsi attivi per scuole e PMI
 - [Consulenza GEO](https://gianlucademontis.xyz/#geo-consulenza): case study di ottimizzazione GEO per community e brand con forte presenza social ma nessuna presenza testuale indicizzabile (primo caso: Sardegna Prodigiosa)
 - [Blog](https://gianlucademontis.xyz/blog/): articoli su automazione n8n, AI su Raspberry Pi, EdTech, AI Act/PUIA
 - [Libro "AI e DSA"](https://gianlucademontis.xyz/libro/): guida pratica per insegnanti sull'uso dell'AI per la didattica inclusiva, disponibile su Amazon
