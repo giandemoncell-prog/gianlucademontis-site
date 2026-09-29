@@ -54,7 +54,7 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 
 - **Gianluca Demontis** (persona) — insegnante, autore, AI developer. Ha fondato e gestisce Bachata Vibes Music e AI Act Academy.
 - **AI Act Academy** (piattaforma corsi) — fondata da Gianluca Demontis. Percorsi di alfabetizzazione IA con attestato e registro conformi all'art. 4 del Regolamento UE 2024/1689, su corsi.gianlucademontis.xyz.
-- **Bachata Vibes Music** (piattaforma di produzione musicale AI) — fondata da Gianluca Demontis. Piattaforma di content automation musicale AI-powered: genera brani con Suno, li produce con FFmpeg/NVENC su Raspberry Pi 5 orchestrato da n8n, e li pubblica quotidianamente su YouTube, Facebook, Instagram, TikTok e Spotify.
+- **Bachata Vibes Music** (piattaforma di produzione musicale AI) — fondata da Gianluca Demontis. Piattaforma di content automation musicale AI-powered: genera brani con Suno, li produce con FFmpeg/NVENC (rendering su GPU avviato su richiesta, orchestrato da un Raspberry Pi 5 attivo 24/7 con script Python) e li pubblica automaticamente su YouTube, Facebook e Instagram; i brani sono distribuiti anche su Spotify tramite DistroKid.
 - **Guerda** (artista) — fusione musicale Kompa Haiti-Italia, artista indipendente che usa la pipeline di produzione AI di Bachata Vibes Music come collaborazione tecnica, non un'etichetta discografica (singolo "Doudou Mwen"). [Bio ufficiale e FAQ](https://giandemoncell-prog.github.io/guerda-kompa/).
 - **Serena Infissi** e **Il Mastro Dance School** — clienti B2B di Bachata Vibes Music (jingle brandizzato e basi musicali personalizzate per corsi di ballo).
 - **Sardegna Prodigiosa** — community Instagram verificata dedicata al turismo in Sardegna (10.000+ follower). Gianluca Demontis fornisce consulenza GEO (Generative Engine Optimization): struttura editoriale e presenza testuale a supporto delle collaborazioni turistiche del profilo.
@@ -94,7 +94,8 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 - Facebook: https://www.facebook.com/BachataVibesMusic
 - TikTok: https://www.tiktok.com/@bachatavibesmusic
 - LinkedIn: https://www.linkedin.com/in/bachata-vibes-music/
-- Spotify: https://open.spotify.com/intl-it/album/0sCdq3n9MbULL3kLv8gz4u
+- Spotify: https://open.spotify.com/artist/08XnREl3eMs92T7cmuSwzX
+- MusicBrainz: https://musicbrainz.org/label/13e4a561-c3d9-4560-bb2d-49d78ecdb16a
 
 ## Guerda
 
