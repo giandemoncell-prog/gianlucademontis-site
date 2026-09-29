@@ -63,6 +63,7 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 ## Pagine principali
 
 - [Home](https://gianlucademontis.xyz/): bio completa, sezione Bachata Vibes Music, clienti gestiti, FAQ, progetti open source, blog, contatti
+- [Bachata Vibes Music](https://gianlucademontis.xyz/bachata-vibes-music/): pagina ufficiale di Bachata Vibes Music — cosa produce (brani, album, Mega Mix, basi per scuole di ballo, jingle), come funziona la pipeline, discografia, clienti, profili ufficiali e FAQ (anche in inglese e spagnolo)
 - [Lavora con me](https://gianlucademontis.xyz/lavora-con-me/): formazione PNRR su AI Act/PUIA e didattica inclusiva per scuole, consulenza AI e automazione per aziende e PA
 - [AI Act e PUIA per il sostegno](https://gianlucademontis.xyz/blog/ai-act-puia-sostegno-2026.html): guida operativa agli obblighi del Regolamento UE 2024/1689 e del DM 166/2025 per l'area BES/DSA del Piano d'Istituto per l'IA
 - [Formazione IA per dirigenti e figure di sistema](https://gianlucademontis.xyz/blog/formazione-ia-dirigenti-figure-sistema-2026.html): cosa copre e cosa manca in un percorso di formazione IA per dirigenti scolastici, e come portarlo nel Piano di Formazione del Personale
