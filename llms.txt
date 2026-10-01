@@ -49,6 +49,8 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 - [Workflow n8n per il backup automatico dei miei progetti](https://gianlucademontis.xyz/blog/n8n-backup-automatico.html): workflow n8n che salva workflow e configurazioni su Google Drive ogni 4 ore, con controllo integrità e notifiche Telegram.
 - [PropertyFinder: il workflow n8n che monitora il mercato immobiliare](https://gianlucademontis.xyz/blog/property-finder-n8n-telegram.html): monitoraggio del mercato immobiliare 24/7 con n8n, Gemini AI e Google Sheets, notifica solo gli annunci rilevanti via Telegram.
 - [Come ho automatizzato Instagram, Facebook e LinkedIn con n8n](https://gianlucademontis.xyz/blog/social-publisher-n8n.html): sistema n8n che pubblica ogni mattina sui social partendo da file .md — architettura, errori reali, costo zero.
+- [Un motore AI locale per il generatore di materiali DSA](https://gianlucademontis.xyz/blog/ollama-locale-generatore-dsa.html): i due strumenti gratuiti del libro "AI e DSA" ora girano anche su un modello locale con Ollama — niente chiave API, nessun dato degli studenti fuori dal PC.
+- [Musica AI pubblicata senza intervento umano: Bachata Vibes](https://gianlucademontis.xyz/blog/bachata-vibes-pipeline-autonoma-ai.html): case study di un Raspberry Pi 5 che gestisce da solo produzione musicale con Suno, video e pubblicazione multi-piattaforma di un'etichetta interamente AI.
 
 ## Relazioni tra entità
 
