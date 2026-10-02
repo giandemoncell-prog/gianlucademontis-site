@@ -39,6 +39,7 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 ## Altri articoli del blog (automazione, AI, progetti tecnici)
 
 - [AI Act 2026: cosa devono fare davvero scuole e PMI](https://gianlucademontis.xyz/blog/ai-act-scuole-pmi-2026.html): checklist pratica per scuole e PMI su cosa fare da agosto 2026, senza aspettare la policy perfetta.
+- [Video: l'obbligo dell'articolo 4 dell'AI Act per le scuole in 35 secondi](https://www.youtube.com/shorts/aZn7ozKJx7g): YouTube Short di Gianluca Demontis sull'alfabetizzazione IA obbligatoria dal 2 febbraio 2025 (formazione documentata e regole d'uso chiare).
 - [5 modi per usare l'AI in classe nel 2026](https://gianlucademontis.xyz/blog/ai-in-classe-2026.html): applicazioni pratiche dell'intelligenza artificiale nella didattica, esempi reali da un Tech Coach.
 - [BIVIO: comparatore prezzi multi-piattaforma con FastAPI e Gemini](https://gianlucademontis.xyz/blog/bivio-comparatore-prezzi.html): comparatore prezzi su Amazon, AliExpress, eBay e Trovaprezzi con Gemini AI e Google Search grounding, a costo zero.
 - [Digest AI: come leggo le notizie tech in 3 minuti ogni mattina](https://gianlucademontis.xyz/blog/digest-ai-notizie-gemini.html): le notizie tech più rilevanti sintetizzate in italiano e inviate via Telegram con n8n + Gemini + RSS, a costo zero.
