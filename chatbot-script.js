@@ -14,8 +14,20 @@
         }
     };
 
-    // Inizializza EmailJS
-    emailjs.init(CONFIG.emailjs.publicKey);
+    // EmailJS caricato solo al primo invio del form (non blocca il caricamento pagina)
+    let emailjsReady = null;
+    function loadEmailJS() {
+        if (!emailjsReady) {
+            emailjsReady = new Promise((resolve, reject) => {
+                const s = document.createElement('script');
+                s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+                s.onload = () => { emailjs.init(CONFIG.emailjs.publicKey); resolve(); };
+                s.onerror = () => { emailjsReady = null; reject(new Error('EmailJS non caricato')); };
+                document.head.appendChild(s);
+            });
+        }
+        return emailjsReady;
+    }
 
     // ===== STATO CONVERSAZIONE =====
     let conversationState = {
@@ -303,6 +315,7 @@
                     reply_to: conversationState.data.email
                 };
 
+                await loadEmailJS();
                 const response = await emailjs.send(
                     CONFIG.emailjs.serviceId,
                     CONFIG.emailjs.templateId,
