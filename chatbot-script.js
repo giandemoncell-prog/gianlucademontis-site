@@ -8,9 +8,9 @@
     // ===== CONFIGURAZIONE =====
     const CONFIG = {
         emailjs: {
-            publicKey: 'sgwpSulF12rIGGleQ',
-            serviceId: 'service_rk75llj',
-            templateId: 'template_3llianq'
+            publicKey: 'UeDi_rp94Smtz-VOU',
+            serviceId: 'service_pk6lpx5',
+            templateId: 'template_1skgwvb'
         }
     };
 
@@ -310,7 +310,10 @@
                     from_name: conversationState.data.nome,
                     from_email: conversationState.data.email,
                     phone: conversationState.data.telefono || 'Non fornito',
-                    message: conversationState.data.messaggio,
+                    message: `Email: ${conversationState.data.email}\nTelefono: ${conversationState.data.telefono || 'Non fornito'}\n\n${conversationState.data.messaggio}`,
+                    name: conversationState.data.nome,
+                    title: `[Chatbot sito] ${conversationState.data.nome}`,
+                    time: new Date().toLocaleString('it-IT'),
                     to_name: 'Gianluca Demontis',
                     reply_to: conversationState.data.email
                 };
@@ -397,9 +400,11 @@
         function sendMessage() {
             const message = chatbotInput.value.trim();
 
-            if (!message) return;
+            const skipPhone = !message && conversationState.mode === 'contact_form'
+                && contactFormSteps[conversationState.step]?.field === 'telefono';
+            if (!message && !skipPhone) return;
 
-            addMessage(message, true);
+            addMessage(message || '—', true);
             chatbotInput.value = '';
 
             setTimeout(() => {
