@@ -432,7 +432,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
-            emailjs.init('sgwpSulF12rIGGleQ');
+            emailjs.init('UeDi_rp94Smtz-VOU');
             const form = document.getElementById('lcm-contact-form');
             const status = document.getElementById('lcm-form-status');
             const btn = document.getElementById('lcm-submit-btn');
@@ -453,14 +453,15 @@
                     from_name: nome,
                     from_email: email,
                     phone: telefono,
-                    message: `[${tipo}]\n\n${messaggio}`,
+                    message: `Tipo: ${tipo}\nEmail: ${email}\nTelefono: ${telefono}\n\n${messaggio}`,
+                    time: new Date().toLocaleString('it-IT'),
                     to_name: 'Gianluca Demontis',
                     name: nome,
                     title: `[Lavora con me] ${tipo} - ${nome}`,
                     reply_to: email
                 };
 
-                emailjs.send('service_rk75llj', 'template_3llianq', templateParams)
+                emailjs.send('service_pk6lpx5', 'template_1skgwvb', templateParams)
                     .then(function() {
                         status.className = 'lcm-form-status ok';
                         status.textContent = `Thanks ${nome}, request sent! I'll reply to ${email}.`;
