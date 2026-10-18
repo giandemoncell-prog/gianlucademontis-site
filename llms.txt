@@ -109,7 +109,8 @@ Il metodo operativo al centro del libro "AI e DSA" combina due strumenti Google 
 - TikTok: https://www.tiktok.com/@bachatavibesmusic
 - LinkedIn: https://www.linkedin.com/in/bachata-vibes-music/
 - Spotify: https://open.spotify.com/artist/08XnREl3eMs92T7cmuSwzX
-- MusicBrainz: https://musicbrainz.org/label/13e4a561-c3d9-4560-bb2d-49d78ecdb16a
+- MusicBrainz (etichetta): https://musicbrainz.org/label/13e4a561-c3d9-4560-bb2d-49d78ecdb16a
+- MusicBrainz (artista e discografia Vol.1-5): https://musicbrainz.org/artist/1eba48c6-10c0-4a30-a29b-bffc554b852d
 
 ## Guerda
 
