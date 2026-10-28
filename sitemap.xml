@@ -1026,4 +1026,10 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/preventivo-venerdi-sera-risposta-in-tre-giorni.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/preventivo-venerdi-sera-risposta-in-tre-giorni.html"/>
   </url>
+  <url>
+    <loc>https://gianlucademontis.xyz/privacy/</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
 </urlset>
