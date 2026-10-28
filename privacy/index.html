@@ -2,14 +2,8 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZGK3RC2PZ9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-ZGK3RC2PZ9');
-    </script>
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy | Gianluca Demontis</title>
     <meta name="description" content="Informativa sul trattamento dei dati personali del sito gianlucademontis.xyz e delle applicazioni collegate alle API di Google.">
@@ -58,7 +52,7 @@
 
         <h2>Quali dati raccolgo sul sito e perché</h2>
         <ul>
-            <li><strong>Statistiche di visita</strong> con Google Analytics 4: pagine viste, provenienza, dispositivo, in forma aggregata. Servono a capire quali contenuti sono utili. Usano cookie: vedi la sezione Cookie qui sotto.</li>
+            <li><strong>Statistiche di visita</strong> con Google Analytics 4: pagine viste, provenienza, dispositivo, in forma aggregata. Servono a capire quali contenuti sono utili. Si attivano solo se accetti nel banner dei cookie. Base giuridica: consenso.</li>
             <li><strong>Modulo contatti</strong> (pagina Lavora con me): nome, email, telefono (facoltativo) e messaggio, inviati tramite il servizio EmailJS solo per risponderti. Base giuridica: la tua richiesta.</li>
             <li><strong>Modulo della pagina Bivio</strong>: email e lingua, raccolte tramite Formspree per mandarti il materiale richiesto. Base giuridica: la tua richiesta.</li>
             <li><strong>Newsletter e materiali gratuiti</strong>: l'indirizzo email che inserisci nel modulo della newsletter o per scaricare un materiale gratuito (per esempio i prompt della pagina del libro). Scaricando il materiale ti iscrivi anche alla newsletter. L'email passa da un sistema di automazione che gestisco io (n8n, su un mio server) e viene salvata in MailerLite. Puoi cancellarti in ogni momento con il link in fondo a ogni email. Base giuridica: consenso.</li>
@@ -67,7 +61,7 @@
         <p>Non vendo né cedo i dati a terzi. I fornitori citati (Google, GitHub, EmailJS, Formspree, MailerLite) li trattano secondo le loro informative.</p>
 
         <h2>Cookie</h2>
-        <p>Il sito non usa cookie di profilazione o pubblicitari propri. Google Analytics imposta cookie statistici (<code>_ga</code>, <code>_ga_*</code>), che durano fino a 2 anni. Puoi bloccarli dalle impostazioni del browser o con il <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">componente di disattivazione di Google Analytics</a>. I video YouTube incorporati possono impostare cookie solo se avvii la riproduzione.</p>
+        <p>Il sito non usa cookie di profilazione o pubblicitari. Google Analytics imposta cookie statistici (<code>_ga</code>, <code>_ga_*</code>, durata fino a 2 anni) <strong>solo se accetti</strong> nel banner che compare alla prima visita; se rifiuti, Google Analytics non viene nemmeno caricato. La scelta resta salvata nel browser e puoi cambiarla quando vuoi: <button type="button" onclick="window.gdConsenso &amp;&amp; window.gdConsenso()" style="font:inherit;color:var(--primary-color);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer">cambia le preferenze sui cookie</button>. I video YouTube incorporati possono impostare cookie solo se avvii la riproduzione.</p>
 
         <h2>Applicazioni che usano le API di Google</h2>
         <p>Uso alcune piccole applicazioni personali collegate alle API di Google (Gmail, YouTube, Google Analytics) per gestire il mio lavoro: per esempio preparare bozze di email con un allegato nel mio account Gmail e leggere le statistiche dei miei canali.</p>
