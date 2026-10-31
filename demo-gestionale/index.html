@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestionale Infissi — demo</title>
+<meta name="robots" content="noindex">
+<style>
+  :root { --blu:#1a5276; --blu2:#2e86c1; --verde:#1e8449; --arancio:#ca6f1e; --rosso:#b03a2e; --grigio:#f0f2f5; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Segoe UI',Tahoma,sans-serif; background:var(--grigio); color:#2c3e50; }
+  header { background:linear-gradient(135deg,var(--blu),var(--blu2)); color:#fff; padding:14px 20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  header h1 { font-size:1.2em; }
+  .badge-demo { background:#f4d03f; color:#4d3b00; font-weight:700; font-size:.75em; padding:3px 8px; border-radius:12px; }
+  nav { display:flex; gap:6px; margin-left:auto; flex-wrap:wrap; }
+  nav button { background:rgba(255,255,255,.15); color:#fff; border:0; padding:8px 14px; border-radius:6px; cursor:pointer; font-size:.95em; }
+  nav button.on { background:#fff; color:var(--blu); font-weight:700; }
+  main { max-width:1100px; margin:0 auto; padding:18px; }
+  .vista { display:none; } .vista.on { display:block; }
+  .kpi { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-bottom:16px; }
+  .kpi div { background:#fff; border-radius:10px; padding:14px; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .kpi b { display:block; font-size:1.6em; color:var(--blu); }
+  .card { background:#fff; border-radius:10px; padding:16px; box-shadow:0 1px 4px rgba(0,0,0,.08); margin-bottom:16px; }
+  .card h2 { font-size:1.05em; color:var(--blu); margin-bottom:10px; }
+  table { width:100%; border-collapse:collapse; font-size:.92em; }
+  th, td { text-align:left; padding:8px 6px; border-bottom:1px solid #eaeded; }
+  th { color:#7f8c8d; font-weight:600; font-size:.85em; text-transform:uppercase; }
+  tr.click { cursor:pointer; } tr.click:hover { background:#f8f9f9; }
+  .st { font-size:.8em; font-weight:700; padding:3px 8px; border-radius:10px; color:#fff; white-space:nowrap; }
+  .st-richiesta{background:#7f8c8d}.st-rilievo{background:var(--arancio)}.st-preventivo{background:var(--blu2)}.st-ordinato{background:#8e44ad}.st-posa{background:var(--verde)}.st-chiuso{background:#2c3e50}
+  .griglia { display:grid; grid-template-columns:1fr 1fr; gap:16px; } @media (max-width:800px){ .griglia{grid-template-columns:1fr;} }
+  label { display:block; font-size:.85em; color:#7f8c8d; margin:8px 0 3px; }
+  input, select { width:100%; padding:8px; border:1px solid #d5d8dc; border-radius:6px; font-size:.95em; }
+  .btn { display:inline-block; border:0; border-radius:6px; padding:9px 14px; cursor:pointer; font-size:.95em; color:#fff; background:var(--blu2); margin:8px 6px 0 0; text-decoration:none; }
+  .btn.verde{background:var(--verde)} .btn.grigio{background:#95a5a6}
+  .tel { max-width:380px; margin:0 auto; background:#fff; border:10px solid #2c3e50; border-radius:28px; padding:16px; min-height:560px; }
+  .tel h3 { color:var(--blu); margin-bottom:8px; }
+  .riga { display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed #eaeded; font-size:.92em; }
+  .tot { font-weight:700; font-size:1.1em; color:var(--blu); }
+  .nota { font-size:.85em; color:#7f8c8d; margin-top:8px; }
+  .giorno { border-left:4px solid var(--verde); padding:8px 10px; margin-bottom:8px; background:#fbfcfc; border-radius:4px; }
+  .check { display:flex; gap:8px; align-items:center; padding:6px 0; }
+  .check input { width:auto; }
+  footer { text-align:center; font-size:.8em; color:#95a5a6; padding:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Gestionale Infissi</h1><span class="badge-demo">DEMO · dati inventati</span>
+  <nav>
+    <button data-v="ufficio" class="on">Ufficio</button>
+    <button data-v="rilievo">App rilievo</button>
+    <button data-v="preventivo">Preventivo</button>
+    <button data-v="posa">App posatore</button>
+  </nav>
+</header>
+
+<main>
+  <!-- UFFICIO -->
+  <section id="ufficio" class="vista on">
+    <div class="kpi" id="kpi"></div>
+    <div class="card">
+      <h2>Commesse</h2>
+      <table><thead><tr><th>N.</th><th>Cliente</th><th>Città</th><th>Lavoro</th><th>Stato</th><th>Prossimo passo</th></tr></thead>
+      <tbody id="commesse"></tbody></table>
+      <p class="nota">Clicca una commessa per aprirla nel rilievo. Le richieste dal sito e da WhatsApp entrano qui come "Richiesta".</p>
+    </div>
+    <div class="griglia">
+      <div class="card"><h2>Ordini ai fornitori</h2><table><thead><tr><th>Fornitore</th><th>Commessa</th><th>Consegna</th></tr></thead><tbody id="ordini"></tbody></table></div>
+      <div class="card"><h2>Promemoria automatici</h2><div id="promemoria"></div></div>
+    </div>
+  </section>
+
+  <!-- RILIEVO -->
+  <section id="rilievo" class="vista">
+    <div class="tel">
+      <h3>Rilievo misure</h3>
+      <p class="nota" id="ril-cliente"></p>
+      <label>Vano</label><input id="r-vano" value="Soggiorno - finestra 2 ante">
+      <div class="griglia" style="gap:8px">
+        <div><label>Larghezza (mm)</label><input id="r-l" type="number" value="1400"></div>
+        <div><label>Altezza (mm)</label><input id="r-h" type="number" value="1500"></div>
+      </div>
+      <label>Materiale</label>
+      <select id="r-mat"><option value="pvc">PVC bianco</option><option value="legno">Legno-alluminio</option><option value="all">Alluminio taglio termico</option></select>
+      <label>Vetro</label>
+      <select id="r-vetro"><option value="dop">Doppio basso emissivo</option><option value="tri">Triplo</option></select>
+      <label>Note e foto</label><input value="Davanzale in marmo da mantenere; foto 3 allegate">
+      <button class="btn" id="r-agg">Aggiungi vano</button>
+      <div id="r-lista" style="margin-top:10px"></div>
+      <button class="btn verde" id="r-invia">Invia all'ufficio e prepara il preventivo</button>
+      <p class="nota">Sul telefono funziona anche senza rete: i dati si sincronizzano quando torna la connessione.</p>
+    </div>
+  </section>
+
+  <!-- PREVENTIVO -->
+  <section id="preventivo" class="vista">
+    <div class="card">
+      <h2 id="p-titolo">Preventivo</h2>
+      <div id="p-righe"></div>
+      <div class="riga"><span>Posa in opera e smaltimento vecchi infissi</span><span id="p-posa"></span></div>
+      <div class="riga"><span>Totale imponibile</span><span id="p-imp"></span></div>
+      <div class="riga"><span>IVA agevolata 10%</span><span id="p-iva"></span></div>
+      <div class="riga tot"><span>Totale</span><span id="p-tot"></span></div>
+      <a class="btn verde" id="p-wa" target="_blank" rel="noopener">Invia su WhatsApp</a>
+      <button class="btn" onclick="window.print()">Stampa / PDF</button>
+      <p class="nota">Prezzi di listino inventati per la demo: nella versione reale si usano i listini dei vostri fornitori.</p>
+    </div>
+  </section>
+
+  <!-- POSATORE -->
+  <section id="posa" class="vista">
+    <div class="tel">
+      <h3>Posatore · questa settimana</h3>
+      <div id="agenda"></div>
+      <h3 style="margin-top:14px">Checklist di cantiere</h3>
+      <div id="checklist"></div>
+      <button class="btn verde" id="chiudi">Chiudi lavoro e invia foto all'ufficio</button>
+      <p class="nota" id="esito"></p>
+    </div>
+  </section>
+</main>
+<footer>Demo del gestionale per aziende di infissi · dati di esempio, nessun dato reale · Gianluca Demontis · gianlucademontis.xyz</footer>
+
+<script>
+const COMMESSE = [
+  {n:'2026-041', cliente:'Marco Rinaldi', citta:'Pesaro', lavoro:'6 finestre PVC', stato:'richiesta', passo:'Fissare il sopralluogo'},
+  {n:'2026-038', cliente:'Studio Ferri & Bassi', citta:'Ancona', lavoro:'Vetrata ufficio', stato:'rilievo', passo:'Rilievo martedì 10:00'},
+  {n:'2026-035', cliente:'Laura Conti', citta:'Fano', lavoro:'4 finestre + portoncino', stato:'preventivo', passo:'Richiamare se non risponde entro venerdì'},
+  {n:'2026-031', cliente:'Condominio Via Mare 12', citta:'Senigallia', lavoro:'12 serramenti alluminio', stato:'ordinato', passo:'Consegna fornitore il 18/11'},
+  {n:'2026-029', cliente:'Paolo e Anna Greco', citta:'Urbino', lavoro:'Sostituzione 8 finestre', stato:'posa', passo:'Posa 12-13/11, squadra A'},
+  {n:'2026-024', cliente:'Bar Centrale', citta:'Pesaro', lavoro:'Porta automatica', stato:'chiuso', passo:'Chiedere recensione'}
+];
+const ETICHETTE = {richiesta:'Richiesta', rilievo:'Rilievo', preventivo:'Preventivo', ordinato:'Ordinato', posa:'In posa', chiuso:'Chiuso'};
+const PREZZI = {pvc:320, legno:520, all:430}; // € al mq, inventati
+const VETRO = {dop:0, tri:45};
+let cliente = COMMESSE[0];
+let vani = [{vano:'Cucina - finestra 1 anta', l:900, h:1200, mat:'pvc', vetro:'dop'}];
+
+const euro = v => v.toLocaleString('it-IT',{style:'currency',currency:'EUR'});
+const $ = id => document.getElementById(id);
+
+function vai(v){ document.querySelectorAll('.vista').forEach(s=>s.classList.toggle('on', s.id===v));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on', b.dataset.v===v)); if(v==='preventivo') preventivo(); }
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>vai(b.dataset.v));
+
+function ufficio(){
+  const c = s => COMMESSE.filter(x=>x.stato===s).length;
+  $('kpi').innerHTML = `<div>Richieste nuove<b>${c('richiesta')}</b></div><div>Preventivi aperti<b>${c('preventivo')}</b></div>
+    <div>Ordini in arrivo<b>${c('ordinato')}</b></div><div>Pose questa settimana<b>${c('posa')}</b></div>`;
+  $('commesse').innerHTML = COMMESSE.map((x,i)=>`<tr class="click" data-i="${i}"><td>${x.n}</td><td>${x.cliente}</td><td>${x.citta}</td>
+    <td>${x.lavoro}</td><td><span class="st st-${x.stato}">${ETICHETTE[x.stato]}</span></td><td>${x.passo}</td></tr>`).join('');
+  document.querySelectorAll('#commesse tr').forEach(r=>r.onclick=()=>{ cliente=COMMESSE[r.dataset.i]; rilievo(); vai('rilievo'); });
+  $('ordini').innerHTML = `<tr><td>Fornitore PVC (esempio)</td><td>2026-031</td><td>18/11</td></tr>
+    <tr><td>Vetreria (esempio)</td><td>2026-029</td><td>09/11</td></tr><tr><td>Accessori (esempio)</td><td>2026-029</td><td>10/11</td></tr>`;
+  $('promemoria').innerHTML = `<div class="giorno">Oggi 18:00 · WhatsApp a Laura Conti: "Ha avuto modo di vedere il preventivo?"</div>
+    <div class="giorno">Lunedì 08:00 · SMS a Paolo Greco: "Mercoledì arriva la squadra alle 8:30"</div>
+    <div class="giorno">Martedì · email a Bar Centrale: richiesta di recensione Google</div>`;
+}
+function rilievo(){
+  $('ril-cliente').textContent = `Commessa ${cliente.n} · ${cliente.cliente}, ${cliente.citta}`;
+  $('r-lista').innerHTML = vani.map(v=>`<div class="riga"><span>${v.vano}</span><span>${v.l}×${v.h} mm</span></div>`).join('');
+}
+$('r-agg').onclick = ()=>{ vani.push({vano:$('r-vano').value, l:+$('r-l').value, h:+$('r-h').value, mat:$('r-mat').value, vetro:$('r-vetro').value}); rilievo(); };
+$('r-invia').onclick = ()=>{ if(cliente.stato==='richiesta'||cliente.stato==='rilievo'){ cliente.stato='preventivo'; cliente.passo='Preventivo pronto da inviare'; } ufficio(); vai('preventivo'); };
+
+function preventivo(){
+  let imp = 0;
+  $('p-titolo').textContent = `Preventivo ${cliente.n} · ${cliente.cliente}`;
+  $('p-righe').innerHTML = vani.map(v=>{ const mq=Math.max(v.l*v.h/1e6,1); const p=Math.round(mq*(PREZZI[v.mat]+VETRO[v.vetro])); imp+=p;
+    return `<div class="riga"><span>${v.vano} · ${v.l}×${v.h} mm</span><span>${euro(p)}</span></div>`; }).join('');
+  const posa = 120*vani.length; imp += posa;
+  $('p-posa').textContent = euro(posa); $('p-imp').textContent = euro(imp); $('p-iva').textContent = euro(imp*0.1); $('p-tot').textContent = euro(imp*1.1);
+  const testo = `Gentile ${cliente.cliente}, ecco il preventivo ${cliente.n}: ${vani.length} vani, totale ${euro(imp*1.1)} IVA inclusa. Restiamo a disposizione.`;
+  $('p-wa').href = 'https://wa.me/?text=' + encodeURIComponent(testo);
+}
+function posa(){
+  $('agenda').innerHTML = `<div class="giorno"><b>Mer 12/11 · 8:30</b><br>Greco, Urbino · 8 finestre<br><a href="#" onclick="return false">Apri in Maps</a></div>
+    <div class="giorno"><b>Gio 13/11 · 8:30</b><br>Greco, Urbino · finitura e collaudo</div>`;
+  $('checklist').innerHTML = ['Vecchi infissi smontati e smaltiti','Controllo misure e fuori squadra','Posa con nastri e schiuma certificati','Silicone e coprifili','Prova apertura e chiusura','Foto prima e dopo'].map(t=>`<label class="check"><input type="checkbox"> ${t}</label>`).join('');
+}
+$('chiudi').onclick = ()=>{ const g=COMMESSE.find(x=>x.stato==='posa'); if(g){ g.stato='chiuso'; g.passo='Chiedere recensione'; } ufficio();
+  $('esito').textContent = 'Lavoro chiuso: l\'ufficio riceve foto e checklist, e parte in automatico la richiesta di recensione.'; };
+
+ufficio(); rilievo(); posa();
+</script>
+</body>
+</html>
