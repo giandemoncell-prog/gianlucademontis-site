@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistral's Timestral: I tried it for free on Google Colab</title>
+    <meta name="description" content="Timestral, Mistral's model that forecasts numbers over time, tried free on Colab: working code, licence, uses for businesses and schools, 4 AI errors.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/en/blog/timestral-mistral-previsioni-colab.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/timestral-mistral-previsioni-colab.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/timestral-mistral-previsioni-colab.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/timestral-mistral-previsioni-colab.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/timestral-mistral-previsioni-colab.html">
+    <meta property="og:title" content="I tried Timestral, Mistral's AI that forecasts numbers: free on Colab">
+    <meta property="og:description" content="Visits, sales, energy use: Timestral forecasts how a series of numbers will continue, with no training. The code that works, what the licence really says, and four mistakes made by the AI guiding me.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/en/blog/timestral-mistral-previsioni-colab.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-10-31">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="AI in practice">
+    <meta property="og:image" content="https://gianlucademontis.xyz/assets/202610/og-timestral-mistral.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I tried Timestral, Mistral's AI that forecasts numbers: free on Colab">
+    <meta name="twitter:description" content="Visits, sales, energy use: Timestral forecasts how a series of numbers will continue, with no training. The code that works, what the licence really says, and four mistakes made by the AI guiding me.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/assets/202610/og-timestral-mistral.jpg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "I tried Timestral, Mistral's AI that forecasts numbers: free on Google Colab (with four mistakes from the guide)",
+        "datePublished": "2026-10-31T12:00:00+01:00",
+        "dateModified": "2026-10-31T12:00:00+01:00",
+        "image": "https://gianlucademontis.xyz/assets/202610/og-timestral-mistral.jpg",
+        "url": "https://gianlucademontis.xyz/en/blog/timestral-mistral-previsioni-colab.html",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://gianlucademontis.xyz/en/blog/timestral-mistral-previsioni-colab.html"
+        },
+        "inLanguage": "en",
+        "articleSection": "AI in practice",
+        "author": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis",
+          "url": "https://gianlucademontis.xyz"
+        },
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis"
+        },
+        "description": "Timestral, Mistral's model that forecasts numbers over time, tried free on Colab: working code, licence, uses for businesses and schools, 4 AI errors.",
+        "about": {
+          "@type": "SoftwareApplication",
+          "name": "Timestral",
+          "applicationCategory": "Time series forecasting",
+          "author": {
+            "@type": "Organization",
+            "name": "Mistral AI"
+          },
+          "url": "https://github.com/mistralai/timestral"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://gianlucademontis.xyz/en/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://gianlucademontis.xyz/en/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Mistral's Timestral: I tried it for free on Google Colab",
+            "item": "https://gianlucademontis.xyz/en/blog/timestral-mistral-previsioni-colab.html"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Timestral free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The code is open source (Apache 2.0) and the model weights can be downloaded for free from Hugging Face under a modified MIT licence. Commercial use is allowed, but not if your company (or employer) has more than 20 million dollars in monthly revenue: in that case you need a commercial licence from Mistral. For schools, freelancers and small businesses it is effectively free."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need a graphics card to use Timestral?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Timestral is designed to run on a CPU. I tried it on the free tier of Google Colab without a GPU, using the 5-million-parameter version (21 MB), and the forecast arrived in a few seconds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can a small business or a school use Timestral for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To estimate how a series of numbers collected over time will continue: website visits, weekly sales, quote requests, energy use, course enrolments. It gives a central forecast and an uncertainty range. It does not explain causes, and it does not know about future events (holidays, promotions) unless you pass them in."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body a { color: var(--primary-color); }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .article-body code { background: rgba(255,255,255,0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        .article-body pre { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1rem 1.25rem; overflow-x: auto; margin: 1rem 0 1.5rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+        .article-body pre code { background: none; padding: 0; font-size: inherit; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/en/#hero">Home</a></li>
+                    <li><a href="/en/#about">About</a></li>
+                    <li><a href="/en/#projects">Projects</a></li>
+                    <li><a href="/en/blog/">Blog</a></li>
+                    <li><a href="/en/lavora-con-me/">Work with me</a></li><li><a href="/en/#contact">Contact</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/timestral-mistral-previsioni-colab.html">IT</a><span>·</span>
+                        <a href="/en/blog/timestral-mistral-previsioni-colab.html" class="active">EN</a><span>·</span>
+                        <a href="/es/blog/timestral-mistral-previsioni-colab.html">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/en/blog/" class="back-link">← All articles</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">AI in practice</span>
+                        <time class="blog-date" datetime="2026-10-31">October 31, 2026</time>
+                        <span class="blog-date">· 6 min read</span>
+                    </div>
+                    <h1>I tried Timestral, Mistral's AI that forecasts numbers: free on Google Colab (with four mistakes from the guide)</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">In mid-October Mistral AI released Timestral, a family of models that does not write text: it forecasts numbers. You give it a time series (website visits, weekly sales, energy use) and it estimates how it will continue. I tried it for free on Google Colab, guided step by step by another AI. I got the chart in the end, but only after four errors.</p>
+                </header>
+
+                <article class="article-body">
+<div class="in-breve" style="margin: 0 0 2rem; padding: 1.25rem 1.5rem; background: rgba(0,217,255,0.06); border: 1px solid rgba(0,217,255,0.25); border-radius: 10px;">
+<p style="font-size: 0.8rem; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.5rem;">In short</p>
+<p style="margin: 0;">Timestral is open source, runs without a graphics card and can be tried for free on Google Colab with two code cells. The smallest version is 21 MB. The guide an AI assistant gave me contained four code errors and one inaccuracy about the licence: below you will find the code that actually works, possible uses for small businesses and schools, and the limits to keep in mind.</p>
+</div>
+<figure style="margin: 0 auto 2.5rem; max-width: 420px; text-align: center;">
+<img src="/assets/202610/og-timestral-mistral.jpg" alt="Mistral's Timestral: time-series forecasting, tried for free on Google Colab" width="1200" height="630" loading="lazy" style="width: 100%; height: auto; border-radius: 12px;">
+</figure>
+<h2>What Timestral is</h2>
+<p>Timestral is a family of <strong>time-series foundation models</strong>: it was trained on a huge number of numeric sequences and can continue a new one without being retrained on your data. This is called <em>zero-shot</em> forecasting. From the <a href="https://github.com/mistralai/timestral" target="_blank" rel="noopener">official repository</a>:</p>
+<ul>
+<li><strong>Four sizes</strong>: 5M (21 MB), 28M (111 MB), 123M (490 MB) and 209M parameters (837 MB).</li>
+<li><strong>Runs on a CPU</strong>: no graphics card needed.</li>
+<li><strong>Probabilistic forecasts</strong>: 21 quantiles per step, so you get not only the most likely value but also a range ("8 times out of 10 it will be between here and here").</li>
+<li><strong>Long history</strong>: up to 32,768 points, plus external variables known in advance (public holidays, for example).</li>
+</ul>
+<p>Mistral says the largest version ranks first on the three main benchmarks in the field (GIFT-Eval, TIME and fev-bench). These are the company's own results: I would wait for independent checks before treating them as final.</p>
+<h2>How to try it for free on Google Colab</h2>
+<p>Google Colab is a Python notebook that runs in the browser, free with a Google account. For the small Timestral models you do not even need to turn on the GPU. Two cells are enough.</p>
+<p><strong>Cell 1</strong>, installation:</p>
+<pre><code>!pip install git+https://github.com/mistralai/timestral.git</code></pre>
+<p><strong>Cell 2</strong>, the forecast and the chart. This is the code that finally worked:</p>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from timestral import TimestralForecaster
+
+forecaster = TimestralForecaster.from_pretrained("mistralai/Timestral-5M")
+
+# 100 test values: put your own data here (visits, sales, energy use...)
+context = np.random.default_rng(42).standard_normal(100).cumsum()
+
+h = 24  # how many steps to forecast
+forecast = forecaster.forecast(context, prediction_length=h)
+median = np.squeeze(forecast.median)  # from (1, 1, 24) to (24,)
+
+x = range(len(context), len(context) + h)
+plt.plot(context, label="History")
+plt.plot(x, median, "--", label="Timestral forecast")
+plt.legend()
+plt.show()</code></pre>
+<p>If you also want the uncertainty range, add these lines before <code>plt.legend()</code> (from the official documentation):</p>
+<pre><code>low = np.squeeze(forecast.quantile(0.1))
+high = np.squeeze(forecast.quantile(0.9))
+plt.fill_between(x, low, high, alpha=0.3, label="8 cases out of 10")</code></pre>
+<p>To use real data, upload a CSV to Colab and replace the <code>context</code> line with something like <code>pd.read_csv("visits.csv")["visits"].to_numpy()</code>.</p>
+<h2>The AI guide's four mistakes</h2>
+<p>For this test I let an AI assistant guide me, as anyone would with a brand-new model. The explanations were clear and confident. The code was not:</p>
+<ol>
+<li><strong>A class that does not exist.</strong> The first script imported <code>Timestral</code>: error. The right class is <code>TimestralForecaster</code>.</li>
+<li><strong>An install that confused Python.</strong> Even with the right name the import failed: I had installed the package inside the cloned folder and Python found that folder instead of the package. Fix: restart the session and install straight from GitHub, as in cell 1.</li>
+<li><strong>An invented method.</strong> The script called <code>.to(device)</code>, typical of PyTorch models, but this object does not have it. For the GPU you pass <code>device="cuda"</code> to <code>from_pretrained</code>.</li>
+<li><strong>The wrong shape.</strong> The forecast comes out as (series, variates, steps), i.e. (1, 1, 24), and the chart broke. You need <code>np.squeeze</code>.</li>
+</ol>
+<p>There was also a more serious inaccuracy, because it raises no error: the guide said the weights can be used "freely, including for commercial purposes". The licence actually excludes companies with more than 20 million dollars in monthly revenue. For a school or a small business nothing changes; for a large group it does.</p>
+<blockquote>Every error was fixed in seconds, but only because I read the message and reported it back. AI prepares, a person checks.</blockquote>
+<p>It is the same pattern I saw when I <a href="/en/blog/ia-corregge-compiti-esperimento.html">had AI grade the same essay 50 times</a>: the tone is always confident, even when the answer is wrong. With a model released two weeks earlier, the assistant could not know its code and rebuilt plausible names. The official README had the right answer from the start.</p>
+<h2>What it is really useful for</h2>
+<p>Time-series forecasting helps wherever numbers are collected over time and something has to be decided in advance:</p>
+<ul>
+<li><strong>Small businesses and shops</strong>: weekly sales to order stock, quote requests to plan staff.</li>
+<li><strong>Websites and social media</strong>: visits and views, to tell whether a drop is normal or a warning sign.</li>
+<li><strong>Energy</strong>: solar production and consumption, to shift loads to the right hours.</li>
+<li><strong>Schools and training</strong>: course enrolments, platform logins, office workload at peak times.</li>
+</ul>
+<p>The advantage over classic methods is that you do not have to build and tune a model for each series. And since it runs on a CPU, your data can stay on your own computer, like the other <a href="/en/blog/gateway-ai-locale-raspberry-pi.html">local AI</a> tools I use.</p>
+<h2>Limits to keep in mind</h2>
+<ul>
+<li><strong>It forecasts, it does not explain.</strong> It tells you visits will drop, not why.</li>
+<li><strong>It does not know the future you know.</strong> A promotion, a holiday, a closure: unless you pass them as variables, the model cannot see them.</li>
+<li><strong>Check it on your own data.</strong> The simplest method: hide the last few weeks, have it forecast them and compare with what really happened. If it is far off, do not trust its forecast of the weeks ahead.</li>
+</ul>
+<h2>In short</h2>
+<p>Timestral is a serious tool, free for anyone who is not a multinational, and you can try it in ten minutes without installing anything on your computer. The most useful lesson, though, is not about Timestral: with newly released tools, the official documentation beats the AI assistant. Use AI to get explanations, but check the code against the README.</p>
+<h2>Frequently asked questions</h2>
+<p><strong>Is Timestral free?</strong> The code is open source (Apache 2.0) and the model weights can be downloaded for free from Hugging Face under a modified MIT licence. Commercial use is allowed, but not if your company (or employer) has more than 20 million dollars in monthly revenue: in that case you need a commercial licence from Mistral. For schools, freelancers and small businesses it is effectively free.</p>
+<p><strong>Do I need a graphics card to use Timestral?</strong> No. Timestral is designed to run on a CPU. I tried it on the free tier of Google Colab without a GPU, using the 5-million-parameter version (21 MB), and the forecast arrived in a few seconds.</p>
+<p><strong>What can a small business or a school use Timestral for?</strong> To estimate how a series of numbers collected over time will continue: website visits, weekly sales, quote requests, energy use, course enrolments. It gives a central forecast and an uncertainty range. It does not explain causes, and it does not know about future events (holidays, promotions) unless you pass them in.</p>
+                </article>
+                <aside class="author-box" style="display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <img src="/assets/avatar-gianluca-demontis.jpg" alt="Gianluca Demontis" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: rgba(0,217,255,0.08);">
+                    <div>
+                        <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem;">About the author</p>
+                        <p style="margin: 0 0 0.35rem; font-weight: 600;"><a href="/#about" rel="author" style="color: var(--text-primary); text-decoration: none;">Gianluca Demontis</a></p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Tenured teacher since 1992 and tech coach in Sardinia, with over 40 years of experience in IT. He builds n8n and AI automations for schools and small businesses, founded Bachata Vibes Music and AI Act Academy, and wrote the book “Artificial Intelligence for Inclusive Teaching”. <a href="/en/lavora-con-me/" style="color: var(--primary-color);">Work with me →</a></p>
+                    </div>
+                </aside>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Read also</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/en/blog/ia-corregge-compiti-esperimento.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">I had AI grade the same essay 50 times</a></li>
+                        <li><a href="/en/blog/gateway-ai-locale-raspberry-pi.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">One entry point for all my local AI</a></li>
+                        <li><a href="/en/blog/ollama-locale-generatore-dsa.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">I added a local AI engine to the DSA materials generator</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>Want to use AI on your own data?</h3>
+                    <p>Forecasting, automation and local AI tools for small businesses and schools: we start from a concrete problem and data that stays yours.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;"><a href="/en/lavora-con-me/#contatti-form" style="color: var(--primary-color);">Get in touch</a> or subscribe to the newsletter.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe for free</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/en/blog/architetti-del-futuro-ia-governo-locale-quartu.html">← Architects of the future: AI and local government</a>
+                    <a href="/en/blog/">All articles →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
