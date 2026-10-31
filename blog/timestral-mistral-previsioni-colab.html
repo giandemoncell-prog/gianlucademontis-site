@@ -36,7 +36,7 @@
         "@type": "TechArticle",
         "headline": "Ho provato Timestral, l'IA di Mistral che prevede i numeri: gratis su Google Colab (e con quattro errori della guida)",
         "datePublished": "2026-10-31T12:00:00+01:00",
-        "dateModified": "2026-10-31T12:00:00+01:00",
+        "dateModified": "2026-10-31T13:00:00+01:00",
         "image": "https://gianlucademontis.xyz/assets/202610/og-timestral-mistral.jpg",
         "url": "https://gianlucademontis.xyz/blog/timestral-mistral-previsioni-colab.html",
         "mainEntityOfPage": {
@@ -235,6 +235,10 @@ plt.plot(context, label="Dati storici")
 plt.plot(x, mediana, "--", label="Previsione Timestral")
 plt.legend()
 plt.show()</code></pre>
+<figure style="margin: 1.5rem 0 2rem; text-align: center;">
+<img src="/assets/202610/grafico-colab-timestral-5m.jpg" alt="Grafico del test su Google Colab: 100 valori storici in blu e 24 passi previsti da Timestral-5M in rosso" width="1165" height="611" loading="lazy" style="width: 100%; height: auto; border-radius: 10px;">
+<figcaption style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.6rem; line-height: 1.6;">Il mio test su Google Colab con Timestral-5M: in blu i 100 valori di prova, in rosso i 24 passi previsti. I dati sono una passeggiata casuale, che per definizione non si può prevedere: il modello resta vicino all'ultimo valore invece di inventare un andamento, ed è la scelta giusta.</figcaption>
+</figure>
 <p>Se vuoi anche la forchetta di incertezza, prima di <code>plt.legend()</code> aggiungi queste righe (dalla documentazione ufficiale):</p>
 <pre><code>basso = np.squeeze(forecast.quantile(0.1))
 alto = np.squeeze(forecast.quantile(0.9))

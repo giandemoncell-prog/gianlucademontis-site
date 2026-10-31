@@ -36,7 +36,7 @@
         "@type": "TechArticle",
         "headline": "I tried Timestral, Mistral's AI that forecasts numbers: free on Google Colab (with four mistakes from the guide)",
         "datePublished": "2026-10-31T12:00:00+01:00",
-        "dateModified": "2026-10-31T12:00:00+01:00",
+        "dateModified": "2026-10-31T13:00:00+01:00",
         "image": "https://gianlucademontis.xyz/assets/202610/og-timestral-mistral.jpg",
         "url": "https://gianlucademontis.xyz/en/blog/timestral-mistral-previsioni-colab.html",
         "mainEntityOfPage": {
@@ -235,6 +235,10 @@ plt.plot(context, label="History")
 plt.plot(x, median, "--", label="Timestral forecast")
 plt.legend()
 plt.show()</code></pre>
+<figure style="margin: 1.5rem 0 2rem; text-align: center;">
+<img src="/assets/202610/grafico-colab-timestral-5m.jpg" alt="Chart of the Google Colab test: 100 historical values in blue and 24 steps forecast by Timestral-5M in red" width="1165" height="611" loading="lazy" style="width: 100%; height: auto; border-radius: 10px;">
+<figcaption style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.6rem; line-height: 1.6;">My Google Colab test with Timestral-5M: the 100 test values in blue, the 24 forecast steps in red. The data is a random walk, which by definition cannot be predicted: the model stays close to the last value instead of inventing a trend, which is the right call.</figcaption>
+</figure>
 <p>If you also want the uncertainty range, add these lines before <code>plt.legend()</code> (from the official documentation):</p>
 <pre><code>low = np.squeeze(forecast.quantile(0.1))
 high = np.squeeze(forecast.quantile(0.9))
