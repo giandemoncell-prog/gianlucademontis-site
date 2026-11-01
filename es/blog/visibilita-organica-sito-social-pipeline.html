@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visibilidad orgánica en web y redes: cómo funciona de verdad</title>
+    <meta name="description" content="Cómo Google y las redes deciden quién ve tus contenidos, mis números reales de 30 días y por qué un pipeline multiplica la visibilidad orgánica.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/blog/visibilita-organica-sito-social-pipeline.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/visibilita-organica-sito-social-pipeline.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/visibilita-organica-sito-social-pipeline.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/visibilita-organica-sito-social-pipeline.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/visibilita-organica-sito-social-pipeline.html">
+    <meta property="og:title" content="Cómo funciona la visibilidad de una web y de las redes (y por qué la automaticé)">
+    <meta property="og:description" content="Impresiones, rastreo, algoritmos de los feeds: cómo hacerse visible sin pagar publicidad, qué dicen mis números reales y por qué construí pipelines que hacen por mí la parte repetitiva.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/es/blog/visibilita-organica-sito-social-pipeline.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-11-01">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Automatización">
+    <meta property="og:image" content="https://gianlucademontis.xyz/assets/202611/og-visibilita-organica.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cómo funciona la visibilidad de una web y de las redes (y por qué la automaticé)">
+    <meta name="twitter:description" content="Impresiones, rastreo, algoritmos de los feeds: cómo hacerse visible sin pagar publicidad, qué dicen mis números reales y por qué construí pipelines que hacen por mí la parte repetitiva.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/assets/202611/og-visibilita-organica.jpg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Cómo funciona la visibilidad de una web y de las redes sociales (y por qué automaticé las visualizaciones orgánicas)",
+        "datePublished": "2026-11-01T12:00:00+01:00",
+        "dateModified": "2026-11-01T12:00:00+01:00",
+        "image": "https://gianlucademontis.xyz/assets/202611/og-visibilita-organica.jpg",
+        "url": "https://gianlucademontis.xyz/es/blog/visibilita-organica-sito-social-pipeline.html",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://gianlucademontis.xyz/es/blog/visibilita-organica-sito-social-pipeline.html"
+        },
+        "inLanguage": "es",
+        "articleSection": "Automatización",
+        "author": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis",
+          "url": "https://gianlucademontis.xyz"
+        },
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis"
+        },
+        "description": "Cómo Google y las redes deciden quién ve tus contenidos, mis números reales de 30 días y por qué un pipeline multiplica la visibilidad orgánica."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://gianlucademontis.xyz/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://gianlucademontis.xyz/es/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Visibilidad orgánica en web y redes: cómo funciona de verdad",
+            "item": "https://gianlucademontis.xyz/es/blog/visibilita-organica-sito-social-pipeline.html"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es la visibilidad orgánica?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Es la visibilidad que obtiene un contenido sin publicidad de pago: posiciones en los resultados de Google, apariciones en los feeds de las redes, citas en las respuestas de la IA. Depende de la pertinencia y la calidad del contenido, de cómo se publica y de la constancia en el tiempo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tarda una web en aparecer en Google?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Una página nueva puede rastrearse en pocos días, pero la indexación y el posicionamiento requieren semanas o meses, y algunas páginas no se indexan nunca. En mi caso las impresiones mensuales se multiplicaron por doce en unos tres meses de publicación regular."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Automatizar la publicación penaliza en las redes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Según declaran las propias plataformas, publicar con herramientas oficiales o API no se penaliza. Se penalizan los contenidos repetitivos, el spam y las interacciones falsas. Por eso un pipeline debe adaptar cada contenido a la plataforma y no publicar el mismo texto en todas partes."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body a { color: var(--primary-color); }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .article-body code { background: rgba(255,255,255,0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        .article-body pre { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1rem 1.25rem; overflow-x: auto; margin: 1rem 0 1.5rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+        .article-body pre code { background: none; padding: 0; font-size: inherit; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/#hero">Home</a></li>
+                    <li><a href="/es/#about">Sobre mí</a></li>
+                    <li><a href="/es/#projects">Proyectos</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li><li><a href="/es/#contact">Contacto</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/visibilita-organica-sito-social-pipeline.html">IT</a><span>·</span>
+                        <a href="/en/blog/visibilita-organica-sito-social-pipeline.html">EN</a><span>·</span>
+                        <a href="/es/blog/visibilita-organica-sito-social-pipeline.html" class="active">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/es/blog/" class="back-link">← Todos los artículos</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automatización</span>
+                        <time class="blog-date" datetime="2026-11-01">1 de noviembre de 2026</time>
+                        <span class="blog-date">· 8 min de lectura</span>
+                    </div>
+                    <h1>Cómo funciona la visibilidad de una web y de las redes sociales (y por qué automaticé las visualizaciones orgánicas)</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Publicar un contenido no significa que alguien lo vea. Entre el clic en «publicar» y una persona que lee hay un buscador que decide si quedarse contigo, un algoritmo que decide a quién mostrarte y una larga serie de pasos repetitivos. Aquí explico cómo funcionan, con mis números reales, y por qué dejé esos pasos en manos de pipelines.</p>
+                </header>
+
+                <article class="article-body">
+<div class="in-breve" style="margin: 0 0 2rem; padding: 1.25rem 1.5rem; background: rgba(0,217,255,0.06); border: 1px solid rgba(0,217,255,0.25); border-radius: 10px;">
+<p style="font-size: 0.8rem; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.5rem;">En breve</p>
+<p style="margin: 0;">La visibilidad orgánica, la que no pagas, no llega de una sola publicación: es el resultado de muchos pasos pequeños hechos siempre, bien y con constancia. En mis últimos tres periodos de 28 días las impresiones en Google pasaron de 76 a 220 y a 907, pero los clics solo de 7 a 18: que te vean no basta. Un pipeline no hace interesante un contenido, pero lo lleva a todas partes en el formato adecuado y mide lo que funciona.</p>
+</div>
+<figure style="margin: 0 auto 2.5rem; max-width: 420px; text-align: center;">
+<img src="/assets/202611/og-visibilita-organica.jpg" alt="Cómo funciona la visibilidad orgánica de una web y de las redes sociales" width="1200" height="630" loading="lazy" style="width: 100%; height: auto; border-radius: 12px;">
+</figure>
+<h2>Visibilidad no significa tráfico</h2>
+<p>Cuando se habla de visibilidad se mezclan números muy distintos. Conviene separarlos, porque en cada escalón se pierde gente:</p>
+<ol>
+<li><strong>Impresión</strong>: el contenido aparece en la pantalla de alguien (en los resultados de Google, en el feed).</li>
+<li><strong>Visualización o clic</strong>: la persona se detiene, ve el vídeo, abre el enlace.</li>
+<li><strong>Visita</strong>: llega a la web y lee.</li>
+<li><strong>Acción</strong>: se suscribe, te escribe, compra, comparte.</li>
+</ol>
+<p>Un ejemplo de mis datos: en 28 días la web apareció <strong>907 veces</strong> en los resultados de Google y recibió <strong>18 clics</strong>, el 2 %. Las impresiones son una buena señal (Google te considera pertinente), pero por sí solas no traen a nadie.</p>
+<h2>Cómo funciona la visibilidad de una web</h2>
+<p>Un buscador trabaja en cuatro pasos, y cualquiera de ellos puede frenarte:</p>
+<ol>
+<li><strong>Descubrimiento</strong>: Google encuentra la página siguiendo enlaces (desde otras páginas tuyas o desde otras webs) y leyendo el sitemap, la lista de páginas que tú le das.</li>
+<li><strong>Rastreo</strong>: descarga la página y la lee.</li>
+<li><strong>Indexación</strong>: decide si guardarla. No está garantizado: a finales de octubre tenía una decena de páginas en estado «rastreada: actualmente sin indexar».</li>
+<li><strong>Posicionamiento</strong>: para cada búsqueda decide el orden de los resultados. Cuentan la pertinencia, la calidad, la experiencia demostrada de quien escribe, la velocidad y la lectura desde el móvil.</li>
+</ol>
+<p>Desde hace un par de años hay un quinto público: las <strong>respuestas generadas por IA</strong> (AI Overviews de Google, ChatGPT, Perplexity), que leen las páginas y a veces las citan. Para que te entiendan ayudan los textos claros con preguntas y respuestas, los datos estructurados y un archivo <code>llms.txt</code> que resume la web. Es lo que hoy se llama GEO. Nada de esto garantiza una cita, pero sin ello es más difícil.</p>
+<p>La clave es el tiempo: una web crece en semanas y meses, no en días. Esta es mi evolución:</p>
+<figure style="margin: 1.5rem 0 2rem; text-align: center;">
+<img src="/assets/202611/grafico-impressioni-google.png" alt="Impresiones y clics en Google Search Console en tres periodos de 28 días: 76, 220 y 907 impresiones; 7, 7 y 18 clics" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 10px;">
+<figcaption style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.6rem; line-height: 1.6;">Impresiones y clics de la web en Google (Search Console, propiedad de dominio), tres periodos consecutivos de 28 días hasta el 29 de octubre de 2026. Las impresiones crecen mucho más que los clics.</figcaption>
+</figure>
+<p>En ese periodo hice cuatro cosas: más artículos útiles y concretos, cada artículo en italiano, inglés y español, enlaces internos entre artículos relacionados (los recuadros «Lee también») y datos estructurados en cada página. No puedo aislar el efecto de cada una, pero un dato es claro: las impresiones llegan casi a partes iguales de Italia, Estados Unidos y España. Sin las traducciones, dos tercios de ese público no existirían.</p>
+<h2>Cómo funciona la visibilidad en las redes sociales</h2>
+<p>En las redes la lógica es la contraria: nadie busca, es el feed el que propone. Cada plataforma usa su sistema, pero el esquema básico se parece:</p>
+<ol>
+<li><strong>Prueba con un público pequeño</strong>: el contenido se muestra a una parte de tus seguidores y a personas con intereses parecidos.</li>
+<li><strong>Lectura de señales</strong>: cuánto tiempo lo miran, si llegan al final, si comentan, comparten, guardan o lo envían por privado. El «me gusta» pesa menos de lo que se cree.</li>
+<li><strong>Ampliación</strong>: si las señales son buenas, el contenido pasa a círculos más amplios, también a personas que no te siguen. Si son débiles, se queda ahí.</li>
+</ol>
+<p>De ahí salen algunas reglas prácticas:</p>
+<ul>
+<li><strong>Cada plataforma premia su formato.</strong> Los vídeos verticales cortos (Reels, Shorts, TikTok) son los que llegan con más facilidad a quien no te sigue.</li>
+<li><strong>Los enlaces externos frenan.</strong> Las plataformas quieren retenerte: por eso en Facebook y LinkedIn pongo el enlace en el primer comentario y en Instagram escribo «enlace en la bio».</li>
+<li><strong>Seguidores no es lo mismo que público.</strong> Mi página de Facebook tiene 1.254 seguidores y en los últimos 30 días sus reels tuvieron 9 reproducciones en total. El mismo vídeo en YouTube tuvo decenas.</li>
+<li><strong>Los primeros minutos cuentan.</strong> El primer público decide si el contenido se amplía: el horario y la regularidad marcan la diferencia.</li>
+</ul>
+<h2>Mis números de los últimos 30 días</h2>
+<p>Cada lunes recibo un resumen automático. Este es el de hoy, sin retoques:</p>
+<div style="overflow-x: auto; margin: 0 0 1.5rem;">
+<table style="width: 100%; border-collapse: collapse; color: var(--text-secondary); font-size: 0.98rem;">
+<thead><tr style="border-bottom: 1px solid rgba(0,217,255,0.3); text-align: left;"><th style="padding: 0.5rem;">Canal</th><th style="padding: 0.5rem;">Números</th><th style="padding: 0.5rem;">Nota</th></tr></thead>
+<tbody>
+<tr style="border-bottom: 1px solid rgba(255,255,255,0.07);"><td style="padding: 0.5rem;">Instagram</td><td style="padding: 0.5rem;">747 visualizaciones</td><td style="padding: 0.5rem;">417 cuentas alcanzadas, 662 seguidores</td></tr>
+<tr style="border-bottom: 1px solid rgba(255,255,255,0.07);"><td style="padding: 0.5rem;">Facebook (página)</td><td style="padding: 0.5rem;">593 visualizaciones en el feed</td><td style="padding: 0.5rem;">9 reproducciones de reels, 1.254 seguidores</td></tr>
+<tr style="border-bottom: 1px solid rgba(255,255,255,0.07);"><td style="padding: 0.5rem;">YouTube (2 canales)</td><td style="padding: 0.5rem;">1.636 visualizaciones</td><td style="padding: 0.5rem;">18 vídeos recientes</td></tr>
+<tr style="border-bottom: 1px solid rgba(255,255,255,0.07);"><td style="padding: 0.5rem;">Web</td><td style="padding: 0.5rem;">403 páginas vistas</td><td style="padding: 0.5rem;">solo quien acepta las cookies: es una subestimación</td></tr>
+<tr><td style="padding: 0.5rem;">Google</td><td style="padding: 0.5rem;">907 impresiones, 18 clics</td><td style="padding: 0.5rem;">últimos 28 días disponibles</td></tr>
+</tbody>
+</table>
+</div>
+<p>TikTok y LinkedIn no ofrecen una interfaz de lectura que pueda usar, así que los reviso a mano. De estos números saco dos lecciones.</p>
+<p><strong>Un contenido fuerte vale más que diez medianos.</strong> El <a href="/es/blog/ia-corregge-compiti-esperimento.html">experimento en el que hice corregir la misma redacción a la IA 50 veces</a> logró 240 visualizaciones en Instagram (las demás publicaciones del mes están entre 10 y 66), 647 en YouTube sumando los dos canales, y es la página más leída de la web después de la portada. Tenía una pregunta que interesaba a todos y datos reales.</p>
+<p><strong>Las redes y Google hacen dos trabajos distintos.</strong> Las visitas a la web llegan en 72 sesiones desde las redes y en 63 desde la búsqueda. Las redes traen un pico los días de publicación y luego se apagan; Google trae pocas visitas, pero sigue trayéndolas durante meses.</p>
+<h2>Por qué montar un pipeline</h2>
+<p>Esto es lo que exige, cada vez, un solo contenido bien hecho:</p>
+<ul>
+<li>escribir el artículo y traducirlo al inglés y al español;</li>
+<li>actualizar sitemap, índice del blog, <code>llms.txt</code> y datos estructurados;</li>
+<li>preparar la imagen para las vistas previas de enlaces (1200×630), la de Instagram (4:5) y un vídeo vertical;</li>
+<li>adaptar el texto a cada red: longitud, tono, hashtags, enlace en el sitio adecuado;</li>
+<li>publicar en cinco o seis plataformas y comprobar que ha salido de verdad;</li>
+<li>al cabo de una semana, recoger los números y entender qué funcionó.</li>
+</ul>
+<p>A mano es media jornada, y la tentación de saltarse un paso es enorme: «la traducción la hago luego», «esta vez sin vídeo». El problema es que la visibilidad orgánica es un <strong>juego de constancia</strong>: Google ve una web que se actualiza, las redes ven una cuenta activa, y la ventaja se acumula con el tiempo. Saltarse pasos significa renunciar justo a esa acumulación.</p>
+<p>Un pipeline hace la parte repetitiva siempre igual, sin olvidos, y deja a la persona las decisiones importantes: qué decir, si el texto es correcto, si publicar. El mío funciona así:</p>
+<ol>
+<li><strong>Contenido</strong>: escribo el artículo con ayuda de la IA y lo reviso línea por línea.</li>
+<li><strong>Web</strong>: un script crea las versiones en inglés y español y actualiza sitemap e índices; con un push a GitHub la web está en línea en un minuto.</li>
+<li><strong>Gráficos</strong>: scripts de Python generan la vista previa, la imagen para Instagram y, cuando hace falta, un Short con voz.</li>
+<li><strong>Redes</strong>: publicación mediante las API oficiales de Facebook, Instagram, LinkedIn y YouTube; TikTok con un navegador automatizado. Las publicaciones programadas salen de una Raspberry Pi, así el PC puede quedarse apagado.</li>
+<li><strong>Medición</strong>: cada lunes por la mañana llega a Telegram el resumen con visualizaciones y visitas, el de la tabla de arriba.</li>
+</ol>
+<p>Conté cómo nació todo el sistema en el <a href="/es/blog/caso-studio-automazione-ia-sei-mesi.html">caso de estudio sobre seis meses de automatización</a> y la primera versión del <a href="/es/blog/social-publisher-n8n.html">publicador social con n8n</a>.</p>
+<h2>Lo que un pipeline no hace</h2>
+<ul>
+<li><strong>No hace interesante un contenido débil.</strong> Multiplica lo que hay: también el cero.</li>
+<li><strong>Publicar más no es publicar mejor.</strong> Muchos contenidos con señales débiles enseñan al algoritmo que tu cuenta se puede ignorar, y el riesgo de parecer spam es real.</li>
+<li><strong>Hay que vigilarlo.</strong> Me ha pasado que un script dijera «publicado» y el vídeo no estuviera en TikTok. Siempre lo compruebo en directo.</li>
+<li><strong>Hay que mantenerlo.</strong> Tokens que caducan, API que cambian de versión, plataformas que cambian sus reglas: hay que contar con unas horas al mes.</li>
+</ul>
+<blockquote>El pipeline lleva el contenido a todas partes. Si merece la pena verlo sigue siendo una decisión humana.</blockquote>
+<h2>Por dónde empezar, incluso sin programar</h2>
+<ol>
+<li><strong>Mide antes de automatizar.</strong> Conecta Google Search Console a tu web y anota cada lunes cuatro números: impresiones, clics, visualizaciones en redes, contactos recibidos.</li>
+<li><strong>Empieza por la web, no por la publicación.</strong> Un contenido sólido al mes en tu web, y de ahí saca las publicaciones para cada red. Al revés no construyes nada que dure.</li>
+<li><strong>Escribe tu lista de comprobación.</strong> La lista de pasos de cada publicación ya es un pipeline, solo que manual.</li>
+<li><strong>Automatiza el paso que más te saltas.</strong> Suele ser adaptar los formatos o medir.</li>
+<li><strong>Usa las herramientas gratuitas.</strong> La programación de Meta Business Suite, LinkedIn y YouTube no cuesta nada; para conectar las piezas están n8n, Make o algunos scripts.</li>
+</ol>
+<h2>En resumen</h2>
+<p>En la web la visibilidad se construye despacio y dura; en las redes llega en oleadas y se apaga deprisa. En ambos casos decide la calidad del contenido, pero gana quien consigue publicarlo bien, en todas partes y con regularidad. Es justo el trabajo repetitivo en el que un pipeline es mejor que una persona, y la persona puede guardarse el tiempo para pensar qué decir.</p>
+<h2>Preguntas frecuentes</h2>
+<p><strong>¿Qué es la visibilidad orgánica?</strong> Es la visibilidad que obtiene un contenido sin publicidad de pago: posiciones en los resultados de Google, apariciones en los feeds de las redes, citas en las respuestas de la IA. Depende de la pertinencia y la calidad del contenido, de cómo se publica y de la constancia en el tiempo.</p>
+<p><strong>¿Cuánto tarda una web en aparecer en Google?</strong> Una página nueva puede rastrearse en pocos días, pero la indexación y el posicionamiento requieren semanas o meses, y algunas páginas no se indexan nunca. En mi caso las impresiones mensuales se multiplicaron por doce en unos tres meses de publicación regular.</p>
+<p><strong>¿Automatizar la publicación penaliza en las redes?</strong> Según declaran las propias plataformas, publicar con herramientas oficiales o API no se penaliza. Se penalizan los contenidos repetitivos, el spam y las interacciones falsas. Por eso un pipeline debe adaptar cada contenido a la plataforma y no publicar el mismo texto en todas partes.</p>
+                </article>
+                <aside class="author-box" style="display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <img src="/assets/avatar-gianluca-demontis.jpg" alt="Gianluca Demontis" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: rgba(0,217,255,0.08);">
+                    <div>
+                        <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem;">Quién escribe</p>
+                        <p style="margin: 0 0 0.35rem; font-weight: 600;"><a href="/#about" rel="author" style="color: var(--text-primary); text-decoration: none;">Gianluca Demontis</a></p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Docente titular desde 1992 y tech coach en Cerdeña, con más de 40 años de experiencia en informática. Crea automatizaciones con n8n e IA para escuelas y pymes, fundó Bachata Vibes Music y AI Act Academy y es autor del libro «Inteligencia Artificial para la Didáctica Inclusiva». <a href="/es/lavora-con-me/" style="color: var(--primary-color);">Trabaja conmigo →</a></p>
+                    </div>
+                </aside>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Lee también</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/es/blog/caso-studio-automazione-ia-sei-mesi.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Caso de estudio: seis meses de automatización IA hecha por una persona</a></li>
+                        <li><a href="/es/blog/social-publisher-n8n.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">El publicador social automático con n8n</a></li>
+                        <li><a href="/es/blog/ia-corregge-compiti-esperimento.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">La misma redacción corregida 50 veces por la IA</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>¿Quieres un pipeline para tus contenidos?</h3>
+                    <p>Web, redes y medición conectadas en un único flujo, con las decisiones en tus manos. Partimos de lo que ya publicas.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;"><a href="/es/lavora-con-me/#contatti-form" style="color: var(--primary-color);">Escríbeme</a> o suscríbete a la newsletter.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscríbete gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/es/blog/timestral-mistral-previsioni-colab.html">← Probé Timestral, la IA de Mistral que predice números</a>
+                    <a href="/es/blog/">Todos los artículos →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
