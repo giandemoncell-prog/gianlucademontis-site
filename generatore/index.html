@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore locale — codice del libro AI e DSA</title>
+    <meta name="description" content="Scarica il codice del Generatore di materiali didattici inclusivi descritto nelle Appendici E e F del libro Intelligenza Artificiale per la Didattica Inclusiva.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/generatore/">
+    <meta property="og:title" content="Generatore locale — codice del libro AI e DSA">
+    <meta property="og:description" content="generatore.py, generatore_pro.py e requirements: il codice delle Appendici E e F del libro.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/generatore/">
+    <meta property="og:image" content="https://gianlucademontis.xyz/og-default.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: var(--dark-bg); color: var(--text-primary); font-family: 'Inter', sans-serif; }
+        .risorsa { max-width: 720px; margin: 0 auto; padding: 64px 16px 80px; line-height: 1.65; }
+        .risorsa .kicker { color: var(--primary-color); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+        .risorsa h1 { font-size: 2rem; margin: 8px 0 16px; line-height: 1.2; }
+        .risorsa h2 { font-size: 1.2rem; margin: 40px 0 12px; }
+        .risorsa p, .risorsa li { color: var(--text-secondary); }
+        .risorsa a { color: var(--primary-color); }
+        .file { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 20px; margin-bottom: 10px;
+                background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; text-decoration: none; }
+        .file:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.15); }
+        .file strong { color: var(--text-primary); font-family: Consolas, monospace; font-weight: 600; }
+        .file span { color: var(--text-secondary); font-size: 0.9rem; }
+        .file em { color: var(--primary-color); font-style: normal; white-space: nowrap; }
+        .nota { border-left: 3px solid #f6ad55; padding: 12px 16px; background: rgba(246,173,85,0.08); border-radius: 0 8px 8px 0; margin: 24px 0; }
+        pre { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 14px; overflow-x: auto; color: var(--text-primary); font-size: 0.9rem; }
+        .indietro { margin-top: 48px; font-size: 0.9rem; }
+        @media (max-width: 560px) { .file { flex-direction: column; align-items: flex-start; } .risorsa h1 { font-size: 1.6rem; } }
+    </style>
+</head>
+<body>
+<main class="risorsa">
+    <div class="kicker">Risorse del libro · Appendici E e F</div>
+    <h1>Generatore locale di materiali didattici</h1>
+    <p>Qui trovi i file citati nel libro <a href="/libro/"><em>Intelligenza Artificiale per la Didattica Inclusiva</em></a>.
+       Il metodo del libro funziona interamente in chat (Gemini, ChatGPT, Claude): questi script servono solo a chi vuole
+       automatizzare il lavoro sul proprio computer.</p>
+
+    <h2>Appendice E — versione base</h2>
+    <a class="file" href="generatore.py" download><div><strong>generatore.py</strong><br><span>Il codice completo della sezione E.6: testo adattato, infografica e slide da un profilo YAML.</span></div><em>Scarica ↓</em></a>
+    <a class="file" href="requirements.txt" download><div><strong>requirements.txt</strong><br><span>Le librerie da installare (sezione E.4).</span></div><em>Scarica ↓</em></a>
+
+    <h2>Appendice F — versione Pro</h2>
+    <a class="file" href="generatore_pro.py" download><div><strong>generatore_pro.py</strong><br><span>Tutte le funzioni dell'Appendice F: glossario, quiz, registro, Google Classroom, video. In più un'opzione <code>--backend ollama</code> per usare un modello locale al posto di Gemini.</span></div><em>Scarica ↓</em></a>
+    <a class="file" href="requirements_pro.txt" download><div><strong>requirements_pro.txt</strong><br><span>Le librerie della versione Pro.</span></div><em>Scarica ↓</em></a>
+
+    <h2>Come si usa</h2>
+<pre>python -m venv venv
+venv\Scripts\activate          # Windows  (Mac/Linux: source venv/bin/activate)
+pip install -r requirements.txt
+python generatore.py --studente mario --testo testi/testo_prova.txt</pre>
+    <p>La chiave Gemini va in un file <code>.env</code> nella stessa cartella (<code>GEMINI_API_KEY=la_tua_chiave</code>).
+       Si ottiene gratis su <a href="https://aistudio.google.com/apikey" rel="noopener">aistudio.google.com/apikey</a>.
+       Profili, cartelle e opzioni sono spiegati passo per passo nell'Appendice E.</p>
+
+    <div class="nota">
+        <p><strong>Privacy:</strong> anche con il generatore locale il testo da adattare viene inviato all'API di Google.
+        Non inserire mai nomi, cognomi o dati sanitari degli studenti: usa testi didattici e profili anonimi.
+        Con l'opzione Ollama della versione Pro, invece, i dati restano sul tuo computer.</p>
+    </div>
+
+    <h2>Preferisci provarlo senza installare nulla?</h2>
+    <p>La <a href="https://generatore-dsa.streamlit.app" rel="noopener">demo online</a> fa le stesse cose da browser.
+       Se trovi la schermata “Zzzz”, clicca <em>Yes, get this app back up!</em> e attendi circa un minuto.</p>
+
+    <p class="indietro"><a href="/libro/">← Il libro</a> · <a href="/generatore-profili/">Generatore di Profili</a> · <a href="/prompt-dsa/">PDF 5 prompt gratis</a></p>
+</main>
+<script src="/analytics-events.js" defer></script>
+<script src="/nav.js" defer></script>
+</body>
+</html>

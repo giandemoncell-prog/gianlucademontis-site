@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore di Profili Studente — libro AI e DSA</title>
+    <meta name="description" content="Costruisci il Profilo Studente in sei aree (Capitolo 4 del libro) con un'intervista guidata in Gemini, ChatGPT o Claude. Prompt pronto da copiare.">
+    <link rel="canonical" href="https://gianlucademontis.xyz/generatore-profili/">
+    <meta property="og:title" content="Generatore di Profili Studente — libro AI e DSA">
+    <meta property="og:description" content="Il Profilo Studente in sei aree con un'intervista guidata in chat. Prompt pronto da copiare.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/generatore-profili/">
+    <meta property="og:image" content="https://gianlucademontis.xyz/og-default.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="it_IT">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background: var(--dark-bg); color: var(--text-primary); font-family: 'Inter', sans-serif; }
+        .risorsa { max-width: 720px; margin: 0 auto; padding: 64px 16px 80px; line-height: 1.65; }
+        .risorsa .kicker { color: var(--primary-color); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+        .risorsa h1 { font-size: 2rem; margin: 8px 0 16px; line-height: 1.2; }
+        .risorsa h2 { font-size: 1.2rem; margin: 40px 0 12px; }
+        .risorsa p, .risorsa li { color: var(--text-secondary); }
+        .risorsa a { color: var(--primary-color); }
+        .passi li { margin-bottom: 8px; }
+        .prompt-box { position: relative; }
+        .prompt-box pre { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 18px 16px 18px;
+                          white-space: pre-wrap; word-wrap: break-word; color: var(--text-primary); font-size: 0.92rem; line-height: 1.55; font-family: Consolas, monospace; margin: 0; }
+        .copia { display: inline-block; margin: 12px 0 0; padding: 10px 18px; border-radius: 8px; border: none; cursor: pointer;
+                 background: var(--primary-color); color: #001018; font-weight: 600; font-size: 0.95rem; }
+        .copia:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+        .nota { border-left: 3px solid #f6ad55; padding: 12px 16px; background: rgba(246,173,85,0.08); border-radius: 0 8px 8px 0; margin: 24px 0; }
+        .indietro { margin-top: 48px; font-size: 0.9rem; }
+        @media (max-width: 560px) { .risorsa h1 { font-size: 1.6rem; } }
+    </style>
+</head>
+<body>
+<main class="risorsa">
+    <div class="kicker">Risorse del libro · Capitolo 4</div>
+    <h1>Generatore di Profili Studente</h1>
+    <p>Il modulo interattivo citato nel libro non è ancora online. Nel frattempo puoi ottenere lo stesso risultato in chat:
+       il prompt qui sotto trasforma Gemini, ChatGPT o Claude in un'intervista guidata che ti fa le domande area per area
+       e alla fine scrive il Profilo Studente, pronto da incollare nei prompt del Capitolo 5 o nelle istruzioni di una Gem.</p>
+
+    <h2>Come si usa</h2>
+    <ol class="passi">
+        <li>Copia il prompt con il pulsante qui sotto.</li>
+        <li>Incollalo in una nuova chat di Gemini, ChatGPT o Claude e invia.</li>
+        <li>Rispondi alle domande. Puoi scrivere “non lo so” o “salta”: le aree si completano anche più avanti.</li>
+        <li>Alla fine copia il profilo e salvalo: lo riusi ogni volta che adatti un materiale.</li>
+    </ol>
+
+    <div class="nota">
+        <p><strong>Privacy:</strong> non scrivere nome, cognome, scuola o diagnosi cliniche dettagliate. Usa un nome di fantasia
+        o un codice (es. “Studente S01”) e descrivi le difficoltà in termini operativi, come spiega il Capitolo 4.</p>
+    </div>
+
+    <h2>Il prompt</h2>
+    <div class="prompt-box">
+<pre id="prompt">Sei un assistente per insegnanti di sostegno. Aiutami a costruire il Profilo Studente di un mio alunno, da usare poi come istruzione per l'AI quando adatto materiali didattici.
+
+Il profilo ha sei aree:
+1. Tipo di difficoltà — cosa significa in pratica per i materiali (non la diagnosi clinica)
+2. Punti di forza — cosa funziona bene per questo studente
+3. Strumenti compensativi in uso — cosa usa già (mappe, sintesi vocale, calcolatrice, tempi estesi…)
+4. Misure dispensative — cosa non è tenuto a fare
+5. Regole di presentazione — come deve essere impaginato il materiale (lunghezza frasi, grassetti, elenchi, glossario…)
+6. Note di osservazione — interessi, ganci motivazionali, cose da evitare
+
+Come procedere:
+- Fammi le domande UNA AREA ALLA VOLTA, al massimo 3 domande per area, con esempi di risposta brevi.
+- Inizia chiedendomi età, classe e un nome di fantasia o un codice per lo studente. Se scrivo un nome e cognome reali o dati sanitari dettagliati, ricordami di toglierli.
+- Se rispondo "non lo so" o "salta", passa all'area successiva.
+- Quando le sei aree sono finite, scrivi il profilo completo con questa struttura:
+
+**Profilo di [nome/codice] — da usare come istruzione per l'AI**
+[Una frase con età, classe e difficoltà principali]
+**Come deve essere strutturato il materiale:** [regole concrete e misurabili, es. "frasi massimo 20 parole"]
+**Strumenti che usa:** [elenco]
+**Cosa non deve fare:** [misure dispensative]
+**Punti di forza da sfruttare:** [elenco]
+**Note importanti:** [elenco puntato]
+
+Usa un linguaggio operativo: ogni riga deve essere un'indicazione che un'AI può applicare quando riscrive un testo. Comincia ora con la prima domanda.</pre>
+        <button class="copia" type="button" id="copia">Copia il prompt</button>
+    </div>
+
+    <h2>Poi?</h2>
+    <p>Con il profilo pronto passa ai prompt del Capitolo 5, oppure provalo nella
+       <a href="https://generatore-dsa.streamlit.app" rel="noopener">demo online del Generatore di Materiali</a>
+       (se compare “Zzzz”, clicca <em>Yes, get this app back up!</em> e attendi un minuto).
+       Chi usa il <a href="/generatore/">Generatore locale</a> dell'Appendice E può riportare le stesse sei aree nel file YAML.</p>
+
+    <p class="indietro"><a href="/libro/">← Il libro</a> · <a href="/generatore/">Generatore locale</a> · <a href="/prompt-dsa/">PDF 5 prompt gratis</a></p>
+</main>
+<script>
+(function () {
+    var btn = document.getElementById('copia');
+    btn.addEventListener('click', function () {
+        var testo = document.getElementById('prompt').innerText;
+        var fatto = function () { btn.textContent = 'Copiato ✓'; setTimeout(function () { btn.textContent = 'Copia il prompt'; }, 2000); };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(testo).then(fatto, function () { selezione(); });
+        } else { selezione(); }
+        function selezione() {
+            var r = document.createRange(); r.selectNodeContents(document.getElementById('prompt'));
+            var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+            btn.textContent = 'Premi Ctrl+C per copiare';
+        }
+    });
+})();
+</script>
+<script src="/analytics-events.js" defer></script>
+<script src="/nav.js" defer></script>
+</body>
+</html>
