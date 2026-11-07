@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar trabajo con Claude Code: CV, candidaturas y Gmail</title>
+    <meta name="description" content="Una suite con Claude Code hecha en dos tardes para dos personas: CV, búsqueda, cartas como borradores de Gmail, lectura de respuestas y registro de ofertas.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/blog/automazione-ricerca-lavoro-claude-code.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/automazione-ricerca-lavoro-claude-code.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/automazione-ricerca-lavoro-claude-code.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html">
+    <meta property="og:title" content="Buscar trabajo con Claude Code: dos tardes, dos personas y un envío que sigue siendo humano">
+    <meta property="og:description" content="Construí con Claude Code una pequeña suite para dos personas que buscan trabajo: prepara CV y cartas, las deja como borradores en su bandeja de Gmail y, tras el envío, lee las respuestas y ordena todas las ofertas. Así funciona, esto cuesta y estas son las reglas que no se tocan.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/es/blog/automazione-ricerca-lavoro-claude-code.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-11-07">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Automatización">
+    <meta property="og:image" content="https://gianlucademontis.xyz/assets/202611/og-ricerca-lavoro-claude-code.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Buscar trabajo con Claude Code: dos tardes, dos personas y un envío que sigue siendo humano">
+    <meta name="twitter:description" content="Construí con Claude Code una pequeña suite para dos personas que buscan trabajo: prepara CV y cartas, las deja como borradores en su bandeja de Gmail y, tras el envío, lee las respuestas y ordena todas las ofertas. Así funciona, esto cuesta y estas son las reglas que no se tocan.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/assets/202611/og-ricerca-lavoro-claude-code.jpg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Buscar trabajo con Claude Code: dos tardes, dos personas y un envío que sigue siendo humano",
+        "datePublished": "2026-11-07T12:00:00+01:00",
+        "dateModified": "2026-11-07T12:00:00+01:00",
+        "image": "https://gianlucademontis.xyz/assets/202611/og-ricerca-lavoro-claude-code.jpg",
+        "url": "https://gianlucademontis.xyz/es/blog/automazione-ricerca-lavoro-claude-code.html",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://gianlucademontis.xyz/es/blog/automazione-ricerca-lavoro-claude-code.html"
+        },
+        "inLanguage": "es",
+        "articleSection": "Automatización",
+        "author": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis",
+          "url": "https://gianlucademontis.xyz"
+        },
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis"
+        },
+        "description": "Una suite con Claude Code hecha en dos tardes para dos personas: CV, búsqueda, cartas como borradores de Gmail, lectura de respuestas y registro de ofertas."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://gianlucademontis.xyz/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://gianlucademontis.xyz/es/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Buscar trabajo con Claude Code",
+            "item": "https://gianlucademontis.xyz/es/blog/automazione-ricerca-lavoro-claude-code.html"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Claude Code envía los correos solo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. En la suite que describo solo crea borradores en Gmail: el envío lo hace siempre la persona, después de releerlos. Es una decisión deliberada, para evitar errores y envíos masivos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se registran las respuestas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La suite lee la bandeja de Gmail de la persona, reconoce las respuestas a las candidaturas y actualiza el registro: respondido, entrevista, oferta o no, con lo siguiente que hay que hacer. Todas las ofertas de trabajo quedan en una sola lista."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hace falta saber programar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para usarla, no: se releen borradores y se envían correos. Para construirla ayuda conocer Claude Code, pero las reglas se escriben en lenguaje normal y la IA escribe los scripts que hacen falta."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body a { color: var(--primary-color); }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .article-body code { background: rgba(255,255,255,0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        .article-body pre { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1rem 1.25rem; overflow-x: auto; margin: 1rem 0 1.5rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+        .article-body pre code { background: none; padding: 0; font-size: inherit; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/#hero">Home</a></li>
+                    <li><a href="/es/#about">Sobre mí</a></li>
+                    <li><a href="/es/#projects">Proyectos</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li><li><a href="/es/#contact">Contacto</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/automazione-ricerca-lavoro-claude-code.html">IT</a><span>·</span>
+                        <a href="/en/blog/automazione-ricerca-lavoro-claude-code.html">EN</a><span>·</span>
+                        <a href="/es/blog/automazione-ricerca-lavoro-claude-code.html" class="active">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/es/blog/" class="back-link">← Todos los artículos</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automatización</span>
+                        <time class="blog-date" datetime="2026-11-07">7 de noviembre de 2026</time>
+                        <span class="blog-date">· 7 min de lectura</span>
+                    </div>
+                    <h1>Buscar trabajo con Claude Code: dos tardes, dos personas y un envío que sigue siendo humano</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Construí con Claude Code una pequeña suite para dos personas que buscan trabajo: prepara CV y cartas, las deja como borradores en su bandeja de Gmail y, tras el envío, lee las respuestas y ordena todas las ofertas. Así funciona, esto cuesta y estas son las reglas que no se tocan.</p>
+                </header>
+
+                <article class="article-body">
+<div class="in-breve" style="margin: 0 0 2rem; padding: 1.25rem 1.5rem; background: rgba(0,217,255,0.06); border: 1px solid rgba(0,217,255,0.25); border-radius: 10px;">
+<p style="font-size: 0.8rem; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.5rem;">En breve</p>
+<p style="margin: 0;">Esta semana, en dos tardes, construí con Claude Code una pequeña suite para dos personas que buscan trabajo. Actualiza el CV, encuentra dónde postularse, verifica los contactos, escribe una carta a medida y la deja como borrador en su bandeja de Gmail. Ellas la releen y la envían. Después la suite lee las respuestas y lleva el registro de todas las ofertas de trabajo que llegan. El coste es una suscripción; la ganancia, unas horas a la semana y, sobre todo, la constancia.</p>
+</div>
+<figure style="margin: 0 auto 2.5rem; max-width: 420px; text-align: center;">
+<img src="/assets/202611/og-ricerca-lavoro-claude-code.jpg" alt="Buscar trabajo con IA: CV actualizado, búsqueda y verificación, carta a medida, borrador en Gmail" width="1200" height="630" loading="lazy" style="width: 100%; height: auto; border-radius: 12px;">
+</figure>
+<h2>Buscar trabajo es un trabajo repetitivo</h2>
+<p>Quien busca trabajo conoce la secuencia: encontrar las entidades adecuadas, saber a quién escribir, adaptar el CV, redactar una carta que no parezca un formulario, recordar quién ha respondido y a quién hay que volver a escribir. Cada candidatura bien hecha lleva media hora; hacer veinte a la semana es un segundo empleo.</p>
+<p>La parte que de verdad importa, decidir dónde postularse y qué contar de uno mismo, es pequeña. Todo lo demás es buscar, copiar, comprobar y archivar: justo lo que un asistente de IA hace bien, si le das reglas claras y un sitio donde guardar los datos.</p>
+<h2>Qué hace la suite, paso a paso</h2>
+<ol>
+<li><strong>Un perfil único por persona.</strong> Un archivo de texto con experiencia, títulos, competencias, qué se busca y qué no. Es la única fuente de los hechos: la IA no puede añadir títulos ni cargos que no estén ahí.</li>
+<li><strong>CV actualizado.</strong> A partir del perfil se rehace el CV, se adapta al tipo de trabajo buscado y se comprueban las palabras clave que buscan los filtros automáticos de las empresas.</li>
+<li><strong>Búsqueda y verificación.</strong> La suite busca ofertas y entidades adecuadas en la zona y el sector de cada persona, y verifica correos y personas de contacto en la web oficial. Cada resultado recibe una puntuación y un motivo.</li>
+<li><strong>Carta a medida.</strong> Para las mejores oportunidades escribe una carta que menciona algo concreto de esa entidad y relaciona el perfil con lo que buscan.</li>
+<li><strong>Borrador en Gmail, nunca envío.</strong> La carta llega como borrador a la bandeja de Gmail de la persona. La abre, la relee, la corrige si hace falta, adjunta el CV y la envía. O la borra.</li>
+<li><strong>Lectura de respuestas y seguimiento.</strong> Tras el envío, la suite lee las respuestas que llegan a Gmail y actualiza un registro único: enviado, en espera, recordado, respondido, entrevista, oferta, no. Cada oferta de trabajo queda anotada con quién la hace, qué ofrece y qué hay que hacer después. Para quien no responde prepara el recordatorio, también como borrador.</li>
+</ol>
+<h2>Qué pasa después del envío</h2>
+<p>Es la parte que normalmente se pierde. Las respuestas llegan dispersas en días distintos, algunas acaban en promociones, otras son un «le volveremos a contactar» que hay que recordar dentro de dos semanas. Una entrevista propuesta por teléfono hay que apuntarla en algún sitio.</p>
+<p>Aquí la suite hace su trabajo más útil: lee la bandeja, reconoce las respuestas a las candidaturas y las vincula al contacto correcto del registro. Así cada una de las dos personas tiene en un solo lugar todas las ofertas recibidas, el estado de cada candidatura y la lista de lo que hay que hacer: contestar una petición de información, confirmar una entrevista, insistir con quien lleva demasiado tiempo en silencio.</p>
+<h2>Por qué Claude Code y no un chat</h2>
+<p>El mismo trabajo en un chat normal se pierde en cada conversación: hay que volver a pegar el CV, volver a explicar las reglas, recordar a quién ya se ha escrito. <strong>Claude Code</strong>, en cambio, trabaja sobre una carpeta del ordenador, y eso lo cambia todo:</p>
+<ul>
+<li><strong>Lee y escribe archivos</strong>: perfiles, registro y cartas se quedan ahí de una sesión a otra.</li>
+<li><strong>Tiene memoria del proyecto</strong> (un archivo <code>CLAUDE.md</code> con las reglas) y comandos reutilizables: uno lanza la búsqueda, otro revisa las respuestas y prepara los recordatorios.</li>
+<li><strong>Se conecta a Gmail</strong> con el conector oficial: crea borradores y lee las respuestas, sin contraseñas en el código.</li>
+<li><strong>Ejecuta pequeños scripts</strong>: plazos, resúmenes, adjuntar el CV al borrador.</li>
+</ul>
+<p>No hace falta saber programar para usarla: las reglas están escritas en lenguaje normal en un archivo de instrucciones, y quien busca trabajo solo ve borradores listos en su propia bandeja.</p>
+<h2>Dos tardes, dos personas</h2>
+<p><strong>Primera tarde: los datos.</strong> El perfil único de cada persona, escrito con la IA haciendo preguntas y la persona respondiendo y corrigiendo; CV actualizados; registro vacío; carta base; archivo de instrucciones con las categorías que buscar, los criterios de puntuación, las reglas para las cartas y lo que nunca se hace.</p>
+<p><strong>Segunda tarde: la conexión a Gmail y la primera vuelta real.</strong> Conexión de cada bandeja, comprobación de la identidad (explico abajo por qué), primera búsqueda, revisión conjunta de las cartas y corrección de las instrucciones donde la IA se equivocó de tono o de destinatario, primeros borradores en Gmail.</p>
+<p>Dos personas no duplican el tiempo. La estructura es la misma: cambian el perfil, las categorías y el tono de las cartas. Cada una tiene sus propios datos y su propia bandeja, separados.</p>
+<h2>¿De verdad compensa?</h2>
+<p>La cuenta es sencilla. A mano, una candidatura cuidada lleva una media hora entre búsqueda, verificación y carta. Con la suite la persona dedica unos minutos a releer y enviar cada borrador. Con veinte candidaturas a la semana la diferencia son varias horas, cada semana, durante toda la búsqueda.</p>
+<p>La mayor ganancia, sin embargo, no es el tiempo sino la <strong>constancia</strong>. Buscar trabajo desanima, y lo primero que se abandona son los recordatorios y las respuestas pendientes. Un sistema que cada vez dice «a estos tres hay que volver a escribirles, esta oferta espera respuesta» mantiene el trabajo en marcha incluso en las semanas malas.</p>
+<p>Costes: una suscripción a Claude que incluya Claude Code y una cuenta de Gmail por persona. Sin servidores ni programas que comprar. Dos tardes de trabajo inicial.</p>
+<h2>Las reglas que no se tocan</h2>
+<ul>
+<li><strong>Nunca envío automático.</strong> La suite crea borradores; no envía, no reenvía, no borra. Una carta equivocada enviada a cien empresas arruina la reputación en una tarde.</li>
+<li><strong>Solo hechos del perfil.</strong> Ningún título, cargo o fecha que no esté escrito en el perfil único. Si falta información, la IA pregunta.</li>
+<li><strong>Contactos verificados.</strong> Solo direcciones publicadas por la propia entidad para contacto o candidaturas, comprobadas en la web oficial. Quien pide no ser contactado de nuevo no vuelve a la lista.</li>
+<li><strong>La cuenta correcta.</strong> Con varias personas y varias bandejas, la conexión a Gmail puede acabar en la cuenta equivocada sin que nadie lo note. Antes de activar los borradores se comprueban los últimos correos enviados: si el remitente no es la persona correcta, no se sigue.</li>
+<li><strong>Privacidad de quien busca trabajo.</strong> Perfiles, CV y respuestas se quedan en la carpeta y la bandeja de cada persona, separados, y no acaban en webs ni servicios externos.</li>
+</ul>
+<blockquote>La IA hace el trabajo de búsqueda, escritura y archivo. Decidir a quién escribir y pulsar «enviar» sigue siendo de la persona.</blockquote>
+<h2>Por dónde empezar</h2>
+<ol>
+<li><strong>Escribe el perfil único</strong>, aunque sea una página: es la base de todo y sirve de todas formas.</li>
+<li><strong>Elige tres o cuatro categorías</strong> de entidades a las que postularte y qué las hace adecuadas.</li>
+<li><strong>Crea un registro</strong> (vale una hoja de cálculo) con un estado para cada contacto y una fila para cada oferta recibida.</li>
+<li><strong>Haz una primera vuelta pequeña</strong>, cinco candidaturas, y corrige las instrucciones antes de ampliar.</li>
+<li><strong>Al cabo de un mes mira quién responde</strong> y lleva allí tu energía.</li>
+</ol>
+<h2>Preguntas frecuentes</h2>
+<p><strong>¿Claude Code envía los correos solo?</strong> No. En la suite que describo solo crea borradores en Gmail: el envío lo hace siempre la persona, después de releerlos. Es una decisión deliberada, para evitar errores y envíos masivos.</p>
+<p><strong>¿Cómo se registran las respuestas?</strong> La suite lee la bandeja de Gmail de la persona, reconoce las respuestas a las candidaturas y actualiza el registro: respondido, entrevista, oferta o no, con lo siguiente que hay que hacer. Todas las ofertas de trabajo quedan en una sola lista.</p>
+<p><strong>¿Hace falta saber programar?</strong> Para usarla, no: se releen borradores y se envían correos. Para construirla ayuda conocer Claude Code, pero las reglas se escriben en lenguaje normal y la IA escribe los scripts que hacen falta.</p>
+                </article>
+                <aside class="author-box" style="display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <img src="/assets/avatar-gianluca-demontis.jpg" alt="Gianluca Demontis" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: rgba(0,217,255,0.08);">
+                    <div>
+                        <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem;">Quién escribe</p>
+                        <p style="margin: 0 0 0.35rem; font-weight: 600;"><a href="/#about" rel="author" style="color: var(--text-primary); text-decoration: none;">Gianluca Demontis</a></p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Docente titular desde 1992 y tech coach en Cerdeña, con más de 40 años de experiencia en informática. Crea automatizaciones con n8n e IA para escuelas y pymes, fundó Bachata Vibes Music y AI Act Academy y es autor del libro «Inteligencia Artificial para la Didáctica Inclusiva». <a href="/es/lavora-con-me/" style="color: var(--primary-color);">Trabaja conmigo →</a></p>
+                    </div>
+                </aside>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Lee también</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/es/blog/caso-studio-automazione-ia-sei-mesi.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Un sistema de automatización con IA, construido por una sola persona en seis meses</a></li>
+                        <li><a href="/es/blog/dove-azienda-perde-contatti-7-punti.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Dónde pierde contactos una empresa: 7 puntos que revisar antes de comprar más</a></li>
+                        <li><a href="/es/blog/visibilita-organica-sito-social-pipeline.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Cómo funciona la visibilidad de una web y de las redes sociales (y por qué automaticé las visualizaciones orgánicas)</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>¿Quieres una suite así para quien busca trabajo?</h3>
+                    <p>CV, candidaturas, borradores en Gmail y registro de respuestas, construidos para las personas que los usarán. El envío siempre es suyo.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;"><a href="/es/lavora-con-me/#contatti-form" style="color: var(--primary-color);">Escríbeme</a> o suscríbete a la newsletter.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="email" name="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscríbete gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/es/blog/visibilita-organica-sito-social-pipeline.html">← Cómo funciona la visibilidad de una web y de las redes sociales (y por qué automaticé las visualizaciones orgánicas)</a>
+                    <a href="/es/blog/">Todos los artículos →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>

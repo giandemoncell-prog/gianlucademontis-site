@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cercare lavoro con Claude Code: CV, candidature e Gmail</title>
+    <meta name="description" content="Una suite con Claude Code costruita in due pomeriggi per due persone: CV, ricerca, lettere come bozze Gmail, lettura delle risposte e tracker delle proposte.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/automazione-ricerca-lavoro-claude-code.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/automazione-ricerca-lavoro-claude-code.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html">
+    <meta property="og:title" content="Cercare lavoro con Claude Code: due pomeriggi, due persone e l'invio che resta umano">
+    <meta property="og:description" content="Ho costruito con Claude Code una piccola suite per due persone che cercano lavoro: prepara CV e lettere, le lascia come bozze nella loro casella Gmail e, dopo l'invio, legge le risposte e tiene in ordine tutte le proposte. Ecco come funziona, quanto costa e le regole che non si toccano.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-11-07">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Automazione">
+    <meta property="og:image" content="https://gianlucademontis.xyz/assets/202611/og-ricerca-lavoro-claude-code.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cercare lavoro con Claude Code: due pomeriggi, due persone e l'invio che resta umano">
+    <meta name="twitter:description" content="Ho costruito con Claude Code una piccola suite per due persone che cercano lavoro: prepara CV e lettere, le lascia come bozze nella loro casella Gmail e, dopo l'invio, legge le risposte e tiene in ordine tutte le proposte. Ecco come funziona, quanto costa e le regole che non si toccano.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/assets/202611/og-ricerca-lavoro-claude-code.jpg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Cercare lavoro con Claude Code: due pomeriggi, due persone e l'invio che resta umano",
+        "datePublished": "2026-11-07T12:00:00+01:00",
+        "dateModified": "2026-11-07T12:00:00+01:00",
+        "image": "https://gianlucademontis.xyz/assets/202611/og-ricerca-lavoro-claude-code.jpg",
+        "url": "https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html"
+        },
+        "inLanguage": "it-IT",
+        "articleSection": "Automazione",
+        "author": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis",
+          "url": "https://gianlucademontis.xyz"
+        },
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis"
+        },
+        "description": "Una suite con Claude Code costruita in due pomeriggi per due persone: CV, ricerca, lettere come bozze Gmail, lettura delle risposte e tracker delle proposte."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://gianlucademontis.xyz/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://gianlucademontis.xyz/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Cercare lavoro con Claude Code",
+            "item": "https://gianlucademontis.xyz/blog/automazione-ricerca-lavoro-claude-code.html"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Claude Code invia le email da solo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Nella suite che descrivo crea solo bozze in Gmail: l'invio lo fa sempre la persona, dopo averle rilette. È una scelta voluta, per evitare errori e invii in massa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come vengono tracciate le risposte?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La suite legge la casella Gmail della persona, riconosce le risposte alle candidature e aggiorna il tracker: risposto, colloquio, proposta o no, con la prossima cosa da fare. Le proposte di lavoro restano tutte in un unico elenco."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Serve saper programmare?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Per usarla no: si rileggono bozze e si inviano email. Per costruirla aiuta avere dimestichezza con Claude Code, ma le regole si scrivono in italiano e l'IA scrive gli script che servono."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body a { color: var(--primary-color); }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .article-body code { background: rgba(255,255,255,0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        .article-body pre { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1rem 1.25rem; overflow-x: auto; margin: 1rem 0 1.5rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+        .article-body pre code { background: none; padding: 0; font-size: inherit; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Apri menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/lavora-con-me/">Lavora con me</a></li><li><a href="/#contact">Contatti</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/automazione-ricerca-lavoro-claude-code.html" class="active">IT</a><span>·</span>
+                        <a href="/en/blog/automazione-ricerca-lavoro-claude-code.html">EN</a><span>·</span>
+                        <a href="/es/blog/automazione-ricerca-lavoro-claude-code.html">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automazione</span>
+                        <time class="blog-date" datetime="2026-11-07">7 Novembre 2026</time>
+                        <span class="blog-date">· 7 min di lettura</span>
+                    </div>
+                    <h1>Cercare lavoro con Claude Code: due pomeriggi, due persone e l'invio che resta umano</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Ho costruito con Claude Code una piccola suite per due persone che cercano lavoro: prepara CV e lettere, le lascia come bozze nella loro casella Gmail e, dopo l'invio, legge le risposte e tiene in ordine tutte le proposte. Ecco come funziona, quanto costa e le regole che non si toccano.</p>
+                </header>
+
+                <article class="article-body">
+<div class="in-breve" style="margin: 0 0 2rem; padding: 1.25rem 1.5rem; background: rgba(0,217,255,0.06); border: 1px solid rgba(0,217,255,0.25); border-radius: 10px;">
+<p style="font-size: 0.8rem; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.5rem;">In breve</p>
+<p style="margin: 0;">Questa settimana, in due pomeriggi, ho costruito con Claude Code una piccola suite per due persone che cercano lavoro. Aggiorna il CV, trova a chi candidarsi, verifica i contatti, scrive una lettera su misura e la lascia come bozza nella loro casella Gmail. Loro rileggono e inviano. Poi la suite legge le risposte e tiene traccia di tutte le proposte di lavoro che arrivano. Il costo è un abbonamento; il guadagno è qualche ora a settimana e, soprattutto, la costanza.</p>
+</div>
+<figure style="margin: 0 auto 2.5rem; max-width: 420px; text-align: center;">
+<img src="/assets/202611/og-ricerca-lavoro-claude-code.jpg" alt="Cercare lavoro con l'IA: CV aggiornato, ricerca e verifica, lettera su misura, bozza in Gmail" width="1200" height="630" loading="lazy" style="width: 100%; height: auto; border-radius: 12px;">
+</figure>
+<h2>Cercare lavoro è un lavoro ripetitivo</h2>
+<p>Chi cerca lavoro conosce la sequenza: trovare le realtà giuste, capire a chi scrivere, adattare il CV, scrivere una lettera che non sembri un modulo, ricordarsi chi ha risposto e chi va sollecitato. Ogni candidatura fatta bene richiede mezz'ora; farne venti a settimana è un secondo lavoro.</p>
+<p>La parte che conta davvero, cioè decidere dove candidarsi e cosa dire di sé, è piccola. Tutto il resto è ricerca, copia, controllo e archivio: esattamente ciò che un assistente IA fa bene, se gli dai regole chiare e un posto dove tenere i dati.</p>
+<h2>Cosa fa la suite, passo per passo</h2>
+<ol>
+<li><strong>Un profilo unico per persona.</strong> Un file di testo con esperienze, titoli, competenze, cosa si cerca e cosa no. È l'unica fonte dei fatti: l'IA non può aggiungere titoli o incarichi che lì non ci sono.</li>
+<li><strong>CV aggiornato.</strong> Dal profilo si rifà il CV, lo si adatta al tipo di lavoro cercato e si controllano le parole chiave che i filtri automatici delle aziende cercano.</li>
+<li><strong>Ricerca e verifica.</strong> La suite cerca annunci e realtà adatte nella zona e nel settore di ciascuno, e verifica email e referenti sul sito ufficiale. Ogni risultato riceve un punteggio e una motivazione.</li>
+<li><strong>Lettera su misura.</strong> Per le opportunità migliori scrive una lettera che cita qualcosa di specifico di quella realtà e collega il profilo a quello che cercano.</li>
+<li><strong>Bozza in Gmail, mai invio.</strong> La lettera arriva come bozza nella casella Gmail della persona. La apre, la rilegge, corregge se serve, allega il CV e la invia. Oppure la cancella.</li>
+<li><strong>Lettura delle risposte e tracker.</strong> Dopo l'invio la suite legge le risposte che arrivano in Gmail e aggiorna un tracker unico: inviato, in attesa, sollecitato, risposto, colloquio, proposta, no. Ogni proposta di lavoro viene registrata con chi la fa, cosa offre e cosa c'è da fare dopo. Per chi non risponde prepara il sollecito, sempre come bozza.</li>
+</ol>
+<h2>Cosa succede dopo l'invio</h2>
+<p>È la parte che di solito si perde. Le risposte arrivano sparse in giorni diversi, alcune finiscono tra le promozioni, altre sono un «la ricontatteremo» che va ricordato tra due settimane. Un colloquio proposto per telefono va annotato da qualche parte.</p>
+<p>Qui la suite fa il lavoro più utile: legge la casella, riconosce le risposte alle candidature e le collega al contatto giusto nel tracker. Così ognuna delle due persone ha in un solo posto tutte le proposte ricevute, lo stato di ogni candidatura e l'elenco di cosa fare: rispondere a una richiesta di informazioni, confermare un colloquio, sollecitare chi tace da troppo.</p>
+<h2>Perché Claude Code e non una chat</h2>
+<p>Lo stesso lavoro in una chat normale si perde a ogni conversazione: bisogna rincollare il CV, rispiegare le regole, ricordarsi a chi si è già scritto. <strong>Claude Code</strong> lavora invece su una cartella del computer, e questo cambia tutto:</p>
+<ul>
+<li><strong>Legge e scrive file</strong>: profili, tracker e lettere restano lì tra una sessione e l'altra.</li>
+<li><strong>Ha una memoria del progetto</strong> (un file <code>CLAUDE.md</code> con le regole) e comandi riutilizzabili: uno lancia la ricerca, un altro controlla le risposte e prepara i solleciti.</li>
+<li><strong>Si collega a Gmail</strong> tramite il connettore ufficiale: crea bozze e legge le risposte, senza password nel codice.</li>
+<li><strong>Esegue piccoli script</strong>: scadenze, riepiloghi, allegato del CV alla bozza.</li>
+</ul>
+<p>Non serve saper programmare per usarla: le regole sono scritte in italiano in un file di istruzioni, e chi cerca lavoro vede solo bozze pronte nella propria casella.</p>
+<h2>Due pomeriggi, due persone</h2>
+<p><strong>Primo pomeriggio: i dati.</strong> Profilo unico di ciascuno, scritto con l'IA che fa domande e la persona che risponde e corregge; CV aggiornati; tracker vuoto; lettera base; file di istruzioni con le categorie da cercare, i criteri di punteggio, le regole per le lettere e cosa non fare mai.</p>
+<p><strong>Secondo pomeriggio: il collegamento a Gmail e il primo giro vero.</strong> Collegamento di ciascuna casella, controllo dell'identità (sotto spiego perché), prima ricerca, revisione delle lettere insieme e correzione delle istruzioni dove l'IA aveva sbagliato tono o bersaglio, prime bozze in Gmail.</p>
+<p>Due persone non raddoppiano il tempo. Lo schema è lo stesso: cambiano il profilo, le categorie e il tono delle lettere. Ognuno ha i propri dati e la propria casella, separati.</p>
+<h2>Conviene davvero?</h2>
+<p>Il conto è semplice. A mano, una candidatura curata richiede circa mezz'ora tra ricerca, verifica e lettera. Con la suite la persona dedica qualche minuto a rileggere e inviare ogni bozza. Su venti candidature a settimana la differenza vale diverse ore, ogni settimana, per tutta la durata della ricerca.</p>
+<p>Il guadagno più grande però non è il tempo, è la <strong>costanza</strong>. Cercare lavoro scoraggia, e la prima cosa che salta sono i solleciti e le risposte da dare. Un sistema che ogni volta dice «questi tre vanno risentiti, questa proposta aspetta una risposta» tiene in piedi il lavoro anche nelle settimane storte.</p>
+<p>Costi: un abbonamento a Claude che includa Claude Code e un account Gmail per persona. Niente server, niente software da comprare. Due pomeriggi di lavoro iniziale.</p>
+<h2>Le regole che non si toccano</h2>
+<ul>
+<li><strong>Mai invio automatico.</strong> La suite crea bozze, non invia, non inoltra, non cancella. Una lettera sbagliata spedita a cento aziende rovina la reputazione in un pomeriggio.</li>
+<li><strong>Solo fatti del profilo.</strong> Nessun titolo, incarico o data che non sia scritto nel profilo unico. Se manca un'informazione, l'IA chiede.</li>
+<li><strong>Contatti verificati.</strong> Solo indirizzi pubblicati dalla realtà stessa per contatti o candidature, controllati sul sito ufficiale. Chi chiede di non essere ricontattato non torna più nell'elenco.</li>
+<li><strong>L'account giusto.</strong> Con più persone e più caselle, il collegamento a Gmail può finire sull'account sbagliato senza che nessuno se ne accorga. Prima di attivare le bozze si controllano le ultime email inviate: se il mittente non è la persona giusta, non si va avanti.</li>
+<li><strong>Privacy di chi cerca lavoro.</strong> Profili, CV e risposte restano nella cartella e nella casella di ciascuno, separati, e non finiscono su siti o servizi esterni.</li>
+</ul>
+<blockquote>L'IA fa il lavoro di ricerca, scrittura e archivio. Decidere a chi scrivere e premere «invia» resta della persona.</blockquote>
+<h2>Da dove partire</h2>
+<ol>
+<li><strong>Scrivi il profilo unico</strong>, anche solo una pagina: è la base di tutto e serve comunque.</li>
+<li><strong>Decidi tre o quattro categorie</strong> di realtà a cui candidarti e cosa le rende adatte.</li>
+<li><strong>Crea un tracker</strong> (va bene un foglio di calcolo) con uno stato per ogni contatto e una riga per ogni proposta ricevuta.</li>
+<li><strong>Fai un primo giro piccolo</strong>, cinque candidature, e correggi le istruzioni prima di allargare.</li>
+<li><strong>Dopo un mese guarda chi risponde</strong> e sposta lì le energie.</li>
+</ol>
+<h2>Domande frequenti</h2>
+<p><strong>Claude Code invia le email da solo?</strong> No. Nella suite che descrivo crea solo bozze in Gmail: l'invio lo fa sempre la persona, dopo averle rilette. È una scelta voluta, per evitare errori e invii in massa.</p>
+<p><strong>Come vengono tracciate le risposte?</strong> La suite legge la casella Gmail della persona, riconosce le risposte alle candidature e aggiorna il tracker: risposto, colloquio, proposta o no, con la prossima cosa da fare. Le proposte di lavoro restano tutte in un unico elenco.</p>
+<p><strong>Serve saper programmare?</strong> Per usarla no: si rileggono bozze e si inviano email. Per costruirla aiuta avere dimestichezza con Claude Code, ma le regole si scrivono in italiano e l'IA scrive gli script che servono.</p>
+                </article>
+                <aside class="author-box" style="display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <img src="/assets/avatar-gianluca-demontis.jpg" alt="Gianluca Demontis" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: rgba(0,217,255,0.08);">
+                    <div>
+                        <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem;">Chi scrive</p>
+                        <p style="margin: 0 0 0.35rem; font-weight: 600;"><a href="/#about" rel="author" style="color: var(--text-primary); text-decoration: none;">Gianluca Demontis</a></p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Docente di ruolo dal 1992 e tech coach in Sardegna, con oltre 40 anni di esperienza nel settore IT. Costruisce automazioni con n8n e AI per scuole e PMI, ha fondato Bachata Vibes Music e AI Act Academy ed è autore del libro «Intelligenza Artificiale per la Didattica Inclusiva». <a href="/lavora-con-me/" style="color: var(--primary-color);">Lavora con me →</a></p>
+                    </div>
+                </aside>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Leggi anche</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/blog/caso-studio-automazione-ia-sei-mesi.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Un sistema di automazione IA, costruito da una persona in sei mesi</a></li>
+                        <li><a href="/blog/dove-azienda-perde-contatti-7-punti.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Dove un'azienda perde i contatti: 7 punti da controllare prima di comprarne altri</a></li>
+                        <li><a href="/blog/visibilita-organica-sito-social-pipeline.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Come funziona la visibilità di un sito e dei social (e perché ho automatizzato le visualizzazioni organiche)</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>Vuoi una suite così per chi cerca lavoro?</h3>
+                    <p>CV, candidature, bozze in Gmail e tracker delle risposte, costruiti sulle persone che li useranno. L'invio resta sempre a loro.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;"><a href="/lavora-con-me/#contatti-form" style="color: var(--primary-color);">Scrivimi</a> oppure iscriviti alla newsletter.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="email" name="email" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/visibilita-organica-sito-social-pipeline.html">← Come funziona la visibilità di un sito e dei social (e perché ho automatizzato le visualizzazioni organiche)</a>
+                    <a href="/blog/">Tutti gli articoli →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
