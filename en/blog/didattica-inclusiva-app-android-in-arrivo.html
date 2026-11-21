@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From book to app: I'm building an Android tool for special education teachers</title>
+    <meta name="description" content="The method and prompts from my book on AI for inclusive teaching are becoming an Android app for adapting materials: photo of the page, anonymous student profile, ready-to-use material. What it is and how to try it first.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/en/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <meta property="og:title" content="From book to app: I'm building an Android tool for special education teachers">
+    <meta property="og:description" content="The method and prompts from my book on AI for inclusive teaching are becoming an Android app for adapting materials: photo of the page, anonymous student profile, ready-to-use material. What it is and how to try it first.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/en/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-11-21">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Projects">
+    <meta property="og:image" content="https://gianlucademontis.xyz/og-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="From book to app: I'm building an Android tool for special education teachers">
+    <meta name="twitter:description" content="The method and prompts from my book on AI for inclusive teaching are becoming an Android app for adapting materials: photo of the page, anonymous student profile, ready-to-use material. What it is and how to try it first.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/og-default.jpg">
+    <script type="application/ld+json">
+    [
+      {"@context": "https://schema.org", "@type": "Article", "headline": "From book to app: I'm building an Android tool for special education teachers", "datePublished": "2026-11-21T09:00:00+01:00", "dateModified": "2026-11-21T09:00:00+01:00",
+        "image": "https://gianlucademontis.xyz/og-default.jpg", "url": "https://gianlucademontis.xyz/en/blog/didattica-inclusiva-app-android-in-arrivo.html", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/en/blog/didattica-inclusiva-app-android-in-arrivo.html"}, "inLanguage": "en-US", "articleSection": "Inclusive Education",
+        "author": {"@type": "Person", "@id": "https://gianlucademontis.xyz/#person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+        "publisher": {"@type": "Person", "@id": "https://gianlucademontis.xyz/#person", "name": "Gianluca Demontis"}, "description": "The method and prompts from my book on AI for inclusive teaching are becoming an Android app for adapting materials: photo of the page, anonymous student profile, ready-to-use material. What it is and how to try it first."},
+      {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/en/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/en/blog/"},
+        {"@type": "ListItem", "position": 3, "name": "From book to app: I'm building an Android tool for special education teachers", "item": "https://gianlucademontis.xyz/en/blog/didattica-inclusiva-app-android-in-arrivo.html"}]}
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-body code { background: rgba(0,217,255,0.08); color: var(--primary-color); padding: 0.15em 0.45em; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .arch-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .arch-table th { text-align: left; color: var(--text-secondary); font-weight: 600; padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .arch-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); vertical-align: top; }
+        .arch-table td:first-child { color: var(--primary-color); font-family: 'Courier New', monospace; font-size: 0.9em; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/en/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/en/#hero">Home</a></li>
+                    <li><a href="/en/#about">About</a></li>
+                    <li><a href="/en/#projects">Projects</a></li>
+                    <li><a href="/en/blog/">Blog</a></li>
+                    <li><a href="/en/lavora-con-me/">Work with me</a></li>
+                    <li><a href="/en/#contact">Contact</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/didattica-inclusiva-app-android-in-arrivo.html">IT</a><span>·</span>
+                        <a href="/en/blog/didattica-inclusiva-app-android-in-arrivo.html" class="active">EN</a><span>·</span>
+                        <a href="/es/blog/didattica-inclusiva-app-android-in-arrivo.html">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/en/blog/" class="back-link">← All articles</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Inclusive Education</span>
+                        <time class="blog-date" datetime="2026-11-21">21 November 2026</time>
+                        <span class="blog-date">· 3 min read</span>
+                    </div>
+                    <h1>From book to app: I'm building an Android tool for special education teachers</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Anyone who works in special education knows it: a large part of the job is rewriting. A history page becomes a text with short sentences, a science chapter becomes a concept map, a school trip becomes a social story. In my book <a href="/en/libro/" style="color: var(--primary-color);">“Artificial Intelligence for Inclusive Teaching”</a> I collected the method and the prompts I use to do this with AI. For a few months now I have been turning them into an <strong>Android app</strong>.</p>
+                </header>
+
+                <article class="article-body">
+
+                    <h2>The idea</h2>
+                    <p>Keeping the book open next to ChatGPT, finding the right prompt, adapting it to the student, pasting the text: it works, but it takes time. The app brings these steps together. <strong>You take a photo of the textbook page, choose the student's profile and the kind of material you need</strong>: simplified text, concept map, quiz or a social story with pictograms.</p>
+                    <p>It is designed for teachers who work with students with specific learning disorders and special educational needs, including those who are not AI experts.</p>
+
+                    <h2>Privacy first</h2>
+                    <p>We are talking about minors and often about sensitive information, so I made precise choices here:</p>
+                    <ul>
+                        <li>the student's profile stays <strong>on the phone</strong>, encrypted, with a pseudonym instead of the name;</li>
+                        <li>the AI only receives the teaching information needed to adapt the text, <strong>never the name, class or observations</strong>;</li>
+                        <li>before each request you see exactly what is being sent.</li>
+                    </ul>
+
+                    <h2>Where things stand</h2>
+                    <p>The app works and I am polishing it. Before publishing it on Google Play I will run a <strong>test with a small group of teachers</strong>, who will use it for two weeks with real materials and tell me what doesn't work. For now the app is <strong>in Italian</strong>, like the Italian school system it was built for.</p>
+                    <p>In the coming weeks I will explain here and on social media how it works, step by step.</p>
+
+                    <h2>Want to be among the first to try it?</h2>
+                    <p>Write to me at <a href="mailto:tester@gianlucademontis.xyz?subject=App">tester@gianlucademontis.xyz</a>: I will let you know as soon as the test opens. You need an <strong>Android</strong> phone or tablet.</p>
+
+                </article>
+                <aside class="author-box" style="display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <img src="/assets/avatar-gianluca-demontis.jpg" alt="Gianluca Demontis" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: rgba(0,217,255,0.08);">
+                    <div>
+                        <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem;">About the author</p>
+                        <p style="margin: 0 0 0.35rem; font-weight: 600;"><a href="/en/#about" rel="author" style="color: var(--text-primary); text-decoration: none;">Gianluca Demontis</a></p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Tenured teacher since 1992 and tech coach in Sardinia, with over 40 years of experience in IT. He builds n8n and AI automations for schools and small businesses, founded Bachata Vibes Music and AI Act Academy, and wrote the book “Artificial Intelligence for Inclusive Teaching”. <a href="/en/lavora-con-me/" style="color: var(--primary-color);">Work with me →</a></p>
+                    </div>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>I'll let you know when the test starts</h3>
+                    <p>Just send me a couple of lines: you will only get an email when the app is ready to try.</p>
+                    <a class="btn btn-primary" href="mailto:tester@gianlucademontis.xyz?subject=App">I want to try it</a>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/en/libro/">← The book</a>
+                    <a href="/en/blog/">All articles →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
