@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dal libro a un'app: sto costruendo uno strumento Android per il sostegno</title>
+    <meta name="description" content="Il metodo e i prompt del libro «Intelligenza Artificiale per la Didattica Inclusiva» diventano un'app Android per adattare i materiali. Cos'è, a chi serve e come provarla per primi.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <meta property="og:title" content="Dal libro a un'app: sto costruendo uno strumento Android per il sostegno">
+    <meta property="og:description" content="Il metodo e i prompt del libro «Intelligenza Artificiale per la Didattica Inclusiva» diventano un'app Android per adattare i materiali. Cos'è, a chi serve e come provarla per primi.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-11-21">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Didattica">
+    <meta property="og:image" content="https://gianlucademontis.xyz/og-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dal libro a un'app: sto costruendo uno strumento Android per il sostegno">
+    <meta name="twitter:description" content="Il metodo e i prompt del libro «Intelligenza Artificiale per la Didattica Inclusiva» diventano un'app Android per adattare i materiali. Cos'è, a chi serve e come provarla per primi.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/og-default.jpg">
+    <script type="application/ld+json">
+    [
+      {"@context": "https://schema.org", "@type": "Article", "headline": "Dal libro a un'app: sto costruendo uno strumento Android per il sostegno", "datePublished": "2026-11-21T09:00:00+01:00", "dateModified": "2026-11-21T09:00:00+01:00",
+        "image": "https://gianlucademontis.xyz/og-default.jpg", "url": "https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html"}, "inLanguage": "it-IT", "articleSection": "Didattica",
+        "author": {"@type": "Person", "@id": "https://gianlucademontis.xyz/#person", "name": "Gianluca Demontis", "url": "https://gianlucademontis.xyz"},
+        "publisher": {"@type": "Person", "@id": "https://gianlucademontis.xyz/#person", "name": "Gianluca Demontis"}, "description": "Il metodo e i prompt del libro «Intelligenza Artificiale per la Didattica Inclusiva» diventano un'app Android per adattare i materiali. Cos'è, a chi serve e come provarla per primi."},
+      {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://gianlucademontis.xyz/"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://gianlucademontis.xyz/blog/"},
+        {"@type": "ListItem", "position": 3, "name": "Dal libro a un'app: sto costruendo uno strumento Android per il sostegno", "item": "https://gianlucademontis.xyz/blog/didattica-inclusiva-app-android-in-arrivo.html"}]}
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body a { color: var(--primary-color); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .arch-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .arch-table th { text-align: left; color: var(--text-secondary); font-weight: 600; padding: 0.6rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .arch-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); vertical-align: top; }
+        .arch-table td:first-child { color: var(--text-primary); font-weight: 500; }
+        .table-wrap { overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Apri menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/lavora-con-me/">Lavora con me</a></li>
+                    <li><a href="/#contact">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Didattica</span>
+                        <time class="blog-date" datetime="2026-11-21">21 Novembre 2026</time>
+                        <span class="blog-date">· 3 min di lettura</span>
+                    </div>
+                    <h1>Dal libro a un'app: sto costruendo uno strumento Android per il sostegno</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Chi fa sostegno lo sa: buona parte del lavoro è riscrivere. La pagina di storia diventa un testo con frasi brevi, il capitolo di scienze una mappa, la gita una storia sociale. Nel libro <a href="/libro/" style="color: var(--primary-color);">«Intelligenza Artificiale per la Didattica Inclusiva»</a> ho raccolto il metodo e i prompt che uso per farlo con l'IA. Da qualche mese li sto trasformando in un'<strong>app Android</strong>.</p>
+                </header>
+
+                <article class="article-body">
+
+                    <h2>L'idea</h2>
+                    <p>Tenere il libro aperto accanto a ChatGPT, cercare il prompt giusto, adattarlo all'alunno, incollare il testo: funziona, ma richiede tempo. L'app mette insieme questi passaggi. <strong>Fotografi la pagina del libro di testo, scegli il profilo dell'alunno e il tipo di materiale che ti serve</strong>: testo semplificato, mappa, quiz o storia sociale con i pittogrammi.</p>
+                    <p>È pensata per chi lavora con alunni con DSA e BES, docenti di sostegno e curricolari, anche senza essere esperti di intelligenza artificiale.</p>
+
+                    <h2>La privacy prima di tutto</h2>
+                    <p>Parliamo di minori e spesso di informazioni delicate, quindi su questo punto ho fatto scelte precise:</p>
+                    <ul>
+                        <li>il profilo dell'alunno resta <strong>sul telefono</strong>, cifrato, con uno pseudonimo al posto del nome;</li>
+                        <li>all'IA arrivano solo le informazioni didattiche che servono ad adattare il testo, <strong>mai nome, classe o osservazioni</strong>;</li>
+                        <li>prima di ogni invio vedi esattamente cosa parte.</li>
+                    </ul>
+
+                    <h2>A che punto sono</h2>
+                    <p>L'app funziona e la sto rifinendo. Prima di pubblicarla su Google Play farò un <strong>test con un piccolo gruppo di colleghi</strong>, che la useranno per due settimane con materiali veri e mi diranno cosa non va.</p>
+                    <p>Nelle prossime settimane racconterò qui e sui social come funziona, passo per passo.</p>
+
+                    <h2>Vuoi essere tra i primi a provarla?</h2>
+                    <p>Scrivimi a <a href="mailto:tester@gianlucademontis.xyz?subject=Voglio%20provare%20l'app">tester@gianlucademontis.xyz</a> con oggetto «Voglio provare l'app»: ti avviso io appena il test è aperto. Serve un telefono o un tablet <strong>Android</strong>.</p>
+
+                </article>
+                <aside class="author-box" style="display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <img src="/assets/avatar-gianluca-demontis.jpg" alt="Gianluca Demontis" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: rgba(0,217,255,0.08);">
+                    <div>
+                        <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem;">Chi scrive</p>
+                        <p style="margin: 0 0 0.35rem; font-weight: 600;"><a href="/#about" rel="author" style="color: var(--text-primary); text-decoration: none;">Gianluca Demontis</a></p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Docente di ruolo dal 1992 e tech coach in Sardegna, con oltre 40 anni di esperienza nel settore IT. Costruisce automazioni con n8n e AI per scuole e PMI, ha fondato Bachata Vibes Music e AI Act Academy ed è autore del libro «Intelligenza Artificiale per la Didattica Inclusiva». <a href="/lavora-con-me/" style="color: var(--primary-color);">Lavora con me →</a></p>
+                    </div>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>Ti avviso quando parte il test</h3>
+                    <p>Scrivimi due righe: riceverai solo un'email quando l'app è pronta da provare.</p>
+                    <a class="btn btn-primary" href="mailto:tester@gianlucademontis.xyz?subject=Voglio%20provare%20l'app">Voglio provarla</a>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/libro/">← Il libro</a>
+                    <a href="/blog/">Tutti gli articoli →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
