@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de privacidad — Didattica Inclusiva AI | Gianluca Demontis</title>
+    <meta name="description" content="Aviso de privacidad de la app Didattica Inclusiva AI: qué se queda en el teléfono, qué pasa por los servicios en línea, tus derechos.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/es/app-sostegno/privacy/">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/app-sostegno/privacy/">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/app-sostegno/privacy/">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/app-sostegno/privacy/">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .privacy { max-width: 760px; margin: 0 auto; padding: 120px 20px 60px; line-height: 1.7; }
+        .privacy h1 { font-size: 2rem; margin-bottom: 8px; }
+        .privacy h2 { font-size: 1.25rem; margin: 36px 0 10px; }
+        .privacy p, .privacy li, .privacy td { color: var(--text-secondary); }
+        .privacy ul { padding-left: 20px; }
+        .privacy a { color: var(--primary-color); }
+        .privacy .lingue { font-size: 0.9rem; }
+        .privacy .tabella { overflow-x: auto; }
+        .privacy table { border-collapse: collapse; width: 100%; font-size: 0.9rem; margin: 12px 0; }
+        .privacy th, .privacy td { border: 1px solid rgba(255,255,255,0.12); padding: 8px; vertical-align: top; text-align: left; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/es/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/es/">Inicio</a></li>
+                    <li><a href="/es/blog/">Blog</a></li>
+                    <li><a href="/es/lavora-con-me/">Trabaja conmigo</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="privacy">
+        <p class="lingue"><a href="/app-sostegno/privacy/" hreflang="it">Italiano</a> · <a href="/en/app-sostegno/privacy/" hreflang="en">English</a> · Español</p>
+        <h1>Aviso de privacidad — Didattica Inclusiva AI</h1>
+        <p>Versión 1 · en vigor desde el 22 de noviembre de 2026</p>
+        <h2>Quién es el responsable</h2>
+        <p>El responsable del tratamiento de los datos que gestionan los servicios en línea de la app es Gianluca Demontis,
+        Cerdeña (Italia), correo electrónico info@gianlucademontis.xyz.</p>
+        <p>Los datos que el docente introduce en su propio teléfono (perfiles, historias, notas) quedan bajo el control del
+        docente o del centro educativo, que es su responsable: la app no nos los envía.</p>
+        <h2>Qué datos se quedan en el teléfono</h2>
+        <ul>
+        <li>Perfiles del alumnado (siglas o seudónimo, curso, dificultades, herramientas compensatorias, notas de observación).</li>
+        <li>Historias sociales, pictogramas descargados, preferencias de la app.</li>
+        </ul>
+        <p>Se guardan en un archivo cifrado (SQLCipher, clave protegida por el Android Keystore), excluido de la copia de
+        seguridad automática de Android, y se eliminan al desinstalar la app. Las fotos hechas para reconocer el texto se
+        procesan en el teléfono y no se guardan ni se envían.</p>
+        <p>Recomendamos no introducir nunca nombres, apellidos u otros datos que identifiquen al alumno: la app usa siglas o
+        seudónimos y avisa si el texto parece contener datos personales (correos electrónicos, códigos fiscales,
+        teléfonos, fechas).</p>
+        <h2>Qué datos salen del teléfono, y por qué</h2>
+        <div class="tabella"><table>
+        <thead>
+        <tr>
+        <th>Servicio</th>
+        <th>Datos</th>
+        <th>Finalidad</th>
+        <th>Cuándo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Google Firebase (Authentication, Cloud Functions, Firestore, App Check) — región UE</td>
+        <td>identificador anónimo generado por la app, contador de generaciones, fecha del último uso, estado de la suscripción</td>
+        <td>hacer funcionar la IA integrada, aplicar los límites de uso, proteger el servicio contra abusos</td>
+        <td>solo si usas la IA integrada</td>
+        </tr>
+        <tr>
+        <td>Google Vertex AI (Gemini) — multirregión UE</td>
+        <td>el texto del prompt mostrado en la vista previa (texto que adaptar y, del perfil, solo el tipo de dificultad, las herramientas compensatorias y las reglas de presentación: nunca siglas, curso, notas ni otros datos)</td>
+        <td>generar el material adaptado</td>
+        <td>solo cuando pulsas "Generar" y después de aceptar el aviso</td>
+        </tr>
+        <tr>
+        <td>Google Play</td>
+        <td>datos de compra de la suscripción (token de compra)</td>
+        <td>verificar y activar la suscripción Pro, también después de una reinstalación, e impedir que la misma suscripción la usen varias personas</td>
+        <td>solo si te suscribes</td>
+        </tr>
+        <tr>
+        <td>ARASAAC (Gobierno de Aragón, España)</td>
+        <td>palabras comunes sueltas que buscar (nunca frases; se excluyen los nombres propios)</td>
+        <td>mostrar los pictogramas</td>
+        <td>solo cuando buscas o sugieres pictogramas</td>
+        </tr>
+        </tbody>
+        </table></div>
+        <p>Los prompts enviados a la IA no se guardan en nuestros servidores ni se registran en los logs y, según las
+        condiciones de Google Cloud, no se usan para entrenar los modelos. Google actúa como encargado del tratamiento.</p>
+        <p>"Copiar" y "Abrir en Gemini / ChatGPT" pasan el texto a otra app que tú eliges: en ese caso se aplica el aviso de
+        privacidad de esa app.</p>
+        <h2>Base jurídica</h2>
+        <ul>
+        <li>Ejecución del servicio solicitado (art. 6.1.b RGPD) para la IA integrada, las cuotas y la suscripción.</li>
+        <li>Interés legítimo en la seguridad del servicio (art. 6.1.f) para App Check y los límites de uso.</li>
+        </ul>
+        <p>El texto de los prompts puede referirse a necesidades educativas de un menor: por eso la app envía solo
+        descripciones didácticas anónimas y pide no introducir datos identificativos. Los centros que usan la app en sus
+        actividades valoran su uso según sus propios procedimientos (registro de actividades de tratamiento, EIPD si
+        procede).</p>
+        <h2>Durante cuánto tiempo</h2>
+        <ul>
+        <li>Contadores de generaciones, fecha del último uso y estado de la suscripción: mientras uses la app; puedes eliminarlos en cualquier momento.</li>
+        <li>Para cada suscripción: una huella no reversible (hash) del token de compra y el número de traspasos entre dispositivos, ya no vinculados a ti tras la eliminación; sirven para prevenir abusos y se conservan mientras exista la suscripción.</li>
+        <li>Prompts: no se conservan (tratamiento temporal).</li>
+        <li>Datos en el teléfono: hasta que los elimines o desinstales la app.</li>
+        </ul>
+        <h2>Tus derechos</h2>
+        <p>Puedes solicitar el acceso, la rectificación, la supresión, la limitación, la oposición y la portabilidad
+        (arts. 15-22 RGPD) escribiendo a info@gianlucademontis.xyz. Desde la app: Ajustes › Privacidad › "Eliminar mis
+        datos del servidor" elimina de inmediato el identificador anónimo, los contadores, la fecha del último uso y el
+        vínculo con la suscripción. Puedes presentar una reclamación ante la autoridad italiana de protección de datos
+        (www.garanteprivacy.it) o ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+        <h2>Menores</h2>
+        <p>La app está destinada a los docentes y no se dirige a menores. El modo "Mostrar al alumno" sirve para presentar
+        las historias en clase bajo la supervisión del docente y no recoge datos.</p>
+        <h2>Cambios</h2>
+        <p>Los posibles cambios se publicarán en esta página y se comunicarán en la app.</p>
+    </main>
+
+    <footer style="text-align:center; padding: 40px; color: var(--text-secondary); font-size: 0.875rem; border-top: 1px solid rgba(255,255,255,0.06);">
+        <p>© 2026 Gianluca Demontis — <a href="/" style="color: var(--primary-color);">gianlucademontis.xyz</a></p>
+    </footer>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
