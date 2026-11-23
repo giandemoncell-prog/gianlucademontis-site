@@ -48,7 +48,7 @@
     <main class="privacy">
         <p class="lingue"><a href="/app-sostegno/privacy/" hreflang="it">Italiano</a> · English · <a href="/es/app-sostegno/privacy/" hreflang="es">Español</a></p>
         <h1>Privacy notice — Didattica Inclusiva AI</h1>
-        <p>Version 1 · effective from 22 November 2026</p>
+        <p>Version 2 · effective from 23 November 2026</p>
         <h2>Who is the controller</h2>
         <p>The controller of the data handled by the app's online services is Gianluca Demontis,
         Sardinia (Italy), email info@gianlucademontis.xyz.</p>
@@ -57,11 +57,13 @@
         <h2>What data stays on the phone</h2>
         <ul>
         <li>Student profiles (ID or pseudonym, class, difficulties, assistive tools, observation notes).</li>
-        <li>Social stories, downloaded pictograms, app preferences.</li>
+        <li>Social stories, app preferences.</li>
         </ul>
         <p>They are saved in an encrypted store (SQLCipher, key protected by the Android Keystore), excluded from Android's
         automatic backup and deleted when the app is uninstalled. Photos taken for text recognition are processed on the
-        phone and are neither saved nor sent.</p>
+        phone and are neither saved nor sent. Pictures you add to story cards are copied, resized, into the app's private
+        storage (not accessible to other apps), excluded from backup and deleted when the app is uninstalled; they are not
+        encrypted like the store, so avoid photos in which the student can be recognised.</p>
         <p>We recommend never entering first names, surnames or other data that identify the student: the app uses IDs or
         pseudonyms and warns you if the text seems to contain personal data (emails, tax codes, phone numbers, dates).</p>
         <h2>What data leaves the phone, and why</h2>
@@ -93,14 +95,10 @@
         <td>verify and activate the Pro subscription, including after a reinstall, and prevent the same subscription from being used by several people</td>
         <td>only if you subscribe</td>
         </tr>
-        <tr>
-        <td>ARASAAC (Government of Aragón, Spain)</td>
-        <td>single common words to search (never sentences; proper names are excluded)</td>
-        <td>show pictograms</td>
-        <td>only when you search for or suggest pictograms</td>
-        </tr>
         </tbody>
         </table></div>
+        <p>Image prompts for stories: the app does not send them to anyone. You copy them, share them with an app you choose (for example Gemini, ChatGPT or Meta AI) or save them as a file (for example on Google Drive); from then on the terms of the chosen service apply. Before they leave, the app replaces names found in the story with "the main character" and shows you the text to check.</p>
+        <p>Sign language: the button opens the Spread the Sign dictionary (European Sign Language Centre) in your browser and sends it only the word you choose; from then on that site's privacy policy applies.</p>
         <p>Prompts sent to the AI are not saved on our servers or recorded in logs and, under Google Cloud's terms, are not
         used to train the models. Google acts as data processor.</p>
         <p>"Copy" and "Open in Gemini / ChatGPT" pass the text to another app of your choice: in that case, that app's

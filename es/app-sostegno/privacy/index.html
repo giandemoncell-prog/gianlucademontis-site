@@ -48,7 +48,7 @@
     <main class="privacy">
         <p class="lingue"><a href="/app-sostegno/privacy/" hreflang="it">Italiano</a> · <a href="/en/app-sostegno/privacy/" hreflang="en">English</a> · Español</p>
         <h1>Aviso de privacidad — Didattica Inclusiva AI</h1>
-        <p>Versión 1 · en vigor desde el 22 de noviembre de 2026</p>
+        <p>Versión 2 · en vigor desde el 23 de noviembre de 2026</p>
         <h2>Quién es el responsable</h2>
         <p>El responsable del tratamiento de los datos que gestionan los servicios en línea de la app es Gianluca Demontis,
         Cerdeña (Italia), correo electrónico info@gianlucademontis.xyz.</p>
@@ -57,11 +57,14 @@
         <h2>Qué datos se quedan en el teléfono</h2>
         <ul>
         <li>Perfiles del alumnado (siglas o seudónimo, curso, dificultades, herramientas compensatorias, notas de observación).</li>
-        <li>Historias sociales, pictogramas descargados, preferencias de la app.</li>
+        <li>Historias sociales, preferencias de la app.</li>
         </ul>
         <p>Se guardan en un archivo cifrado (SQLCipher, clave protegida por el Android Keystore), excluido de la copia de
         seguridad automática de Android, y se eliminan al desinstalar la app. Las fotos hechas para reconocer el texto se
-        procesan en el teléfono y no se guardan ni se envían.</p>
+        procesan en el teléfono y no se guardan ni se envían. Las imágenes que añades a las tarjetas de las historias se
+        copian, redimensionadas, en la memoria privada de la app (no accesible a otras apps), excluida de la copia de
+        seguridad y eliminada al desinstalar la app; no están cifradas como el archivo, así que evita fotos en las que se
+        reconozca al alumno.</p>
         <p>Recomendamos no introducir nunca nombres, apellidos u otros datos que identifiquen al alumno: la app usa siglas o
         seudónimos y avisa si el texto parece contener datos personales (correos electrónicos, códigos fiscales,
         teléfonos, fechas).</p>
@@ -94,14 +97,10 @@
         <td>verificar y activar la suscripción Pro, también después de una reinstalación, e impedir que la misma suscripción la usen varias personas</td>
         <td>solo si te suscribes</td>
         </tr>
-        <tr>
-        <td>ARASAAC (Gobierno de Aragón, España)</td>
-        <td>palabras comunes sueltas que buscar (nunca frases; se excluyen los nombres propios)</td>
-        <td>mostrar los pictogramas</td>
-        <td>solo cuando buscas o sugieres pictogramas</td>
-        </tr>
         </tbody>
         </table></div>
+        <p>Prompts para las imágenes de las historias: la app no los envía a nadie. Eres tú quien los copia, los comparte con una app que eliges (por ejemplo Gemini, ChatGPT o Meta AI) o los guarda como archivo (por ejemplo en Google Drive); desde ese momento se aplican las condiciones del servicio elegido. Antes de que salgan, la app sustituye los nombres encontrados en la historia por "el protagonista" y te muestra el texto para que lo revises.</p>
+        <p>Lengua de signos: el botón abre en el navegador el diccionario Spread the Sign (European Sign Language Centre) y le envía solo la palabra que eliges; desde ese momento se aplica la política de privacidad de ese sitio.</p>
         <p>Los prompts enviados a la IA no se guardan en nuestros servidores ni se registran en los logs y, según las
         condiciones de Google Cloud, no se usan para entrenar los modelos. Google actúa como encargado del tratamiento.</p>
         <p>"Copiar" y "Abrir en Gemini / ChatGPT" pasan el texto a otra app que tú eliges: en ese caso se aplica el aviso de
