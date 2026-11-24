@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pasticceria Dolcezze - Prenota</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="logo" href="index.html">🧁 Pasticceria Dolcezze</a>
+<nav><a href="index.html">Home</a><a href="menu.html">Menù</a><a href="chi-siamo.html">Chi siamo</a><a href="prenota.html">Prenota</a><a href="contatti.html">Contatti</a></nav></header>
+<main>
+<h1>Prenota un tavolo o ordina una torta</h1>
+<form id="f" onsubmit="return invia(event)">
+<label>Nome e cognome</label><input id="nome">
+<label>Email</label><input id="email" type="text">
+<label>Telefono</label><input id="tel">
+<label>Data</label><input id="data" type="date">
+<label>Numero di persone (da 1 a 10)</label><input id="persone" type="number">
+<label>Che cosa desideri?</label>
+<select id="tipo"><option>Tavolo per la colazione</option><option>Torta su ordinazione</option></select>
+<label>Note</label><textarea id="note" rows="3"></textarea>
+<p><button class="btn" type="submit">Invia</button></p>
+</form>
+<div id="esito"></div>
+<p><a href="menu.html">← Torna indietro</a></p>
+</main>
+<footer>© 2026 Pasticceria Dolcezze - Via dei Dolci 12, Cagliari - Sito di esercitazione del corso</footer>
+<script>
+var numero = 0;
+function invia(e) {
+  e.preventDefault();
+  var tel = document.getElementById('tel').value;
+  var es = document.getElementById('esito');
+  if (/[a-zA-Z]/.test(tel)) {
+    es.className = 'esito ko';
+    es.textContent = 'Errore 0x0045';
+    document.getElementById('f').reset();
+    return false;
+  }
+  var p = parseInt(document.getElementById('persone').value || '0', 10);
+  numero++;
+  es.className = 'esito ok';
+  es.textContent = 'Grazie ' + document.getElementById('nome').value + '! Prenotazione n. ' + numero +
+    ' ricevuta per ' + p + ' persone il ' + document.getElementById('data').value +
+    '. Ti scriveremo a ' + document.getElementById('email').value + '.';
+  return false;
+}
+</script>
+</body></html>
