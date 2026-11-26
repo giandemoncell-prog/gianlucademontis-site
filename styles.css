@@ -670,6 +670,37 @@ body {
     color: var(--text-secondary);
 }
 
+/* Icone social a fondo pagina (tutte le pagine) */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 217, 255, 0.15);
+    color: var(--text-secondary, #a0a0a0);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-social-link:hover {
+    color: var(--primary-color, #1ec9f2);
+    border-color: var(--primary-color, #1ec9f2);
+}
+
+.footer-social-link svg {
+    width: 18px;
+    height: 18px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-content {
