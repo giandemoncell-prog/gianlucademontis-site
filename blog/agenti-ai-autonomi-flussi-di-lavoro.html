@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Analytics: si carica solo dopo il consenso (consenso.js) -->
+    <script src="/consenso.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenti AI autonomi: la scala dell'autonomia e sei flussi di lavoro pratici</title>
+    <meta name="description" content="Agenti AI autonomi nella pratica: differenza tra agente e flusso di lavoro, i quattro gradini dell&#x27;autonomia, sei flussi reali su Raspberry Pi e n8n, le regole e i guasti che li hanno cambiati.">
+    <meta name="author" content="Gianluca Demontis">
+    <link rel="canonical" href="https://gianlucademontis.xyz/blog/agenti-ai-autonomi-flussi-di-lavoro.html">
+    <link rel="alternate" hreflang="it" href="https://gianlucademontis.xyz/blog/agenti-ai-autonomi-flussi-di-lavoro.html">
+    <link rel="alternate" hreflang="en" href="https://gianlucademontis.xyz/en/blog/agenti-ai-autonomi-flussi-di-lavoro.html">
+    <link rel="alternate" hreflang="es" href="https://gianlucademontis.xyz/es/blog/agenti-ai-autonomi-flussi-di-lavoro.html">
+    <link rel="alternate" hreflang="x-default" href="https://gianlucademontis.xyz/blog/agenti-ai-autonomi-flussi-di-lavoro.html">
+    <meta property="og:title" content="Agenti AI autonomi nella pratica: cosa lascio fare da soli, cosa no e perché">
+    <meta property="og:description" content="Quattro gradini di autonomia, sei flussi di lavoro veri (controllo notturno, risposte ai commenti, bozze Gmail, pubblicazione programmata, report) e le regole nate dai guasti.">
+    <meta property="og:url" content="https://gianlucademontis.xyz/blog/agenti-ai-autonomi-flussi-di-lavoro.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-11-28">
+    <meta property="article:author" content="Gianluca Demontis">
+    <meta property="article:section" content="Automazione">
+    <meta property="og:image" content="https://gianlucademontis.xyz/assets/202611/og-agenti-ai-autonomi.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Gianluca Demontis">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agenti AI autonomi nella pratica: cosa lascio fare da soli, cosa no e perché">
+    <meta name="twitter:description" content="Quattro gradini di autonomia, sei flussi di lavoro veri (controllo notturno, risposte ai commenti, bozze Gmail, pubblicazione programmata, report) e le regole nate dai guasti.">
+    <meta name="twitter:image" content="https://gianlucademontis.xyz/assets/202611/og-agenti-ai-autonomi.jpg">
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Agenti AI autonomi nella pratica: cosa lascio fare da soli, cosa no e perché",
+        "datePublished": "2026-11-28T12:00:00+01:00",
+        "dateModified": "2026-11-28T12:00:00+01:00",
+        "image": "https://gianlucademontis.xyz/assets/202611/og-agenti-ai-autonomi.jpg",
+        "url": "https://gianlucademontis.xyz/blog/agenti-ai-autonomi-flussi-di-lavoro.html",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://gianlucademontis.xyz/blog/agenti-ai-autonomi-flussi-di-lavoro.html"
+        },
+        "inLanguage": "it-IT",
+        "articleSection": "Automazione",
+        "author": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis",
+          "url": "https://gianlucademontis.xyz"
+        },
+        "publisher": {
+          "@type": "Person",
+          "@id": "https://gianlucademontis.xyz/#person",
+          "name": "Gianluca Demontis"
+        },
+        "description": "Agenti AI autonomi nella pratica: differenza tra agente e flusso di lavoro, i quattro gradini dell'autonomia, sei flussi reali su Raspberry Pi e n8n, le regole e i guasti che li hanno cambiati."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://gianlucademontis.xyz/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://gianlucademontis.xyz/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Agenti AI autonomi e flussi di lavoro",
+            "item": "https://gianlucademontis.xyz/blog/agenti-ai-autonomi-flussi-di-lavoro.html"
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Che differenza c'è tra un agente AI e un'automazione?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un'automazione esegue passi decisi prima da una persona, sempre nello stesso ordine. Un agente riceve un obiettivo e degli strumenti e sceglie da solo i passi. Nella pratica conviene un flusso fisso con un agente solo nel punto in cui serve giudizio."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Si può lasciare un agente AI completamente da solo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sì, ma solo per azioni piccole, reversibili e verificate da qualcos'altro, con un limite di quantità e un modo per fermarlo. Per tutto ciò che è pubblico o difficile da annullare conviene che l'agente prepari e una persona approvi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Serve un server per far girare agenti AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No per iniziare: basta un computer e un assistente come Claude Code lanciato a mano. Un piccolo server sempre acceso, anche un Raspberry Pi, serve quando il flusso deve girare a orari fissi con il PC spento."
+            }
+          }
+        ]
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-page { padding: 8rem 0 6rem; min-height: 100vh; }
+        .article-container { max-width: 780px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; margin-bottom: 2.5rem; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary-color); }
+        .article-header { margin-bottom: 3rem; }
+        .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .article-header h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 600; color: var(--primary-color); margin: 2.5rem 0 1rem; padding-top: 0.5rem; border-top: 1px solid rgba(0,217,255,0.15); }
+        .article-body p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .article-body strong { color: var(--text-primary); }
+        .article-body ul, .article-body ol { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1.2rem; line-height: 1.9; font-size: 1.05rem; }
+        .article-body li { margin-bottom: 0.4rem; }
+        .article-body a { color: var(--primary-color); }
+        .article-body blockquote { border-left: 3px solid var(--primary-color); padding: 1rem 1.5rem; margin: 1.5rem 0; background: rgba(0,217,255,0.05); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+        .article-cta { margin-top: 4rem; padding: 2.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; text-align: center; }
+        .article-cta h3 { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .newsletter-inline { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+        .newsletter-inline input { padding: 0.75rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,217,255,0.3); border-radius: 8px; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; min-width: 220px; }
+        .newsletter-inline input:focus { border-color: var(--primary-color); }
+        .article-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .article-nav a { color: var(--primary-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .article-body code { background: rgba(255,255,255,0.06); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+        .article-body pre { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 1rem 1.25rem; overflow-x: auto; margin: 1rem 0 1.5rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+        .article-body pre code { background: none; padding: 0; font-size: inherit; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">GD</a>
+                <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Apri menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="/#hero">Home</a></li>
+                    <li><a href="/#about">Chi Sono</a></li>
+                    <li><a href="/#projects">Progetti</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/lavora-con-me/">Lavora con me</a></li><li><a href="/#contact">Contatti</a></li>
+                    <li class="lang-switcher">
+                        <a href="/blog/agenti-ai-autonomi-flussi-di-lavoro.html" class="active">IT</a><span>·</span>
+                        <a href="/en/blog/agenti-ai-autonomi-flussi-di-lavoro.html">EN</a><span>·</span>
+                        <a href="/es/blog/agenti-ai-autonomi-flussi-di-lavoro.html">ES</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="article-page">
+        <div class="container">
+            <div class="article-container">
+                <a href="/blog/" class="back-link">← Tutti gli articoli</a>
+                <header class="article-header">
+                    <div class="article-meta">
+                        <span class="blog-tag">Automazione</span>
+                        <time class="blog-date" datetime="2026-11-28">28 Novembre 2026</time>
+                        <span class="blog-date">· 9 min di lettura</span>
+                    </div>
+                    <h1>Agenti AI autonomi nella pratica: cosa lascio fare da soli, cosa no e perché</h1>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">Da mesi lavoro con agenti AI che girano anche quando non sono al computer: controllano il sistema di notte, preparano risposte, scrivono bozze, pubblicano. Alcuni li ho dovuti "retrocedere". Ecco la scala dell'autonomia che uso e sei flussi di lavoro veri, con i guasti che li hanno cambiati.</p>
+                </header>
+
+                <article class="article-body">
+<p style="font-size: 0.8rem; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.5rem;">In breve</p>
+<p>Un agente AI autonomo è utile quando ha <strong>poche azioni a disposizione, un limite chiaro e qualcuno (o qualcosa) che controlla il risultato</strong>. L'autonomia non è un interruttore acceso o spento: è una scala. Ogni flusso parte dal gradino più basso, sale solo dopo settimane di prove e scende al primo incidente serio. Qui racconto i quattro gradini, sei flussi che uso davvero e le regole che valgono per tutti.</p>
+
+<h2>Agente o flusso di lavoro?</h2>
+<p>Le due parole si usano come sinonimi, ma non lo sono.</p>
+<ul>
+<li>Un <strong>flusso di lavoro</strong> (workflow) esegue passi che ho deciso io, sempre nello stesso ordine: leggi il file, prepara il testo, pubblica, avvisa. Strumenti come n8n o un semplice script programmato fanno questo.</li>
+<li>Un <strong>agente</strong> riceve un obiettivo e degli strumenti, e sceglie da solo quali passi fare: legge, cerca, prova, corregge. Claude Code lanciato da un programma, senza nessuno davanti, è un agente.</li>
+</ul>
+<p>Nella pratica quasi tutto quello che funziona è un <strong>flusso fisso con un agente dentro</strong>, solo nel punto in cui serve giudizio: capire un commento, scegliere un tono, valutare se un'azienda è adatta. Il resto (orari, file, invii, controlli) resta codice semplice, che fa sempre la stessa cosa e costa zero.</p>
+
+<h2>La scala dell'autonomia</h2>
+<ol>
+<li><strong>Osserva e riferisce.</strong> L'agente legge, analizza e scrive un rapporto. Non tocca niente.</li>
+<li><strong>Prepara, una persona approva.</strong> L'agente scrive la bozza; pubblicare o inviare resta un gesto umano.</li>
+<li><strong>Agisce entro limiti stretti.</strong> L'agente agisce da solo, ma solo in un perimetro preciso: certi post, un numero massimo all'ora, una data di fine, una notifica per ogni azione.</li>
+<li><strong>Agisce da solo.</strong> Nessuna approvazione. Lo riservo a passi ripetitivi e prevedibili, e quasi sempre lì non c'è un agente: c'è uno script.</li>
+</ol>
+<p>Due domande decidono il gradino: <em>se sbaglia, si vede subito?</em> e <em>se sbaglia, si può annullare?</em> Più le risposte sono "no", più si scende.</p>
+
+<h2>1. Il controllo notturno: sceso dal gradino 3 al gradino 1</h2>
+<p>Ogni notte alle 5:15 un Raspberry Pi lancia Claude Code senza nessuno davanti. Controlla i progetti che girano lì (script, registri, configurazioni) e scrive un rapporto. All'inizio poteva anche <strong>correggere i file da solo</strong>, con un backup prima di ogni modifica.</p>
+<p>Funzionava, ed era proprio questo il problema. Le correzioni restavano sul Pi e non tornavano mai nella copia principale dei progetti, sul PC. Dopo qualche settimana le due copie non coincidevano più, e alcune correzioni fatte di notte sono andate perse.</p>
+<p>Oggi l'agente è al gradino 1: <strong>solo rapporto</strong>, con le correzioni proposte come differenze da applicare. Gli strumenti di scrittura non sono vietati a parole nel prompt: sono <strong>tolti dalla configurazione</strong> con cui viene avviato. Le correzioni le applico io, di giorno, dove vanno applicate. Il valore è rimasto quasi tutto: trovare il problema era la parte difficile.</p>
+
+<h2>2. Le risposte ai commenti: gradino 2, con un'eccezione al 3</h2>
+<p>Quando arriva un commento su Facebook, Instagram o YouTube, un servizio sul Pi prepara una risposta e me la manda su Telegram con due pulsanti: approva o scarta. Se approvo, viene pubblicata.</p>
+<p>La lezione è arrivata un pomeriggio con 12 bozze arretrate. Le ho approvate tutte in meno di un minuto. Nove erano sbagliate: le aveva scritte un modello piccolo di riserva, perché quello principale aveva finito la quota. Lingua sbagliata, dettagli tecnici inventati. Le ho corrette subito, ma il punto era chiaro: <strong>il pulsante "approva" viene usato come "vai", non come una revisione attenta</strong>. La qualità va garantita prima che la bozza arrivi a chi approva: i testi pubblici li scrivono solo modelli grandi, e se non sono disponibili la bozza aspetta.</p>
+<p>Per alcune campagne, con un inizio e una fine, le risposte salgono al gradino 3: escono da sole, ma solo sotto i post di quella campagna, solo se scritte da un modello grande, al massimo 20 all'ora, con una notifica per ognuna. Prima di attivarle provo tre o quattro commenti tipo, e nelle istruzioni scrivo esplicitamente cosa <strong>non</strong> dire.</p>
+
+<h2>3. Le bozze per chi cerca lavoro: gradino 2, per scelta</h2>
+<p>La <a href="/blog/automazione-ricerca-lavoro-claude-code.html">suite con Claude Code per due persone che cercano lavoro</a> cerca aziende, verifica i contatti, scrive lettere su misura e le lascia come <strong>bozze nella loro casella Gmail</strong>. Potrebbe inviarle: tecnicamente è facile. Non lo fa, e non perché glielo chiedo per favore: gli strumenti di invio sono bloccati nella configurazione.</p>
+<p>Una lettera a un'azienda non si annulla. Leggerla e premere "invia" costa trenta secondi alla persona, e quella persona è l'unica che sa se oggi ha voglia di scrivere proprio a quell'azienda. Qui il gradino 2 non è un limite tecnico: è il punto giusto. I dettagli sono nell'articolo sull'<a href="/blog/architettura-suite-ricerca-lavoro-claude-code.html">architettura della suite</a>.</p>
+
+<h2>4. La pubblicazione programmata: gradino 4, ma senza agente</h2>
+<p>Post, video e articoli escono a orari fissi da un elenco di attività programmate sul Pi, anche a PC spento. È completamente autonomo, ed è giusto così, perché <strong>non decide niente</strong>: il testo è già scritto e approvato, lo script lo porta sulla piattaforma all'ora stabilita.</p>
+<p>Il punto debole è un altro: <strong>uno script che dice "fatto" non è una prova</strong>. Lo script per TikTok, per esempio, ha risposto "pubblicato" quando la pagina di caricamento era cambiata e il video non era uscito. Per questo, il giorno dopo le uscite, un secondo programma, in sola lettura, controlla sulle piattaforme che i contenuti ci siano davvero e mi manda il riepilogo. Dove non può controllare, me lo dice e verifico a mano.</p>
+
+<h2>5. Il report del lunedì: nessuna IA</h2>
+<p>Ogni lunedì alle 8 arriva su Telegram un riepilogo: visite al sito, visualizzazioni su Instagram, Facebook e YouTube, stato delle campagne. Sembra un lavoro da agente. Non lo è: sono chiamate alle statistiche delle piattaforme e qualche somma. <strong>Un modello linguistico qui aggiungerebbe solo costi e la possibilità di sbagliare un numero.</strong></p>
+<p>È la regola che applico più spesso: prima di chiedermi quale agente usare, mi chiedo se serve un agente. Molte domande che sembrano da intelligenza artificiale ("ha risposto qualcuno?", "cosa scade oggi?", "quante visite?") si risolvono con una ricerca e un confronto di date.</p>
+
+<h2>6. Il flusso che diceva "pubblicato" (e non lo era)</h2>
+<p>L'errore più istruttivo non l'ha fatto un agente, ma il flusso intorno. Un flusso n8n pubblicava lo stesso contenuto su Instagram, Facebook e LinkedIn in parallelo, poi mandava una notifica. La notifica falliva, e quel fallimento <strong>fermava tutto il flusso</strong>: Instagram, il ramo più veloce, usciva; Facebook e LinkedIn non partivano mai. Per almeno due settimane, senza che me ne accorgessi.</p>
+<p>Due regole sono nate da lì: un passaggio secondario (una notifica, un registro) <strong>non deve mai fermare</strong> quelli principali; e il messaggio "pubblicato su tutti" lo scrive chi ha controllato, non chi ha provato.</p>
+
+<h2>Le regole che valgono per tutti</h2>
+<ul>
+<li><strong>I permessi stanno nella configurazione, non nel prompt.</strong> "Non inviare" scritto nelle istruzioni è una preghiera. Uno strumento di invio non disponibile è una garanzia.</li>
+<li><strong>Il risultato lo controlla qualcun altro.</strong> Un programma separato, in sola lettura, o una persona. Mai l'agente che ha fatto il lavoro.</li>
+<li><strong>Un limite di quantità e un freno.</strong> Quante azioni all'ora, fino a quando, e cosa lo ferma: al primo avviso di una piattaforma, l'agente si ferma e lo dice.</li>
+<li><strong>Quello che arriva da fuori è un dato, non un ordine.</strong> Un commento o una email possono contenere frasi come "ignora le istruzioni". L'agente li legge come contenuto da valutare, mai come istruzioni.</li>
+<li><strong>Il modello giusto per il testo pubblico.</strong> I modelli piccoli e locali vanno benissimo per smistare, riassumere e segnalare. Per scrivere qualcosa che leggeranno altre persone, uso un modello grande o aspetto.</li>
+<li><strong>Notifiche solo quando c'è qualcosa da fare.</strong> Se arrivano cento messaggi "tutto ok", il centunesimo, quello che conta, non lo legge nessuno.</li>
+</ul>
+
+<h2>Come partire con il primo flusso</h2>
+<ol>
+<li>Scegli un lavoro che fai ogni settimana e che ti annoia, non quello più difficile.</li>
+<li>Scrivi i passi su carta e segna quali richiedono giudizio. Solo lì metterai un agente.</li>
+<li>Parti dal gradino 1: per due settimane l'agente ti dice cosa farebbe, senza farlo.</li>
+<li>Passa al gradino 2 con un'approvazione rapida (una notifica con un pulsante) e conta quante bozze correggi.</li>
+<li>Sali al gradino 3 solo quando le correzioni sono quasi zero, con un limite, una data di fine e un controllo separato.</li>
+</ol>
+<blockquote>Un agente autonomo non è quello che fa più cose da solo. È quello di cui ti fidi abbastanza da non doverlo guardare, perché sai esattamente cosa non può fare.</blockquote>
+
+<h2>Domande frequenti</h2>
+<p><strong>Che differenza c'è tra un agente AI e un'automazione?</strong> Un'automazione esegue passi decisi prima da una persona, sempre nello stesso ordine. Un agente riceve un obiettivo e degli strumenti e sceglie da solo i passi. Nella pratica conviene un flusso fisso con un agente solo nel punto in cui serve giudizio.</p>
+<p><strong>Si può lasciare un agente AI completamente da solo?</strong> Sì, ma solo per azioni piccole, reversibili e verificate da qualcos'altro, con un limite di quantità e un modo per fermarlo. Per tutto ciò che è pubblico o difficile da annullare conviene che l'agente prepari e una persona approvi.</p>
+<p><strong>Serve un server per far girare agenti AI?</strong> No per iniziare: basta un computer e un assistente come Claude Code lanciato a mano. Un piccolo server sempre acceso, anche un Raspberry Pi, serve quando il flusso deve girare a orari fissi con il PC spento.</p>
+                </article>
+                <aside class="author-box" style="display: flex; gap: 1rem; align-items: flex-start; margin: 2.5rem 0 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <img src="/assets/avatar-gianluca-demontis.jpg" alt="Gianluca Demontis" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; background: rgba(0,217,255,0.08);">
+                    <div>
+                        <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.35rem;">Chi scrive</p>
+                        <p style="margin: 0 0 0.35rem; font-weight: 600;"><a href="/#about" rel="author" style="color: var(--text-primary); text-decoration: none;">Gianluca Demontis</a></p>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">Docente di ruolo dal 1992 e tech coach in Sardegna, con oltre 40 anni di esperienza nel settore IT. Costruisce automazioni con n8n e AI per scuole e PMI, ha fondato Bachata Vibes Music e AI Act Academy ed è autore del libro «Intelligenza Artificiale per la Didattica Inclusiva». <a href="/lavora-con-me/" style="color: var(--primary-color);">Lavora con me →</a></p>
+                    </div>
+                </aside>
+
+                <aside style="margin: 2rem 0; padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px;">
+                    <p style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.75rem;">Leggi anche</p>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+                        <li><a href="/blog/caso-studio-automazione-ia-sei-mesi.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Caso studio: un sistema di automazione IA costruito da una persona in sei mesi</a></li>
+                        <li><a href="/blog/architettura-suite-ricerca-lavoro-claude-code.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Dentro la suite per cercare lavoro con Claude Code: cartelle, Gmail, Chromebook e un Raspberry Pi</a></li>
+                        <li><a href="/blog/gateway-ai-locale-raspberry-pi.html" style="color: var(--primary-color); text-decoration: none; font-size: 0.95rem; line-height: 1.5;">Un solo punto d'accesso per tutta la mia AI locale: il gateway su Raspberry Pi</a></li>
+                    </ul>
+                </aside>
+
+                <div class="article-cta">
+                    <h3>Vuoi un flusso di lavoro con agenti AI, costruito sulle tue regole?</h3>
+                    <p>Si parte da un lavoro ripetitivo vero, al gradino più basso, con i controlli già dentro. Le decisioni che contano restano a te.</p>
+                    <p class="lcm-inline-cta" style="font-size:0.9rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1.5rem;"><a href="/lavora-con-me/#contatti-form" style="color: var(--primary-color);">Scrivimi</a> oppure iscriviti alla newsletter.</p>
+                    <form class="newsletter-inline" action="https://n8n.gianlucademontis.xyz/webhook/newsletter-signup" method="post" target="_blank">
+                        <input type="email" name="email" placeholder="La tua email" required>
+                        <button type="submit" class="btn btn-primary">Iscriviti gratis</button>
+                    </form>
+                </div>
+
+                <nav class="article-nav">
+                    <a href="/blog/architettura-suite-ricerca-lavoro-claude-code.html">← Dentro la suite per cercare lavoro con Claude Code</a>
+                    <a href="/blog/">Tutti gli articoli →</a>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Gianluca Demontis. Tutti i diritti riservati.</p>
+        </div>
+        <div class="footer-social"><a href="https://www.youtube.com/@GianlucaDemontis" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="https://www.linkedin.com/in/gianlucademontis" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://www.instagram.com/gianlucademontis" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a><a href="https://www.facebook.com/gianlucademontis/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a href="https://www.tiktok.com/@gianluca_3d" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.73a8.28 8.28 0 0 0 4.84 1.55V6.82a4.85 4.85 0 0 1-1.07-.13z"/></svg></a><a href="https://www.threads.com/@gianlucademontis" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Threads"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg></a></div>
+    </footer>
+    <script src="/analytics-events.js" defer></script>
+    <script src="/nav.js" defer></script>
+</body>
+</html>
